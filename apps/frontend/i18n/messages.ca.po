@@ -3059,17 +3059,32 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i Allaus recents de la zona on el document està georeferenciat.<br />Per una sortida feta a Suïssa, els butlletins del dia abans i del dia de la sortida també són disponibles.<br />Atenció: per a la resta de països, només hi ha disponible el darrer butlletí, que per tant no correspondrà al dia de la sortida."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Tipus d'observació relativa a les allaus</h3>\n"
-"Tipus d'observacio d'allaus o de senyals d'alerta (se'n pot triar més d'un)."
+"Tipus d'observacio d'allaus o de senyals d'alerta (se'n pot triar més d'un).<br />"
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
-# [ERROR] no available translation
+# aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] fr translation used
 msgid "_avalanche_desc_info"
-msgstr "MISSING TRANSLATION"
+msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
+"Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
+"<h4>Signaux d'alerte</h4>\n"
+"- corniches récentes<br />\n"
+"- structures de plaque détectées au bâton\n"
+"- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- fissures s'ouvrant en avançant<br />\n"
+"<h4>Avalanches</h4>\n"
+"- traces d'avalanche récente (cassure de plaque, trace de coulée, dépôt)<br >\n"
+"- avalanches naturelles ou accidentelles observées en direct<br /><br />\n"
+"Pour chaque avalanche, précisez :<br />\n"
+"- le type de l'avalanche : neige sèche ou humide, départ ponctuel ou en plaque<br />\n"
+"- le lieu, l'altitude et les dimensions approximatives de la zone de départ, et ceux du dépôt<br />"
 
+# [general comment]
+# aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
 # [WARNING] fr translation used
 msgid "_avalanche_infos_info"
 msgstr "<h3>Observations relatives aux avalanches</h3>\n"
@@ -3145,13 +3160,8 @@ msgid "_conditions_info"
 msgstr "<h3>Condicions trobades</h3>\n"
 "Detalls de les condicions del terreny trobades a l'itinerari (aproximació i via) durant la sortida, així com les condicions apreciades visualment d'itineraris veïns.<br />\n"
 "Les condicions del terreny no tenen en compte la meteorologia.<br />\n"
-"Aquesta informació és susceptible de perdre la seva validesa ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos en la informació donada en aquests camps.<br />\n"
-"<br />\n"
-"<strong>Durant una edició:</strong><br /><br />\n"
-"L'itinerari realment recorregut ha de ser descrit ràpidament si la descripció comporta variants, o si s'ha seguit una variant no descrita, o si hem girat cua abans del cim.<br />\n"
-"<br />\n"
-"Per un itinerari nevat, mencioneu també l'activitat d'allaus observada: observació en directe o traces d'antigues allaus.<br />\n"
-"<br />\n"
+"Aquesta informació és susceptible de perdre la seva validesa ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos en la informació donada en aquests camps.\n"
+"<h4>Durant una edició:</h4>\n"
 "Les <em>Condicions trobades</em> i la <em>Innivació per zones</em> són importants per avaluar l'evolució en els propers dies, ompliu-les amb cura."
 
 msgid "_conditions_levels_info"
@@ -4150,12 +4160,18 @@ msgstr "Descripció del que s'ha observat:"
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
 # [WARNING] fr translation used
 msgid "avalanche_desc_tooltip"
-msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
+msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
 
 # [general comment]
-# Titre affiché dans la sortie, au dessus du champ chiffré "type des observations" et "description des observations".
+# Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
 msgid "avalanche_infos"
-msgstr "Observacions relatives a les allaus"
+msgstr "Observacions relatives a les allaus:"
+
+# [general comment]
+# intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
+# [WARNING] en translation used
+msgid "avalanche_infos_short"
+msgstr "Avalanche news"
 
 msgid "awful conditions"
 msgstr "execrables"
@@ -4632,21 +4648,13 @@ msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aprox
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_hike_default"
-msgstr "Saisir ici les observations suivantes :\n"
-"- Conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...)\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_ice_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone :\n"
-"- Conditions des sections habituellement en glace ou mixte\n"
-"- Quantité et qualité de l'équipement en place\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation\n"
-"Les observations relatives aux avalanches doivent être décrites dans le champs dédié ci-dessous."
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -4655,22 +4663,13 @@ msgstr "Quantitat de neu per zones:"
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_rock_default"
-msgstr "Saisir ici les observations suivantes :\n"
-"- Conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...)\n"
-"- Qualité du rocher\n"
-"- Quantité et qualité de l'équipement en place\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
 # [WARNING] fr translation used
 msgid "conditions_ski_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone :\n"
-"- Conditions sur l'approche pédestre\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation\n"
-"Les observations relatives aux avalanches doivent être décrites dans le champs dédié ci-dessous."
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_status"
 msgstr "Condicions:"
@@ -6313,11 +6312,7 @@ msgstr "Les sortides fetes amb ecomobilitat des d'aquest accés."
 # texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "outings_description_default"
-msgstr "Pour améliorer la lisibilité, séparez les commentaires des différents participants en utilisant les sous-titres de niveau 3 (bouton h3) :\n"
-"### Participant 1\n"
-"...\n"
-"### Participant 2\n"
-"..."
+msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
 
 msgid "overhanging wall"
 msgstr "extraplomat"
@@ -6940,18 +6935,7 @@ msgstr "Un itinerari uneix diversos punts geogràfics. Un itinerari ha d'estar a
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "routes_description_default"
-msgstr "Décrivez ici l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée.\n"
-"Organisez la description de l'itinéraire à l'aide des sous-titres (boutons h2, h3, h4). Exemple :\n"
-"\n"
-"## Approche # 1h\n"
-"...\n"
-"## Voie # 3 à 4h\n"
-"...\n"
-"### Variante 1\n"
-"### Variante 2\n"
-"...\n"
-"## Descente # 45min\n"
-"..."
+msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "routes_quantity"
 msgstr "Nombre de vies:"

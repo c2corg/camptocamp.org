@@ -2925,7 +2925,7 @@ msgstr "Irudia bere tamainu originalean ikusi"
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
 # [WARNING] fr translation used
 msgid "View the associations history of the document"
-msgstr "Voir l'historique des associations et désassociations du document"
+msgstr "Historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Erabiltzaile honen profila ikusi"
@@ -3259,18 +3259,32 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
 # [WARNING] en translation used
 msgid "_avalanche_date_info"
 msgstr "<h3>Type of observations releated to avalanches</h3>\n"
-"Type of observations of avalanche or danger signs (multiple choice possible)."
+"Type of observations of avalanche or danger signs (multiple choice possible).<br />"
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
-# [ERROR] no available translation
+# aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] fr translation used
 msgid "_avalanche_desc_info"
-msgstr "MISSING TRANSLATION"
+msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
+"Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
+"<h4>Signaux d'alerte</h4>\n"
+"- corniches récentes<br />\n"
+"- structures de plaque détectées au bâton\n"
+"- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- fissures s'ouvrant en avançant<br />\n"
+"<h4>Avalanches</h4>\n"
+"- traces d'avalanche récente (cassure de plaque, trace de coulée, dépôt)<br >\n"
+"- avalanches naturelles ou accidentelles observées en direct<br /><br />\n"
+"Pour chaque avalanche, précisez :<br />\n"
+"- le type de l'avalanche : neige sèche ou humide, départ ponctuel ou en plaque<br />\n"
+"- le lieu, l'altitude et les dimensions approximatives de la zone de départ, et ceux du dépôt<br />"
 
+# [general comment]
+# aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
 # [WARNING] fr translation used
 msgid "_avalanche_infos_info"
 msgstr "<h3>Observations relatives aux avalanches</h3>\n"
@@ -3289,7 +3303,7 @@ msgstr "<h3>Lan mota</h3>Liburu mota.<br />Mota desberdinak aukeratu daitezke."
 
 # [WARNING] fr translation used
 msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+msgstr "Indique si le document \"accès\" est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
 "<br />\n"
 "Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
 
@@ -3324,7 +3338,11 @@ msgstr "<h3>Aurkituriko egoera</h3>Irteeran zehar ibilbidean aurkituriko egoeren
 
 # [WARNING] needs_update
 msgid "_conditions_info"
-msgstr "<h3>Aurkituriko egoera</h3>Irteeran zehar ibilbidean aurkituriko egoeren xehetasunak. <br />Informazio hauek balioa gal dezakete denporerekin. Irteeraren data begiratu informazioa kontutan eduki aurretik. <br /><br />Idazterakoan:<br /><br />Benetan egindako ibilbidearen deskribapen azkar bat egin harturiko sahiesbideak esanez edo gailurrera iritsi gabe jeitsi balbid bazarete. <br /><br />Elurtutako ibilbidea bada, elur-jausi arriskuaren azterketa bat eman: elur-jausi zaharren aztarnik ikusi diren.<br /><br /> <i>Aurkituriko egoera</i> eta <i>Elur maila ibilbidean zehar</i> oso garrantzitsuak dira hurrengo egunetako elurraren bilakaera estimatzeko, kontuz eta zehatz sartu itzazue."
+msgstr "<h3>Aurkituriko egoera</h3>\n"
+"Irteeran zehar ibilbidean aurkituriko egoeren xehetasunak.<br />\n"
+"Informazio hauek balioa gal dezakete denporerekin. Irteeraren data begiratu informazioa kontutan eduki aurretik.\n"
+"<h4>Idazterakoan:</h4>\n"
+"<i>Aurkituriko egoera</i> eta <i>Elur maila ibilbidean zehar</i> oso garrantzitsuak dira hurrengo egunetako elurraren bilakaera estimatzeko, kontuz eta zehatz sartu itzazue."
 
 msgid "_conditions_levels_info"
 msgstr "<h3> Elur maila ibilbidean zehar </h3>Ibilbidean zehar aurkitutako egoera sintetikoki adierazi daiteke. <br />Leku bat gehitzeko (+) botoian klikatu. <br /><br /><strong>Lekua / altitudea / norabidea / ordua</strong>: lekuaren ezaugarria: kokapena, altitude eremua, norabidea, erliebea (bailara, korridorea...), pasatako ordua.<br /><br /><strong>Elur berria</strong>: elur berriaren geruza zm-tan (makila hodoratzen den sakonera).<br /><br /><strong>Elur totala</strong>: elur geruzaren sakonera totala zm-tan. Sakonera jakin ezean hutsik utzi. <br /><br /><strong>Xehetasunak</strong>: Elurraren kalitatea, analisi stratigrafikoa, eski kalitatea,..."
@@ -3644,9 +3662,9 @@ msgstr "<h3>Objective Danger</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "_outing_route_desc_info"
-msgstr "<h3>Route taken</h3>"
+msgstr "Benetan egindako ibilbidearen deskribapen azkar bat egin harturiko sahiesbideak esanez edo gailurrera iritsi gabe jeitsi balbid bazarete."
 
 # [WARNING] es translation used
 msgid "_outing_with_public_transportation_info"
@@ -4237,13 +4255,19 @@ msgstr "Description of observations releated to avalanches:"
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
 # [WARNING] fr translation used
 msgid "avalanche_desc_tooltip"
-msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
+msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
 
 # [general comment]
-# Titre affiché dans la sortie, au dessus du champ chiffré "type des observations" et "description des observations".
+# Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
 # [WARNING] en translation used
 msgid "avalanche_infos"
-msgstr "Observations releated to avalanches"
+msgstr "Observations releated to avalanches:"
+
+# [general comment]
+# intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
+# [WARNING] en translation used
+msgid "avalanche_infos_short"
+msgstr "Avalanche news"
 
 msgid "awful conditions"
 msgstr "eskaxak"
@@ -4756,21 +4780,13 @@ msgstr "Aurkituriko egoera:"
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_hike_default"
-msgstr "Saisir ici les observations suivantes :\n"
-"- Conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...)\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_ice_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone :\n"
-"- Conditions des sections habituellement en glace ou mixte\n"
-"- Quantité et qualité de l'équipement en place\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation\n"
-"Les observations relatives aux avalanches doivent être décrites dans le champs dédié ci-dessous."
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_levels"
 msgstr "Elur maila ibilbidean zehar:"
@@ -4779,22 +4795,13 @@ msgstr "Elur maila ibilbidean zehar:"
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "conditions_rock_default"
-msgstr "Saisir ici les observations suivantes :\n"
-"- Conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...)\n"
-"- Qualité du rocher\n"
-"- Quantité et qualité de l'équipement en place\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
 # [WARNING] fr translation used
 msgid "conditions_ski_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone :\n"
-"- Conditions sur l'approche pédestre\n"
-"- Conditions de visu sur des itinéraires voisins\n"
-"- Fréquentation\n"
-"Les observations relatives aux avalanches doivent être décrites dans le champs dédié ci-dessous."
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_status"
 msgstr "Egoera:"
@@ -6481,9 +6488,9 @@ msgstr "Demasiado resultados. Solo se muestras correspondencias exactas. Por fav
 
 # [general comment]
 # see http://c2ci18n.appspot.com/translations/edit/57001
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "only near matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
+msgstr "Too many results. Only nearby results are displayed. Continue typing to see other results ..."
 
 msgid "opened lift"
 msgstr "irekiak"
@@ -6582,13 +6589,13 @@ msgstr "<strong>¡Cuidado!</strong> En esta página solo debe incluir informaci�
 msgid "outing_length"
 msgstr "Luzeera: "
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "outing_route_desc"
-msgstr "Route taken:"
+msgstr "Itinerario recorrido:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_update
 msgid "outing_route_desc_default"
-msgstr "Décrivez brièvement l'itinéraire que vous avez suivi : s'il est différent de celui du topo, si le topo comporte des variantes, pour décrire une boucle, des enchainements, ou le point atteint pour un parcours partiel."
+msgstr "Benetan egindako ibilbidearen deskribapen azkar bat egin harturiko sahiesbideak esanez edo gailurrera iritsi gabe jeitsi balbid bazarete."
 
 # [WARNING] es translation used
 msgid "outing_with_public_transportation"
@@ -6616,11 +6623,7 @@ msgstr "Salidas desde este acceso que se hicieron con <i>ecomobilidad</i> (como 
 # texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "outings_description_default"
-msgstr "Pour améliorer la lisibilité, séparez les commentaires des différents participants en utilisant les sous-titres de niveau 3 (bouton h3) :\n"
-"### Participant 1\n"
-"...\n"
-"### Participant 2\n"
-"..."
+msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
 
 msgid "overhanging wall"
 msgstr "desplomea"
@@ -7335,18 +7338,7 @@ msgstr "Un itinerario une varios puntos geográficos. Un itinerario debe ser aso
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
 # [WARNING] fr translation used
 msgid "routes_description_default"
-msgstr "Décrivez ici l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée.\n"
-"Organisez la description de l'itinéraire à l'aide des sous-titres (boutons h2, h3, h4). Exemple :\n"
-"\n"
-"## Approche # 1h\n"
-"...\n"
-"## Voie # 3 à 4h\n"
-"...\n"
-"### Variante 1\n"
-"### Variante 2\n"
-"...\n"
-"## Descente # 45min\n"
-"..."
+msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "routes_quantity"
 msgstr "Bide kopurua:"
@@ -7649,9 +7641,9 @@ msgstr "errezitaldia"
 msgid "sub-parkings"
 msgstr "sub-access points"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "sub-sites"
-msgstr "sous-sites d'escalade"
+msgstr "sectors of a climbing site"
 
 # [general comment]
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
@@ -7726,9 +7718,9 @@ msgstr "Bakarrik alpinismoko ekintzak erakutsi"
 msgid "switch_to_snowshoeing"
 msgstr "Show only snowshoeing"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "ta portal"
-msgstr "Terrain d'Aventure"
+msgstr "Trad climbing"
 
 # [general comment]
 # Option de la catégorie d'un article : tags
@@ -8035,7 +8027,7 @@ msgstr "Dokumenturaren azkenengo bertsioa agertu"
 msgid "visual conditions"
 msgstr "ikusitako egoera"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "vosges portal"
 msgstr "Vosges"
 
@@ -8121,9 +8113,9 @@ msgstr "Web"
 
 # [general comment]
 # Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "x axis:"
-msgstr "Voir le profil en fonction de&nbsp;:"
+msgstr "Show the profil in function of:"
 
 # [WARNING] es translation used
 msgid "year"
