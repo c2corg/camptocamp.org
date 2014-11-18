@@ -624,8 +624,10 @@ if (isset($_POST['form_sent']))
                                   $mail_subject = trim(substr($mail_tpl, 8, $first_crlf-8));
                                   $mail_message = trim(substr($mail_tpl, $first_crlf));
                                   $mail_message = str_replace('<replier>', $username, $mail_message);
+                                  $protocol = isset($_SERVER['HTTP_X_FORWARDED_PROTO'] && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ?
+                                              'https://' : 'http://';
                                   $mail_message = str_replace('<post_url>',
-                                                              $pun_config['o_base_url']."/documents/comment/$doc_param[0]/$doc_param[1]",
+                                                              $proto . $_SERVER['HTTP_HOST']."/documents/comment/$doc_param[0]/$doc_param[1]",
                                                               $mail_message); // TODO get module directly instead of 'documents'
                                   $mail_message = str_replace('<unsubscribe_url>', $pun_config['o_base_url'].'/misc.php?unsubscribe='.$new_tid, $mail_message);
                                   $mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);
