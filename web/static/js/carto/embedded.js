@@ -93,8 +93,7 @@ c2corg.Map = function (config) {
         actionTarget: "map.tbar",
         emptyText: OpenLayers.i18n("Go to..."),
         loadingText: OpenLayers.i18n("Please wait..."),
-        url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
-             "&username=c2corg&lang=" + config.lang
+        url: "/geonames.php?lang=" + config.lang
     });
     
     var viewer = new gxp.Viewer({
