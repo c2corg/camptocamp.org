@@ -6,11 +6,12 @@
 </Directory>
 
 # define some MIME types
-AddType application/vnd.google-earth.kmz     .kmz
-AddType application/vnd.google-earth.kml+xml .kml
-AddType application/gpx+xml                  .gpx
-AddType application/json                     .json
-AddType text/cache-manifest                  .appcache .manifest
+AddType application/vnd.google-earth.kmz     kmz
+AddType application/vnd.google-earth.kml+xml kml
+AddType application/gpx+xml                  gpx
+AddType application/json                     json
+AddType text/cache-manifest                  appcache manifest
+AddType image/x-icon                         ico
 
 # Use UTF-8 encoding for anything served text/plain or text/html
 AddDefaultCharset utf-8
