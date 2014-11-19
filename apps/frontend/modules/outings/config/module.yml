@@ -58,6 +58,22 @@ all:
       3: level_snow_height_total
       4: level_comment
 
+  avalanche_date:
+    list:
+      0:
+      1: no_observation_avalanche
+      2: danger_sign_avalanche
+      3: recent_avalanche
+      4: natural_avalanche
+      5: accidental_avalanche
+    edit_list:
+      0:
+      1: no_observation_avalanche_long
+      2: danger_sign_avalanche_long
+      3: recent_avalanche_long
+      4: natural_avalanche_long
+      5: accidental_avalanche_long
+
   sort:
     criteria:
       'id': ID
@@ -99,8 +115,17 @@ all:
       'alt':  oalt
       'hdif': odif
       'ddif': oddif
+      'usnow': ousnow
+      'dsnow': odsnow
+      'access': oaccess
       'cond': ocond
       'freq': ofreq
+      'park': opark
+      'glac': oglac
+      'track': otrack
+      'hut': ohut
+      'lift': olift
+      'avdate': ''
       'fac': ''
       'time': ''
       'ralt': ''

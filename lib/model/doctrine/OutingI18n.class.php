@@ -68,4 +68,14 @@ class OutingI18n extends BaseOutingI18n
     {
         return BaseDocument::returnNullIfEmpty($value);
     }
+
+    public static function filterSetAvalanche_desc($value)
+    {
+        return BaseDocument::returnNullIfEmpty($value);
+    }
+
+    public static function filterSetOuting_route_desc($value)
+    {
+        return BaseDocument::returnNullIfEmpty($value);
+    }
 }

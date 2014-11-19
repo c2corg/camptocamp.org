@@ -2282,6 +2282,10 @@ msgstr "Bei camptocamp.org als Benutzer registrieren"
 msgid "Site not found"
 msgstr "Dieser Klettersektor existiert nicht."
 
+# [WARNING] needs_review
+msgid "Snow elevation is correct?"
+msgstr "Sind die Schneegrenzen für Aufstieg und Abstieg korrekt?"
+
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "Snow list"
@@ -3083,17 +3087,37 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
-# [WARNING] en translation used
+# aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] needs_review
 msgid "_avalanche_date_info"
-msgstr "<h3>Type of observations releated to avalanches</h3>\n"
-"Type of observations of avalanche or danger signs (multiple choice possible)."
+msgstr "<h3>Art der Beobachtung betreffend Lawinen</h3>\n"
+"Art der Lawinenbeobachtung oder der Alarmzeichen (Mehrfachauswahl möglich).<br />\n"
+"Schreibe die Beobachtungen in das Textfeld."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
-# [ERROR] no available translation
+# aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] needs_review
 msgid "_avalanche_desc_info"
-msgstr "MISSING TRANSLATION"
+msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
+"Details betreffend der Schneedeckenstabilität:\n"
+"<h4>Alarmzeichen</h4>\n"
+"- frische Wächten<br />\n"
+"- brettige Struktur des Schnees, gefühlt mit dem Skistock<br />\n"
+"- Wummgeräusche<br />\n"
+"- Rissbildung <br />\n"
+"<h4>Lawinen</h4>\n"
+"- frische Lawinen sichtbar (Schneebrettanriss, Lawinenablagerung)<br >\n"
+"- spontane Lawinen oder durch Personen ausgelöste Lawine selbst beobachtet<br /><br />\n"
+"Genaue Angaben zur Lawine:<br />\n"
+"- Lawinenart: trockener oder nasser Schnee, Schneebrett- oder Lockerschneelawine<br />\n"
+"- Ort, Höhe und ungefähre Grösse der Lawine, im Anriss- und im Ablagerungsgebiet<br />"
+
+# [general comment]
+# aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
+# [WARNING] needs_review
+msgid "_avalanche_infos_info"
+msgstr "<h3>Beobachtungen zur Lawinensituation</h3>\n"
+"Beobachtungen von Alarmzeichen, kürzlichen Lawinenabgängen, von spontanen oder durch Personen ausgelösten Lawinen am Tag der Tour."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Anfänger</h3>\n"
@@ -3165,8 +3189,12 @@ msgstr "<h3>Verhältnisse des Gelände, Ausstattung und Felsqualität</h3> \n"
 "<br />Bei einer verschneiten Route geben sie bitte ihre Beobachtungen über Lawinenaktivitäten oder Spuren älterer Lawinen ein.<br />\n"
 "<br />Die <em>angetroffenen Verhältnisse</em> und die <em> Schneeverhältnisse pro Gebiet </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
+# [WARNING] needs_update
 msgid "_conditions_info"
-msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
+msgstr "<h3>Verhältnisse</h3>\n"
+"Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />\n"
+"Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br />\n"
+"Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
@@ -3582,6 +3610,10 @@ msgstr "<h3>Objektive Gefahren</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
+# [WARNING] needs_update
+msgid "_outing_route_desc_info"
+msgstr "Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde."
+
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"hhttp://www.camptocamp.org/portals/219879\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
 
@@ -3894,9 +3926,15 @@ msgstr "Höhe des Zugangs:"
 msgid "access_status"
 msgstr "Zugang:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "accidental_avalanche"
-msgstr "human-triggered avalanche the day of the outing"
+msgstr "durch Personen ausgelöste Lawine am Tag der Tour"
+
+# [general comment]
+# option "accidental_avalanche" à l'édition
+# [WARNING] needs_review
+msgid "accidental_avalanche_long"
+msgstr "Lawine ausgelöst durch eine Person am Tag der Tour"
 
 msgid "accommodation"
 msgstr "Unterkunft und Verpflegung in der Nähe:"
@@ -4143,25 +4181,34 @@ msgstr "Schweiz (französisch)"
 msgid "avalanche.en ML title"
 msgstr "Schweiz (englisch)"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "avalanche_date"
-msgstr "Type of observations releated to avalanches:"
+msgstr "Beobachtunsart betreffs Lawinen:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "avalanche_desc"
-msgstr "Observation description:"
+msgstr "Beschreibung der Beobachtung betreffend Lawinen:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [ERROR] no available translation
+# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
-msgstr "MISSING TRANSLATION"
+msgstr "Beschreibe Deine Beobachtungen zur Stabilität der Schneedecke:\n"
+"frische Wächten, Wummgeräusche, kürzlich abgegangene Lawinen, direkt beobachtete Lawinen. Für eine Lawine, gib den ungefähren Ort, die Meereshöhe und die Dimensionen von Anriss und Ablagerung an."
 
 # [general comment]
-# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
-# [WARNING] en translation used
-msgid "avalanche_info_title"
-msgstr "Observations releated to avalanches"
+# Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
+# [comment]
+# it always depends a little bit on the context it will be in - "Lawinenbeobachtungen" is nicer than "Beobachtungen betreffs Lawinen" - similar applies to some of the other previous translations
+# [WARNING] needs_review
+msgid "avalanche_infos"
+msgstr "Lawinenbeobachtungen:"
+
+# [general comment]
+# intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
+# [WARNING] needs_review
+msgid "avalanche_infos_short"
+msgstr "Lawineninformationen"
 
 msgid "awful conditions"
 msgstr "furchtbar"
@@ -4288,9 +4335,6 @@ msgstr "Burgund"
 msgid "bretagne"
 msgstr "Bretagne"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 msgid "building"
 msgstr "Berghütte"
 
@@ -4667,8 +4711,32 @@ msgstr "Die Liste der verbundenen Verhältnisse"
 msgid "conditions_and_equipment"
 msgstr "Angetroffene Verhältnisse, Ausstattung und Felsqualität (Zustieg und Route):"
 
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
+# [WARNING] needs_review
+msgid "conditions_hike_default"
+msgstr "Gib die folgenden Beobachtungen an: Geländeverhältnisse auf der Route (trocken, nass, verschneit, ...), beobachtete Verhältnisse in Nachbarrouten, Begehungen"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "conditions_ice_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
+
 msgid "conditions_levels"
 msgstr "Schneelage:"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "conditions_rock_default"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
+# [WARNING] fr translation used
+msgid "conditions_ski_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_status"
 msgstr "Bedingungen:"
@@ -4789,10 +4857,10 @@ msgid "danger_sign_avalanche"
 msgstr "Gefahrenzeichen"
 
 # [general comment]
-# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
-# [WARNING] en translation used
-msgid "danger_sign_avalanche_tooltip"
-msgstr "other than real avalanche"
+# option "danger_sign_avalanche" à l'édition
+# [WARNING] needs_update
+msgid "danger_sign_avalanche_long"
+msgstr "Gefahrenzeichen"
 
 msgid "dangerous"
 msgstr "wenig sicher"
@@ -5249,8 +5317,9 @@ msgstr "Herberge"
 msgid "glacier"
 msgstr "Gletscher"
 
+# [WARNING] needs_update
 msgid "glacier config can't be selected with another config"
-msgstr "Die Kategorie \"Hochtour - Gletscherroute\" kann nur ausgewählt werden, fall keine andere Kategorie zutrifft."
+msgstr "die Kategorie \"Hochtour - Gletscherroute\" kann nur ausgewählt werden, fall keine andere Kategorie zutrifft."
 
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
@@ -6041,9 +6110,15 @@ msgstr "Region Murcia"
 msgid "name"
 msgstr "Name:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "natural_avalanche"
-msgstr "natural avalanche the day of the outing"
+msgstr "spontane Lawine am Tag der Tour"
+
+# [general comment]
+# option "natural_avalanche" à l'édition
+# [WARNING] needs_review
+msgid "natural_avalanche_long"
+msgstr "spontane Lawine am Tag der Tour"
 
 msgid "naturally cleared"
 msgstr "natürliche Schneeschmelze"
@@ -6168,9 +6243,19 @@ msgstr "keine Ergebnisse"
 msgid "no service"
 msgstr "kein Dienst"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "no_observation_avalanche"
-msgstr "no danger signs or avalanche observed"
+msgstr "keine Alarmzeichen oder frischen Lawinen beobachtet"
+
+# [WARNING] needs_review
+msgid "no_observation_avalanche can't be selected with another option"
+msgstr "beide Optionen leer und \"keine Beobachtung\" können nicht gleichzeitig ausgewählt werden als andere Option"
+
+# [general comment]
+# option "no_observation_avalanche" à l'édition
+# [WARNING] needs_review
+msgid "no_observation_avalanche_long"
+msgstr "keine Gefahrenzeichen oder frische Lawinen beobachtet"
 
 msgid "non applicable"
 msgstr "nicht anwendbar"
@@ -6307,6 +6392,14 @@ msgstr "<strong>Warnung!</strong> Geben sie auf dieser Seite ausschließlich Inf
 msgid "outing_length"
 msgstr "Länge:"
 
+# [WARNING] needs_review
+msgid "outing_route_desc"
+msgstr "Verwendete Route:"
+
+# [WARNING] needs_update
+msgid "outing_route_desc_default"
+msgstr "Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde."
+
 msgid "outing_with_public_transportation"
 msgstr "Mit öV gemachte Tour"
 
@@ -6324,6 +6417,12 @@ msgstr "In einem Tourendokument kann ein Benutzer die auf einer Route angetroffe
 
 msgid "outings using PT from this access point"
 msgstr "Die ab diesen Zugang mit öV gemachten Touren."
+
+# [general comment]
+# texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "outings_description_default"
+msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
 
 msgid "overhanging wall"
 msgstr "überhängend"
@@ -6768,9 +6867,15 @@ msgstr "Schwierigkeitsgrad"
 msgid "recent conditions"
 msgstr "Aktuelle Verhältnisse"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "recent_avalanche"
-msgstr "fresh avalanche trace"
+msgstr "Spuren von frischen Lawinen"
+
+# [general comment]
+# option "recent_avalanche" à l'édition
+# [WARNING] needs_review
+msgid "recent_avalanche_long"
+msgstr "Spuren von frischen Lawinen (seit dem letzten Schneefall, Regen, Wind oder Erwärmung)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
@@ -6951,6 +7056,12 @@ msgstr "Liste der Routen"
 
 msgid "routes presentation"
 msgstr "Eine Route verbindet zwei oder mehrere geographische Orte. Eine Route muss mit mindestens einem Gipfel verbunden sein, kann aber auch mit Zugangsorten und Hütten verbunden werden."
+
+# [general comment]
+# texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "routes_description_default"
+msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "routes_quantity"
 msgstr "Anzahl der Kletterrouten:"

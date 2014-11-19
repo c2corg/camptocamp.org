@@ -1564,7 +1564,7 @@ msgstr "Cette carte n'existe pas."
 # [general comment]
 # Intitulé du lien vers la page carto
 msgid "Map tool"
-msgstr "Outil cartographie"
+msgstr "Outil carto"
 
 msgid "Mapquest/OSM"
 msgstr "Mapquest et données OpenStreetMap"
@@ -2264,6 +2264,9 @@ msgstr "Formulaire d'inscription"
 msgid "Site not found"
 msgstr "Ce site n'existe pas."
 
+msgid "Snow elevation is correct?"
+msgstr "Les altitudes d'accès et de chaussage/déchaussage sont elles correctes ?"
+
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "Snow list"
@@ -2725,7 +2728,7 @@ msgstr "Voir l'image à sa taille originale"
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
 msgid "View the associations history of the document"
-msgstr "Voir l'historique des associations et désassociations du document"
+msgstr "Historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Voir le profil de cet utilisateur"
@@ -3053,16 +3056,34 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bulletin Neige et Avalanche</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Pour une sortie réalisée en Suisse, les bulletins de la veille et du jour de la sortie sont aussi disponibles.<br />Attention&nbsp;: pour les autres pays, seul le dernier bulletin est disponible, ne correspondant pas au jour de la sortie."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
 msgid "_avalanche_date_info"
 msgstr "<h3>Type des observations relatives aux avalanches</h3>\n"
-"Type des observations d'avalanches ou de signaux d'alerte (plusieurs choix possible)."
+"Type des observations d'avalanches ou de signaux d'alerte (plusieurs choix possible).<br />\n"
+"Détaillez les observations dans le champ texte associé."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
-# [ERROR] no available translation
+# aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
 msgid "_avalanche_desc_info"
-msgstr "MISSING TRANSLATION"
+msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
+"Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
+"<h4>Signaux d'alerte</h4>\n"
+"- corniches récentes<br />\n"
+"- structures de plaque détectées au bâton<br />\n"
+"- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- fissures s'ouvrant en avançant<br />\n"
+"<h4>Avalanches</h4>\n"
+"- traces d'avalanche récente (cassure de plaque, trace de coulée, dépôt)<br >\n"
+"- avalanches naturelles ou accidentelles observées en direct<br /><br />\n"
+"Pour chaque avalanche, précisez :<br />\n"
+"- le type de l'avalanche : neige sèche ou humide, départ ponctuel ou en plaque<br />\n"
+"- le lieu, l'altitude et les dimensions approximatives de la zone de départ, et ceux du dépôt<br />"
+
+# [general comment]
+# aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
+msgid "_avalanche_infos_info"
+msgstr "<h3>Observations relatives aux avalanches</h3>\n"
+"Observations des signaux d'alerte, des traces d'avalanche récentes, et des avalanches naturelle ou accidentelles vues le jour de la sortie."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Initiation</h3>\n"
@@ -3076,11 +3097,9 @@ msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/sect
 msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
-# [comment]
-# VS: document accès ?
 # [WARNING] needs_review
 msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+msgstr "Indique si le document \"accès\" est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
 "<br />\n"
 "Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
 
@@ -3136,13 +3155,9 @@ msgid "_conditions_info"
 msgstr "<h3>Conditions rencontrées</h3>\n"
 "Détails des conditions rencontrées sur l'itinéraire (approche + voie) lors de la sortie, ainsi que les conditions de visu sur les itinéraires voisins.<br />\n"
 "Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br />\n"
-"<br />\n"
-"<strong>Lors d'une édition&nbsp;:</strong><br />\n"
-"L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br />\n"
-"<br />\n"
-"Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br />\n"
-"<br />\n"
-"Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
+"<h4>Lors d'une édition&nbsp;:</h4>\n"
+"Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement.<br />\n"
+"Les observations relatives aux avalanches doivent être décrites dans les champs dédiés."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Enneigement par zones</h3>Permet d'indiquer synthétiquement les conditions rencontrées sur chaque partie de l'itinéraire.<br />Pour ajouter une zone, cliquez sur le bouton (+).<br /><br /><strong>Lieu / altitude / orientation / heure</strong>&nbsp;: caractéristiques de la zone&nbsp;: sa localisation, sa tranche d'altitude, son orientation, son relief (vallon, couloir...), l'heure de passage.<br /><br /><strong>Meuble</strong>&nbsp;: épaisseur de neige meuble en cm (enfoncement du baton).<br /><br /><strong>Totale</strong>&nbsp;: épaisseur de neige totale en cm. Laissez vide si la valeur est inconnue.<br /><br /><strong>Observations</strong>&nbsp;: qualité de la neige, analyse stratigraphique sommaire, qualité du ski."
@@ -3553,6 +3568,15 @@ msgstr "<h3>Risques objectifs</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
+msgid "_outing_route_desc_info"
+msgstr "<h3>Itinéraire emprunté</h3>\n"
+"Décrivez brièvement l'itinéraire que vous avez suivi, surtout pour les cas suivants :<br />\n"
+"- itinéraire différent du topo<br />\n"
+"- topo comportant des variantes<br />\n"
+"- itinéraire en boucle (indiquer les lieux et altitudes de fin de montée et fin de descente)<br />\n"
+"- enchainements de plusieurs itinéraires (les associer à la sortie après sa création)<br />\n"
+"- parcours partiel (préciser le point atteint, et corriger l'altitude maximale dans le champ dédié)"
+
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Sortie en mobilité douce</h3>\n"
 "Indique si la sortie a été réalisée en utilisant des transports en commun ou le vélo pour accéder au point de départ. Les remontées mécaniques ne doivent pas être prises en compte.<br />\n"
@@ -3727,7 +3751,7 @@ msgstr "<h3>Adapté au snowboard</h3>\n"
 "Itinéraire comportant très peu de plat ou de traversée."
 
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>difficulté raquette</h3>\n"
+msgstr "<h3>Cotation raquette</h3>\n"
 "Cotation des difficultés d'un itinéraire de randonnée en raquettes à neige.<br />\n"
 "<br />\n"
 "<strong>R1</strong>&nbsp;: Pentes faibles (< 20°) et balisage serré sur des itinéraires souvent tracés et bénéficiant d'un balisage spécifique rapproché.<br />\n"
@@ -3882,6 +3906,11 @@ msgstr "Accès&nbsp;:"
 
 msgid "accidental_avalanche"
 msgstr "avalanche accidentelle le jour de la sortie"
+
+# [general comment]
+# option "accidental_avalanche" à l'édition
+msgid "accidental_avalanche_long"
+msgstr "avalanche déclenchée par une personne le jour de la sortie"
 
 msgid "accommodation"
 msgstr "Hébergement et restauration à proximité&nbsp;:"
@@ -4130,18 +4159,23 @@ msgid "avalanche_date"
 msgstr "Type des observations relatives aux avalanches&nbsp;:"
 
 msgid "avalanche_desc"
-msgstr "Description des observations&nbsp;:"
+msgstr "Description des observations relatives aux avalanches&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [ERROR] no available translation
+# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
-msgstr "MISSING TRANSLATION"
+msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
 
 # [general comment]
-# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
-msgid "avalanche_info_title"
-msgstr "Observations relatives aux avalanches"
+# Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
+msgid "avalanche_infos"
+msgstr "Observations relatives aux avalanches&nbsp;:"
+
+# [general comment]
+# intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
+msgid "avalanche_infos_short"
+msgstr "Infos avalanche"
 
 msgid "awful conditions"
 msgstr "exécrables"
@@ -4173,7 +4207,7 @@ msgstr "Le contenu du sac"
 # [comment]
 # Sélection erronée
 msgid "bad choice error"
-msgstr "sélection incorrecte"
+msgstr "la sélection est incorrecte"
 
 msgid "baleares"
 msgstr "Îles Baléares"
@@ -4264,11 +4298,6 @@ msgstr "Bourgogne"
 msgid "bretagne"
 msgstr "Bretagne"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
-# [comment]
-# je pense qu'il vaut meiux préciser de montagne 
 # [WARNING] needs_review
 msgid "building"
 msgstr "refuge"
@@ -4511,9 +4540,8 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li>\n"
 "<li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
-# [WARNING] needs_review
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche des sorties"
+msgstr "Critères de recherche de récits de sorties"
 
 msgid "cda_search_routes_tips"
 msgstr "Critères de recherche d'itinéraires"
@@ -4640,10 +4668,34 @@ msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
 msgid "conditions_and_equipment"
-msgstr "Conditions de terrain, équipement et qualité du rocher rencontrées (approche, voie, et à proximité)&nbsp;:"
+msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche, voie, et à proximité)&nbsp;:"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
+# [WARNING] needs_review
+msgid "conditions_hike_default"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
+# [WARNING] needs_review
+msgid "conditions_ice_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
+# [WARNING] needs_review
+msgid "conditions_rock_default"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
+# [WARNING] needs_review
+msgid "conditions_ski_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_status"
 msgstr "Conditions de terrain&nbsp;:"
@@ -4756,9 +4808,9 @@ msgid "danger_sign_avalanche"
 msgstr "signaux d'alerte"
 
 # [general comment]
-# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
-msgid "danger_sign_avalanche_tooltip"
-msgstr "autres que des traces d'avalanche "
+# option "danger_sign_avalanche" à l'édition
+msgid "danger_sign_avalanche_long"
+msgstr "signaux d'alerte autres que des traces d'avalanche"
 
 msgid "dangerous"
 msgstr "peu adapté"
@@ -4951,7 +5003,7 @@ msgid "english"
 msgstr "anglais"
 
 msgid "enter URL or paste it from clipboard"
-msgstr "entrer ou copier l'URL de l'image"
+msgstr "URL de l'image"
 
 msgid "enter place name"
 msgstr "Saisir un nom de lieu"
@@ -5124,9 +5176,8 @@ msgstr "des itinéraires associés"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] needs_review
 msgid "for outings"
-msgstr "sorties"
+msgstr "des sorties"
 
 msgid "forum and topoguide names"
 msgstr "Nom topoguide et pseudo forum"
@@ -5184,7 +5235,7 @@ msgid "gear_default"
 msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
 
 msgid "gear_shop"
-msgstr "magasin de sport, location de matériel, réparation"
+msgstr "magasin de sport, location, réparation"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
@@ -5216,7 +5267,7 @@ msgid "glacier"
 msgstr "glacier"
 
 msgid "glacier config can't be selected with another config"
-msgstr "la configuration \"parcours glaciaire\" ne peut être sélectionnée que si aucune autre configuration ne correspond"
+msgstr "les configurations vide et \"parcours glaciaire\" ne peuvent être sélectionnées que si aucune autre configuration ne correspond"
 
 msgid "glacier gear"
 msgstr "Matériel de sécurité sur glacier"
@@ -5316,7 +5367,7 @@ msgstr "Dénivelé&nbsp;:"
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
 msgid "help pic"
-msgstr "aide d'utilisation du site"
+msgstr "aide du site"
 
 msgid "hide form"
 msgstr "Cacher le formulaire"
@@ -5985,6 +6036,11 @@ msgstr "Intitulé&nbsp;:"
 msgid "natural_avalanche"
 msgstr "avalanche naturelle le jour de la sortie"
 
+# [general comment]
+# option "natural_avalanche" à l'édition
+msgid "natural_avalanche_long"
+msgstr "avalanche naturelle le jour de la sortie"
+
 msgid "naturally cleared"
 msgstr "déneigement naturel"
 
@@ -6109,7 +6165,15 @@ msgid "no service"
 msgstr "pas de service"
 
 msgid "no_observation_avalanche"
-msgstr "aucune observation de signaux d'alerte ni d'avalanche"
+msgstr "aucune observation de signaux d'alerte ni de trace d'avalanche récente"
+
+msgid "no_observation_avalanche can't be selected with another option"
+msgstr "les options vide et \"aucune observation\" ne peuvent être sélectionnées en même temps qu'une autre option"
+
+# [general comment]
+# option "no_observation_avalanche" à l'édition
+msgid "no_observation_avalanche_long"
+msgstr "aucune observation de signaux d'alerte ni de trace d'avalanche récente"
 
 msgid "non applicable"
 msgstr "non applicable"
@@ -6244,6 +6308,13 @@ msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des inf
 msgid "outing_length"
 msgstr "Longueur&nbsp;:"
 
+msgid "outing_route_desc"
+msgstr "Itinéraire emprunté&nbsp;:"
+
+# [WARNING] needs_review
+msgid "outing_route_desc_default"
+msgstr "Décrivez brièvement l'itinéraire que vous avez suivi : itinéraire différent de celui du topo, topo comportant des variantes, itinéraire en boucle, enchainement, point atteint lors d'un parcours partiel."
+
 msgid "outing_with_public_transportation"
 msgstr "Sortie en mobilité douce"
 
@@ -6261,6 +6332,11 @@ msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur
 
 msgid "outings using PT from this access point"
 msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+
+# [general comment]
+# texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
+msgid "outings_description_default"
+msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
 
 msgid "overhanging wall"
 msgstr "devers-surplomb"
@@ -6715,6 +6791,11 @@ msgid "recent_avalanche"
 msgstr "trace d'avalanche récente"
 
 # [general comment]
+# option "recent_avalanche" à l'édition
+msgid "recent_avalanche_long"
+msgstr "trace d'avalanche récente (après la dernière chute de neige, pluie, coup de vent ou redoux)"
+
+# [general comment]
 # Bouton dans les cartes insérées dans les documents
 msgid "recenter"
 msgstr "Recentrer"
@@ -6892,6 +6973,12 @@ msgstr "Liste des itinéraires"
 
 msgid "routes presentation"
 msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doit être associé à un ou plusieurs sommets, et peut être associé à des accès et refuges."
+
+# [general comment]
+# texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
+# [WARNING] needs_review
+msgid "routes_description_default"
+msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "routes_quantity"
 msgstr "Nombre de voies&nbsp;:"
@@ -7097,7 +7184,7 @@ msgid "snowshoeing"
 msgstr "raquette"
 
 msgid "snowshoeing_rating"
-msgstr "difficulté raquette&nbsp;:"
+msgstr "Cotation raquette&nbsp;:"
 
 msgid "snowshoes"
 msgstr "raquettes"
@@ -7157,9 +7244,8 @@ msgstr "récits, contes, nouvelles"
 msgid "sub-parkings"
 msgstr "sous-accès"
 
-# [WARNING] needs_update
 msgid "sub-sites"
-msgstr "sous-sites d'escalade"
+msgstr "secteurs d'un site de couenne/bloc"
 
 # [general comment]
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
@@ -7242,7 +7328,7 @@ msgid "terms of use"
 msgstr "Conditions d'utilisation"
 
 msgid "thanks for new outing"
-msgstr "Merci d'avoir publié votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
+msgstr "Merci pour votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.

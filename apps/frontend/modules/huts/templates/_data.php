@@ -25,20 +25,30 @@ if (isset($nb_comments) && $nb_comments)
     li(field_data_if_set($document, 'staffed_capacity'));
     li(field_data_if_set($document, 'unstaffed_capacity'));
     
-    
+    $unstaffed_capacity = $document->get('unstaffed_capacity');
+    $is_staffed = $document->get('is_staffed');
+    // show unstaff fields if hut is not staffed, or, if staffed, unstaffed_capacity is defined
+    $unstaffed_applies = (!is_null($unstaffed_capacity) && $unstaffed_capacity > 0) || (!is_null($is_staffed) && !$is_staffed);
    
-    // don't show only if not applicable 
-    if ($document->get('has_unstaffed_matress') <> 10 ){ 
-        li(field_data_from_list($document, 'has_unstaffed_matress', 'app_boolean_list'));
-    }
-    if ($document->get('has_unstaffed_blanket') <> 10 ){
-        li(field_data_from_list($document, 'has_unstaffed_blanket', 'app_boolean_list'));
-    }
-    if ($document->get('has_unstaffed_gas') <> 10 ){
-        li(field_data_from_list($document, 'has_unstaffed_gas', 'app_boolean_list'));
-    }
-    if ($document->get('has_unstaffed_wood') <> 10 ){
-        li(field_data_from_list($document, 'has_unstaffed_wood', 'app_boolean_list'));
+    if ($unstaffed_applies)
+    {
+        // don't show only if not applicable 
+        if ($document->get('has_unstaffed_matress') <> 10 )
+        { 
+            li(field_data_from_list($document, 'has_unstaffed_matress', 'app_boolean_list'));
+        }
+        if ($document->get('has_unstaffed_blanket') <> 10 )
+        {
+            li(field_data_from_list($document, 'has_unstaffed_blanket', 'app_boolean_list'));
+        }
+        if ($document->get('has_unstaffed_gas') <> 10 )
+        {
+            li(field_data_from_list($document, 'has_unstaffed_gas', 'app_boolean_list'));
+        }
+        if ($document->get('has_unstaffed_wood') <> 10 )
+        {
+            li(field_data_from_list($document, 'has_unstaffed_wood', 'app_boolean_list'));
+        }
     }
     
     li(field_phone_if_set($document, 'phone', array('microdata' => 'telephone')));

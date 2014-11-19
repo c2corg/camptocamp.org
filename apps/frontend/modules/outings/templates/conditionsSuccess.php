@@ -103,41 +103,69 @@ else:
             <?php
             endif;
             
+            $outing_route_desc = $i18n['outing_route_desc'];
+            $has_outing_route_desc = check_not_empty($outing_route_desc) && !($outing_route_desc instanceof sfOutputEscaperObjectDecorator);
+            if ($has_outing_route_desc): ?>
+                <li><div class="section_subtitle" id="_outing_route_desc" data-tooltip=""><?php echo __('outing_route_desc') ?></div><?php echo parse_links(parse_bbcode($outing_route_desc, null, false, false)) ?></li>
+            <?php endif;
             
             $conditions = $i18n['conditions'];
+            $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
             $conditions_status = $item['conditions_status'];
             $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
-            $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
-            if ($has_conditions || $has_conditions_status): ?>
-                <li><div class="section_subtitle" id="_conditions"><?php echo __('conditions_status') ?></div>
+            $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
+            $has_conditions_levels = !empty($conditions_levels) && count($conditions_levels);
+            if ($has_conditions || $has_conditions_status || $has_conditions_levels || $has_avalanche_date): ?>
+                <li><div class="section_subtitle" id="_conditions" data-tooltip=""><?php echo __('conditions_status') ?></div>
                 <?php
                 if ($has_conditions_status)
                 {
                     echo __($conditions_statuses[$conditions_status]);
                 }
+                
+                if ($has_conditions_levels)
+                {
+                    echo conditions_levels_data($conditions_levels);
+                }
+                
                 if ($has_conditions)
                 {
-                    echo parse_links(parse_bbcode($conditions, null, false, false)); // rq: no image in condition pages
+                    echo parse_links(parse_bbcode($conditions, null, false, false));
+                }
+                ?>
+                </li>
+            <?php endif;
+            
+            $avalanche_date = $item['avalanche_date'];
+            $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
+            $avalanche_desc = $i18n['avalanche_desc'];
+            $has_avalanche_desc = $has_avalanche_date && check_not_empty($avalanche_desc) && !($avalanche_desc instanceof sfOutputEscaperObjectDecorator);
+            if ($has_avalanche_date): ?>
+                <li><div class="section_subtitle" id="_avalanche_infos" data-tooltip=""><?php echo __('avalanche_infos') ?></div>
+                <?php
+                $avalanche_date_string = get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list');
+                echo '<p class="avalanche_date">'
+                   . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
+                   . '.'
+                   . '</p>';
+
+                if ($has_avalanche_desc)
+                {
+                    echo parse_links(parse_bbcode($avalanche_desc, null, false, false));
                 }
                 ?></li>
             <?php endif;
 
             $weather = $i18n['weather'];
             if (check_not_empty($weather) && !($weather instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
-                <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather, null, false, false)) ?></li>
+                <li><div class="section_subtitle" id="_weather" data-tooltip=""><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather, null, false, false)) ?></li>
             <?php endif;
             $timing = $i18n['timing'];
             if (check_not_empty($timing) && !($timing instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
-                <li><div class="section_subtitle" id="_weather"><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
+                <li><div class="section_subtitle" id="_weather" data-tooltip=""><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
             <?php endif; ?>
         </ul>
     <?php
-    $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
-    if (!empty($conditions_levels) && count($conditions_levels))
-    {
-        echo conditions_levels_data($conditions_levels);
-    }
-    
     if ($show_images && isset($item['linked_docs']))
     {
         include_partial('images/linked_images', array('images' => $item['linked_docs'],

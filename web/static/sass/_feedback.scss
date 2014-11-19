@@ -63,6 +63,13 @@ $z: 100001; // should be the highest one on document, even higher than modalbox 
   color: #fff;
 }
 
+.ajax_feedback h4 {
+  margin-top: 0.5em;
+}
+.ajax_feedback h5 {
+  margin-top: 0.3em;
+}
+
 // fields tooltips to be moved in separate file
 
 #fields_tooltip {

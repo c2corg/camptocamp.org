@@ -2737,10 +2737,19 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $query_words = explode(" ", $param);
                         foreach ($query_words as &$word) 
                         {
-                           if (strlen($word) > 3) 
-                           {
-                               $word = $word . '~2';
-                           }
+                           switch(true)
+                            {
+                                case in_array(strlen($word), range(0,3)) :
+                                     $word = $word      ; break;
+                                case in_array(strlen($word), range(4,5)) :
+                                    $word = $word . '~1'; break;
+                                case in_array(strlen($word), range(6,7)) :
+                                    $word = $word . '~2'; break;
+                                case in_array(strlen($word), range(8,9)) :
+                                    $word = $word . '~3'; break;
+                                default :
+                                    $word = $word . '~4'; break;
+                            }
                         }
                         $query_search_fuzzy = implode(' ', $query_words);
                         $query_search = "($param)^20 OR ($query_search_fuzzy)^5" ;
