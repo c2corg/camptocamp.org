@@ -86,9 +86,8 @@ msgstr "Documento non trovato"
 msgid "A document can not be linked to itself"
 msgstr "Un documento non può essere associato a se stesso"
 
-# [WARNING] needs_update
 msgid "A gite can not be linked to a route"
-msgstr "non si puo' legare di rifugio su un itinerario"
+msgstr "Un Gite o un campeggio non può essere associato ad un un itinerario"
 
 msgid "A new password has been asked for your account."
 msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
@@ -2015,9 +2014,8 @@ msgstr "Le regioni sono automaticamente associate usando i coordinati geografici
 msgid "Remember me ?"
 msgstr "Ricordarsi di me?"
 
-# [WARNING] needs_update
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
-msgstr "E' possibile ordinare le lingue secondo le proprie preferenze, è sufficiente usare il drag-and-drop"
+msgstr "E' possibile ordinare le lingue secondo le tue preferenze usando il drag-and-drop"
 
 msgid "Reply"
 msgstr "Rispondi"
@@ -2312,9 +2310,8 @@ msgstr "Mappa"
 msgid "Statistics"
 msgstr "Statistiche"
 
-# [WARNING] needs_update
 msgid "Step 1: choose a summit"
-msgstr "Passo 1&nbsp;: scegliere una cima"
+msgstr "Passo 1: scegliere una cima, colle, lago, falesia o sito di arrampicata"
 
 msgid "Step 2: Create a route"
 msgstr "Passo 2&nbsp;: creare un itinerario"
@@ -3078,28 +3075,27 @@ msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti pe
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Tipo delle osservazioni relative alle valanghe</h3>\n"
-"Tipo di osservazione delle valanghe o dei segnali di allarme (scelta multipla possibile).<br />"
+"Tipo di osservazione delle valanghe o dei segnali di allarme (scelta multipla possibile).<br />\n"
+"Dettagliare le osservazioni nel campo testuale associato."
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] fr translation used
 msgid "_avalanche_desc_info"
-msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
-"Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
-"<h4>Signaux d'alerte</h4>\n"
-"- corniches récentes<br />\n"
-"- structures de plaque détectées au bâton\n"
-"- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
-"- fissures s'ouvrant en avançant<br />\n"
-"<h4>Avalanches</h4>\n"
-"- traces d'avalanche récente (cassure de plaque, trace de coulée, dépôt)<br >\n"
-"- avalanches naturelles ou accidentelles observées en direct<br /><br />\n"
-"Pour chaque avalanche, précisez :<br />\n"
-"- le type de l'avalanche : neige sèche ou humide, départ ponctuel ou en plaque<br />\n"
-"- le lieu, l'altitude et les dimensions approximatives de la zone de départ, et ceux du dépôt<br />"
+msgstr "<h3>Descrizione delle osservazioni relative alle valanghe</h3>\n"
+"Dettagliare le osservazioni relative alla stabilità delle manto nevoso:\n"
+"<h4>Seganli di allarme</h4>\n"
+"- cornici recenti<br />\n"
+"- struttura di placa osservata col bastoncino<br />\n"
+"- rumore di assestamento di un strato debole (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- creazione di fessuri durante la progressione<br />\n"
+"<h4>Valanghe</h4>\n"
+"- traccie di valanghe recente (linea di rottura di placa, tracia di colata, deposito)<br >\n"
+"- valanghe naturale o accidentale osservate in diretto<br /><br />\n"
+"Per ogni valanghe, precisare :<br />\n"
+"- il tipo di valanghe: neve asciutta o bagnata, pontuale o placa<br />\n"
+"- il luogo, la quota, le dimensioni approssimative, l'aera di partenza e di deposito<br />"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
@@ -3176,11 +3172,10 @@ msgstr "<h3>Condizioni incontrate</h3>\n"
 "<br />\n"
 "Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
 
-# [WARNING] needs_update
 msgid "_conditions_info"
 msgstr "<h3>Condizioni incontrate</h3>\n"
-"Dettagli delle condizioni incontrate lungo l'itinerario.<br />\n"
-"Queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, ma sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br />\n"
+"Dettagli delle condizioni incontrate lungo l'itinerario (approccio + via) anzi che le condizioni osservate sui itinerari vicini.<br />\n"
+"Queste informazioni sono sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br />\n"
 "<h4>Nota per compilare questi campi:</h4>\n"
 "Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
 
@@ -3482,9 +3477,8 @@ msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradal
 msgid "_maps_info_info"
 msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS-swisstopo).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Se c'è più di una carta, separarle con un anti-slash (\\).<br /><br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
 
-# [WARNING] needs_update
 msgid "_maps_info_short_info"
-msgstr "Per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: quindi  è inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+msgstr "Per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le carte IGN o CNS saranno automaticamente associate: quindi  è inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Quota massimale raggiunta dall'itinerario o gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
@@ -4122,21 +4116,19 @@ msgstr "Descrizioni delle osservazioni relativi alle valanghe:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
-msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
+msgstr "Descrivere le osservazioni relative alla stabilità del manto nevoso : cornici recente, \"wouf\", fessuri, traccie di valanghe recente, valanghe osservate in diretto. Per una valanga, dare il luogo, la quota, l'altitudine e le dimensioni delle aree di partenza e di deposito."
 
 # [general comment]
 # Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
-# [WARNING] en translation used
 msgid "avalanche_infos"
-msgstr "Observations releated to avalanches:"
+msgstr "Osservazioni relative alle valanghe:"
 
 # [general comment]
 # intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
-# [WARNING] en translation used
 msgid "avalanche_infos_short"
-msgstr "Avalanche news"
+msgstr "Informazioni valanghe"
 
 msgid "awful conditions"
 msgstr "pessime"
@@ -4267,9 +4259,6 @@ msgstr "Borgogna"
 msgid "bretagne"
 msgstr "Bretagna"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
 msgstr "rifugio"
@@ -4427,7 +4416,7 @@ msgstr "Categoria:"
 
 # [general comment]
 # [cda]
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "cda More"
 msgstr "Più..."
 
@@ -4636,43 +4625,41 @@ msgstr "Stimare la difficoltà sciistica"
 msgid "cond short"
 msgstr "Condizioni"
 
-# [WARNING] needs_update
 msgid "conditions"
-msgstr "Condizioni incontrate (avvicinamento, vie, ...):"
+msgstr "Condizioni incontrate (avvicinamento, vie, itinerari vicini...):"
 
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
 
-# [WARNING] needs_update
 msgid "conditions_and_equipment"
-msgstr "Condizioni del terreno, attrezzatura e qualità della roccia (avvicinamento e via):"
+msgstr "Condizioni del terreno, protezioni, e qualità della roccia (avvicinamento, via, itinerari vicini):"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions_hike_default"
-msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
+msgstr "Inserire le osservazioni seguente: condizioni del itinerario (asciutto, bagnato, innevato...) e condizioni degli itinerari vicini osservate da lontano."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions_ice_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
+msgstr "Inserire le informazioni sull'innevamento della zona : condizioni delle sezioni abitualmente in ghiaccio o in misto, quantità e qualità delle protezioni, condizioni e frequentazione osservate sui itinerari vicini. Le osservazioni relative alle valanghe devono essere inserite nel campo sotto."
 
 msgid "conditions_levels"
 msgstr "Innevamento per zona:"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions_rock_default"
-msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
+msgstr "Inserire le osservazioni seguente: condizioni dell'approccio, via e ritorno (asciutto, bagnato, innevato...), quantità e qualità delle protezioni, qualità della roccia, condizioni dei itinerari vicini, frequentazione."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions_ski_default"
-msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
+msgstr "Inserire le informazioni complementari all'innevamento per zone: condizioni osservate sui itinerari vicini, frequentazione. Le osservazioni relative alle valanghe devono inserite nel campo sotto."
 
 msgid "conditions_status"
 msgstr "Condizioni del terreno:"
@@ -4790,9 +4777,8 @@ msgstr "Segnali d’allarme"
 
 # [general comment]
 # option "danger_sign_avalanche" à l'édition
-# [WARNING] needs_update
 msgid "danger_sign_avalanche_long"
-msgstr "segnali d’allarme"
+msgstr "segnali d’allarme altri che traccie di valanghe"
 
 msgid "dangerous"
 msgstr "pericoloso"
@@ -5184,9 +5170,8 @@ msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
 msgid "forum_code"
 msgstr "Codice d’inserimento dell’immagine nel forum:"
 
-# [WARNING] en translation used
 msgid "forums images wizard failure"
-msgstr "Invalid image"
+msgstr "Immagine invalida "
 
 msgid "francais"
 msgstr "francese"
@@ -5253,9 +5238,9 @@ msgstr "posto tappa "
 msgid "glacier"
 msgstr "ghiacciaio"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "glacier config can't be selected with another config"
-msgstr "la configurazione \"percorso su ghiacciai\" può essere selezionata solo se nessun altra configurazione corrisponde"
+msgstr "I opzioni vuoto o \"percorso su ghiacciai\" devono essere selezionati solo se nessun altro opzione corrisponde."
 
 msgid "glacier gear"
 msgstr "Materiale di sicurezza su ghiacciaio"
@@ -5272,9 +5257,8 @@ msgstr "gneiss"
 msgid "good conditions"
 msgstr "buone"
 
-# [WARNING] needs_update
 msgid "good equipment"
-msgstr "P1 (ben attrezzato)"
+msgstr "P1 (molto bene attrezzato)"
 
 msgid "good equipment +"
 msgstr "P1+ (ben attrezzato)"
@@ -5388,9 +5372,8 @@ msgstr "abisso"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
-# [WARNING] needs_update
 msgid "home_description"
-msgstr "E' un luogo di scambio d'informazioni multilingue dedicato all'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interattiva</a> con più di 20&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> che privilegia i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "Camptocamp.org è un sito collaborativo dedicato agli sport di montagna. Ci troverai le <a href=\"/articles/117868\">relazioni di itinerari</a>, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> a scopppo non lucrativo che privilegia i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "home_welcome"
 msgstr "Benvenuto!"
@@ -6033,15 +6016,13 @@ msgstr "Murcia"
 msgid "name"
 msgstr "Nome:"
 
-# [WARNING] en translation used
 msgid "natural_avalanche"
-msgstr "natural avalanche the day of the outing"
+msgstr "valanga naturale il giorno della gita"
 
 # [general comment]
 # option "natural_avalanche" à l'édition
-# [WARNING] en translation used
 msgid "natural_avalanche_long"
-msgstr "natural avalanche the day of the outing"
+msgstr "valanghe naturale il giorno della gita"
 
 msgid "naturally cleared"
 msgstr "strada non pulita"
@@ -6167,19 +6148,16 @@ msgstr "nessun risultato"
 msgid "no service"
 msgstr "nessun servizio"
 
-# [WARNING] en translation used
 msgid "no_observation_avalanche"
-msgstr "no danger signs or fresh avalanche trace observed"
+msgstr "Nessun osservazione di segnale di allarme o traccia di valanghe recente"
 
-# [WARNING] en translation used
 msgid "no_observation_avalanche can't be selected with another option"
-msgstr "both empty and \"no observation\" options can't be selected at the same time as another option"
+msgstr "le opzioni vuota e \"nessun osservazione\" non possono essere selezionate con un altro opzione. "
 
 # [general comment]
 # option "no_observation_avalanche" à l'édition
-# [WARNING] en translation used
 msgid "no_observation_avalanche_long"
-msgstr "no danger signs or fresh avalanche trace observed"
+msgstr "nessun osservazione di segnale di allarme o di traccia di valanghe"
 
 msgid "non applicable"
 msgstr "non applicabile"
@@ -6227,9 +6205,8 @@ msgstr "Troppi risultati! Solo i risultati esatti sono visibili. Digitare altre 
 
 # [general comment]
 # see http://c2ci18n.appspot.com/translations/edit/57001
-# [WARNING] en translation used
 msgid "only near matches. Go on typing"
-msgstr "Too many results. Only nearby results are displayed. Continue typing to see other results ..."
+msgstr "Troppi risultati. Solo, il o i risultati vicini sono visibili. Continuare a digitare per vedere altri risultati..."
 
 msgid "opened lift"
 msgstr "aperti"
@@ -6523,9 +6500,8 @@ msgstr "File immagine"
 msgid "plupload introduction text"
 msgstr "Puoi aggiungere delle '%1%'. La dimensione minimale è %4% x %5% px. I file jpeg e png saranno ridimensionati automaticamente ma i files svg e gif devono fare %3% x %2% px et %4% Mo al massimo.<br /><strong>Caricando un immagine su camptocamp.org, accetti la licenze <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che un contenuto personale o collaborativo.</strong> Le immagini sotto copyright non sono accettate.<br />Cliccando nel angolo superiore destra dell'immaginetta, puoi accedere alla pagina dell'immagine per:<br />- Modificare il titolo o la descrizione dell'immagine(Voce \"Modificare\" (nella colonna di sinistra).<br />- Associare l'immagine a altri documenti (usare lo strumento nel basso della pagina).<br />- Chiedere la cancellazione dell'immagine agli moderatori (link \"Segnalare un problema\" a sinistra).<br /><span style=\"color: red\">La selezione di al meno una categoria con asterisco (*) farà comparire l'immagine sulla home.</span> Leggere l'aiuto sulla <a href=\"/articles/107005\">galleria</a>."
 
-# [WARNING] en translation used
 msgid "plupload invalid image titles"
-msgstr "please enter a title for your images (4 characters minimum)"
+msgstr "Devi dare un titolo per ogni immagine (4 caratteri al minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
@@ -6806,15 +6782,13 @@ msgstr "Gradi"
 msgid "recent conditions"
 msgstr "Condizioni recenti"
 
-# [WARNING] en translation used
 msgid "recent_avalanche"
-msgstr "fresh avalanche trace"
+msgstr "Traccia di valanghe recente"
 
 # [general comment]
 # option "recent_avalanche" à l'édition
-# [WARNING] en translation used
 msgid "recent_avalanche_long"
-msgstr "fresh avalanche trace (after last snowfall, rain, galen thaw)"
+msgstr "traccia di valanghe recente (dopo l'ultima nevicata, pioggia, colpi di vento, rialzo termico)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
@@ -7265,21 +7239,21 @@ msgstr "Sci ripido"
 msgid "stories"
 msgstr "racconti"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "sub-parkings"
-msgstr "sub-access points"
+msgstr "sotto-accesso"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "sub-sites"
-msgstr "sectors of a climbing site"
+msgstr "settori di un sito di falesia monotiro/boulder"
 
 # [general comment]
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
 # 
 # In that case, 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "sub-summits"
-msgstr "sub- summits, passes, lakes and cliffs"
+msgstr "sotto-cima"
 
 msgid "sub_activities"
 msgstr "Compatibile con:"
@@ -7723,9 +7697,9 @@ msgstr "si"
 msgid "yesterday, at %1%"
 msgstr "ieri, alle %1%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "you cannot select public transportation types without appropriate service rating"
-msgstr "You cannot select public transportation types if the accessibility field is not compatible"
+msgstr "Non puoi selezionare un mezzo pubblico se il campo accessibilità non è compatibile "
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"

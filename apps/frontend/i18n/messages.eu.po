@@ -3267,28 +3267,28 @@ msgstr "<h3>Type of observations releated to avalanches</h3>\n"
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_avalanche_desc_info"
-msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
-"Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
-"<h4>Signaux d'alerte</h4>\n"
-"- corniches récentes<br />\n"
-"- structures de plaque détectées au bâton\n"
-"- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
-"- fissures s'ouvrant en avançant<br />\n"
+msgstr "<h3>Description of avalanche observations</h3>\n"
+"Give your observations conerning the snowpack stability:\n"
+"<h4>Danger signs</h4>\n"
+"- recent cornices<br />\n"
+"- slab structure detected with ski pole<br />\n"
+"- settling sounds (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- shooting cracks<br />\n"
 "<h4>Avalanches</h4>\n"
-"- traces d'avalanche récente (cassure de plaque, trace de coulée, dépôt)<br >\n"
-"- avalanches naturelles ou accidentelles observées en direct<br /><br />\n"
-"Pour chaque avalanche, précisez :<br />\n"
-"- le type de l'avalanche : neige sèche ou humide, départ ponctuel ou en plaque<br />\n"
-"- le lieu, l'altitude et les dimensions approximatives de la zone de départ, et ceux du dépôt<br />"
+"- signs of recent avalanche activity (fracture lines, avalanche track, deposit)<br >\n"
+"- nautral avalanches or skier-triggered avalanches observed directly<br /><br />\n"
+"For each avalanche, indicate:<br />\n"
+"- type of avalanche : dry or wet snow, point or slab release<br />\n"
+"- location, elevation and approximate dimensions of the avalanche in the start zone and in the deposit zone<br />"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_avalanche_infos_info"
-msgstr "<h3>Observations relatives aux avalanches</h3>\n"
-"Observations des signaux d'alerte, des tracs d'avalanche récentes, et des avalanches naturelle ou accidentelles vues le jour de la sortie."
+msgstr "<h3>Observations relating to avalanches</h3>\n"
+"Observations of danger signs, fresh avalanche trace, and natural avalanche or human-triggered avalanche the day of the outing."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Hastapenerako ibilbidea</h3>\n"
@@ -4245,29 +4245,30 @@ msgstr "Suitza (ingelesez)"
 
 # [WARNING] en translation used
 msgid "avalanche_date"
-msgstr "Type of observations releated to avalanches:"
+msgstr "Type of observations relating to avalanches:"
 
 # [WARNING] en translation used
 msgid "avalanche_desc"
-msgstr "Description of observations releated to avalanches:"
+msgstr "Description of observations relating to avalanches:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "avalanche_desc_tooltip"
-msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
+msgstr "Desribe your observations concerning snow stability:\n"
+"fresh cornices, \"woum\"-sounds, recent avalanches, directly observed avalanches. For an avalanche, indicate the approximate location, elevation and the dimensions of the fracture and the avalanche debris."
 
 # [general comment]
 # Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
 # [WARNING] en translation used
 msgid "avalanche_infos"
-msgstr "Observations releated to avalanches:"
+msgstr "Observations relating to avalanches:"
 
 # [general comment]
 # intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
 # [WARNING] en translation used
 msgid "avalanche_infos_short"
-msgstr "Avalanche news"
+msgstr "Avalanche information"
 
 msgid "awful conditions"
 msgstr "eskaxak"
@@ -4398,9 +4399,6 @@ msgstr "Borgoina"
 msgid "bretagne"
 msgstr "Bretainia"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_update
 msgid "building"
 msgstr "eraikuntza"
@@ -4778,9 +4776,9 @@ msgstr "Aurkituriko egoera:"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "conditions_hike_default"
-msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
+msgstr "Give here the following observations: terrain conditions on tour (dry, wet, snowy, ...), visual conditions in adjacent tours, frequentation"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
@@ -7132,7 +7130,7 @@ msgstr "fresh avalanche trace"
 # option "recent_avalanche" à l'édition
 # [WARNING] en translation used
 msgid "recent_avalanche_long"
-msgstr "fresh avalanche trace (after last snowfall, rain, galen thaw)"
+msgstr "fresh avalanche trace (after last snowfall, rain, gale, thaw)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents

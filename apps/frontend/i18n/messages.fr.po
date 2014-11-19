@@ -1564,7 +1564,7 @@ msgstr "Cette carte n'existe pas."
 # [general comment]
 # Intitulé du lien vers la page carto
 msgid "Map tool"
-msgstr "Outil cartographie"
+msgstr "Outil carto"
 
 msgid "Mapquest/OSM"
 msgstr "Mapquest et données OpenStreetMap"
@@ -3069,7 +3069,7 @@ msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
 "Détaillez vos observations relatives à la stabilité du manteau neigeux :\n"
 "<h4>Signaux d'alerte</h4>\n"
 "- corniches récentes<br />\n"
-"- structures de plaque détectées au bâton\n"
+"- structures de plaque détectées au bâton<br />\n"
 "- bruits de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
 "- fissures s'ouvrant en avançant<br />\n"
 "<h4>Avalanches</h4>\n"
@@ -3083,7 +3083,7 @@ msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
 msgid "_avalanche_infos_info"
 msgstr "<h3>Observations relatives aux avalanches</h3>\n"
-"Observations des signaux d'alerte, des tracs d'avalanche récentes, et des avalanches naturelle ou accidentelles vues le jour de la sortie."
+"Observations des signaux d'alerte, des traces d'avalanche récentes, et des avalanches naturelle ou accidentelles vues le jour de la sortie."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Initiation</h3>\n"
@@ -3751,7 +3751,7 @@ msgstr "<h3>Adapté au snowboard</h3>\n"
 "Itinéraire comportant très peu de plat ou de traversée."
 
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>difficulté raquette</h3>\n"
+msgstr "<h3>Cotation raquette</h3>\n"
 "Cotation des difficultés d'un itinéraire de randonnée en raquettes à neige.<br />\n"
 "<br />\n"
 "<strong>R1</strong>&nbsp;: Pentes faibles (< 20°) et balisage serré sur des itinéraires souvent tracés et bénéficiant d'un balisage spécifique rapproché.<br />\n"
@@ -4207,7 +4207,7 @@ msgstr "Le contenu du sac"
 # [comment]
 # Sélection erronée
 msgid "bad choice error"
-msgstr "sélection incorrecte"
+msgstr "la sélection est incorrecte"
 
 msgid "baleares"
 msgstr "Îles Baléares"
@@ -4298,11 +4298,6 @@ msgstr "Bourgogne"
 msgid "bretagne"
 msgstr "Bretagne"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
-# [comment]
-# je pense qu'il vaut meiux préciser de montagne 
 # [WARNING] needs_review
 msgid "building"
 msgstr "refuge"
@@ -4545,9 +4540,8 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li>\n"
 "<li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
-# [WARNING] needs_review
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche des sorties"
+msgstr "Critères de recherche de récits de sorties"
 
 msgid "cda_search_routes_tips"
 msgstr "Critères de recherche d'itinéraires"
@@ -4674,7 +4668,7 @@ msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
 msgid "conditions_and_equipment"
-msgstr "Conditions de terrain, équipement et qualité du rocher rencontrées (approche, voie, et à proximité)&nbsp;:"
+msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche, voie, et à proximité)&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
@@ -5009,7 +5003,7 @@ msgid "english"
 msgstr "anglais"
 
 msgid "enter URL or paste it from clipboard"
-msgstr "entrer ou copier l'URL de l'image"
+msgstr "URL de l'image"
 
 msgid "enter place name"
 msgstr "Saisir un nom de lieu"
@@ -5182,9 +5176,8 @@ msgstr "des itinéraires associés"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] needs_review
 msgid "for outings"
-msgstr "sorties"
+msgstr "des sorties"
 
 msgid "forum and topoguide names"
 msgstr "Nom topoguide et pseudo forum"
@@ -5242,7 +5235,7 @@ msgid "gear_default"
 msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
 
 msgid "gear_shop"
-msgstr "magasin de sport, location de matériel, réparation"
+msgstr "magasin de sport, location, réparation"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
@@ -5374,7 +5367,7 @@ msgstr "Dénivelé&nbsp;:"
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
 msgid "help pic"
-msgstr "aide d'utilisation du site"
+msgstr "aide du site"
 
 msgid "hide form"
 msgstr "Cacher le formulaire"
@@ -7191,7 +7184,7 @@ msgid "snowshoeing"
 msgstr "raquette"
 
 msgid "snowshoeing_rating"
-msgstr "difficulté raquette&nbsp;:"
+msgstr "Cotation raquette&nbsp;:"
 
 msgid "snowshoes"
 msgstr "raquettes"
@@ -7335,7 +7328,7 @@ msgid "terms of use"
 msgstr "Conditions d'utilisation"
 
 msgid "thanks for new outing"
-msgstr "Merci d'avoir publié votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
+msgstr "Merci pour votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
