@@ -624,7 +624,7 @@ if (isset($_POST['form_sent']))
                                   $mail_subject = trim(substr($mail_tpl, 8, $first_crlf-8));
                                   $mail_message = trim(substr($mail_tpl, $first_crlf));
                                   $mail_message = str_replace('<replier>', $username, $mail_message);
-                                  $protocol = isset($_SERVER['HTTP_X_FORWARDED_PROTO'] && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ?
+                                  $protocol = isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ?
                                               'https://' : 'http://';
                                   $mail_message = str_replace('<post_url>',
                                                               $proto . $_SERVER['HTTP_HOST']."/documents/comment/$doc_param[0]/$doc_param[1]",
