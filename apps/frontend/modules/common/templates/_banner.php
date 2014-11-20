@@ -32,7 +32,7 @@ if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BAN
 <![endif]-->
 
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adserver'): // ADSERVER ?>
-<iframe src="//server1.affiz.net/tracking/iframe_display.php?n=323739345f343337315f3135383935_3418e88a4d" width="468" height="60" frameborder="0" scrolling="no"></iframe>
+<iframe src="/affiz.html" width="468" height="60" frameborder="0" scrolling="no"></iframe>
 
 <?php else: //// CUSTOM IMAGE BANNER ////
     $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
