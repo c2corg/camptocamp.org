@@ -6,8 +6,6 @@
 $referer = parse_url($_SERVER['HTTP_REFERER'])['host'];
 if ($referer !== $_SERVER['HTTP_HOST']) {
   header('HTTP/1.0 400 Bad Request');
-  var_dump($referer);
-  var_dump($_SERVER['HTTP_HOST']);
   exit('invalid referer');
 }
 
