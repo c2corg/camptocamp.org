@@ -16,8 +16,8 @@ $has_outing_route_desc = !empty($outing_route_desc);
 $has_conditions = !empty($conditions);
 $has_weather_or_timing = (!empty($weather) || !empty($timing));
 $has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
-$has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
-$has_avalanche_desc = $has_avalanche_date && !empty($avalanche_desc);
+$has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !in_array(0, $avalanche_date);
+$has_avalanche_desc = $has_avalanche_date && !in_array(1, $avalanche_date) && !empty($avalanche_desc);
 
 // hide condition levels if ski, snow, ice_climbing or snowshoeing are not among outing activities
 if (!array_intersect(array(1,2,5,7), $activities))
@@ -70,70 +70,62 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
         $condition_name = 'conditions_and_equipment';
     }
     $lang = $needs_translation ? ' lang="' . $needs_translation . '"' : '';
-    $conditions_title = content_tag('div', __($condition_name), array('class' => 'section_subtitle htext',
-            'id' => '_'.$condition_name, 'data-tooltip' => ''))
-                        . '<div class="field_value"' . $lang . '>';
+    $conditions_title = content_tag('div', __($condition_name), array('class' => 'section_subtitle htext'
+                                                                    , 'id' => '_'.$condition_name
+                                                                    , 'data-tooltip' => ''))
+                      . '<div class="field_value"' . $lang . '>';
     
     if ($has_conditions_levels)
     {
         $conditions_levels_string = conditions_levels_data($conditions_levels);
     }
     
-    $avalanche_title_level = 0;
-    $conditions_sub_title = '';
     $avalanche_string = '';
     if ($has_avalanche_date)
     {
-        $avalanche_title_level = 3;
-        if ($has_conditions)
-        {
-            if (preg_match('{^(\s*\n|)(\#{2,6})}s', $conditions, $match))
-            {
-                $avalanche_title_level = strlen($matches[2]);
-            }
-            else
-            {
-                $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
-            }
-        }
-        
         $avalanche_desc_string = '';
         if ($has_avalanche_desc)
         {
             $avalanche_desc_string .= parse_links(parse_bbcode($avalanche_desc, $images, false));
         }
         
-        $avalanche_title_class = 'htext' . ($has_conditions_levels ? '' : ' hfirst');
-        $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="' . $avalanche_title_class . '"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-        $avalanche_date_string = '<p>'
-                               . c2cTools::multibyte_ucfirst(get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list'))
+        $avalanche_title = content_tag('div', __('avalanche_infos'), array('class' => 'section_subtitle htext'
+                                                                       , 'id' => '_avalanche_infos'
+                                                                       , 'data-tooltip' => ''))
+                          . '<div class="field_value"' . $lang . '>';
+        $avalanche_date_string = field_data_from_list_if_set($document, 'avalanche_date', 'mod_outings_avalanche_date_list', array('multiple' => true, 'raw' => true));
+        $avalanche_date_string = '<p class="avalanche_date">'
+                               . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
+                               . '.'
                                . '</p>';
 
         $avalanche_string = $avalanche_title
                           . $avalanche_date_string
-                          . $avalanche_desc_string;
+                          . $avalanche_desc_string
+                          . '</div>';
     }
     
     $conditions_string = '';
     if ($has_conditions)
     {
-        $conditions_string = $conditions_sub_title
-                           . parse_links(parse_bbcode($conditions, $images, false));
+        $conditions_string = parse_links(parse_bbcode($conditions, $images, false));
     }
     
     if ($has_conditions_levels)
     {
-        if ($has_conditions || $has_avalanche_date)
+        if ($has_conditions)
         {
-            $conditions_string = '<div class="col_left col_66">'
-                               . $avalanche_string
+            $conditions_string = '<div class="field_value"' . $lang . '>'
                                . $conditions_string
                                . '</div>';
         }
         $conditions_string = $outing_route_desc_string
                            . $conditions_title
                            . $conditions_levels_string
+                           . '</div>'
+                           . '<div class="col_left col_66">'
                            . $conditions_string
+                           . $avalanche_string
                            . '</div>'
                            . $other_conditions;
     }
@@ -142,10 +134,11 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
         $conditions_string = '<div class="col_left col_66 hfirst">'
                            . $outing_route_desc_string
                            . $conditions_title
-                           . $avalanche_string
                            . $conditions_string
+                           . '</div>'
+                           . $avalanche_string
                            . $other_conditions
-                           . '</div></div>';
+                           . '</div>';
     }
     
     echo $conditions_string;

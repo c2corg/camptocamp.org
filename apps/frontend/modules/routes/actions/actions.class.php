@@ -597,6 +597,9 @@ class routesActions extends documentsActions
             }
         }
 
+        $activities_type = $this->getRequestParameter('acttyp', 1);
+        $activities_param = ($activities_type == 1) ? '' : 'oact';
+
         $this->addListParam($out, 'areas');
         $this->addAroundParam($out, 'parnd');
 
@@ -620,7 +623,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'ralt');
         $this->addCompareParam($out, 'dhei');
         $this->addCompareParam($out, 'rappr');
-        $this->addListParam($out, 'act');
+        $this->addListParam($out, 'act', $activities_param);
         $this->addListParam($out, 'sub', '', '', true);
         $this->addListParam($out, 'conf');
         $this->addFacingParam($out, 'fac');

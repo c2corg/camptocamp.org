@@ -730,7 +730,7 @@ h1 .logo_mini
 {
   font-weight: bold;
   font-style: italic;
-  color: #888;
+  color: #666;
   cursor: help;
   display: inline;
   clear: none;
@@ -835,6 +835,11 @@ span.default_text, p.default_text
 .article p.list_link
 {
   margin-top: 0.7em;
+}
+.article p.avalanche_date
+{
+  margin-bottom: 0.7em;
+  font-style: italic;
 }
 
 .switch_lang
@@ -3505,7 +3510,10 @@ a .linked_elt
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst, .article .hfirst, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
+ul.recent_conditions li .htext {
+  margin-top: 0.3em;
+}
+.hfirst:first-child, .article .hfirst:first-child, #conditions_levels_table + .htext, .section_subtitle + .htext, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
 {
   margin-top: 0 !important;
 }
@@ -3738,7 +3746,7 @@ ul.toc a:hover
 ul.text
 {
   list-style-type: disc;
-  padding: 0 1.5em;
+  padding: 0 0.5em 0 1.5em;
 }
 
 ul.text li, ol.text li
@@ -3783,7 +3791,7 @@ ol.text ol.text ol.text
 .route_lines th, .route_lines td
 {
   vertical-align: top;
-  padding: 0.2em 0.6em 0.2em 0.6em;
+  padding: 0.2em 0.4em 0.2em 0.4em;
 }
 .route_lines th:first-child
 {
@@ -3819,11 +3827,11 @@ ol.text ol.text ol.text
 }
 .sites_content .route_lines td:first-child
 {
-  padding-left: 0.3em;
+  padding-left: 0.2em;
 }
 .sites_content .route_lines td:last-child
 {
-  padding-right: 0.3em;
+  padding-right: 0.2em;
 }
 
 .portals_content .route_lines th

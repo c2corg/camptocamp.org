@@ -39,6 +39,7 @@ STATIC_BASE_URL =
 
 ; IGN API key
 GEOPORTAIL_KEY = 8496962411014383560
+GEOPORTAIL_HTTPS_KEY = 12345678910111213
 ; Google API key. This one below is used on production and configured for access
 ; from *.camptocamp.org/* and localhost only
 ; Create one adapted for your needs (if needed) from https://code.google.com/apis/console
@@ -123,6 +124,10 @@ MINIFY_DEBUG =  false
 ; Whether this version is the official camptocamp
 PRODUCTION = false
 
+; use https for the login process
+HTTPS_LOGIN = false
+
+; Concours changer d'approche
 MW_CONTEST_ID = 407724
 MW_CONTEST_ENABLED = false
 

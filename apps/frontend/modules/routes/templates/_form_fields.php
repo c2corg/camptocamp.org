@@ -40,12 +40,12 @@ echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'c
 echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div data-act-filter="1 2 3 6">
+<div data-act-filter="1 2 3 6 7">
 <?php
 echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
-<div  data-act-filter="6">
+<div  data-act-filter="6 7">
 <?php
 echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 
@@ -149,7 +149,7 @@ echo file_upload_tag('gps_data');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'medlargetext', 'abstract' => true, 'route_line' => true));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'medlargetext', 'abstract' => true, 'route_line' => true, 'placeholder' => __('routes_description_default')));
 echo object_group_bbcode_tag($document, 'remarks', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'placeholder' => __('gear_default'), 'no_img' => true));
 

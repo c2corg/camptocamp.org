@@ -115,10 +115,6 @@ else:
             $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
             $has_conditions_levels = !empty($conditions_levels) && count($conditions_levels);
-            $avalanche_date = $item['avalanche_date'];
-            $has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
-            $avalanche_desc = $i18n['avalanche_desc'];
-            $has_avalanche_desc = $has_avalanche_date && check_not_empty($avalanche_desc) && !($avalanche_desc instanceof sfOutputEscaperObjectDecorator);
             if ($has_conditions || $has_conditions_status || $has_conditions_levels || $has_avalanche_date): ?>
                 <li><div class="section_subtitle" id="_conditions" data-tooltip=""><?php echo __('conditions_status') ?></div>
                 <?php
@@ -132,49 +128,31 @@ else:
                     echo conditions_levels_data($conditions_levels);
                 }
                 
-                $avalanche_title_level = 0;
-                $conditions_sub_title = '';
-                $avalanche_string = '';
-                if ($has_avalanche_date)
-                {
-                    $avalanche_title_level = 3;
-                    if ($has_conditions)
-                    {
-                        if (preg_match('{^(\s*\n|)(\#{2,6})}s', $conditions, $match))
-                        {
-                            $avalanche_title_level = strlen($matches[2]);
-                        }
-                        else
-                        {
-                            $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
-                        }
-                    }
-                    
-                    $avalanche_desc_string = '';
-                    if ($has_avalanche_desc)
-                    {
-                        $avalanche_desc_string .= parse_links(parse_bbcode($avalanche_desc, null, false, false));
-                    }
-                    
-                    $avalanche_title_class = 'htext' . ($has_conditions_levels ? '' : ' hfirst');
-                    $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="' . $avalanche_title_class . '"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-                    $avalanche_date_string = '<p>'
-                                           . c2cTools::multibyte_ucfirst(get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list'))
-                                           . '</p>';
-
-                    $avalanche_string = $avalanche_title
-                                      . $avalanche_date_string
-                                      . $avalanche_desc_string;
-                }
-                
-                $conditions_string = '';
                 if ($has_conditions)
                 {
-                    $conditions_string = $conditions_sub_title
-                                       . parse_links(parse_bbcode($conditions, null, false, false));
+                    echo parse_links(parse_bbcode($conditions, null, false, false));
                 }
-                
-                echo $avalanche_string, $conditions_string;
+                ?>
+                </li>
+            <?php endif;
+            
+            $avalanche_date = $item['avalanche_date'];
+            $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
+            $avalanche_desc = $i18n['avalanche_desc'];
+            $has_avalanche_desc = $has_avalanche_date && check_not_empty($avalanche_desc) && !($avalanche_desc instanceof sfOutputEscaperObjectDecorator);
+            if ($has_avalanche_date): ?>
+                <li><div class="section_subtitle" id="_avalanche_infos" data-tooltip=""><?php echo __('avalanche_infos') ?></div>
+                <?php
+                $avalanche_date_string = get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list');
+                echo '<p class="avalanche_date">'
+                   . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
+                   . '.'
+                   . '</p>';
+
+                if ($has_avalanche_desc)
+                {
+                    echo parse_links(parse_bbcode($avalanche_desc, null, false, false));
+                }
                 ?></li>
             <?php endif;
 

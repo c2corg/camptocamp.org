@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, altissimo, camp_i, adserver, adserver, adserver, montania, altissimo, adserver, camp_i, adserver, altissimo ]
+    values: [ diamir_vipec, adserver, camp_e, diamir_vipec, ortovox, adserver, montania, diamir_vipec, adserver, camp_e, diamir_vipec, adserver ]
   banners:
     list:
       skalp:
@@ -271,7 +271,7 @@ all:
         alt: "Montagnes de la Terre"
       diamir_vipec:
         id: 79
-        image: diamir-vipec.gif
+        image: diamir-vipec2015b.gif
         alt: "Diamir Vipec"
       diamir_colorclip:
         id: 79
@@ -295,4 +295,9 @@ all:
         id: 93
         image: altissimo.gif
         alt: "Altissimo"
+      ortovox:
+        type: flash
+        width: 468
+        height: 60
+        file: ortovox-safety.swf
 

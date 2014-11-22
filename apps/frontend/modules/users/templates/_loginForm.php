@@ -1,7 +1,9 @@
 <?php use_helper('Form', 'MyForm', 'Link'); ?>
 <div id="fake_div">
 <?php
-echo form_tag('@login', array('id' => 'loginForm')); 
+$form_action = sfConfig::get('app_https_login', false) ? str_replace('http://', 'https://', url_for('@login', true)) : '@login';
+
+echo form_tag($form_action, array('id' => 'loginForm'));
 include_partial('users/loginFields');
 if (isset($redirect_param) && !empty($redirect_param))
 {

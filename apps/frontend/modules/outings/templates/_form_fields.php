@@ -121,7 +121,7 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 ?>
-<div data-act-filter="1 2 3 6 7">
+<div data-act-filter="1 2 3 6 7 8">
 <?php
 echo object_group_bbcode_tag($document, 'outing_route_desc', null, array('class' => 'smalltext', 'placeholder' => __('outing_route_desc_default')));
 
@@ -187,30 +187,54 @@ tbody.on('click', '.remove-condition-level', function(e) {
 echo end_group_tag();
 // end of conditions levels fields
 
-echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true, 'na' => array(0)));
 ?>
-<div id="avalanche_desc_form">
-<?php
-echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('placeholder' => __('avalanche_desc_tooltip')));
-?>
-</div>
 </div>
 <?php
 
 $activities = $document->getRaw('activities');
-$field_title = null;
 if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !array_intersect($activities, array(1,6,7))))
 {
-    $field_title = 'conditions_and_equipment';
+    $conditions_title = 'conditions_and_equipment';
+    if (array_intersect($activities, array(2,5)))
+    {
+        $conditions_default = 'conditions_ice_default';
+    }
+    else
+    {
+        $conditions_default = 'conditions_rock_default';
+    }
 }
-echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'medlargetext'), true, $field_title);
+else if (array_intersect($activities, array(1,7)))
+{
+    $conditions_title = null;
+    $conditions_default = 'conditions_ski_default';
+}
+else
+{
+    $conditions_title = null;
+    $conditions_default = 'conditions_hike_default';
+}
+
+echo object_group_bbcode_tag($document, 'conditions', $conditions_title, array('class' => 'mediumtext', 'placeholder' => __($conditions_default)), true, $conditions_title);
+?>
+<div data-act-filter="1 2 5 7">
+<?php
+echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true));
+?>
+<div id="avalanche_desc_form">
+<?php
+echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('class' => 'smalltext', 'placeholder' => __('avalanche_desc_tooltip')));
+?>
+</div>
+</div>
+<?php
 echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>
 <p class="edit-tips"><?php echo __('link contributors in view page') ?></p>
 <?php
 echo object_group_bbcode_tag($document, 'timing', null, array('class' => 'smalltext', 'no_img' => true));
-echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext'));
+echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext', 'placeholder' => __('outings_description_default')));
 echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');
 

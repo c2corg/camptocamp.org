@@ -84,8 +84,7 @@ Ext.onReady(function () {
             actionTarget: "center.tbar",
             emptyText: OpenLayers.i18n("Go to..."),
             loadingText: OpenLayers.i18n("Please wait..."),
-            url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
-                 "&username=c2corg&lang=" + OpenLayers.Lang.getCode()
+            url: "/geonames.php?lang=" + OpenLayers.Lang.getCode()
         },
         {
             ptype: "cgxp_help",

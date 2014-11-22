@@ -12,7 +12,8 @@ echo georef_selector('With GPS track:');
 $activities_raw = $sf_data->getRaw('activities');
 $paragliding_tag = sfConfig::get('app_tags_paragliding');
 $paragliding_tag = implode('/', $paragliding_tag);
-echo __('activities') . ' ' . activities_selector(true, true, $activities_raw, array(8 => $paragliding_tag));
+echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_routes_activities_type_list', array('keepfirst' => false, 'filled_options' => false));
+echo activities_selector(true, true, $activities_raw, array(8 => $paragliding_tag));
 ?>
 <fieldset>
 <?php

@@ -2260,6 +2260,9 @@ msgstr "Formulari d'inscripció"
 msgid "Site not found"
 msgstr "La zona d'escalada no existeix"
 
+msgid "Snow elevation is correct?"
+msgstr "Són correctes les cotes d'accés i de calçat/descalçat dels esquís?"
+
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "Snow list"
@@ -3056,17 +3059,36 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i Allaus recents de la zona on el document està georeferenciat.<br />Per una sortida feta a Suïssa, els butlletins del dia abans i del dia de la sortida també són disponibles.<br />Atenció: per a la resta de països, només hi ha disponible el darrer butlletí, que per tant no correspondrà al dia de la sortida."
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
-# [WARNING] en translation used
+# aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] needs_update
 msgid "_avalanche_date_info"
-msgstr "<h3>Type of observations releated to avalanches</h3>\n"
-"Type of observations of avalanche or danger signs (multiple choice possible)."
+msgstr "<h3>Tipus d'observació relativa a les allaus</h3>\n"
+"Tipus d'observacio d'allaus o de senyals d'alerta (se'n pot triar més d'un).<br />"
 
 # [general comment]
-# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
-# [ERROR] no available translation
+# aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] en translation used
 msgid "_avalanche_desc_info"
-msgstr "MISSING TRANSLATION"
+msgstr "<h3>Description of avalanche observations</h3>\n"
+"Give your observations conerning the snowpack stability:\n"
+"<h4>Danger signs</h4>\n"
+"- recent cornices<br />\n"
+"- slab structure detected with ski pole<br />\n"
+"- settling sounds (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- shooting cracks<br />\n"
+"<h4>Avalanches</h4>\n"
+"- signs of recent avalanche activity (fracture lines, avalanche track, deposit)<br >\n"
+"- nautral avalanches or skier-triggered avalanches observed directly<br /><br />\n"
+"For each avalanche, indicate:<br />\n"
+"- type of avalanche : dry or wet snow, point or slab release<br />\n"
+"- location, elevation and approximate dimensions of the avalanche in the start zone and in the deposit zone<br />"
+
+# [general comment]
+# aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
+# [WARNING] en translation used
+msgid "_avalanche_infos_info"
+msgstr "<h3>Observations relating to avalanches</h3>\n"
+"Observations of danger signs, fresh avalanche trace, and natural avalanche or human-triggered avalanche the day of the outing."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Iniciació</h3>\n"
@@ -3133,17 +3155,13 @@ msgstr "<h3>Condicions del terreny, equipament i qualitat de la roca trobades</h
 "<br />\n"
 "Les <em>Condicions trobades</em> i la <em>Innivació per zones</em> són importants per avaluar l'evolució en els propers dies, ompliu-les amb cura."
 
+# [WARNING] needs_update
 msgid "_conditions_info"
 msgstr "<h3>Condicions trobades</h3>\n"
 "Detalls de les condicions del terreny trobades a l'itinerari (aproximació i via) durant la sortida, així com les condicions apreciades visualment d'itineraris veïns.<br />\n"
 "Les condicions del terreny no tenen en compte la meteorologia.<br />\n"
-"Aquesta informació és susceptible de perdre la seva validesa ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos en la informació donada en aquests camps.<br />\n"
-"<br />\n"
-"<strong>Durant una edició:</strong><br /><br />\n"
-"L'itinerari realment recorregut ha de ser descrit ràpidament si la descripció comporta variants, o si s'ha seguit una variant no descrita, o si hem girat cua abans del cim.<br />\n"
-"<br />\n"
-"Per un itinerari nevat, mencioneu també l'activitat d'allaus observada: observació en directe o traces d'antigues allaus.<br />\n"
-"<br />\n"
+"Aquesta informació és susceptible de perdre la seva validesa ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos en la informació donada en aquests camps.\n"
+"<h4>Durant una edició:</h4>\n"
 "Les <em>Condicions trobades</em> i la <em>Innivació per zones</em> són importants per avaluar l'evolució en els propers dies, ompliu-les amb cura."
 
 msgid "_conditions_levels_info"
@@ -3559,6 +3577,15 @@ msgstr "<h3>Riscos objectius</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a la sortida.<br />Aquesta informació es calcula a partir de la traça GPX associada, i no és disponible per a un document que no compti amb una traça GPX. <br />La longitud serà substituïda si una nova traça GPX és associada al document."
 
+msgid "_outing_route_desc_info"
+msgstr "<h3>Itinerari seguit</h3>\n"
+"Descriviu breument l'itinerari que heu seguit, sobretot en els següents casos:<br />\n"
+"- itinerari diferent del de la guia de ressenyes<br />\n"
+"- ressenya que contingui variants<br />\n"
+"- itinerari circular (indiqueu els llocs i les altituds de final de pujada i de final de baixada)<br />\n"
+"- encadenament de diversos itineraris (associeu-los a la sortida després de la seva creació)<br />\n"
+"- recorregut parcial (indiqueu el punt assolit i corregiu l'altitud màxima en el camp corresponent)"
+
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Sortida amb ecomobilitat</h3>\n"
 "Indica si la sortida ha estat feta utilitzant transport públic o bicicleta per accedir al punt d'inici. No s'han de tenir en compte els remuntadors mecànics.<br />Si marques aquesta casella, la sortida apareixerà al portal <a href=\"http://www.camptocamp.org/portals/219879\">A la muntanya sense cotxe</a>.<br />\n"
@@ -3722,22 +3749,21 @@ msgid "_snowboard_info"
 msgstr "<h3>Adaptat al surf de neu</h3>\n"
 "Itinerari amb molt poc pla o flanqueig."
 
-# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Grau de dificultat amb raquetes</h3>\n"
-"Gradació de les dificultats d'un itinerari de raquetes.<br />\n"
+"Escala de dificultats d'un itinerari de raquetes.<br />\n"
 "<br />\n"
-"<strong>R1</strong>: Pendents suaus (< 20°), camí específicament marcat i sovint amb traça oberta.<br />\n"
+"<strong>R1</strong>: Pendents suaus (< 20°), camí abalisat específicament per fer amb raquetes i sovint amb traça oberta.<br />\n"
 "<br />\n"
 "<strong>R2</strong>: Itineraris no senyalitzats per pendents suaus (<20°) que no impliquen haver de progressar en ziga-zaga ni flanquejar per pendents forts.<br />\n"
 "<br />\n"
-"<strong>R3</strong>: Itineraris per pendents força pendents (<30°), que poden demanar progressar fent ziga-zagues o flanquejar vessants pendents i exposats.<br />\n"
+"<strong>R3</strong>: Itineraris per pendents força pendents (<30°), que poden requerir progressar fent ziga-zagues o flanquejar vessants pendents i exposats.<br />\n"
 "<br />\n"
-"<strong>R4</strong>: El mateix que R3 però més pendent (<40°). Amb neus dures, alguns passatges poden obligar a treure's les raquetes o utilitzar ganivetes.<br />\n"
+"<strong>R4</strong>: El mateix que R3 però amb més pendent (<40°). Amb neus dures, alguns passatges poden obligar a treure's les raquetes o utilitzar ganivetes.<br />\n"
 "<br />\n"
 "<strong>R5</strong>: Itineraris per pendents molt forts (passatges >40° o trams sostinguts a més de 35°) que requereixen l'ús de grampons, piolet o corda per superar dificultats com corredors, arestes esmolades i molt exposades, una barra rocallosa. A partir de 35º, un llarg pendent sense obstacles significatius serà considerat com a molt fort i l'itinerari es graduarà com a R5.<br />\n"
 "<br />\n"
-"<strong>Atenció</strong>: Si les dificultats que impliquen progressar sense raquetes són llargues o constitueixen l'objectiu principal, aleshores l'itinerari haurà de ser <a href=\"/articles/188413/fr\">graduat en tant que itinerari d'alpinisme. Un itinerari situat al límit entre les raquetes i l'alpinisme podrà associar-se a les dues activitats.<br />\n"
+"<strong>Atenció</strong>: Si les dificultats que impliquen progressar sense raquetes són llargues o constitueixen l'objectiu principal, aleshores l'itinerari haurà de ser <a href=\"/articles/188413/fr\">graduat en tant que itinerari d'alpinisme i no de raquetes, després d'haver seleccionat l'activitat adequada. Un itinerari situat al límit entre les raquetes i l'alpinisme podrà associar-se a les dues activitats.<br />\n"
 "<br /> Vegeu també l'ajuda a la <a href=\"/articles/239491/ca\">dificultat en raquetes</a>."
 
 msgid "_source file_info"
@@ -3875,9 +3901,13 @@ msgstr "Altitud de l'accés:"
 msgid "access_status"
 msgstr "Accés:"
 
-# [WARNING] en translation used
 msgid "accidental_avalanche"
-msgstr "human-triggered avalanche the day of the outing"
+msgstr "allau accidental el dia de la sortida"
+
+# [general comment]
+# option "accidental_avalanche" à l'édition
+msgid "accidental_avalanche_long"
+msgstr "allau desencadenada per una persona el dia de la sortida"
 
 msgid "accommodation"
 msgstr "Allotjament i restauració a proximitat:"
@@ -4120,25 +4150,29 @@ msgstr "Suïssa (francès)"
 msgid "avalanche.en ML title"
 msgstr "Suïssa (anglés)"
 
-# [WARNING] en translation used
 msgid "avalanche_date"
-msgstr "Type of observations releated to avalanches:"
+msgstr "Tipus d'observació relativa a les allaus:"
 
-# [WARNING] en translation used
 msgid "avalanche_desc"
-msgstr "Observation description:"
+msgstr "Descripció del que s'ha observat:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [ERROR] no available translation
+# [WARNING] en translation used
 msgid "avalanche_desc_tooltip"
-msgstr "MISSING TRANSLATION"
+msgstr "Desribe your observations concerning snow stability:\n"
+"fresh cornices, \"woum\"-sounds, recent avalanches, directly observed avalanches. For an avalanche, indicate the approximate location, elevation and the dimensions of the fracture and the avalanche debris."
 
 # [general comment]
-# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
+# Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
+msgid "avalanche_infos"
+msgstr "Observacions relatives a les allaus:"
+
+# [general comment]
+# intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
 # [WARNING] en translation used
-msgid "avalanche_info_title"
-msgstr "Observations releated to avalanches"
+msgid "avalanche_infos_short"
+msgstr "Avalanche information"
 
 msgid "awful conditions"
 msgstr "execrables"
@@ -4259,9 +4293,6 @@ msgstr "Borgonya"
 msgid "bretagne"
 msgstr "Bretanya"
 
-# [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
-# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
 msgstr "refugi"
@@ -4611,8 +4642,32 @@ msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aprox
 "\n"
 "Condicions trobades:"
 
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
+# [WARNING] en translation used
+msgid "conditions_hike_default"
+msgstr "Give here the following observations: terrain conditions on tour (dry, wet, snowy, ...), visual conditions in adjacent tours, frequentation"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "conditions_ice_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
+
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "conditions_rock_default"
+msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
+
+# [general comment]
+# texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
+# [WARNING] fr translation used
+msgid "conditions_ski_default"
+msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
 msgid "conditions_status"
 msgstr "Condicions:"
@@ -4725,15 +4780,13 @@ msgstr "versió actual"
 msgid "current_password"
 msgstr "Escrigueu la vostra contrasenya actual:"
 
-# [WARNING] en translation used
 msgid "danger_sign_avalanche"
-msgstr "danger signs"
+msgstr "senyals de perill"
 
 # [general comment]
-# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
-# [WARNING] en translation used
-msgid "danger_sign_avalanche_tooltip"
-msgstr "other than real avalanche"
+# option "danger_sign_avalanche" à l'édition
+msgid "danger_sign_avalanche_long"
+msgstr "senyals de perill diferents a traces d'allaus"
 
 msgid "dangerous"
 msgstr "perillós"
@@ -5188,6 +5241,7 @@ msgstr "hostal"
 msgid "glacier"
 msgstr "glacera"
 
+# [WARNING] needs_update
 msgid "glacier config can't be selected with another config"
 msgstr "la configuració \"recorregut de glacera\" només es pot seleccionar si cap de les altres configuracions no s'hi correspon"
 
@@ -5952,9 +6006,13 @@ msgstr "Regió de Múrcia"
 msgid "name"
 msgstr "Nom:"
 
-# [WARNING] en translation used
 msgid "natural_avalanche"
-msgstr "natural avalanche the day of the outing"
+msgstr "allau espontània el dia de la sortida"
+
+# [general comment]
+# option "natural_avalanche" à l'édition
+msgid "natural_avalanche_long"
+msgstr "allau espontània el dia de la sortida"
 
 msgid "naturally cleared"
 msgstr "neteja natural"
@@ -6079,9 +6137,16 @@ msgstr "cap correspondència"
 msgid "no service"
 msgstr "cap servei"
 
-# [WARNING] en translation used
 msgid "no_observation_avalanche"
-msgstr "no danger signs or avalanche observed"
+msgstr "no s'ha observat cap senyal de perill ni traça d'allaus recents"
+
+msgid "no_observation_avalanche can't be selected with another option"
+msgstr "l'opció \"cap observació\" no es pot seleccionar simultàniament a cap de les altres opcions"
+
+# [general comment]
+# option "no_observation_avalanche" à l'édition
+msgid "no_observation_avalanche_long"
+msgstr "no s'ha observat cap senyal de perill ni de traça d'allau recent"
 
 msgid "non applicable"
 msgstr "no aplicable"
@@ -6216,6 +6281,13 @@ msgstr "<strong>Atenció!</strong> A aquesta pàgina només hi heu d'indicar inf
 msgid "outing_length"
 msgstr "Distància: "
 
+msgid "outing_route_desc"
+msgstr "Itinerari seguit:"
+
+# [WARNING] needs_review
+msgid "outing_route_desc_default"
+msgstr "Descriviu breument l'itinerari que heu seguit: si és diferent del de la guia de ressenyes, si heu seguit alguna variant, per descriure una volta o un encadenament d'itineraris, o bé per descriure el punt assolit en cas de recorregut parcial."
+
 msgid "outing_with_public_transportation"
 msgstr "Sortida amb ecomobilitat"
 
@@ -6233,6 +6305,12 @@ msgstr "Una sortida permet a l'usuari descriure les condicions trobades a un iti
 
 msgid "outings using PT from this access point"
 msgstr "Les sortides fetes amb ecomobilitat des d'aquest accés."
+
+# [general comment]
+# texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "outings_description_default"
+msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
 
 msgid "overhanging wall"
 msgstr "extraplomat"
@@ -6664,9 +6742,13 @@ msgstr "Cot."
 msgid "recent conditions"
 msgstr "Condicions recents"
 
-# [WARNING] en translation used
 msgid "recent_avalanche"
-msgstr "fresh avalanche trace"
+msgstr "traça d'allau recent"
+
+# [general comment]
+# option "recent_avalanche" à l'édition
+msgid "recent_avalanche_long"
+msgstr "traça d'allau recent (després de la darrera nevada, pluja, ventada o pujada de les temperatures)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
@@ -6846,6 +6928,12 @@ msgstr "Llista d'itineraris"
 
 msgid "routes presentation"
 msgstr "Un itinerari uneix diversos punts geogràfics. Un itinerari ha d'estar associat a un o a diversos cims i es pot associar a accessos i a refugis."
+
+# [general comment]
+# texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
+# [WARNING] fr translation used
+msgid "routes_description_default"
+msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "routes_quantity"
 msgstr "Nombre de vies:"

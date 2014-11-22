@@ -79,7 +79,7 @@ fields:
     myChoiceValidator:
       config_choice: mod_outings_avalanche_date_list
       unique: false
-      array_exclusive: [ 1 ]
+      array_exclusive: [ 0 , 1 ]
       exclusive_choice_error: no_observation_avalanche can't be selected with another option
   gps_data:
     file: true
