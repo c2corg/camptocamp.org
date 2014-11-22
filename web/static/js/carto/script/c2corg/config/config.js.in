@@ -5,7 +5,7 @@ c2corg.config = {
     baseUrl:       "http://@SERVER_NAME@@SERVER_PORT@/",
     staticBaseUrl: "@STATIC_BASE_URL@",
     mapserverUrl:  "/cgi-bin/c2corg_wms",
-    ignKey:        "@GEOPORTAIL_KEY@",
+    ignKey:        window.location.protocol === "https:" ? "@GEOPORTAIL_HTTPS_KEY@" : "@GEOPORTAIL_KEY@",
     googleKey:     "@GOOGLE_API_KEY@",
     helpUrl:       "/articles/252637"
 };
