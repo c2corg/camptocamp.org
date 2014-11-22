@@ -36,8 +36,8 @@ c2corg.base = {
     swisstopoOptions: {
         version: "1.0.0",
         requestEncoding: "REST",
-        url: ['http://wmts0.geo.admin.ch/', 'http://wmts1.geo.admin.ch/', 'http://wmts2.geo.admin.ch/',
-              'http://wmts3.geo.admin.ch/', 'http://wmts4.geo.admin.ch/'],
+        url: ['//wmts0.geo.admin.ch/', '//wmts1.geo.admin.ch/', '//wmts2.geo.admin.ch/',
+              '//wmts3.geo.admin.ch/', '//wmts4.geo.admin.ch/'],
         style: "default",
         matrixSet: "21781",
         formatSuffix: 'jpeg',
