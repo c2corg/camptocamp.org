@@ -62,6 +62,7 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
 
         this.layer = new OpenLayers.Layer.Vector("features", {
             displayInLayerSwitcher: false,
+            isBaseLayer: false,
             styleMap: styleMap
         });
         this.map.addLayer(this.layer);

@@ -63,7 +63,7 @@ OpenLayers.Map.prototype.setBaseLayer = function(newBaseLayer) {
 
             if (hasProjectionChanged) {
                 // reproject vector layers
-               // this.updateVectorLayers();
+                this.updateVectorLayers();
             }
 
             this.events.triggerEvent("changebaselayer", {
@@ -76,13 +76,13 @@ OpenLayers.Map.prototype.setBaseLayer = function(newBaseLayer) {
 OpenLayers.Map.prototype.updateVectorLayers = function(layers) {
     if (!this.baseLayer || !this.baseLayer.projection) return;
 
-    layers = layers ? [layers] : this.layers;
+    layers = layers ? layers : this.layers;
     var bl = this.baseLayer;
 
     for (var i = 0, len = layers.length; i < len; i++) {
         var layer = layers[i];
         // for every vector layer...
-        if (layer && layer instanceof OpenLayers.Layer.Vector) {
+        if (layer && layer instanceof OpenLayers.Layer.Vector && !layer.strategies) {
             var lp = layer.projection;
             // if its projection is different from the one of the current base layer...
             if (!bl.projection.equals(lp)) {
