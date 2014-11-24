@@ -960,7 +960,7 @@ function do_video($text)
             // dailymotion
             '<iframe class="video" width="$2" height="$3" src="//www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
             // googlevideo
-            '<object class="video" width="$2" height="$3" data="http://video.google.com/googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
+            '<object class="video" width="$2" height="$3" data="//static.googleusercontent.com/media/video.google.com/ca//googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
             // vimeo
             '<iframe class="video" src="//player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3"></iframe>',
             // metacafe
