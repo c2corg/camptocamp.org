@@ -461,7 +461,7 @@ class documentsActions extends c2cActions
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
-        $this->meta_feed_url = sfConfig::get('app_meta_engine_base_url') .
+        $this->meta_feed_url =  str_replace('http:', '', sfConfig::get('app_meta_engine_base_url')) .
                                'outings?system_id=2,3,4' .
                                '&orderby=outing_date' .
                                '&outing_lang=' . implode(',', $langs) .
