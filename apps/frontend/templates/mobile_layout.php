@@ -37,6 +37,10 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         // we remove title from metas, because we don't want a <meta name=title>
         $response->getParameterHolder()->remove('title', 'helper/asset/auto/meta');
         echo include_metas();
+        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+        {
+            echo '<link rel="canonical" href="http://' . $_SERVER['HTTP_HOST'] . ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : '') . '" />';
+        }
     ?>
     <script type="text/javascript">
     (function(m,w){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=1
