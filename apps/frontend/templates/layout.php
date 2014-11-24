@@ -55,10 +55,7 @@ $response = sfContext::getInstance()->getResponse();
     <?php
         echo auto_discovery_link_tag('rss', $rss);
         echo include_meta_links();
-        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
-        {
-            echo '<link rel="canonical" href="http://' . $_SERVER['HTTP_HOST'] . ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : '') . '" />';
-        }
+        echo '<link rel="canonical" href="http://' . $_SERVER['HTTP_HOST'] . ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : '') . '" />';
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url ?>/static/opensearch/description.xml" title="Camptocamp.org" />
     <meta name="msapplication-TileColor" content="#2d89ef">
