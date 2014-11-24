@@ -40,12 +40,12 @@ echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'c
 echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div data-act-filter="1 2 3 6">
+<div data-act-filter="1 2 3 6 7">
 <?php
 echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
-<div  data-act-filter="6">
+<div  data-act-filter="6 7">
 <?php
 echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 

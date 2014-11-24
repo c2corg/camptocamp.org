@@ -107,3 +107,9 @@ all:
       'hrat':
       'wrat':
       'rlen':
+  
+  activities_type:
+    list:
+      0:
+      1: 'for routes'
+      2: 'for linked outings'
