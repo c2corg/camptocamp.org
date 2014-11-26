@@ -111,7 +111,7 @@ class Article extends BaseArticle
             $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), $prefix . 'cact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'categories'), $prefix . 'ccat', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m2 . '.article_type', $prefix . 'ctyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.article_type', $prefix . 'ctyp', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $prefix . 'ci.culture', $prefix . 'ccult', $join_i18n);
         }
         

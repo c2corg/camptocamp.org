@@ -91,6 +91,7 @@ if (!isset($page_description))
     $page_description = $lang_common['meta_description'];
 }
 
+echo '<link rel="canonical" href="http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '" />';
 ?>
 <meta name="title" content="<?php echo $page_title ?>" />
 <meta name="description" content="<?php echo $page_description ?>" />
