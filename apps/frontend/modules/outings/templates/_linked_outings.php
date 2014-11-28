@@ -121,6 +121,34 @@ else if ($is_connected)
 {
     echo ' - ', link_to(__('My outings'), "outings/list?$module=$id&myoutings=1&orderby=date&order=desc");
 }
+
+if (in_array($module, array('summits', 'parkings', 'huts', 'sites')))
+{
+    echo ' - ', link_to(picto_tag('action_gps'), "outings/list?$module=$id&geom=yes&orderby=date&order=desc");
+    
+    if (isset($lat) && !empty($lat))
+    {
+        if (isset($document))
+        {
+            $activities = $document->getRaw('activities');
+        }
+        else
+        {
+            $activities = array();
+        }
+        
+        if(count($activities))
+        {
+            $activities_url = 'act=' . implode('-', $activities) . '&';
+        }
+        else
+        {
+            $activities_url = '';
+        }
+        
+        echo ' - ', link_to(ucfirst(__('within km: ')) . '10km', "outings/list?" . $activities_url . "sarnd=$lon,$lat,10000&orderby=date&order=desc");
+    }
+}
      
 if (!$is_mobile_version)
 {
