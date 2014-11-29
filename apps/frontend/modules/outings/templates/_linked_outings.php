@@ -122,7 +122,7 @@ else if ($is_connected)
     echo ' - ', link_to(__('My outings'), "outings/list?$module=$id&myoutings=1&orderby=date&order=desc");
 }
 
-if (in_array($module, array('summits', 'parkings', 'huts', 'sites')))
+if (in_array($module, array('summits', 'routes', 'parkings', 'huts', 'sites')))
 {
     echo ' - ', link_to(picto_tag('action_gps'), "outings/list?$module=$id&geom=yes&orderby=date&order=desc");
     
