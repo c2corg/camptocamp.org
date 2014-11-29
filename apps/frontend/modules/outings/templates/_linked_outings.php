@@ -126,7 +126,7 @@ if (in_array($module, array('summits', 'routes', 'parkings', 'huts', 'sites')))
 {
     echo ' - ', link_to(picto_tag('action_gps'), "outings/list?$module=$id&geom=yes&orderby=date&order=desc");
     
-    if (isset($lat) && !empty($lat))
+    if (isset($lat) && $lat)
     {
         if (isset($document))
         {
@@ -146,7 +146,7 @@ if (in_array($module, array('summits', 'routes', 'parkings', 'huts', 'sites')))
             $activities_url = '';
         }
         
-        echo ' - ', link_to(ucfirst(__('within km: ')) . '10km', "outings/list?" . $activities_url . "sarnd=$lon,$lat,10000&orderby=date&order=desc");
+        echo ' - ', link_to(ucfirst(__('within km: ')) . ' 10km', "outings/list?" . $activities_url . "sarnd=$lon,$lat,10000&orderby=date&order=desc");
     }
 }
      
