@@ -168,7 +168,15 @@ if ($is_not_archive && $is_not_merged)
     echo end_section_tag();
 
     echo start_section_tag('Latest outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'summits', 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+    include_partial( 'outings/linked_outings'
+                   , array(
+                            'id' => $ids
+                          , 'module' => 'summits'
+                          , 'items' => $latest_outings
+                          , 'nb_outings' => $nb_outings
+                          , 'lat' => $lat
+                          , 'lon' => $lon
+                    ));
     echo end_section_tag();
     
     if ($section_list['books'])
