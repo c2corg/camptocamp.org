@@ -1547,7 +1547,7 @@ msgstr "Listar todas las imágenes asociadas"
 
 # [WARNING] es translation used
 msgid "List all linked outings"
-msgstr "Mostrar todas las salidas asociadas"
+msgstr "Todas las salidas asociadas"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
@@ -3263,14 +3263,15 @@ msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recien
 # [WARNING] en translation used
 msgid "_avalanche_date_info"
 msgstr "<h3>Type of observations releated to avalanches</h3>\n"
-"Type of observations of avalanche or danger signs (multiple choice possible).<br />"
+"Type of observations of avalanches or danger signs (multiple choice possible).<br />\n"
+"You can give precisions about observations in the following text area."
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
 # [WARNING] en translation used
 msgid "_avalanche_desc_info"
 msgstr "<h3>Description of avalanche observations</h3>\n"
-"Give your observations conerning the snowpack stability:\n"
+"Give your observations concerning the snowpack stability:\n"
 "<h4>Danger signs</h4>\n"
 "- recent cornices<br />\n"
 "- slab structure detected with ski pole<br />\n"
@@ -3278,7 +3279,7 @@ msgstr "<h3>Description of avalanche observations</h3>\n"
 "- shooting cracks<br />\n"
 "<h4>Avalanches</h4>\n"
 "- signs of recent avalanche activity (fracture lines, avalanche track, deposit)<br >\n"
-"- nautral avalanches or skier-triggered avalanches observed directly<br /><br />\n"
+"- natural avalanches or skier-triggered avalanches observed directly<br /><br />\n"
 "For each avalanche, indicate:<br />\n"
 "- type of avalanche : dry or wet snow, point or slab release<br />\n"
 "- location, elevation and approximate dimensions of the avalanche in the start zone and in the deposit zone<br />"
@@ -4255,7 +4256,7 @@ msgstr "Description of observations relating to avalanches:"
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
 # [WARNING] en translation used
 msgid "avalanche_desc_tooltip"
-msgstr "Desribe your observations concerning snow stability:\n"
+msgstr "Describe your observations concerning snow stability:\n"
 "fresh cornices, \"woum\"-sounds, recent avalanches, directly observed avalanches. For an avalanche, indicate the approximate location, elevation and the dimensions of the fracture and the avalanche debris."
 
 # [general comment]
@@ -5314,18 +5315,34 @@ msgstr "desde"
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
+# Activités : [des sorties associées]
+# [WARNING] es translation used
+msgid "for linked outings"
+msgstr "de las salidas asociadas"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
 # Activités : [pour les itinéraires associés]
 # [WARNING] es translation used
 msgid "for linked routes"
 msgstr "de las rutas asociadas"
 
 # [general comment]
-# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "for outings"
-msgstr "of outings"
+msgstr "de las salidas"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des itinéraires, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les itinéraires]
+# [WARNING] es translation used
+msgid "for routes"
+msgstr "de las rutas"
 
 # [WARNING] es translation used
 msgid "forum and topoguide names"

@@ -1471,7 +1471,7 @@ msgid "List all linked images"
 msgstr "Alle verbundene Bilder auflisten"
 
 msgid "List all linked outings"
-msgstr "Alle verbundenen Touren anzeigen"
+msgstr "Alle verbundenen Touren"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
@@ -3088,7 +3088,7 @@ msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region de
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Art der Beobachtung betreffend Lawinen</h3>\n"
 "Art der Lawinenbeobachtung oder der Alarmzeichen (Mehrfachauswahl möglich).<br />\n"
@@ -3114,7 +3114,7 @@ msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Beobachtungen zur Lawinensituation</h3>\n"
 "Beobachtungen von Alarmzeichen, kürzlichen Lawinenabgängen, von spontanen oder durch Personen ausgelösten Lawinen am Tag der Tour."
@@ -4206,7 +4206,6 @@ msgstr "Lawinenbeobachtungen:"
 
 # [general comment]
 # intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
-# [WARNING] needs_review
 msgid "avalanche_infos_short"
 msgstr "Lawineninformationen"
 
@@ -5219,16 +5218,30 @@ msgstr "Seit"
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
+# Activités : [des sorties associées]
+msgid "for linked outings"
+msgstr "von verbundenen Touren"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
 # Activités : [pour les itinéraires associés]
 msgid "for linked routes"
 msgstr "von verbundenen Routen"
 
 # [general comment]
-# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
 msgid "for outings"
 msgstr "von Touren"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des itinéraires, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les itinéraires]
+msgid "for routes"
+msgstr "von Routen"
 
 msgid "forum and topoguide names"
 msgstr "Tourenführer- und Forumpseudonym"
@@ -6110,13 +6123,11 @@ msgstr "Region Murcia"
 msgid "name"
 msgstr "Name:"
 
-# [WARNING] needs_review
 msgid "natural_avalanche"
 msgstr "spontane Lawine am Tag der Tour"
 
 # [general comment]
 # option "natural_avalanche" à l'édition
-# [WARNING] needs_review
 msgid "natural_avalanche_long"
 msgstr "spontane Lawine am Tag der Tour"
 
@@ -6243,7 +6254,6 @@ msgstr "keine Ergebnisse"
 msgid "no service"
 msgstr "kein Dienst"
 
-# [WARNING] needs_review
 msgid "no_observation_avalanche"
 msgstr "keine Alarmzeichen oder frischen Lawinen beobachtet"
 
@@ -6253,7 +6263,6 @@ msgstr "beide Optionen leer und \"keine Beobachtung\" können nicht gleichzeitig
 
 # [general comment]
 # option "no_observation_avalanche" à l'édition
-# [WARNING] needs_review
 msgid "no_observation_avalanche_long"
 msgstr "keine Gefahrenzeichen oder frische Lawinen beobachtet"
 
