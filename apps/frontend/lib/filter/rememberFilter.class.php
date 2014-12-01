@@ -41,7 +41,7 @@ class rememberFilter extends sfFilter
                 {
                     // symfony 1.0 getUriPrefix is not working well with https on haproxy
                     // it then tries to redirect to https://site.org:80, which is wrong
-                    $proto = $this->isSecure() ? 'https' : 'http';
+                    $proto = $request->isSecure() ? 'https' : 'http';
                     $request_uri = $proto.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 
                     $this->getContext()->getController()->redirect($request_uri);
