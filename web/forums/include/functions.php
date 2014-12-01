@@ -767,8 +767,12 @@ function confirm_referrer($script)
 {
 	global $pun_config, $lang_common;
 
-	if (!preg_match('#^'.preg_quote(str_replace(array('www.', 'm.', 'pre-prod.dev.'), '', $pun_config['o_base_url']).'/'.$script, '#').'#i', str_replace(array('www.', 'm.', 'pre-prod.dev.'), '', (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''))))
-		message($lang_common['Bad referrer']);
+  // enable https
+  $referer = isset($_SERVER['HTTP_REFERER']) ? preg_replace('/^https:\/\/', 'http://', $_SERVER['HTTP_REFERER']) : '';
+
+
+	if (!preg_match('#^'.preg_quote($pun_config['o_base_url'].'/'.$script, '#').'#i', $referer))
+    message($lang_common['Bad referrer']);
 }
 
 
