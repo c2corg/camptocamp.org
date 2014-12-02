@@ -15,6 +15,9 @@ $access_statuses = sfConfig::get('mod_outings_access_statuses_list');
 $glacier_statuses = sfConfig::get('mod_outings_glacier_statuses_list');
 $frequentation_statuses = sfConfig::get('mod_outings_frequentation_statuses_list');
 
+$format = $sf_data->getRaw('format');
+$format_full = in_array('full', $format);
+
 echo display_content_top('list_content');
 echo start_content_tag('outings_content');
 
@@ -165,7 +168,8 @@ else:
             <?php endif;
             
             $avalanche_date = $item['avalanche_date'];
-            $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
+            $avalanche_date_list = BaseDocument::convertStringToArray($avalanche_date);
+            $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date_list) && !array_intersect(array(0, 1), $avalanche_date_list);
             $avalanche_desc = $i18n['avalanche_desc'];
             $has_avalanche_desc = $has_avalanche_date && check_not_empty($avalanche_desc) && !($avalanche_desc instanceof sfOutputEscaperObjectDecorator);
             if ($has_avalanche_date): ?>
@@ -194,7 +198,7 @@ else:
                 <li><div class="section_subtitle" id="_weather" data-tooltip=""><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
             <?php endif;
             
-            if (in_array('full', $format))
+            if ($format_full)
             {
                 $access_comments = $i18n['access_comments'];
                 if (check_not_empty($access_comments) && !($access_comments instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
