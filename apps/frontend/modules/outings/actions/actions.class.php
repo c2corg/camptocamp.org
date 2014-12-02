@@ -613,10 +613,17 @@ class outingsActions extends documentsActions
         parent::executeList();
 
         $format = $this->format;
-        if (in_array('cond', $format))
+        if (in_array('cond', $format) && !in_array('json', $format))
         {
             $this->setTemplate('conditions');
-            $this->setPageTitle($this->__('recent conditions'));
+            if (in_array('full', $format))
+            {
+                $this->setPageTitle($this->__('conditions and comments'));
+            }
+            else
+            {
+                $this->setPageTitle($this->__('recent conditions'));
+            }
         }
 
         $nb_results = $this->nb_results;
