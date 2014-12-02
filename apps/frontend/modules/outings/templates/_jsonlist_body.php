@@ -19,7 +19,7 @@ $properties = array(
 ,   'heightDiffUp' => doctrine_value($item['height_diff_up'])
 ,   'routes_rating' => isset($item['linked_routes']) ?
                        field_route_ratings_data($item, false, false, false, 'json') : null
-,   'conditions' => @$c[doctrine_value($item['conditions_status'])]
+,   'conditions_status' => @$c[doctrine_value($item['conditions_status'])]
 ,   'frequentation' => @$f[doctrine_value($item['frequentation_status'])]
 ,   'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0
 ,   'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0
