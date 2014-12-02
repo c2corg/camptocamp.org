@@ -5,6 +5,7 @@ $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 
+$format = $sf_data->getRaw('format');
 $text_html = in_array('html', $format);
 $add_gpx_track = in_array('track', $format);
 $add_all_fields = in_array('full', $format);
