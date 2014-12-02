@@ -923,17 +923,30 @@ class documentsActions extends c2cActions
             $max_npp = sfConfig::get('app_list_full_max_npp');
             $this->setTemplate('../../documents/templates/listfull');
         }
-        else*/if ($module == 'outings' && in_array('cond', $format))
+        else*/ if (in_array('json', $format))
+        {
+            $this->setJsonResponse();
+            if (in_array('full', $format))
+            {
+                $default_npp = 10;
+                $max_npp = 20;
+            }
+            elseif (in_array('cond', $format))
+            {
+                $default_npp = 20;
+                $max_npp = 100;
+            }
+            else
+            {
+                $default_npp = null;
+                $max_npp = 100;
+            }
+            $this->setTemplate('../../documents/templates/jsonlist');
+        }
+        elseif ($module == 'outings' && in_array('cond', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_conditions_max_npp');
-        }
-        elseif (in_array('json', $format))
-        {
-            $this->setJsonResponse();
-            $default_npp = null;
-            $max_npp = 100;
-            $this->setTemplate('../../documents/templates/jsonlist');
         }
         else
         {
