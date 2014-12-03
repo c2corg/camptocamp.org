@@ -43,17 +43,6 @@ if ($add_conditions)
     }
     
     $conditions_levels = unserialize($item_i18n['conditions_levels']);
-    if (!empty($conditions_levels) && count($conditions_levels))
-    {
-        if ($text_html)
-        {
-            $conditions_levels = conditions_levels_data($conditions_levels);
-        }
-    }
-    else
-    {
-        $conditions_levels = null;
-    }
 
     $conditions = $item_i18n['conditions'];
     if (check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator))
