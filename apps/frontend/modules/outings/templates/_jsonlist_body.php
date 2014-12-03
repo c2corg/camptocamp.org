@@ -27,7 +27,7 @@ $properties = array(
 ,   'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0
 ,   'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0
 ,   'hasTrack' => (strlen($item['geom_wkt']) > 0) ? true : false
-,   'linkedAreas' => json_decode(get_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations'])))
+,   'linkedAreas' => json_decode(get_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations'], 'use_keys' => $use_keys)))
 );
 
 if ($add_conditions)
@@ -171,7 +171,7 @@ if ($add_all_fields)
     $lift_statuses = sfConfig::get('mod_outings_lift_statuses_list');
     
     $track_status = doctrine_value($item['track_status']);
-    $hut_status = doctrine_value($item['hut_status']):
+    $hut_status = doctrine_value($item['hut_status']);
     $lift_status = doctrine_value($item['lift_status']);
     
     $properties = array_merge ($properties, array(
