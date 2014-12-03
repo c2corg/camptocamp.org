@@ -22,8 +22,8 @@ $properties = array(
 ,   'heightDiffUp' => doctrine_value($item['height_diff_up'])
 ,   'routes_rating' => isset($item['linked_routes']) ?
                        field_route_ratings_data($item, false, false, false, ($use_keys ? 'jsonkeys' : 'json')) : null
-,   'conditionsStatus' => $use_keys ? $conditions_status : @$c[$conditions_status)]
-,   'frequentation' => $use_keys ? $frequentation_status : @$f[$frequentation_status)]
+,   'conditionsStatus' => $use_keys ? $conditions_status : @$c[$conditions_status]
+,   'frequentation' => $use_keys ? $frequentation_status : @$f[$frequentation_status]
 ,   'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0
 ,   'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0
 ,   'hasTrack' => (strlen($item['geom_wkt']) > 0) ? true : false
