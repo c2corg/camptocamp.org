@@ -2,7 +2,10 @@
 use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer', 'ModalBox', 'Lightbox', 'Javascript', 'MyImage');
 $mobile_version =  c2cTools::mobileVersion();
 
-echo display_title(__('recent conditions'), 'outings', false);
+$format = $sf_data->getRaw('format');
+$main_title = (in_array('full', $format)) ? 'conditions and comments' : 'recent conditions';
+
+echo display_title(__($main_title), 'outings', false);
 
 if (!$mobile_version)
 {
@@ -10,13 +13,14 @@ if (!$mobile_version)
     include_partial('nav4list');
 }
 
+$format = $sf_data->getRaw('format');
+$format_full = in_array('full', $format);
+
 $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 $access_statuses = sfConfig::get('mod_outings_access_statuses_list');
 $glacier_statuses = sfConfig::get('mod_outings_glacier_statuses_list');
 $frequentation_statuses = sfConfig::get('mod_outings_frequentation_statuses_list');
-
-$format = $sf_data->getRaw('format');
-$format_full = in_array('full', $format);
+$hut_statuses = sfConfig::get('mod_outings_hut_statuses_list');
 
 echo display_content_top('list_content');
 echo start_content_tag('outings_content');
@@ -131,11 +135,11 @@ else:
             $conditions = $i18n['conditions'];
             $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
             $conditions_status = $item['conditions_status'];
-            $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
+            $has_conditions_status = is_integer($conditions_status) && !empty($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $glacier_status = $item['glacier_status'];
-            $has_glacier_status = is_integer($glacier_status) && array_key_exists($glacier_status, $glacier_statuses);
+            $has_glacier_status = is_integer($glacier_status) && !empty($glacier_status) && array_key_exists($glacier_status, $glacier_statuses);
             $frequentation_status = $item['frequentation_status'];
-            $has_frequentation_status = is_integer($frequentation_status) && array_key_exists($frequentation_status, $frequentation_statuses);
+            $has_frequentation_status = is_integer($frequentation_status) && !empty($frequentation_status) && array_key_exists($frequentation_status, $frequentation_statuses);
             $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
             $has_conditions_levels = !empty($conditions_levels) && count($conditions_levels);
             if ($has_conditions || $has_conditions_status || $has_glacier_status || $has_frequentation_status || $has_conditions_levels || $has_avalanche_date): ?>
@@ -205,10 +209,21 @@ else:
                     <li><div class="section_subtitle" id="_access_comments" data-tooltip=""><?php echo __('access_comments') ?></div><?php echo parse_links(parse_bbcode($access_comments, null, false, false)) ?></li>
                 <?php endif;
                 
+                $hut_status = $item['hut_status'];
+                $has_hut_status = is_integer($hut_status) && !empty($hut_status) && array_key_exists($hut_status, $hut_statuses);
                 $hut_comments = $i18n['hut_comments'];
-                if (check_not_empty($hut_comments) && !($hut_comments instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
-                    <li><div class="section_subtitle" id="_hut_comments" data-tooltip=""><?php echo __('hut_comments') ?></div><?php echo parse_links(parse_bbcode($hut_comments, null, false, false)) ?></li>
-                <?php endif;
+                $has_hut_comments = check_not_empty($hut_comments) && !($hut_comments instanceof sfOutputEscaperObjectDecorator);
+                if ($has_hut_status || $has_hut_comments): //FIXME sfOutputEscaperObjectDecorator ?>
+                    <li><div class="section_subtitle" id="_hut_comments" data-tooltip=""><?php echo __('hut_comments') ?></div><?php
+                        if ($has_hut_status)
+                        {
+                            echo __($hut_statuses[$hut_status]);
+                        }
+                        if ($has_hut_comments)
+                        {
+                            echo parse_links(parse_bbcode($hut_comments, null, false, false));
+                        }
+                 ?></li><?php endif;
                 
                 $outing_comments = $i18n['description'];
                 if (check_not_empty($outing_comments) && !($outing_comments instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
