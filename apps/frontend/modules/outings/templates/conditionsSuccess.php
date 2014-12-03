@@ -214,7 +214,7 @@ else:
                 $hut_comments = $i18n['hut_comments'];
                 $has_hut_comments = check_not_empty($hut_comments) && !($hut_comments instanceof sfOutputEscaperObjectDecorator);
                 if ($has_hut_status || $has_hut_comments): //FIXME sfOutputEscaperObjectDecorator ?>
-                    <li><div class="section_subtitle" id="_hut_comments" data-tooltip=""><?php echo __('hut_comments') ?></div><?php
+                    <li><div class="section_subtitle" id="_hut_comments" data-tooltip=""><?php echo __('hut_comments') ?></div> <?php
                         if ($has_hut_status)
                         {
                             echo __($hut_statuses[$hut_status]);
