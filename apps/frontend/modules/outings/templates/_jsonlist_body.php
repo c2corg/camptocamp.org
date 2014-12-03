@@ -8,8 +8,8 @@ $a = sfConfig::get('app_activities_list');
 $c = sfConfig::get('mod_outings_conditions_statuses_list');
 $f = sfConfig::get('mod_outings_frequentation_statuses_list');
 
-$conditions_status = doctrine_value($item['conditions_status'];
-$frequentation_status = doctrine_value($item['frequentation_status'];
+$conditions_status = doctrine_value($item['conditions_status']);
+$frequentation_status = doctrine_value($item['frequentation_status']);
 
 $properties = array(
     'module' => 'outings'
