@@ -111,6 +111,8 @@ echo '<p class="list_link">',
      ' - ',
      link_to(__('cond short'), "outings/conditions?$module=$id&orderby=date&order=desc"),
      ' - ',
+     link_to(__('Comments'), "outings/conditions?$module=$id&format=full&orderby=date&order=desc"),
+     ' - ',
      link_to(__('Images'), "images/list?$join_outing$module_url=$id&orderby=odate&order=desc", array('rel' => 'nofollow'));
 
 if ($module == 'users')
