@@ -1016,7 +1016,7 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
 
     if (empty($value))
     {
-        if ($format == 'json')
+        if ($format == 'json' || $format == 'jsonkeys')
         {
             return array();
         }
@@ -1029,6 +1029,10 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
     if ($format == 'json')
     {
         return array($name => $string_value);
+    }
+    elseif ($format == 'jsonkeys')
+    {
+        return array($name => $raw_value);
     }
     elseif ($add_tooltips)
     {
@@ -1082,7 +1086,7 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
 
         return $string_rock_free_value . $string_rock_required_value;
     }
-    elseif ($format == 'json')
+    elseif ($format == 'json' || $format == 'jsonkeys')
     {
         $rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_config, $format, false, $use_raw_value, $raw_value_prefix);
         $rock_required_value = _filter_ratings_data($document, $rock_required_name, $rock_required_config, $format, false, $use_raw_value);
@@ -1163,7 +1167,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
                  . '</td>';
         }
     }
-    elseif ($format == 'json')
+    elseif ($format == 'json' || $format == 'jsonkeys')
     {
         return array_merge($global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                            $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing);
