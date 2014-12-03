@@ -4305,6 +4305,7 @@ table.diff td.diff-context, table.diff tr.diff-line td
 {
   text-align:left;
   overflow:hidden;
+  word-wrap:break-word;
 }
 
 td.diff-addedline
