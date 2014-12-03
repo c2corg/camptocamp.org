@@ -6,6 +6,7 @@ $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 
 $format = $sf_data->getRaw('format');
+$use_keys = in_array('keys', $format);
 $text_html = in_array('html', $format);
 $add_gpx_track = in_array('track', $format);
 $add_all_fields = in_array('full', $format);
@@ -43,6 +44,7 @@ foreach ($items as $item)
 {
     $features[] = json_decode( get_partial($module . '/jsonlist_body'
                              , array( 'item' => $item
+                                    , 'use_keys' => $use_keys
                                     , 'text_html' => $text_html
                                     , 'add_gpx_track' => $add_gpx_track
                                     , 'add_conditions' => $add_conditions
