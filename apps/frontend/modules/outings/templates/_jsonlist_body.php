@@ -8,22 +8,25 @@ $a = sfConfig::get('app_activities_list');
 $c = sfConfig::get('mod_outings_conditions_statuses_list');
 $f = sfConfig::get('mod_outings_frequentation_statuses_list');
 
+$conditions_status = doctrine_value($item['conditions_status'];
+$frequentation_status = doctrine_value($item['frequentation_status'];
+
 $properties = array(
     'module' => 'outings'
 ,   'name' => $item_i18n['name']
 ,   'url' => jsonlist_url($item_i18n, 'outings')
 ,   'date' => $item['date']
-,   'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a)
+,   'activities' => $use_keys ? BaseDocument::convertStringToArray($item['activities']) : BaseDocument::convertStringToArrayTranslate($item['activities'], $a)
 ,   'creator' => $item['creator']
 ,   'maxElevation' => doctrine_value($item['max_elevation'])
 ,   'heightDiffUp' => doctrine_value($item['height_diff_up'])
 ,   'routes_rating' => isset($item['linked_routes']) ?
-                       field_route_ratings_data($item, false, false, false, 'json') : null
-,   'conditionsStatus' => @$c[doctrine_value($item['conditions_status'])]
-,   'frequentation' => @$f[doctrine_value($item['frequentation_status'])]
+                       field_route_ratings_data($item, false, false, false, ($use_keys ? 'jsonkeys' : 'json')) : null
+,   'conditionsStatus' => $use_keys ? $conditions_status : @$c[$conditions_status)]
+,   'frequentation' => $use_keys ? $frequentation_status : @$f[$frequentation_status)]
 ,   'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0
 ,   'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0
-,   'hasTrack' => (strlen($item['geom_wkt']) > 0) ? 1 : 0
+,   'hasTrack' => (strlen($item['geom_wkt']) > 0) ? true : false
 ,   'linkedAreas' => json_decode(get_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations'])))
 );
 
@@ -58,7 +61,7 @@ if ($add_conditions)
     }
     
     $avalanche_date_list = sfConfig::get('mod_outings_avalanche_date_list');
-    $avalanche_date = BaseDocument::convertStringToArrayTranslate($item['avalanche_date'], $avalanche_date_list);
+    $avalanche_date = $use_keys ? BaseDocument::convertStringToArray($item['avalanche_date']) : BaseDocument::convertStringToArrayTranslate($item['avalanche_date'], $avalanche_date_list);
     $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
     
     $avalanche_desc = $item_i18n['avalanche_desc'];
@@ -103,13 +106,16 @@ if ($add_conditions)
     $glacier_statuses = sfConfig::get('mod_outings_glacier_statuses_list');
     $frequentation_statuses = sfConfig::get('mod_outings_frequentation_statuses_list');
     
+    $glacier_status = doctrine_value($item['glacier_status']);
+    $frequentation_status = doctrine_value($item['frequentation_status']);
+    
     $properties = array_merge ($properties, array(
         'accessElevation' => doctrine_value($item['access_elevation'])
     ,   'upSnowElevation' => doctrine_value($item['up_snow_elevation'])
     ,   'downSnowElevation' => doctrine_value($item['down_snow_elevation'])
     ,   'outingRouteDesc' => $outing_route_desc
-    ,   'glacierStatus' => @$glacier_statuses[doctrine_value($item['glacier_status'])]
-    ,   'frequentationStatus' => @$frequentation_statuses[doctrine_value($item['frequentation_status'])]
+    ,   'glacierStatus' => $use_keys ? $glacier_status : @$glacier_statuses[$glacier_status]
+    ,   'frequentationStatus' => $use_keys ? $frequentation_status : @$frequentation_statuses[$frequentation_status]
     ,   'conditionsLevels' => $conditions_levels
     ,   'conditions' => $conditions
     ,   'avalancheObsType' => $avalanche_date
@@ -164,15 +170,19 @@ if ($add_all_fields)
     $hut_statuses = sfConfig::get('mod_outings_hut_statuses_list');
     $lift_statuses = sfConfig::get('mod_outings_lift_statuses_list');
     
+    $track_status = doctrine_value($item['track_status']);
+    $hut_status = doctrine_value($item['hut_status']):
+    $lift_status = doctrine_value($item['lift_status']);
+    
     $properties = array_merge ($properties, array(
         'minElevation' => doctrine_value($item['min_elevation'])
     ,   'heightDiffDown' => doctrine_value($item['height_diff_down'])
     ,   'outingLength' => doctrine_value($item['outing_length'])
-    ,   'partialTrip' => doctrine_value($item['partial_trip'])
-    ,   'usePublicTransportation' => doctrine_value($item['outing_with_public_transportation'])
-    ,   'trackStatus' => @$track_statuses[doctrine_value($item['track_status'])]
-    ,   'hutStatus' => @$hut_statuses[doctrine_value($item['hut_status'])]
-    ,   'liftStatus' => @$lift_statuses[doctrine_value($item['lift_status'])]
+    ,   'partialTrip' => empty(doctrine_value($item['partial_trip'])) ? false : true
+    ,   'usePublicTransportation' => empty(doctrine_value($item['outing_with_public_transportation'])) ? false : true
+    ,   'trackStatus' => $use_keys ? $track_status : @$track_statuses[$track_status]
+    ,   'hutStatus' => $use_keys ? $hut_status : @$hut_statuses[$hut_status]
+    ,   'liftStatus' => $use_keys ? $lift_status : @$lift_statuses[$lift_status]
     ,   'accessComments' => $access_comments
     ,   'hutComments' => $hut_comments
     ,   'outingComments' => $description
@@ -181,7 +191,7 @@ if ($add_all_fields)
 
 echo json_encode(array(
     'type' => 'Feature'
-,   'geometry' => ($add_gpx_track) ? geojson_geometry($item) : null
 ,   'id' => $item['id']
 ,   'properties' => $properties
+,   'geometry' => ($add_gpx_track) ? geojson_geometry($item) : null
 ));
