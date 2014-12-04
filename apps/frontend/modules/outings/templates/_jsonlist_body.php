@@ -173,8 +173,10 @@ if ($add_all_fields)
     $track_status = doctrine_value($item['track_status']);
     $hut_status = doctrine_value($item['hut_status']);
     $lift_status = doctrine_value($item['lift_status']);
-    $partial_trip = empty(doctrine_value($item['partial_trip'])) ? false : true;
-    $outing_with_public_transportation = empty(doctrine_value($item['outing_with_public_transportation'])) ? false : true;
+    $partial_trip = doctrine_value($item['partial_trip']);
+    $partial_trip = empty($partial_trip) ? false : true;
+    $outing_with_public_transportation = doctrine_value($item['outing_with_public_transportation']);
+    $outing_with_public_transportation = empty($outing_with_public_transportation) ? false : true;
     
     $properties = array_merge ($properties, array(
         'minElevation' => doctrine_value($item['min_elevation'])
