@@ -11,6 +11,7 @@ $text_html = in_array('html', $format);
 $add_gpx_track = in_array('track', $format);
 $add_all_fields = in_array('full', $format);
 $add_conditions = $add_all_fields || in_array('cond', $format);
+$add_text = !in_array('notext', $format);
 
 if (!isset($items) && $nb_results > 0)
 {
@@ -49,6 +50,7 @@ foreach ($items as $item)
                                     , 'add_gpx_track' => $add_gpx_track
                                     , 'add_conditions' => $add_conditions
                                     , 'add_all_fields' => $add_all_fields
+                                    , 'add_text' => $add_text
                                     )));
 }
 echo json_encode(array(
