@@ -926,7 +926,7 @@ class documentsActions extends c2cActions
         else*/ if (in_array('json', $format))
         {
             $this->setJsonResponse();
-            if (in_array('full', $format))
+            if (in_array('full', $format) || in_array('track', $format))
             {
                 $default_npp = 10;
                 $max_npp = 20;
