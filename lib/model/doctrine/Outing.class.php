@@ -622,21 +622,38 @@ class Outing extends BaseOuting
                                          'v.version', 'hm.user_id', 'u.topo_name', 
                                          'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
             
-            $conditions_fields_list = (array_intersect($format, array('cond', 'full'))) ?
-                                      array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_status', 'm.glacier_status', 'm.access_elevation', 'm.avalanche_date',
-                                            'mi.outing_route_desc', 'mi.conditions', 'mi.conditions_levels', 'mi.avalanche_desc', 'mi.weather', 'mi.timing')
-                                      : array();
+            $conditions_fields_list = array();
+            $conditions_i18n_fields_list = array();
+            $full_fields_list = array();
+            $full_i18n_fields_list = array();
             
-            $full_fields_list = (in_array('full', $format)) ?
-                                array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
-                                      'm.track_status', 'm.hut_status', 'm.lift_status',
-                                      'mi.participants', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
-                                : array();
+            $add_text = !in_array('notext', $format);
+            
+            if (array_intersect($format, array('cond', 'full')))
+            {
+                $conditions_fields_list = array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_status', 'm.glacier_status', 'm.access_elevation', 'm.avalanche_date');
+                if ($add_text)
+                {
+                    $conditions_i18n_fields_list = array('mi.outing_route_desc', 'mi.conditions', 'mi.conditions_levels', 'mi.avalanche_desc', 'mi.weather', 'mi.timing');
+                }
+            }
+            
+            if (in_array('full', $format))
+            {
+                $full_fields_list = array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
+                                      'm.track_status', 'm.hut_status', 'm.lift_status');
+                if ($add_text)
+                {
+                    $full_i18n_fields_list = array('mi.participants', 'mi.access_comments', 'mi.hut_comments', 'mi.description');
+                }
+            }
             
             $data_fields_list = array_merge(parent::buildGeoFieldsList(),
                                             $outings_fields_list,
                                             $conditions_fields_list,
-                                            $full_fields_list);
+                                            $conditions_i18n_fields_list,
+                                            $full_fields_list,
+                                            $full_i18n_fields_list);
         }
         else
         {
