@@ -42,7 +42,7 @@ if ($is_connected)
 <?php
 include_partial('documents/filter_sort', array('orderby_default' => 'date', 'order_default' => 'desc'));
 
-echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false) . ' &nbsp; nbsp; ';
+echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false) . ' &nbsp; &nbsp; ';
 echo label_for('format', __('Comments')) . ' ' . checkbox_tag('format', 'full', false);
 ?>
 <br /><br />
