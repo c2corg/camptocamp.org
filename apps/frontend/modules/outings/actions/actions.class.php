@@ -488,7 +488,7 @@ class outingsActions extends documentsActions
     
     public function executeFilterredirect()
     {
-        if ($this->getRequestParameter('cond'))
+        if ($this->getRequestParameter('cond') || $this->getRequestParameter('format'))
         {
             $action = 'conditions';
         }
@@ -579,6 +579,8 @@ class outingsActions extends documentsActions
 
         $this->addParam($out, 'geom');
         $this->addListParam($out, 'ocult');
+
+        $this->addParam($out, 'format');
 
         return $out;
     }
