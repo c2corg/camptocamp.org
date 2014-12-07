@@ -392,7 +392,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     }
 
     $full_url = preg_replace('#^((ht+ps?:)?//)?w*\.?camptocamp\.org/?(.*)#', '/${3}', $full_url, 1, $count);
-    $is_internal_url = ($count === 1);
+    $is_internal_url = ($count === 1) || ($full_url[0] === "#");
         
     if ($empty_link = (empty($link) || $link == $url))
     {
