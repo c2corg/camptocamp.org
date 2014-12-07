@@ -1,5 +1,5 @@
 <?php
-use_helper('Field');
+use_helper('Field', 'SmartFormat', 'sfBBCode');
 $item_i18n = $item->getRaw('RouteI18n');
 $item_i18n = $item_i18n[0];
 $summit = $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'];
@@ -36,7 +36,7 @@ if ($add_all_fields)
     
     $route_type = doctrine_value($item['route_type']);
     $duration = doctrine_value($item['duration']);
-    $configurations = $use_keys ? BaseDocument::convertStringToArray($item['configurations']) : BaseDocument::convertStringToArrayTranslate($item['configurations'], $configurations_list);
+    $configuration = $use_keys ? BaseDocument::convertStringToArray($item['configuration']) : BaseDocument::convertStringToArrayTranslate($item['configuration'], $configurations_list);
     
     $sub_activities = BaseDocument::convertStringToArray($item['sub_activities']);
     $snowboarding = in_array(2, $sub_activities);
@@ -52,13 +52,13 @@ if ($add_all_fields)
     ,   'heightDiffDown' => doctrine_value($item['height_diff_down'])
     ,   'routeType' => $use_keys ? $route_type : @$route_types_list[$route_type]
     ,   'duration' => $use_keys ? $duration : @$durations_list[$duration]
-    ,   'configurations' => $configurations
+    ,   'configuration' => $configuration
     ,   'snowboardingProof' => $snowboarding
     ,   'beginnerProof' => $beginner_proof
     ,   'mountainBikeApproach' => $mountain_bike_approach
     ,   'liftApproach' => $lift_approach
     ,   'requiresGlacierGear' => $is_on_glacier
-    ,   'slope' => $item['slope']
+    ,   'slope' => $item->getRaw('slope')
     ));
     
     if ($add_text)
