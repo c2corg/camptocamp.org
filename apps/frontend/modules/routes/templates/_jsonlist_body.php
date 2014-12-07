@@ -46,6 +46,12 @@ if ($add_all_fields)
     
     $is_on_glacier = doctrine_value($item['is_on_glacier']);
     $is_on_glacier = empty($is_on_glacier) ? false : true;
+    
+    $slope = $item->getRaw('slope');
+    if (!check_not_empty($slope) || ($slope instanceof sfOutputEscaperObjectDecorator))
+    {
+        $slope = null;
+    }
 
     $properties = array_merge ($properties, array(
         'minElevation' => doctrine_value($item['min_elevation'])
@@ -58,7 +64,7 @@ if ($add_all_fields)
     ,   'mountainBikeApproach' => $mountain_bike_approach
     ,   'liftApproach' => $lift_approach
     ,   'requiresGlacierGear' => $is_on_glacier
-    ,   'slope' => $item->getRaw('slope')
+    ,   'slope' => $slope
     ));
     
     if ($add_text)
