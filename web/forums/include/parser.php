@@ -391,8 +391,8 @@ function handle_url_tag($url, $link = '', $show_video = false)
         return $link;
     }
 
-    $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
-    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+    $full_url = preg_replace('#^((ht+ps?:)?//)?w*\.?camptocamp\.org/?(.*)#', '/${3}', $full_url, 1, $count);
+    $is_internal_url = ($count === 1);
         
     if ($empty_link = (empty($link) || $link == $url))
     {
