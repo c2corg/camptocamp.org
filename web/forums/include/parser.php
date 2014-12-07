@@ -28,6 +28,7 @@ if (!defined('PUN'))
 
 // Load the functions script
 require_once PUN_ROOT.'include/functions.php';
+require_once PUN_ROOT.'include/camo.php';
 
 $mobile_version = c2cTools::mobileVersion();
 
@@ -606,6 +607,8 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
+    $url = handle_mixed_content($url);
+
     $img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
@@ -843,8 +846,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
     if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
     {
-        $pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img=((https?:)?//|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((https?:)?//|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
         
