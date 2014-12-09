@@ -2169,7 +2169,7 @@ all:
       name: 'Incidents and accidents database'
       menu: 1
     family:
-      id: @AFAMILY_ID@
+      id: @FAMILY_ID@
       name: 'family portal'
       home: 1
 
