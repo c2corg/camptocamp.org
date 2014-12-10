@@ -4704,6 +4704,10 @@ msgstr "Verhältnisse"
 msgid "conditions"
 msgstr "Angetroffene Verhältnisse (Zustieg, Route und Umfeld):"
 
+# [WARNING] needs_review
+msgid "conditions and comments"
+msgstr "Verhältnisse und Kommentare"
+
 msgid "conditions linked to"
 msgstr "Die Liste der verbundenen Verhältnisse"
 
@@ -4989,6 +4993,10 @@ msgstr "Die Geodaten im Format %1% herunterladen"
 msgid "draft"
 msgstr "Entwurf"
 
+# [WARNING] fr translation used
+msgid "dry tooling portal"
+msgstr "Dry-tooling"
+
 msgid "duration"
 msgstr "Dauer:"
 
@@ -5115,6 +5123,10 @@ msgstr "Exp."
 
 msgid "facings"
 msgstr "Expositionen:"
+
+# [WARNING] en translation used
+msgid "family portal"
+msgstr "Family"
 
 msgid "fauna pic"
 msgstr "Fauna"
@@ -5272,6 +5284,10 @@ msgstr "französisch"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "franche_comte"
 msgstr "Franche-Comté"
+
+# [WARNING] fr translation used
+msgid "freerando portal"
+msgstr "Freerando"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.

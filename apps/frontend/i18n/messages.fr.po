@@ -4691,6 +4691,9 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Conditions rencontrées (approche, voie, et à proximité)&nbsp;:"
 
+msgid "conditions and comments"
+msgstr "Conditions et commentaires"
+
 msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
@@ -4967,6 +4970,9 @@ msgstr "Télécharger les données géographiques au format %1%"
 msgid "draft"
 msgstr "brouillon"
 
+msgid "dry tooling portal"
+msgstr "Dry-tooling"
+
 msgid "duration"
 msgstr "Temps de parcours&nbsp;:"
 
@@ -5091,6 +5097,9 @@ msgstr "Ori."
 
 msgid "facings"
 msgstr "Orientations&nbsp;:"
+
+msgid "family portal"
+msgstr "Famille"
 
 msgid "fauna pic"
 msgstr "faune"
@@ -5249,6 +5258,9 @@ msgstr "français"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "franche_comte"
 msgstr "Franche-Comté"
+
+msgid "freerando portal"
+msgstr "Freerando"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
@@ -6354,7 +6366,7 @@ msgstr "Itinéraire emprunté&nbsp;:"
 
 # [WARNING] needs_review
 msgid "outing_route_desc_default"
-msgstr "Décrivez brièvement l'itinéraire que vous avez suivi : itinéraire différent de celui du topo, topo comportant des variantes, itinéraire en boucle, enchainement, point atteint lors d'un parcours partiel."
+msgstr "Décrivez brièvement l'itinéraire que vous avez suivi dans les cas suivants : itinéraire différent de celui du topo, topo comportant des variantes, itinéraire en boucle, enchainement, point atteint lors d'un parcours partiel."
 
 msgid "outing_with_public_transportation"
 msgstr "Sortie en mobilité douce"
@@ -6650,19 +6662,49 @@ msgstr "Vallées préférées"
 # Use 'donotshow' if no content should be displayed
 # 
 # Do not hesitate to customize links to your language
-# [comment]
-# mise à jour lien BERA météofrance
 msgid "prepare_outing_box"
-msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
-"<ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MétéoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"
-"<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Avalanches</a></p>\n"
-"<ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a>&nbsp;: <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept74\">74</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept73\">73</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept38\">38</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept06\">06</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept05\">05</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept04\">04</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept2A\">2a</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept2B\">2b</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept66\">66</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept65\">65</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept31\">31</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept09\">09</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept64\">64</a></li><li><a href=\"http://www.slf.ch/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul>\n"
-"<p><a href=\"/articles/107228/fr/liens-utiles#carto\">Cartographie</a></p>\n"
-"<ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=fr\">map.geo.admin.ch (Suisse)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul>\n"
-"<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
-"<ul><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">Informations routières (France)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Suisse)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
+msgstr "<p><a href=\"/articles/107228/fr#meteo\">Météo</a></p>\n"
+"<ul>\n"
+"<li><a href=\"http://www.meteoblue.com\">Meteoblue</a></li>\n"
+"<li><a href=\"http://www.meteociel.fr/modeles/wrfnmm.php?ech=3&mode=24&map=300\">Meteociel</a></li>\n"
+"<li><a href=\"http://www.romma.fr/index.php\">ROMMA</a></li>\n"
+"<li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo France</a></li>\n"
+"<li><a href=\"http://www.meteosuisse.ch\">MétéoSuisse</a></li>\n"
+"<li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li>\n"
+"<li><a href=\"http://www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord\">Alpes du N</a></li>\n"
+"<li><a href=\"http://chamonix-meteo.com/chamonix-mont-blanc/meteo/prevision/matin/previ_meteo_5_jours.php\">Chamonix</a></li>\n"
+"<li><a href=\"http://geo.hmg.inpg.fr/mto/mto38.shtml\">Caplain</a></li>\n"
+"</ul>\n"
+"<p><a href=\"/articles/107228/fr#bera\">Avalanches</a></p>\n"
+"<ul>\n"
+"<li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a>&nbsp;: <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/haute-savoie/avdept74\">74</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/savoie/avdept73\">73</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/isere/avdept38\">38</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept05\">05</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/alpes-de-haute-provence/avdept04\">04</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/alpes-maritimes/avdept06\">06</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/corse-du-sud/avdept2A\">2a</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/haute-corse/avdept2B\">2b</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/pyrenees-orientales/avdept66\">66</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-pyrenees/avdept65\">65</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/haute-garonne/avdept31\">31</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/ariege/avdept09\">09</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/pyrenees-atlantiques/avdept64\">64</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/andorre/avandorre\">Andorre</a></li>\n"
+"<li><a href=\"http://www.slf.ch/index_FR\">SLF (Suisse)</a></li>\n"
+"<li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li>\n"
+"<li><a href=\"/outings/conditions/avdate/2-3-4-5/date/2W/perso/areas-cult-ifon/orderby/date/order/desc\">Infos avalanche</a></li>\n"
+"<li><a href=\"http://www.data-avalanche.org/\">Data Avalanche</a></li>\n"
+"<li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li>\n"
+"</ul>\n"
+"<p><a href=\"/articles/107228/fr#carto\">Cartographie</a></p>\n"
+"<ul>\n"
+"<li><a href=\"/map\">Outil carto</a></li>\n"
+"<li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li>\n"
+"<li><a href=\"http://map.geo.admin.ch/?lang=fr\">map.geo.admin.ch (Suisse)</a></li>\n"
+"<li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italie)</a></li>\n"
+"<li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li>\n"
+"</ul>\n"
+"<p><a href=\"/articles/107228/fr#transport\">Transport</a></p>\n"
+"<ul>\n"
+"<li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">Informations routières (France)</a></li>\n"
+"<li><a href=\"http://www.inforoute.ch/\">TCS (Suisse)</a></li>\n"
+"<li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li>\n"
+"<li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.sncf.com/fr/trains/ter\">TER (France)</a></li>\n"
+"<li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li>\n"
+"<li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li>\n"
+"</ul>\n"
 "<p>Autres</p>\n"
-"<ul><li><a href=\"/huts/filter\">Refuges</a></li><li><a href=\"/articles/107228/fr/liens-utiles#conditions\">Sites donnant des conditions</a></li></ul>"
+"<ul>\n"
+"<li><a href=\"/huts/filter\">Refuges</a></li><li><a href=\"/articles/107228/fr#conditions\">Sites donnant des conditions</a></li>\n"
+"</ul>"
 
 # [general comment]
 # [cda] title of the top left box on home

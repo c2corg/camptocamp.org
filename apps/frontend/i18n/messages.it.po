@@ -3090,20 +3090,20 @@ msgstr "<h3>Descrizione delle osservazioni relative alle valanghe</h3>\n"
 "- cornici recenti<br />\n"
 "- struttura a lastroni o placca a vento osservata col bastoncino<br />\n"
 "- rumore di assestamento di un strato debole (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
-"- creazione di fessure durante la progressione<br />\n"
+"- formazione di fessure durante la progressione<br />\n"
 "<h4>Valanghe</h4>\n"
 "- tracce di valanghe recenti (linea di rottura di lastroni, traccia di colata, deposito)<br >\n"
 "- valanghe spontanee o accidentali osservate in diretta<br /><br />\n"
-"Per ogni valanghe, precisare :<br />\n"
-"- il tipo di valanghe: neve asciutta o bagnata, puntiforme o a lastroni<br />\n"
-"- il luogo, la quota, le dimensioni approssimative, l'aera di partenza e di deposito<br />"
+"Per ogni valanga, precisare :<br />\n"
+"- il tipo di valanga: neve asciutta o bagnata, puntiforme o a lastroni<br />\n"
+"- il luogo, la quota, le dimensioni approssimative, le zone di distacco e di deposito<br />"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
 # [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Osservazioni relative alle valanghe</h3>\n"
-"Osservazioni dei segnali di allarme, delle tracce di valanghe recente, delle valanghe spontanee, accidentale osservate durante la gita."
+"Osservazioni dei segnali di allarme, delle tracce di valanghe recenti, spontanee, accidentali, osservate durante la gita."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Principianti</h3>\n"
@@ -3176,10 +3176,11 @@ msgstr "<h3>Condizioni incontrate</h3>\n"
 
 msgid "_conditions_info"
 msgstr "<h3>Condizioni incontrate</h3>\n"
-"Dettagli delle condizioni incontrate lungo l'itinerario (approccio + via) anzi che le condizioni osservate sui itinerari vicini.<br />\n"
+"Dettagli delle condizioni incontrate lungo l'itinerario (approccio + via) nonchè le condizioni osservate sugli itinerari vicini.<br />\n"
 "Queste informazioni sono sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br />\n"
 "<h4>Nota per compilare questi campi:</h4>\n"
-"Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
+"Le <em>Condizioni incontrate</em> e l'<em>Innevamento per zona</em> sono importanti per valutare l'evoluzione del manto nevoso nei giorni successivi, bisogna curare queste informazioni.<br />\n"
+"Le osservazioni relative alle valanghe devono essere dettagliate nella rubrica apposita."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Innevamento per zona</h3>Permette di indicare sinteticamente le condizioni incontrate per ogni tratto dell'itinerario.<br />Per aggiungere una riga, cliccare sul (+).<br /><br /><strong>Luogo / quota / esposizione / ora </strong>: caratteristiche della zona: la sua localizzazione, la sua quota, la sua esposizione, il suo rilievo (vallone, canale...), l'ora di passaggio.<br /><br /><strong>Soffice</strong>: Spessore di neve soffice in cm (misurato con la racchetta).<br /><br /><strong>Totale</strong>: spessore di neve totale in cm. Da lasciare vuoto se non misurato.<br /><br /><strong>Osservazioni</strong>: qualità della neve, analisi stratigrafica sommaria, qualità dello sci..."
@@ -3859,12 +3860,12 @@ msgid "access_status"
 msgstr "Accesso:"
 
 msgid "accidental_avalanche"
-msgstr "valanghe accidentale il giorno della gita"
+msgstr "valanga accidentale il giorno della gita"
 
 # [general comment]
 # option "accidental_avalanche" à l'édition
 msgid "accidental_avalanche_long"
-msgstr "valanghe staccata da una personna il giorno della gita"
+msgstr "valanga staccata da una personna il giorno della gita"
 
 msgid "accommodation"
 msgstr "Alloggi e ristoranti nelle vicinanze:"
@@ -4630,6 +4631,10 @@ msgstr "Condizioni"
 msgid "conditions"
 msgstr "Condizioni incontrate (avvicinamento, vie, itinerari vicini...):"
 
+# [WARNING] needs_review
+msgid "conditions and comments"
+msgstr "Condizioni e commenti"
+
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
 
@@ -4661,7 +4666,7 @@ msgstr "Inserire le osservazioni seguente: condizioni dell'approccio, via e rito
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
 # [WARNING] needs_review
 msgid "conditions_ski_default"
-msgstr "Inserire le informazioni complementari all'innevamento per zone: condizioni osservate sui itinerari vicini, frequentazione. Le osservazioni relative alle valanghe devono inserite nel campo sotto."
+msgstr "Inserire le informazioni complementari all'innevamento per zone: condizioni osservate sugli itinerari vicini, frequentazione. Le osservazioni relative alle valanghe vanno inserite nel campo sottostante."
 
 msgid "conditions_status"
 msgstr "Condizioni del terreno:"
@@ -4911,6 +4916,10 @@ msgstr "Carica i dati geografiche al formato %1%"
 msgid "draft"
 msgstr "bozza"
 
+# [WARNING] fr translation used
+msgid "dry tooling portal"
+msgstr "Dry-tooling"
+
 msgid "duration"
 msgstr "Tempo di percorrenza:"
 
@@ -5037,6 +5046,9 @@ msgstr "Or."
 
 msgid "facings"
 msgstr "Esposizione:"
+
+msgid "family portal"
+msgstr "Famiglia"
 
 msgid "fauna pic"
 msgstr "fauna"
@@ -5197,6 +5209,10 @@ msgstr "francese"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "franche_comte"
 msgstr "Franca Contea"
+
+# [WARNING] fr translation used
+msgid "freerando portal"
+msgstr "Freerando"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
@@ -6038,7 +6054,7 @@ msgstr "valanga spontanea il giorno della gita"
 # [general comment]
 # option "natural_avalanche" à l'édition
 msgid "natural_avalanche_long"
-msgstr "valanghe spontanea il giorno della gita"
+msgstr "valanga spontanea il giorno della gita"
 
 msgid "naturally cleared"
 msgstr "strada non pulita"
@@ -6165,15 +6181,15 @@ msgid "no service"
 msgstr "nessun servizio"
 
 msgid "no_observation_avalanche"
-msgstr "Nessun osservazione di segnale di allarme o traccia di valanghe recente"
+msgstr "Nessun osservazione di segnali di allarme né tracce di valanghe recenti"
 
 msgid "no_observation_avalanche can't be selected with another option"
-msgstr "le opzioni vuota e \"nessun osservazione\" non possono essere selezionate con un altro opzione. "
+msgstr "opzioni vuota e \\\"nessun osservazione\\\" non possono essere, selezionate altre opzioni."
 
 # [general comment]
 # option "no_observation_avalanche" à l'édition
 msgid "no_observation_avalanche_long"
-msgstr "nessun osservazione di segnale di allarme o di traccia di valanghe"
+msgstr "nessun osservazione di segnali di allarme né tracce di valanghe"
 
 msgid "non applicable"
 msgstr "non applicabile"
@@ -6799,12 +6815,12 @@ msgid "recent conditions"
 msgstr "Condizioni recenti"
 
 msgid "recent_avalanche"
-msgstr "Traccia di valanghe recente"
+msgstr "Tracce di valanghe recenti"
 
 # [general comment]
 # option "recent_avalanche" à l'édition
 msgid "recent_avalanche_long"
-msgstr "traccia di valanghe recente (dopo l'ultima nevicata, pioggia, colpi di vento, rialzo termico)"
+msgstr "tracce di valanghe recenti (dopo l'ultima nevicata, pioggia, colpi di vento, rialzo termico)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
