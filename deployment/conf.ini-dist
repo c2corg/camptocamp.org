@@ -136,7 +136,7 @@ MW_CONTEST_ENABLED = false
 
 STATISTICS_URL = stats.camptocamp.org
 
-; Solr Configuration
+; Solr configuration
 
 SOLR_PORT = 8080
 SOLR_HOST = localhost
@@ -144,3 +144,8 @@ SOLR_PATH = /solr/db
 SOLR_TIMEOUT = 15
 SOLR_MAXROW = 10000
 SOLR_ENABLE = 0
+
+; Camo configuration
+USE_CAMO = false
+CAMO_URL = https://camo.camptocamp.org/
+CAMO_KEY = <camo_key>
