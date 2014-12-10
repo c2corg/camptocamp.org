@@ -5,6 +5,14 @@ $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 
+$format = $sf_data->getRaw('format');
+$use_keys = in_array('keys', $format);
+$text_html = in_array('html', $format);
+$add_gpx_track = in_array('track', $format);
+$add_all_fields = in_array('full', $format);
+$add_conditions = $add_all_fields || in_array('cond', $format);
+$add_text = !in_array('notext', $format);
+
 if (!isset($items) && $nb_results > 0)
 {
     $items = $pager->getResults('array', ESC_RAW);
@@ -35,7 +43,15 @@ if ($hasPreviousPage || $hasNextPage)
 $features = array();
 foreach ($items as $item)
 {
-    $features[] = json_decode(get_partial($module . '/jsonlist_body',  array('item' => $item)));
+    $features[] = json_decode( get_partial($module . '/jsonlist_body'
+                             , array( 'item' => $item
+                                    , 'use_keys' => $use_keys
+                                    , 'text_html' => $text_html
+                                    , 'add_gpx_track' => $add_gpx_track
+                                    , 'add_conditions' => $add_conditions
+                                    , 'add_all_fields' => $add_all_fields
+                                    , 'add_text' => $add_text
+                                    )));
 }
 echo json_encode(array(
     'type' => 'FeatureCollection',

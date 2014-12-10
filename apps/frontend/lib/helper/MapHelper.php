@@ -1,7 +1,7 @@
 <?php
 use_helper('Form', 'JavascriptQueue');
 
-function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
+function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null, $connected = false)
 {
     // define div identifiers
     $map_container_div_id   = $container_div . '_section_container';
@@ -88,6 +88,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     $async_map = sfConfig::get('app_async_map', false) &&
                  !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
+    $connected = $connected ? 'true' : 'false';
     $js = "
       C2C.map_init = function() {
         c2corg.Map({
@@ -96,7 +97,8 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
           loading: 'mapLoading',
           layers: $layers_list,
           center: $init_center,
-          features: " . _makeFeatureCollection($objects_list) . "
+          features: " . _makeFeatureCollection($objects_list) . ",
+          connected: $connected
         });
        };";
 

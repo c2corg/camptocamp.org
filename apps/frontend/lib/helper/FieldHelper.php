@@ -991,32 +991,32 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         $activities,
         $avalaible_activities,
         $show_activities,
-        _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'global_rating', 'globalRating', 'app_routes_global_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'engagement_rating', 'engagementRating', 'app_routes_engagement_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'objective_risk_rating', 'objectiveRiskRating', 'app_routes_objective_risk_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'toponeige_technical_rating', 'toponeigeTechnicalRating', 'app_routes_toponeige_technical_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'toponeige_exposition_rating', 'toponeigeExpositionRating', 'app_routes_toponeige_exposition_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'labande_ski_rating', 'labandeSkiRating', 'app_routes_labande_ski_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'labande_global_rating', 'labandeGlobalRating', 'app_routes_global_ratings', $format, $add_tooltips),
         _filter_ratings_rock($document, $format, $add_tooltips, false, null, $use_esc_raw),
-        _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $format, $add_tooltips, false, null, null, 'app_equipment_ratings_tooltips'),
-        _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $format, $add_tooltips)
+        _filter_ratings_data($document, 'ice_rating', 'iceRating', 'app_routes_ice_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'mixed_rating', 'mixedRating', 'app_routes_mixed_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'aid_rating', 'aidRating', 'app_routes_aid_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'rock_exposition_rating', 'rockExpositionRating', 'app_routes_rock_exposition_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'equipment_rating', 'equipmentRating', 'app_equipment_ratings_list', $format, $add_tooltips, false, null, null, 'app_equipment_ratings_tooltips'),
+        _filter_ratings_data($document, 'hiking_rating', 'hikingRating', 'app_routes_hiking_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'snowshoeing_rating', 'snowshoeingRating', 'app_routes_snowshoeing_ratings', $format, $add_tooltips)
         );
 }
 
-function _filter_ratings_data($document, $name, $config, $format, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $alternate_name = null, $tooltip_config = null)
+function _filter_ratings_data($document, $name, $json_name, $config, $format, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $alternate_name = null, $tooltip_config = null)
 {
     $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
     $value = _get_field_value_in_list(sfConfig::get($config), $raw_value);
 
     if (empty($value))
     {
-        if ($format == 'json')
+        if ($format == 'json' || $format == 'jsonkeys')
         {
             return array();
         }
@@ -1028,7 +1028,11 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
     $string_value = $use_raw_value ? $raw_value_prefix . $raw_value : $value;
     if ($format == 'json')
     {
-        return array($name => $string_value);
+        return array($json_name => $string_value);
+    }
+    elseif ($format == 'jsonkeys')
+    {
+        return array($json_name => $raw_value);
     }
     elseif ($add_tooltips)
     {
@@ -1048,11 +1052,13 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
 function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $use_esc_raw = false)
 {
     $rock_free_name = 'rock_free_rating';
+    $rock_free_json_name = 'rockFreeRating';
     $rock_free_config = 'app_routes_rock_free_ratings';
     $rock_free_raw_value = (is_int($document[$rock_free_name])) ? $document[$rock_free_name] : 
                            ($use_esc_raw ? $document->get($rock_free_name, 'ESC_RAW') : $document->getRaw($rock_free_name));
 
     $rock_required_name = 'rock_required_rating';
+    $rock_required_json_name = 'rockRequiredRating';
     $rock_required_config = 'app_routes_rock_free_ratings';
     $rock_required_raw_value = (is_int($document[$rock_required_name])) ? $document[$rock_required_name] :
                                ($use_esc_raw ? $document->get($rock_required_name, 'ESC_RAW') : $document->getRaw($rock_required_name));
@@ -1069,11 +1075,11 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
         {
             $alternate_name = null;
         }
-        $string_rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix, $alternate_name);
+        $string_rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_json_name, $rock_free_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix, $alternate_name);
 
         if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
         {
-            $string_rock_required_value = '>' .  _filter_ratings_data($document, $rock_required_name, $rock_required_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix);
+            $string_rock_required_value = '>' .  _filter_ratings_data($document, $rock_required_name, $rock_required_json_name, $rock_required_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix);
         }
         else
         {
@@ -1082,10 +1088,10 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
 
         return $string_rock_free_value . $string_rock_required_value;
     }
-    elseif ($format == 'json')
+    elseif ($format == 'json' || $format == 'jsonkeys')
     {
-        $rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_config, $format, false, $use_raw_value, $raw_value_prefix);
-        $rock_required_value = _filter_ratings_data($document, $rock_required_name, $rock_required_config, $format, false, $use_raw_value);
+        $rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_json_name, $rock_free_config, $format, false, $use_raw_value, $raw_value_prefix);
+        $rock_required_value = _filter_ratings_data($document, $rock_required_name, $rock_required_json_name, $rock_required_config, $format, false, $use_raw_value);
         
         return array_merge($rock_free_value, $rock_required_value);
     }
@@ -1163,7 +1169,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
                  . '</td>';
         }
     }
-    elseif ($format == 'json')
+    elseif ($format == 'json' || $format == 'jsonkeys')
     {
         return array_merge($global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                            $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing);

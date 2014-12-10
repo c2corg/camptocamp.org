@@ -19,6 +19,10 @@ $cookie_path = '/forums/';
 $cookie_secure = 0;
 $cookie_seed = '498c9e30';
 
+$use_camo = '@USE_CAMO@';
+$camo_url = '@CAMO_URL@';
+$camo_key = '@CAMO_KEY@';
+
 if (!defined('PUN'))
 {
     define('PUN', 1);

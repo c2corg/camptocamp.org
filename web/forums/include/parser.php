@@ -28,6 +28,7 @@ if (!defined('PUN'))
 
 // Load the functions script
 require_once PUN_ROOT.'include/functions.php';
+require_once PUN_ROOT.'include/camo.php';
 
 $mobile_version = c2cTools::mobileVersion();
 
@@ -391,8 +392,8 @@ function handle_url_tag($url, $link = '', $show_video = false)
         return $link;
     }
 
-    $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
-    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+    $full_url = preg_replace('#^((ht+ps?:)?//)?w*\.?camptocamp\.org/?(.*)#', '/${3}', $full_url, 1, $count);
+    $is_internal_url = ($count === 1) || ($full_url[0] === "#");
         
     if ($empty_link = (empty($link) || $link == $url))
     {
@@ -610,13 +611,18 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
+    $original_url = $url;
+    $url = handle_mixed_content($url);
+
+    $canonicalsrc = ($original_url !== $url) ? ' data-canonical-src="' . $original_url . '"' : '';
+
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-        $img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'"'.$canonicalsrc.' />';
     }
     elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
-        $img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'"'.$canonicalsrc.' />';
     }
     
     if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))
@@ -843,8 +849,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
     if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
     {
-        $pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img=((https?:)?//|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((https?:)?//|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
         

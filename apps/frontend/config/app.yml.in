@@ -2084,15 +2084,18 @@ all:
       1: ta
       2: alpibig
       3: ice
-      4: steep
-      5: metaskirando
-      6: cda
-      7: raid
-      8: pyrenees
-      9: montblanc
-      10: vosges
-      11: firstascent
-      12: accident
+      4: dry
+      5: steep
+      6: freerando
+      7: metaskirando
+      8: cda
+      9: raid
+      10: pyrenees
+      11: montblanc
+      12: vosges
+      13: firstascent
+      14: accident
+      15: family
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
@@ -2109,10 +2112,20 @@ all:
       name: 'ice climbing portal'
       menu: 1
       home: 1
+    dry:
+      id: @DRY_ID@
+      name: 'dry tooling portal'
+      menu: 1
+      home: 1
     steep:
       id: @STEEP_ID@
       name: 'steep skiing portal'
       menu: 1
+      home: 1
+    freerando:
+      id: @FREERANDO_ID@
+      name: 'freerando portal'
+      url: 'freerando.org'
       home: 1
     ta:
       id: @TA_ID@
@@ -2155,6 +2168,10 @@ all:
       id: @ACCIDENT_ID@
       name: 'Incidents and accidents database'
       menu: 1
+    family:
+      id: @FAMILY_ID@
+      name: 'family portal'
+      home: 1
 
   mw_contest_id: @MW_CONTEST_ID@
 
