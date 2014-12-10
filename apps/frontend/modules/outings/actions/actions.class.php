@@ -488,7 +488,7 @@ class outingsActions extends documentsActions
     
     public function executeFilterredirect()
     {
-        if ($this->getRequestParameter('cond'))
+        if ($this->getRequestParameter('cond') || $this->getRequestParameter('format'))
         {
             $action = 'conditions';
         }
@@ -580,6 +580,8 @@ class outingsActions extends documentsActions
         $this->addParam($out, 'geom');
         $this->addListParam($out, 'ocult');
 
+        $this->addParam($out, 'format');
+
         return $out;
     }
 
@@ -613,10 +615,17 @@ class outingsActions extends documentsActions
         parent::executeList();
 
         $format = $this->format;
-        if (in_array('cond', $format))
+        if (in_array('cond', $format) && !in_array('json', $format))
         {
             $this->setTemplate('conditions');
-            $this->setPageTitle($this->__('recent conditions'));
+            if (in_array('full', $format))
+            {
+                $this->setPageTitle($this->__('conditions and comments'));
+            }
+            else
+            {
+                $this->setPageTitle($this->__('recent conditions'));
+            }
         }
 
         $nb_results = $this->nb_results;

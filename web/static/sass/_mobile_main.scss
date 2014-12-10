@@ -198,6 +198,16 @@ input.long_input
   float: right;
 }
 
+.recent_conditions > li > ul
+{
+  margin-left: 1em;
+}
+
+ul.text
+{
+  padding-left: 1.1em;
+}
+
 .pages_navigation a, .pages_navigation span
 {
   margin-right: 1.2em;

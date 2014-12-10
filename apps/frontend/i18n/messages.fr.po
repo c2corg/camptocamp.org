@@ -1473,7 +1473,7 @@ msgid "List all linked images"
 msgstr "Lister toutes les images associées"
 
 msgid "List all linked outings"
-msgstr "Lister toutes les sorties associées"
+msgstr "Toutes les sorties associées"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
@@ -3060,7 +3060,21 @@ msgstr "<h3>Bulletin Neige et Avalanche</h3>Liens vers le(s) Bulletin(s) Neige e
 msgid "_avalanche_date_info"
 msgstr "<h3>Type des observations relatives aux avalanches</h3>\n"
 "Type des observations d'avalanches ou de signaux d'alerte (plusieurs choix possible).<br />\n"
-"Détaillez les observations dans le champ texte associé."
+"Détaillez les observations dans le champ texte associé.\n"
+"<h4>aucune observation</h4>\n"
+"Cette option ne peut pas être sélectionnée en même temps qu'une autre option.\n"
+"<h4>signaux d'alerte</h4>\n"
+"- corniche récente<br />\n"
+"- structure de plaque détectée au bâton<br />\n"
+"- bruit de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- fissure s'ouvrant en avançant<br />\n"
+"<h4>trace d'avalanche récente</h4>\n"
+"Trace d'une avalanche naturelle ou accidentelle tombée après la dernière chute de neige, pluie, coup de vent ou redoux, mais avant le jour de la sortie.<br />\n"
+"La trace d'une avalanche peut être une cassure de plaque, une trace de coulée, un dépôt.\n"
+"<h4>avalanche naturelle le jour de la sortie</h4>\n"
+"Avalanche naturelle observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller).\n"
+"<h4>avalanche accidentelle le jour de la sortie</h4>\n"
+"Avalanche déclenchée par une personne ou un animal, observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller)."
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
@@ -3083,7 +3097,21 @@ msgstr "<h3>Description des observations relatives aux avalanches</h3>\n"
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
 msgid "_avalanche_infos_info"
 msgstr "<h3>Observations relatives aux avalanches</h3>\n"
-"Observations des signaux d'alerte, des traces d'avalanche récentes, et des avalanches naturelle ou accidentelles vues le jour de la sortie."
+"Les observations relatives aux avalanches sont décrites par un résumé comportant du texte prédéfini, et le détail des observations.\n"
+"<h4>aucune observation</h4>\n"
+"Aucune observation d'un signal d'alerte, d'une trace d'avalanche récente, ou d'une avalanche.\n"
+"<h4>signaux d'alerte</h4>\n"
+"- corniche récente<br />\n"
+"- structure de plaque détectée au bâton<br />\n"
+"- bruit de tassement de couche fragile (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
+"- fissure s'ouvrant en avançant<br />\n"
+"<h4>trace d'avalanche récente</h4>\n"
+"Trace d'une avalanche naturelle ou accidentelle tombée après la dernière chute de neige, pluie, coup de vent ou redoux, mais avant le jour de la sortie.<br />\n"
+"La trace d'une avalanche peut être une cassure de plaque, une trace de coulée, un dépôt.\n"
+"<h4>avalanche naturelle le jour de la sortie</h4>\n"
+"Avalanche naturelle observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller).\n"
+"<h4>avalanche accidentelle le jour de la sortie</h4>\n"
+"Avalanche déclenchée par une personne ou un animal, observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller)."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Initiation</h3>\n"
@@ -4163,7 +4191,6 @@ msgstr "Description des observations relatives aux avalanches&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
 msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", fissures, traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
 
@@ -5168,16 +5195,30 @@ msgstr "depuis"
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
+# Activités : [des sorties associées]
+msgid "for linked outings"
+msgstr "des sorties associées"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
 # Activités : [pour les itinéraires associés]
 msgid "for linked routes"
 msgstr "des itinéraires associés"
 
 # [general comment]
-# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
 msgid "for outings"
 msgstr "des sorties"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des itinéraires, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les itinéraires]
+msgid "for routes"
+msgstr "des itinéraires"
 
 msgid "forum and topoguide names"
 msgstr "Nom topoguide et pseudo forum"

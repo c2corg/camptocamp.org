@@ -343,8 +343,11 @@ class Image extends BaseImage
             $params['act'] = implode('-', $activities);
         }
         
-        $categories = sfConfig::get('app_images_home_categories');
-        $params['icat'] = implode('-', $categories);
+        if (!isset($params['icat']))
+        {
+            $categories = sfConfig::get('app_images_home_categories');
+            $params['icat'] = implode('-', $categories);
+        }
 
         $criteria = Image::buildListCriteria($params);
         

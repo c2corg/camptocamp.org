@@ -4019,7 +4019,10 @@ ul.recent_conditions
 .recent_conditions > li
 {
   padding: 0 0 1em 0;
-  margin: 0 0 2em 0;
+  margin: 0 0 1em 0;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 0.5em 0;
 }
 
 .recent_conditions.condimg > li
@@ -4302,6 +4305,7 @@ table.diff td.diff-context, table.diff tr.diff-line td
 {
   text-align:left;
   overflow:hidden;
+  word-wrap:break-word;
 }
 
 td.diff-addedline

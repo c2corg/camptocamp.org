@@ -894,8 +894,24 @@ class Route extends BaseRoute
                                  'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks
                                  'sname.elevation', 'sname.lon', 'sname.lat',
                                  'snamei.name', 'snamei.search_name');
-            $data_fields_list = array_merge($routes_fields_list,
-                                            parent::buildGeoFieldsList());
+            
+            $full_fields_list = array();
+            $full_i18n_fields_list = array();
+            
+            if (in_array('full', $format))
+            {
+                $full_fields_list = array('m.height_diff_down', 'm.route_type', 'm.min_elevation', 'm.duration', 'm.slope', 'm.configuration', 'm.is_on_glacier', 'm.sub_activities');
+                
+                if (!in_array('notext', $format))
+                {
+                    $full_i18n_fields_list = array('mi.description', 'mi.remarks', 'mi.gear', 'mi.external_resources', 'mi.route_history');
+                }
+            }
+            
+            $data_fields_list = array_merge(parent::buildGeoFieldsList(),
+                                            $routes_fields_list,
+                                            $full_fields_list,
+                                            $full_i18n_fields_list);
         }
         else
         {

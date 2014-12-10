@@ -12,6 +12,7 @@ echo json_encode(array(
     'properties' => array(
         'module' => 'images',
         'name' => $item_i18n['name'],
+        'filename' => $item['filename'],
         'url' => jsonlist_url($item_i18n, 'images'),
         'type' => $it[$item['image_type']],
         'nbComments' =>  isset($item['nb_comments']) ? $item['nb_comments'] : 0,

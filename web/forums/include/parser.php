@@ -391,8 +391,8 @@ function handle_url_tag($url, $link = '', $show_video = false)
         return $link;
     }
 
-    $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
-    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+    $full_url = preg_replace('#^((ht+ps?:)?//)?w*\.?camptocamp\.org/?(.*)#', '/${3}', $full_url, 1, $count);
+    $is_internal_url = ($count === 1) || ($full_url[0] === "#");
         
     if ($empty_link = (empty($link) || $link == $url))
     {
@@ -843,8 +843,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
     if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
     {
-        $pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img=((https?:)?//|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((https?:)?//|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
         $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
         
@@ -960,7 +960,7 @@ function do_video($text)
             // dailymotion
             '<iframe class="video" width="$2" height="$3" src="//www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
             // googlevideo
-            '<object class="video" width="$2" height="$3" data="http://video.google.com/googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
+            '<object class="video" width="$2" height="$3" data="//static.googleusercontent.com/media/video.google.com/ca//googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
             // vimeo
             '<iframe class="video" src="//player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3"></iframe>',
             // metacafe

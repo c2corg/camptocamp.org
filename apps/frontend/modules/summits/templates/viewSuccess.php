@@ -10,6 +10,8 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$lat = $document->get('lat');
+$lon = $document->get('lon');
 
 switch ($document->get('summit_type'))
 {
@@ -77,8 +79,8 @@ if ($is_not_archive)
                           'module' => 'areas',
                           'weather' => true,
                           'avalanche_bulletin' => true,
-                          'lat' => $document->get('lat'),
-                          'lon' => $document->get('lon')));
+                          'lat' => $lat,
+                          'lon' => $lon));
     
     if (check_not_empty_doc($document, 'maps_info'))
     {
@@ -168,7 +170,15 @@ if ($is_not_archive && $is_not_merged)
     echo end_section_tag();
 
     echo start_section_tag('Latest outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'summits', 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+    include_partial( 'outings/linked_outings'
+                   , array(
+                            'id' => $ids
+                          , 'module' => 'summits'
+                          , 'items' => $latest_outings
+                          , 'nb_outings' => $nb_outings
+                          , 'lat' => $lat
+                          , 'lon' => $lon
+                    ));
     echo end_section_tag();
     
     if ($section_list['books'])

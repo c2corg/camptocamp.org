@@ -10,6 +10,8 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$lat = $document->get('lat');
+$lon = $document->get('lon');
 
 display_page_header('parkings', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/ParkingFacility', 'nb_comments' => $nb_comments));
@@ -70,8 +72,8 @@ if ($is_not_archive)
                           'module' => 'areas',
                           'weather' => true,
                           'avalanche_bulletin' => true,
-                          'lat' => $document->get('lat'),
-                          'lon' => $document->get('lon')));
+                          'lat' => $lat,
+                          'lon' => $lon));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)
@@ -130,7 +132,14 @@ if ($is_not_archive && $is_not_merged)
     echo end_section_tag();
     
     echo start_section_tag('Latest outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'parkings', 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+    include_partial( 'outings/linked_outings'
+           , array( 'id' => $ids
+                  , 'module' => 'parkings'
+                  , 'items' => $latest_outings
+                  , 'nb_outings' => $nb_routes_outings
+                  , 'lat' => $lat
+                  , 'lon' => $lon
+           ));
     echo end_section_tag();
 
     if ($section_list['books'])

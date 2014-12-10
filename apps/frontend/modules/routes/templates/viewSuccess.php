@@ -95,7 +95,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => $avalanche_bulletin,
                           'lat' => $lat,
-                          'lon' => $lon));
+                          'lon' => $lon
+                          ));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
@@ -355,7 +356,14 @@ if ($is_not_archive && $is_not_merged)
             <?php endforeach;
             
             // routes outings list link
-            include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $nb_routes_outings));
+            include_partial('outings/linked_outings',
+                            array( 'id' => $ids
+                                 , 'module' => 'routes'
+                                 , 'nb_outings' => $nb_routes_outings
+                                 , 'lat' => $lat
+                                 , 'lon' => $lon
+                                 , 'document' => $document
+                                 ));
         }
     }
 

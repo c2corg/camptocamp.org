@@ -1485,7 +1485,7 @@ msgid "List all linked images"
 msgstr "Vedere la lista di tutte le immagini associate"
 
 msgid "List all linked outings"
-msgstr "Lista di tutte le gite associate"
+msgstr "Tutte le gite associate"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
@@ -3075,6 +3075,7 @@ msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti pe
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
+# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Tipo delle osservazioni relative alle valanghe</h3>\n"
 "Tipo di osservazione delle valanghe o dei segnali di allarme (scelta multipla possibile).<br />\n"
@@ -3085,23 +3086,24 @@ msgstr "<h3>Tipo delle osservazioni relative alle valanghe</h3>\n"
 msgid "_avalanche_desc_info"
 msgstr "<h3>Descrizione delle osservazioni relative alle valanghe</h3>\n"
 "Dettagliare le osservazioni relative alla stabilità delle manto nevoso:\n"
-"<h4>Seganli di allarme</h4>\n"
+"<h4>Segnali di allarme</h4>\n"
 "- cornici recenti<br />\n"
-"- struttura di placa osservata col bastoncino<br />\n"
+"- struttura a lastroni o placca a vento osservata col bastoncino<br />\n"
 "- rumore di assestamento di un strato debole (\"chiii\", \"wouff\" ou \"bang\")<br />\n"
-"- creazione di fessuri durante la progressione<br />\n"
+"- creazione di fessure durante la progressione<br />\n"
 "<h4>Valanghe</h4>\n"
-"- traccie di valanghe recente (linea di rottura di placa, tracia di colata, deposito)<br >\n"
-"- valanghe naturale o accidentale osservate in diretto<br /><br />\n"
+"- tracce di valanghe recenti (linea di rottura di lastroni, traccia di colata, deposito)<br >\n"
+"- valanghe spontanee o accidentali osservate in diretta<br /><br />\n"
 "Per ogni valanghe, precisare :<br />\n"
-"- il tipo di valanghe: neve asciutta o bagnata, pontuale o placa<br />\n"
+"- il tipo di valanghe: neve asciutta o bagnata, puntiforme o a lastroni<br />\n"
 "- il luogo, la quota, le dimensioni approssimative, l'aera di partenza e di deposito<br />"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
+# [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Osservazioni relative alle valanghe</h3>\n"
-"Osservazioni dei segnali di allarme, delle traccie di valanghe recente, delle valanghe naturale o accidentale osservate durante la gita."
+"Osservazioni dei segnali di allarme, delle tracce di valanghe recente, delle valanghe spontanee, accidentale osservate durante la gita."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Principianti</h3>\n"
@@ -4118,7 +4120,7 @@ msgstr "Descrizioni delle osservazioni relativi alle valanghe:"
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
 # [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
-msgstr "Descrivere le osservazioni relative alla stabilità del manto nevoso : cornici recente, \"wouf\", fessuri, traccie di valanghe recente, valanghe osservate in diretto. Per una valanga, dare il luogo, la quota, l'altitudine e le dimensioni delle aree di partenza e di deposito."
+msgstr "Descrivere le osservazioni relative alla stabilità del manto nevoso : cornici recenti, \"wouf\", fessure, tracce di valanghe recenti, valanghe osservate in diretta. Per una valanga, dare il luogo, la quota, l'altitudine e le dimensioni delle aree di partenza e di deposito."
 
 # [general comment]
 # Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
@@ -4778,7 +4780,7 @@ msgstr "Segnali d’allarme"
 # [general comment]
 # option "danger_sign_avalanche" à l'édition
 msgid "danger_sign_avalanche_long"
-msgstr "segnali d’allarme altri che traccie di valanghe"
+msgstr "segnali d’allarme altri che tracce di valanghe"
 
 msgid "dangerous"
 msgstr "pericoloso"
@@ -5140,17 +5142,31 @@ msgstr "da"
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
+# Activités : [des sorties associées]
+msgid "for linked outings"
+msgstr "degli gite associati"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
 # Activités : [pour les itinéraires associés]
 msgid "for linked routes"
 msgstr "degli itinerari associati"
 
 # [general comment]
-# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# Option d'une liste de choix dans le filtres des sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
 # [WARNING] needs_review
 msgid "for outings"
 msgstr "delle gite"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres des itinéraires, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les itinéraires]
+msgid "for routes"
+msgstr "degli itinerari"
 
 msgid "forum and topoguide names"
 msgstr "Nome nella guida e nickname forum"
@@ -6017,12 +6033,12 @@ msgid "name"
 msgstr "Nome:"
 
 msgid "natural_avalanche"
-msgstr "valanga naturale il giorno della gita"
+msgstr "valanga spontanea il giorno della gita"
 
 # [general comment]
 # option "natural_avalanche" à l'édition
 msgid "natural_avalanche_long"
-msgstr "valanghe naturale il giorno della gita"
+msgstr "valanghe spontanea il giorno della gita"
 
 msgid "naturally cleared"
 msgstr "strada non pulita"

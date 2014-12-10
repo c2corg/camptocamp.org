@@ -12,6 +12,8 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $shelter_type = $document->get('shelter_type');
 $is_gite_camping = ($shelter_type == 5 || $shelter_type == 6);
+$lat = $document->get('lat');
+$lon = $document->get('lon');
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
 switch($shelter_type)
@@ -79,8 +81,8 @@ if ($is_not_archive)
                           'module' => 'areas',
                           'weather' => true,
                           'avalanche_bulletin' => true,
-                          'lat' => $document->get('lat'),
-                          'lon' => $document->get('lon')));
+                          'lat' => $lat,
+                          'lon' => $lon));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)
@@ -157,7 +159,15 @@ if ($is_not_archive && $is_not_merged)
     if (!empty($ids))
     {
         echo start_section_tag('Latest outings', 'outings');
-        include_partial('outings/linked_outings', array('id' => $ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+        include_partial( 'outings/linked_outings'
+                       , array(
+                                'id' => $ids
+                              , 'module' => $doc_module
+                              , 'items' => $latest_outings
+                              , 'nb_outings' => $nb_outings
+                              , 'lat' => $lat
+                              , 'lon' => $lon
+                        ));
         echo end_section_tag();
     }
     
