@@ -607,19 +607,22 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-    $url = handle_mixed_content($url);
-
     $img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
+    $original_url = $url;
+    $url = handle_mixed_content($url);
+
+    $canonicalsrc = ($original_url !== $url) ? ' data-canonical-src="' . $original_url . '"' : '';
+
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-        $img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'"'.$canonicalsrc.' />';
     }
     elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
-        $img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'"'.$canonicalsrc.' />';
     }
     
     if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))

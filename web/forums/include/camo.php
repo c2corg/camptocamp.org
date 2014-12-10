@@ -25,9 +25,18 @@ function is_secure_url($url)
 //
 function https_enabled()
 {
-  return true;
   return (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
          !empty($_SERVER["HTTPS"]);
+}
+
+//
+// Check if camo enabled
+//
+function camo_enabled()
+{
+  global $use_camo;
+
+  return (bool) $use_camo;
 }
 
 //
@@ -38,7 +47,28 @@ function camo_url($url)
   global $camo_url, $camo_key;
 
   $hash = hash_hmac('sha1', $url, $camo_key);
-  return $hash . '?url=' . urlencode($url);
+  return $camo_url . $hash . '?url=' . urlencode($url);
+}
+
+//
+// Translate some http urls to https one for some known providers
+// that are often used on camptocamp.org
+//
+function known_https_hosting($url)
+{
+  $url = preg_replace(array(
+    '/^http:\/\/((media|www)\.koreus\.com)/',
+    '/^http:\/\/((img[0-9]{0,4}\.)?\.imageshack\.us)/',
+    '/^http:\/\/(upload\.wikimedia\.org)/',
+    '/^http:\/\/((i\.)?imgur\.com)/',
+    '/^http:\/\/(pix\.toile-libre\.org)/',
+    '/^http:\/\/(farm[0-9]\.static\.flickr.com)/',
+    '/^http:\/\/(lh[0-9]\.ggpht\.com)/',
+    '/^http:\/\/(ppcdn\.500px\.org)/',
+    '/^http:\/\/(((www|s)\.)?camptocamp\.org)/'
+  ), '//$1', $url, 1, $count);
+
+  return (!$count) ? false : $url;
 }
 
 //
@@ -46,13 +76,13 @@ function camo_url($url)
 //
 function handle_mixed_content($img_url)
 {
-  if (!https_enabled() || is_secure_url($img_url))
+  if (!camo_enabled() || !https_enabled() || is_secure_url($img_url))
   {
     return $img_url;
   }
   else
   {
-    // TODO check for common image services that can be translated to https
-    return camo_url($img_url);
+    $known_url = known_https_hosting($img_url);
+    return $known_url ? $known_url : camo_url($img_url);
   }
 }
