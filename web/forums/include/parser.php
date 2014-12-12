@@ -163,6 +163,7 @@ function preparse_url($text)
 {
     // make internal c2c links shorter
     $a = array( '#(?<=[^\w]|^)((ht+ps?)?:*/*w*m*\.|(ht+ps?)?:*/+|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+                '#(?<=[^\w]|^)(ht+ps?)?:*/*(s\.camptocamp\.org)#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -171,6 +172,7 @@ function preparse_url($text)
               );
     
     $b = array( '$4',
+                '//$2',
                 '#f$1',
                 '#t$1+',
                 '#t$1',
@@ -391,10 +393,18 @@ function handle_url_tag($url, $link = '', $show_video = false)
     {
         return $link;
     }
+    
+    $pattern = array( '#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#i',
+                      '#^(ht+ps?)?:*/*(s\.camptocamp\.org)#i'
+                    );
 
-    $full_url = preg_replace('#^((ht+ps?:)?//)?w*\.?camptocamp\.org/?(.*)#', '/${3}', $full_url, 1, $count);
-    $is_internal_url = ($count === 1) || ($full_url[0] === "#");
-        
+    $replace = array( '/${2}',
+                      '//$2'
+                    );
+
+    $full_url = preg_replace($pattern, $replace, $full_url);
+    $is_internal_url = (strpos("#/", $full_url[0]) !== false && strpos($full_url, "//") !== 0);
+
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
@@ -442,9 +452,10 @@ function handle_url_tag($url, $link = '', $show_video = false)
     {
         $full_url = 'ftp://'.$full_url;
     }
-    elseif (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
+    elseif (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))  // Else if it doesn't start with abcdef:// nor / nor # nor //, we add http://
     {
-        $full_url = 'http://'.$full_url;
+        if (strpos($full_url, "//") !== 0)
+            $full_url = 'http://'.$full_url;
     }
     else
     {
