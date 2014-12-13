@@ -275,7 +275,14 @@ if ($is_not_archive && $is_not_merged)
         <?php endforeach;
         
         // main outings list link
-        include_partial('outings/linked_outings', array('id' => $id, 'module' => 'routes', 'nb_outings' => $nb_main_outings));
+        include_partial('outings/linked_outings',
+                        array( 'id' => $id
+                             , 'module' => 'routes'
+                             , 'lat' => $lat
+                             , 'lon' => $lon
+                             , 'nb_outings' => $nb_main_outings
+                             , 'document' => $document
+                            ));
         
         // routes outings (= outings associated to routes associated to this route)
         if ($nb_routes_outings > 0)
@@ -360,8 +367,6 @@ if ($is_not_archive && $is_not_merged)
                             array( 'id' => $ids
                                  , 'module' => 'routes'
                                  , 'nb_outings' => $nb_routes_outings
-                                 , 'lat' => $lat
-                                 , 'lon' => $lon
                                  , 'document' => $document
                                  ));
         }
