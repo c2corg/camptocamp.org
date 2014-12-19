@@ -3510,6 +3510,10 @@ a .linked_elt
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
+.outings_content .section_subtitle.htext
+{
+  margin-top: 0.5em;
+}
 ul.recent_conditions li .htext {
   margin-top: 0.3em;
 }
@@ -3539,6 +3543,10 @@ h2.htext, h2.htext a
 h2.htext, .article h2.htext
 {
   margin-top: 1.5em;
+}
+.outings_content.article h2.htext
+{
+  margin-top: 0.8em;
 }
 h2.htext a
 {
@@ -3576,6 +3584,10 @@ h3.htext, h3.htext a
 h3.htext, .article h3.htext
 {
   margin-top: 1em;
+}
+.outings_content.article h3.htext
+{
+  margin-top: 0.5em;
 }
 .articles_content h3.htext, .articles_content h3.htext a
 {
