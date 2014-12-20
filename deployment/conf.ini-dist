@@ -131,8 +131,8 @@ PRODUCTION = false
 HTTPS_LOGIN = false
 
 ; Concours changer d'approche
-MW_CONTEST_ID = 407724
-MW_CONTEST_ENABLED = false
+MW_CONTEST_ID = 584379
+MW_CONTEST_ENABLED = true
 
 STATISTICS_URL = stats.camptocamp.org
 
