@@ -103,7 +103,6 @@ try
         }
     }
 
-    //$conn->standaloneQuery("UPDATE punbb_online SET user_id='$userid_to_remain', ident='$username_to_remain' WHERE user_id='$userid_to_wipe'");
     $conn->standaloneQuery("DELETE FROM punbb_online WHERE user_id='$userid_to_wipe'");
 
     $conn->standaloneQuery("UPDATE punbb_posts SET poster='$username_to_remain', poster_id='$userid_to_remain' WHERE poster_id='$userid_to_wipe'");
@@ -112,7 +111,7 @@ try
     $conn->standaloneQuery("UPDATE punbb_reports SET reported_by='$userid_to_remain' WHERE reported_by='$userid_to_wipe'");
     $conn->standaloneQuery("UPDATE punbb_reports SET zapped_by='$userid_to_remain' WHERE zapped_by='$userid_to_wipe'");
 
-    $conn->standaloneQuery("UPDATE punbb_subscriptions SET user_id='$userid_to_remain' WHERE user_id='$userid_to_wipe'");
+    $conn->standaloneQuery("DELETE FROM punbb_subscriptions WHERE user_id='$userid_to_wipe'");
 
     $conn->standaloneQuery("UPDATE punbb_topics SET poster='$username_to_remain' WHERE poster='$username_to_wipe'");
     $conn->standaloneQuery("UPDATE punbb_topics SET last_poster='$username_to_remain' WHERE last_poster='$username_to_wipe'");
