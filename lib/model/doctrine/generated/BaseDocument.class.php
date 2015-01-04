@@ -1883,9 +1883,106 @@ class BaseDocument extends sfDoctrineRecordI18n
         else
         {
            // FIXME change the diff between users and other modules once performance problems have been resolved
-           $operator = $exact_match ? '= ?' :
+           /* $operator = $exact_match ? '= ?' :
                ($model == 'User' ? "LIKE make_search_name(?)||'%'" : "LIKE '%'||make_search_name(?)||'%'");
            $where_clause = 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
+           */
+          c2cTools::log(' debut recherche solr : ' .$name  );
+          if (sfConfig::get('app_solr_enable') == true)
+            {
+                /* init solr 
+                 */
+                
+                $max_row = sfConfig::get('app_solr_maxrow');
+                $options = array
+                (
+                    'hostname' => sfConfig::get('app_solr_host'),
+                    'port'     => sfConfig::get('app_solr_port'),
+                    'path'     => sfConfig::get('app_solr_path'),
+                    'timeout'  => sfConfig::get('app_solr_timeout')
+                );
+
+                $client = new SolrClient($options);
+                try 
+                {
+                    // 1st search : exact search 
+                    $query_solr_exact = new SolrQuery();
+                    $query_solr_exact->setQuery($name.'*');
+                    $query_solr_exact->setRows($max_row);
+                    
+                    $query_solr_exact->addFilterQuery('module:'.strtolower($model).'s');
+                    $query_solr_exact->addField('name')->addField('module')->addField('id_doc');
+                    $res_exact = $client->query($query_solr_exact)->getResponse();
+                        
+                    if ($res_exact['response']['numFound'] > 0){
+                        
+                        $where_clause = 'm.redirects_to IS NULL AND '.' m.id IN (' ;
+                      
+                        for ($i = 0; $i < $res_exact['response']['numFound']; $i++) 
+                        {
+                            $where_clause = $where_clause.' ? ,';  
+                            $where_vars[] = $res_exact['response']['docs'][$i]['id_doc'];
+                        }
+                        $where_clause = substr($where_clause,0,-1) ;
+                        $where_clause = $where_clause . ')';
+                        
+                    }
+                    else
+                    {
+                         // No exact serach ... so try fuzzy search 
+                        $query_solr = new SolrQuery();
+                        // Fuzzy search word > 3 letters
+                        $query_words = explode(" ", $name);
+                        foreach ($query_words as &$word) 
+                        {
+                           switch(true)
+                            {
+                                case in_array(strlen($word), range(0,3)) :
+                                     $word = $word      ; break;
+                                case in_array(strlen($word), range(4,5)) :
+                                    $word = $word . '~1'; break;
+                                case in_array(strlen($word), range(6,7)) :
+                                    $word = $word . '~2'; break;
+                                case in_array(strlen($word), range(8,9)) :
+                                    $word = $word . '~3'; break;
+                                default :
+                                    $word = $word . '~4'; break;
+                            }
+                        }
+                        $query_search_fuzzy = implode(' ', $query_words);
+                        $query_search =$query_search_fuzzy ;
+                        c2cTools::log(" solr request : " . $query_search);    
+                        $query_solr->setQuery($query_search);
+                        $query_solr->setRows($max_row);
+                        $query_solr->addFilterQuery('module:'.strtolower($model).'s');
+                        $query_solr->addField('name')->addField('module')->addField('id_doc');
+                        $res = $client->query($query_solr)->getResponse();
+
+                        if ($res['response']['numFound'] > 0)
+                        {
+                        
+                        $where_clause = 'm.redirects_to IS NULL AND '.' m.id IN (' ;
+                      
+                        for ($i = 0; $i < $res['response']['numFound']; $i++) 
+                        {
+                            $where_clause = $where_clause.' ? ,';  
+                            $where_vars[] = $res['response']['docs'][$i]['id_doc'];
+                        }
+                        $where_clause = substr($where_clause,0,-1) ;
+                        $where_clause = $where_clause . ')';
+                        
+                        }
+                        else
+                        {
+                            $where_clause =  'm.redirects_to IS NULL ';
+                        }
+                    }
+                }
+                catch (Exception $e)
+                {   
+                    c2cTools::log(" exception solr : ".$e );
+                }
+            }
         }
 
         if (isset($coords))
@@ -1893,10 +1990,11 @@ class BaseDocument extends sfDoctrineRecordI18n
             $where_clause = "ST_DWithin(geom, transform(setsrid(makepoint(?, ?), 4326), 900913), ?) AND " . $where_clause;
             $where_vars = array($coords['lon'], $coords['lat'], sfConfig::get('app_autocomplete_near_max_distance'));
         }
-        else
+        /* else
         {
-            $where_vars = array();
-        }
+           
+              $where_vars = array();
+        }*/
 
         if ($model == 'Outing')
         {
@@ -1905,12 +2003,12 @@ class BaseDocument extends sfDoctrineRecordI18n
             $select = 'mi.name, m.id, m.module, m.date';
             if ($use_docid && sfContext::getInstance()->getUser()->hasCredential('moderator'))
             {
-                array_push($where_vars, $name);
+               // array_push($where_vars, $name);
             }
             else
             {
                 $where_clause = $where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)";
-                array_push($where_vars, $name, $user_id);
+                array_push($where_vars/*, $name */, $user_id);
             }
         }
         else if (($model == 'Article') && $filter_personal_content)
@@ -1918,7 +2016,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             // return only collaborative articles, or personal ones linked with user
             $select = 'mi.name, m.id, m.module, m.article_type';
             $where_clause = $where_clause . " AND (m.article_type = 1 OR (m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uc' AND a.main_id = ?)))";
-            array_push($where_vars, $name, $user_id);
+            array_push($where_vars/*, $name */, $user_id);
         }
         else if (($model == 'Image') && $filter_personal_content)
         {
@@ -1928,36 +2026,37 @@ class BaseDocument extends sfDoctrineRecordI18n
                                           . "(SELECT a.id FROM Image a LEFT JOIN a.versions v ON a.id = v.document_id "
                                           . "LEFT JOIN v.history_metadata a4 ON v.history_metadata_id = a4.history_metadata_id "
                                           . "WHERE a.redirects_to IS NULL AND (v.version = 1 AND a4.user_id = ?))))";
-            array_push($where_vars, $name, $user_id);
+            array_push($where_vars/*, $name */, $user_id);
+            
         }
         else if ($model == 'User') // search on topoguide and forum names
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
 
-            array_push($where_vars, $name);
+       //     array_push($where_vars, $name);
             if (!$use_docid)
             {
-                $where_clause = 'm.redirects_to IS NULL AND (mi.search_name ' . $operator . ' OR mu.search_username ' . $operator . ')';
-                array_push($where_vars, $name);
+              //  $where_clause = 'm.redirects_to IS NULL AND (mi.search_name ' . $operator . ' OR mu.search_username ' . $operator . ')';
+          //      array_push($where_vars, $name);
             }
         }
         else if ($model == 'Book') // retrieve author and publication date
         {
             $select = 'mi.name, m.id, m.module, m.author, m.publication_date';
-            array_push($where_vars,$name);
+          //  array_push($where_vars,$name);
         }
         else if ($model == 'Summit' || $model == 'Hut') // retrieve elevation
         {
             $select = 'mi.name, m.id, m.module, m.elevation';
-            array_push($where_vars, $name);
+          //  array_push($where_vars, $name);
         }
         else
         {
             $select = 'mi.name, m.id, m.module';
-            array_push($where_vars, $name);
+           // array_push($where_vars, $name);
         }
-
+        
         $results = Doctrine_Query::create()
                                  ->select($select)
                                  ->from(isset($from) ? $from : $model.' m , m.'.$model_i18n.' mi')
@@ -1968,7 +2067,6 @@ class BaseDocument extends sfDoctrineRecordI18n
  
         return $results;
     }
-
     /**
      * Same as above, but with some different behaviours for outings or routes
      */
