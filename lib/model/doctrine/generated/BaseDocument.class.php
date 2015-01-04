@@ -6,7 +6,7 @@
 
 class BaseDocument extends sfDoctrineRecordI18n
 {
-    /**
+    /**s
      * ORM settings
      */
 
@@ -1887,7 +1887,6 @@ class BaseDocument extends sfDoctrineRecordI18n
                ($model == 'User' ? "LIKE make_search_name(?)||'%'" : "LIKE '%'||make_search_name(?)||'%'");
            $where_clause = 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
            */
-          c2cTools::log(' debut recherche solr : ' .$name  );
           if (sfConfig::get('app_solr_enable') == true)
             {
                 /* init solr 
@@ -1907,7 +1906,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 {
                     // 1st search : exact search 
                     $query_solr_exact = new SolrQuery();
-                    $query_solr_exact->setQuery($name.'*');
+                    $query_solr_exact->setQuery('name:'.$name.'*');
                     $query_solr_exact->setRows($max_row);
                     
                     $query_solr_exact->addFilterQuery('module:'.strtolower($model).'s');
@@ -1952,7 +1951,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $query_search_fuzzy = implode(' ', $query_words);
                         $query_search =$query_search_fuzzy ;
                         c2cTools::log(" solr request : " . $query_search);    
-                        $query_solr->setQuery($query_search);
+                        $query_solr->setQuery('name:'.$query_search);
                         $query_solr->setRows($max_row);
                         $query_solr->addFilterQuery('module:'.strtolower($model).'s');
                         $query_solr->addField('name')->addField('module')->addField('id_doc');
