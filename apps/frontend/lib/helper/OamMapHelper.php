@@ -29,6 +29,7 @@ function show_georef_map($lon, $lat, $layer)
                 lang: '$lang',
                 loading: 'mapLoading',
                 layers: ['$layer'],
+                connected: true,
                 georef: {
                     initialState: {
                         lon: lon,
