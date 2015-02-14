@@ -183,12 +183,12 @@ if ($has_videos)
 $forum_link_type = $is_connected ? 'show_new' : 'show_24h';
 if ($has_news)
 {
-    $custom_title_link = 'search.php?' . $forum_link_type . '&fids=' . $news_filter_ids;
+    $custom_title_link = 'search.php?action=' . $forum_link_type . '&fids=' . $news_filter_ids;
     include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'custom_title_link' => $custom_title_link, 'culture' => $culture, 'default_open' => true));
 }
 if ($has_topics)
 {
-    $custom_title_link = 'search.php?' . $forum_link_type . '&fids=' . $forum_filter_ids;
+    $custom_title_link = 'search.php?action=' . $forum_link_type . '&fids=' . $forum_filter_ids;
     include_partial('documents/latest_threads', array('items' => $latest_threads, 'custom_title_link' => $custom_title_link, 'culture' => $culture, 'default_open' => true));
 }
 
