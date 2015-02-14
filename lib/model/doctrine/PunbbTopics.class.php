@@ -41,7 +41,7 @@ class PunbbTopics extends BasePunbbTopics
         return (count($forums) > 0) ? $forums[0] : 0;
     }
 
-    protected static function getForumIds($conf_prefix, $langs, $activities, $forums = null)
+    public static function getForumIds($conf_prefix, $langs, $activities, $forums = null)
     {
         if (empty($forums))
         {
@@ -126,7 +126,7 @@ class PunbbTopics extends BasePunbbTopics
         }
     }
 
-    protected static function listLatestById($limit, $f_ids)
+    public static function listLatestById($limit, $f_ids)
     {
         if (count($f_ids) > 0)
         {
