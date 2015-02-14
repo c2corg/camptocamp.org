@@ -218,6 +218,29 @@ class portalsActions extends documentsActions
             }
             $this->has_videos = $has_videos;
             
+            // forum 'mountain news' latest active threads
+            $nb_news = $this->document->get('nb_news');
+            $has_news = !empty($nb_news);
+            $this->has_news = $has_news;
+            $news_filter_ids = array();
+            if ($has_news)
+            {
+                $news_filter_temp = $this->document->get('news_filter');
+                $news_filter_temp = explode('|', $news_filter_temp);
+                $news_filter = array();
+                foreach ($news_filter_temp as $filter)
+                {
+                    $filter = explode(':', $filter);
+                    if (isset($filter[1]))
+                    {
+                        $news_filter[$filter[0]] = explode(',', $filter[1]);
+                    }
+                }
+                $news_filter_ids = PunbbTopics::getForumIds('app_forum_mountain_news', $langs, $activities, $news_filter);
+                $this->latest_mountain_news = PunbbTopics::listLatestById($nb_news, $news_filter_ids);
+                $this->news_filter_ids = implode('-', $news_filter_ids);
+            }
+
             // forum latest active threads
             $nb_topics = $this->document->get('nb_topics');
             $has_topics = !empty($nb_topics);
@@ -237,29 +260,7 @@ class portalsActions extends documentsActions
                 }
                 $forum_filter_ids = PunbbTopics::getForumIds('app_forum_public_ids', $langs, $activities, $forum_filter);
                 $this->latest_threads = PunbbTopics::listLatestById($nb_topics, $forum_filter_ids);
-                $this->forum_filter_ids = implode('-', $forum_filter_ids);
-            }
-
-            // forum 'mountain news' latest active threads
-            $nb_news = $this->document->get('nb_news');
-            $has_news = !empty($nb_news);
-            $this->has_news = $has_news;
-            if ($has_news)
-            {
-                $news_filter_temp = $this->document->get('news_filter');
-                $news_filter_temp = explode('|', $news_filter_temp);
-                $news_filter = array();
-                foreach ($news_filter_temp as $filter)
-                {
-                    $filter = explode(':', $filter);
-                    if (isset($filter[1]))
-                    {
-                        $news_filter[$filter[0]] = explode(',', $filter[1]);
-                    }
-                }
-                $news_filter_ids = PunbbTopics::getForumIds('app_forum_mountain_news', $langs, $activities, $news_filter);
-                $this->latest_mountain_news = PunbbTopics::listLatestById($nb_news, $news_filter_ids);
-                $this->news_filter_ids = implode('-', $news_filter_ids);
+                $this->forum_filter_ids = implode('-', array_merge($news_filter_ids, $forum_filter_ids));
             }
 
             $cda_config = sfConfig::get('app_portals_cda');
