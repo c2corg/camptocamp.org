@@ -351,12 +351,17 @@ else
 if (!$pun_user['is_guest'])
 {
     $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
-    $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a></li>';
     $tpl_filters = '';
+    $tpl_all = '';
     if ($lang == 'fr')
     {
-        $tpl_filters .= '<a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
-                   . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
+        $tpl_all     .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
+        $tpl_filters .= '<a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
+    }
+    $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a>'.$tpl_all.'</li>';
+    if ($is_v6)
+    {
+        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
     }
     if ($is_assoc)
     {
