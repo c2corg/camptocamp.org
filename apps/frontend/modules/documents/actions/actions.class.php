@@ -468,19 +468,19 @@ class documentsActions extends c2cActions
                                '&activity_ids=' . implode(',', $activity_ids) .
                                '&region_id=' . implode(',', $region_ids);
 
-        // forum latest active threads
-        $forum_filter_ids = PunbbTopics::getForumIds('app_forum_public_ids', $langs, $activities);
-        $this->latest_threads = PunbbTopics::listLatestById($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')
-                                                                            : sfConfig::get('app_recent_documents_threads_limit'),
-                                                            $forum_filter_ids);
-        $this->forum_filter_ids = implode('-', $forum_filter_ids);
-
         // forum 'mountain news' latest active threads
         $news_filter_ids = PunbbTopics::getForumIds('app_forum_mountain_news', $langs, $activities);
         $this->latest_mountain_news = PunbbTopics::listLatestById($mobile_version ? sfConfig::get('app_recent_documents_mountain_news_mobile_limit')
                                                                                   : sfConfig::get('app_recent_documents_mountain_news_limit'),
                                                                   $news_filter_ids);
         $this->news_filter_ids = implode('-', $news_filter_ids);
+
+        // forum latest active threads
+        $forum_filter_ids = PunbbTopics::getForumIds('app_forum_public_ids', $langs, $activities);
+        $this->latest_threads = PunbbTopics::listLatestById($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')
+                                                                            : sfConfig::get('app_recent_documents_threads_limit'),
+                                                            $forum_filter_ids);
+        $this->forum_filter_ids = implode('-', array_merge($news_filter_ids, $forum_filter_ids));
 
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
