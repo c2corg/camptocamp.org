@@ -214,6 +214,7 @@ $is_admmod = isset($is_admmod) ? $is_admmod : false;
 $is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 $is_assoc = (in_array($pun_user['g_id'], explode(', ', PUN_ASSOCIATION))) ? true : false;
 $is_v6 = (in_array($pun_user['g_id'], explode(', ', PUN_V6))) ? true : false;
+$lang = get_lang_code();
 if (!isset($forum_id))
 {
     switch($pun_user['language'])
@@ -338,7 +339,6 @@ if ($is_admmod_2)
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 
-$lang = get_lang_code();
 if ($lang == 'fr')
 {
     $all_lang_text = $lang_common['multilanguage'];
