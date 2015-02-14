@@ -194,7 +194,7 @@ if (!$pun_user['is_guest'])
         echo '<br /><a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
            . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
-    if ($is_admmod_2)
+    if ($is_v6)
     {
         echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
     }
