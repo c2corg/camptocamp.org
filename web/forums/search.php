@@ -639,27 +639,27 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             
             // Included forums for the search
             $forum_ids = array();
-            if (isset($_GET['fids'])
+            if (isset($_GET['fids']))
             {
             	$forum_ids = explode('-', $_GET['fids']);
             }
-            if (isset($_GET['assoc'])
+            if (isset($_GET['assoc']))
             {
             	$forum_ids[] = ASSOCIATION_FORUMS;
             }
-            elseif (isset($_GET['v6'])
+            elseif (isset($_GET['v6']))
             {
             	$forum_ids[] = V6_FORUM;
             }
-            if (isset($_GET['partner'])
+            if (isset($_GET['partner']))
             {
             	$forum_ids[] = PARTNER_FORUMS;
             }
-            if (isset($_GET['buysell'])
+            if (isset($_GET['buysell']))
             {
             	$forum_ids[] = BUYSELL_FORUMS;
             }
-            if (isset($_GET['allnews'])
+            if (isset($_GET['allnews']))
             {
             	$forum_ids[] = ALL_NEWS_FORUMS;
             }
