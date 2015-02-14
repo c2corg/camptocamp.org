@@ -71,6 +71,8 @@ define('PUN_ADMIN', 1);
 define('PUN_MOD', 2);
 define('PUN_GUEST', 3);
 define('PUN_MEMBER', 4);
+define('PUN_ASSOCIATION', '1, 2, 5, 6, 8, 13, 15, 21, 22, 24, 26');
+define('PUN_V6', '1, 2, 5, 6, 8, 13, 15, 21, 22, 24, 26, 27');
 define('COMMENTS_FORUM', 1);
 define('C2C_BOARD_FORUM', 34);
 define('ALL_NEWS_FORUMS', '18, 85, 86, 87, 89, 48, 90, 91, 92, 93, 94, 100');
