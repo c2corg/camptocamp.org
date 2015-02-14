@@ -78,7 +78,8 @@ define('PUB_FORUMS', '26');
 define('LOVE_FORUMS', '19');
 define('PARTNER_FORUMS', '75, 76, 77, 96');
 define('BUYSELL_FORUMS', '12, 13, 14, 15, 16, 17, 78');
-define('ASSOCIATION_FORUMS', '3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95');
+define('ASSOCIATION_FORUMS', '3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112');
+define('V6_FORUMS', '102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112');
 
 // Load DB abstraction layer and connect
 require PUN_ROOT.'include/dblayer/common_db.php';
