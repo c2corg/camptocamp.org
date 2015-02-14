@@ -627,7 +627,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             if (count($excluded_forum_ids))
             {
                 $where_excluded_forum_id = implode(', ', $excluded_forum_ids);
-                if (count($excluded_forum_ids) == 1)
+                if (substr_count($where_excluded_forum_id, ',') == 0)
                 {
                     $where_forum_id .= ' AND f.id != ' . $where_excluded_forum_id;
                 }
@@ -666,7 +666,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             if (count($forum_ids))
             {
                 $where_included_forum_id = implode(', ', $forum_ids);
-                if (count($forum_ids) == 1)
+                if (substr_count($where_included_forum_id, ',') == 0)
                 {
                     $where_forum_id .= ' AND f.id = ' . $where_included_forum_id;
                 }
