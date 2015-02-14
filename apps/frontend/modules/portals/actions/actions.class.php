@@ -257,7 +257,7 @@ class portalsActions extends documentsActions
                         $news_filter[$filter[0]] = explode(',', $filter[1]);
                     }
                 }
-                $news_filter_ids = PunbbTopics::getForumIds('app_forum_mountain_news', $langs, $activities, $forum_filter);
+                $news_filter_ids = PunbbTopics::getForumIds('app_forum_mountain_news', $langs, $activities, $news_filter);
                 $this->latest_mountain_news = PunbbTopics::listLatestById($nb_news, $news_filter_ids);
                 $this->news_filter_ids = implode('-', $news_filter_ids);
             }
