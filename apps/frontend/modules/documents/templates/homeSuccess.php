@@ -47,8 +47,13 @@ echo start_content_tag('home_article', true);
             </div>
             <div id="home_right_content">
                 <?php
-                include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
-                include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
+                $forum_link_type = $connected ? 'show_new' : 'show_24h';
+                $custom_title_link = 'search.php?' . $forum_link_type . '&fids=' . $news_filter_ids;
+                include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'custom_title_link' => $custom_title_link, 'culture' => $culture, 'default_open' => true));
+                
+                $custom_title_link = 'search.php?' . $forum_link_type . '&fids=' . $forum_filter_ids;
+                include_partial('documents/latest_threads', array('items' => $latest_threads, 'custom_title_link' => $custom_title_link, 'culture' => $culture, 'default_open' => true));
+                
                 if ($mobile_version)
                 {
                     include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
