@@ -614,7 +614,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 {
                     $excluded_forum_ids[] = COMMENTS_FORUM;
                 }
-                $forum_ids[] = ASSOCIATION_FORUMS;
+                $excluded_forum_ids[] = ASSOCIATION_FORUMS;
                 if (empty($c2c_board_condition))
                 {
                     $excluded_forum_ids[] = C2C_BOARD_FORUM;
