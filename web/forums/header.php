@@ -212,6 +212,9 @@ $tpl_main = str_replace('<pun_navlinks>','<div id="brdmenu" class="inbox">'."\n\
 $footer_style = isset($footer_style) ? $footer_style : NULL;
 $is_admmod = isset($is_admmod) ? $is_admmod : false;
 $is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+$is_assoc = (in_array($pun_user['g_id'], explode(', ', PUN_ASSOCIATION))) ? true : false;
+$is_v6 = (in_array($pun_user['g_id'], explode(', ', PUN_V6))) ? true : false;
+$lang = get_lang_code();
 if (!isset($forum_id))
 {
     switch($pun_user['language'])
@@ -241,6 +244,23 @@ if (!isset($forum_id))
             $forum_id = 24;
             break;
     }
+}
+
+if ($is_admmod_2)
+{
+	$forum_modo = '';
+	if ($lang == 'fr')
+	{
+		$forum_modo = MODO_FR_FORUM;
+	}
+	elseif ($lang == 'it')
+	{
+		$forum_modo = MODO_IT_FORUM;
+	}
+	if (!empty($forum_modo))
+	{
+		$forum_modo = ' - <a href="viewforum.php?id='.$forum_modo.'">Forum modos</a>';
+	}
 }
 
 $tpl_temp = '<div id="brdwelcome" class="block">'."\n\t".'<div class="box">'."\n\t\t".'<div class="inbox">'."\n\t\t\t".'<div class="conl">';
@@ -314,12 +334,11 @@ if ($is_admmod_2)
             $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a> | ';
         }
     }
-    $tpl_temp .= '<a href="admin_users.php">Admin</a></li>';
+    $tpl_temp .= '<a href="admin_users.php">Admin</a>'.$forum_modo.'</li>';
 }
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 
-$lang = get_lang_code();
 if ($lang == 'fr')
 {
     $all_lang_text = $lang_common['multilanguage'];
@@ -331,13 +350,31 @@ else
 
 if (!$pun_user['is_guest'])
 {
+    $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
     $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a></li>';
+    $tpl_filters = '';
     if ($lang == 'fr')
     {
-        $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
-                   . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a></li>';
+        $tpl_filters .= '<a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
+                      . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
-    $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
+    if ($is_v6)
+    {
+        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
+    }
+    if ($is_assoc)
+    {
+        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;assoc">[assoc]</a>';
+    }
+    if ($is_v6)
+    {
+        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;v6">[V6]</a>';
+    }
+    if (!empty($tpl_filters))
+    {
+    	$tpl_temp .= '<li>' . $tpl_filters . '</li>';
+    }
+    $tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
@@ -355,9 +392,10 @@ else
         $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
                    . ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;light">[light]</a></li>';
     }
+	$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
 }
 
-$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'."\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
+$tpl_temp .= "\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
 
 $tpl_main = str_replace('<pun_status>', $tpl_temp, $tpl_main);
 // END SUBST - <pun_status>

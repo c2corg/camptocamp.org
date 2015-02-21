@@ -71,6 +71,8 @@ define('PUN_ADMIN', 1);
 define('PUN_MOD', 2);
 define('PUN_GUEST', 3);
 define('PUN_MEMBER', 4);
+define('PUN_ASSOCIATION', '1, 2, 5, 6, 8, 13, 15, 21, 22, 24, 26');
+define('PUN_V6', '1, 2, 5, 6, 8, 13, 15, 21, 22, 24, 26, 27');
 define('COMMENTS_FORUM', 1);
 define('C2C_BOARD_FORUM', 34);
 define('ALL_NEWS_FORUMS', '18, 85, 86, 87, 89, 48, 90, 91, 92, 93, 94, 100');
@@ -78,7 +80,10 @@ define('PUB_FORUMS', '26');
 define('LOVE_FORUMS', '19');
 define('PARTNER_FORUMS', '75, 76, 77, 96');
 define('BUYSELL_FORUMS', '12, 13, 14, 15, 16, 17, 78');
-define('ASSOCIATION_FORUMS', '3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95');
+define('ASSOCIATION_FORUMS', '3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112');
+define('V6_FORUMS', '102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112');
+define('MODO_FR_FORUM', '39');
+define('MODO_IT_FORUM', '53');
 
 // Load DB abstraction layer and connect
 require PUN_ROOT.'include/dblayer/common_db.php';

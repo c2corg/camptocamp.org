@@ -51,6 +51,8 @@ $search_link = '<a href="search.php'.$select_forum.'">'.$lang_common['Search'].'
 $lang = get_lang_code();
 $is_admmod = isset($is_admmod) ? $is_admmod : false;
 $is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+$is_assoc = (in_array($pun_user['g_id'], explode(', ', PUN_ASSOCIATION))) ? true : false;
+$is_v6 = (in_array($pun_user['g_id'], explode(', ', PUN_V6))) ? true : false;
 if ($lang == 'fr')
 {
     $all_lang_text = $lang_common['multilanguage'];
@@ -60,6 +62,22 @@ else
     $all_lang_text = $lang_common['all'];
 }
 
+if ($is_admmod_2)
+{
+	$forum_modo = '';
+	if ($lang == 'fr')
+	{
+		$forum_modo = MODO_FR_FORUM;
+	}
+	elseif ($lang == 'it')
+	{
+		$forum_modo = MODO_IT_FORUM;
+	}
+	if (!empty($forum_modo))
+	{
+		$forum_modo = ' - <a href="viewforum.php?id='.$forum_modo.'">Forum modos</a>';
+	}
+}
 if ($footer_style == 'index' || $footer_style == 'search')
 {
     if (!$pun_user['is_guest'])
@@ -84,7 +102,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 		
 		if ($is_admmod_2)
         {
-			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
+			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="admin_users.php">Admin</a>'.$forum_modo.'</dd></dl>'."\n";
         }
 		
 		echo "\t\t\t".'</div>'."\n";
@@ -119,36 +137,48 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
     echo "\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t".'</dl>'."\n";
 	
     $p_temp = isset($p) ? '&amp;p='.$p : '';
-    if ($footer_style == 'viewforum' && $is_admmod)
+    if ($footer_style == 'viewforum')
     {
-		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd>';
-		echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
+		if ($is_admmod)
+		{
+			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd>';
+		}
+		if ($is_admmod_2)
+		{
+			echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a>'.$forum_modo.'</dd></dl>'."\n";
+		}
 	}
-    else if ($footer_style == 'viewtopic' && $is_admmod)
+    else if ($footer_style == 'viewtopic')
 	{
-		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Delete posts'].'</a></dd>'."\n";
-		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></dd>'."\n";
-		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Move posts'].'</a></dd>'."\n";
-
-		if ($cur_topic['closed'] == '1')
-        {
-			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;open='.$id.'">'.$lang_common['Open topic'].'</a></dd>'."\n";
-        }
-		else
-        {
-			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;close='.$id.'">'.$lang_common['Close topic'].'</a></dd>'."\n";
-        }
-
-		if ($cur_topic['sticky'] == '1')
-        {
-			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;unstick='.$id.'">'.$lang_common['Unstick topic'].'</a></dd>';
+		if ($is_admmod)
+		{
+			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Delete posts'].'</a></dd>'."\n";
+			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></dd>'."\n";
+			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Move posts'].'</a></dd>'."\n";
+	
+			if ($cur_topic['closed'] == '1')
+	        {
+				echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;open='.$id.'">'.$lang_common['Open topic'].'</a></dd>'."\n";
+	        }
+			else
+	        {
+				echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;close='.$id.'">'.$lang_common['Close topic'].'</a></dd>'."\n";
+	        }
+	
+			if ($cur_topic['sticky'] == '1')
+	        {
+				echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;unstick='.$id.'">'.$lang_common['Unstick topic'].'</a></dd>';
+			}
+	        else
+	        {
+				echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'">'.$lang_common['Stick topic'].'</a></dd>';
+			}
 		}
-        else
-        {
-			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'">'.$lang_common['Stick topic'].'</a></dd>';
+		
+		if ($is_admmod_2)
+		{
+			echo "\n\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd><dd><a href="admin_users.php">Admin</a>'.$forum_modo.'</dd></dl>'."\n";
 		}
-        
-		echo "\n\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd><dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
 	}
 
 	echo "\t\t\t".'</div>'."\n";
@@ -164,9 +194,17 @@ if (!$pun_user['is_guest'])
         echo '<br /><a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
            . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
-    if ($is_admmod_2)
+    if ($is_v6)
     {
         echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
+    }
+    if ($is_assoc)
+    {
+        echo ' - <a href="search.php?action=show_new&amp;assoc">[assoc]</a>';
+    }
+    if ($is_v6)
+    {
+        echo ' - <a href="search.php?action=show_new&amp;v6">[V6]</a>';
     }
     echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a>';
     echo '<br /><a href="search.php?action=show_user_topics&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your topics'].'</a><br />';

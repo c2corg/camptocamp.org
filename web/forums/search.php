@@ -591,50 +591,91 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		}
 		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_user_topics' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news')
 		{
-            $forum_ids = array();
+	    // Excluded formus for the search
+            $excluded_forum_ids = array();
+            $where_forum_id = '';
             if (!empty($c2c_board_condition))
             {
-                $forum_ids[] = C2C_BOARD_FORUM;
+                $excluded_forum_ids[] = C2C_BOARD_FORUM;
             }
 			if (($action == 'show_new' || $action == 'show_24h') && !isset($_GET['all']))
             {
-                $forum_ids[] = PUB_FORUMS;
-                $forum_ids[] = LOVE_FORUMS;
+                $excluded_forum_ids[] = PUB_FORUMS;
+                $excluded_forum_ids[] = LOVE_FORUMS;
             }
             if (isset($_GET['light']))
             {
-                $forum_ids[] = PARTNER_FORUMS;
-                $forum_ids[] = BUYSELL_FORUMS;
+                $excluded_forum_ids[] = PARTNER_FORUMS;
+                $excluded_forum_ids[] = BUYSELL_FORUMS;
             }
             if (isset($_GET['simple']))
             {
                 if ($action != 'show_user_topics')
                 {
-                    $forum_ids[] = COMMENTS_FORUM;
+                    $excluded_forum_ids[] = COMMENTS_FORUM;
                 }
-                $forum_ids[] = ASSOCIATION_FORUMS;
+                $excluded_forum_ids[] = ASSOCIATION_FORUMS;
                 if (empty($c2c_board_condition))
                 {
-                    $forum_ids[] = C2C_BOARD_FORUM;
+                    $excluded_forum_ids[] = C2C_BOARD_FORUM;
                 }
             }
             if ($action == 'show_user_topics' && !isset($_GET['comments']))
             {
-                $forum_ids[] = COMMENTS_FORUM;
+                $excluded_forum_ids[] = COMMENTS_FORUM;
             }
-            if (count($forum_ids))
+            if (count($excluded_forum_ids))
             {
-                $where_forum_id = implode(', ', $forum_ids);
-                if (count($forum_ids) == 1)
+                $where_excluded_forum_id = implode(', ', $excluded_forum_ids);
+                if (substr_count($where_excluded_forum_id, ',') == 0)
                 {
-                    $where_forum_id = ' AND f.id != ' . $where_forum_id;
+                    $where_forum_id .= ' AND f.id != ' . $where_excluded_forum_id;
                 }
                 else
                 {
-                    $where_forum_id = ' AND NOT (f.id IN (' . $where_forum_id . '))';
+                    $where_forum_id .= ' AND NOT (f.id IN (' . $where_excluded_forum_id . '))';
                 }
             }
             
+            // Included forums for the search
+            $forum_ids = array();
+            if (isset($_GET['fids']))
+            {
+            	$forum_ids = explode('-', $_GET['fids']);
+            }
+            if (isset($_GET['assoc']))
+            {
+            	$forum_ids[] = ASSOCIATION_FORUMS;
+            }
+            elseif (isset($_GET['v6']))
+            {
+            	$forum_ids[] = V6_FORUM;
+            }
+            if (isset($_GET['partner']))
+            {
+            	$forum_ids[] = PARTNER_FORUMS;
+            }
+            if (isset($_GET['buysell']))
+            {
+            	$forum_ids[] = BUYSELL_FORUMS;
+            }
+            if (isset($_GET['allnews']))
+            {
+            	$forum_ids[] = ALL_NEWS_FORUMS;
+            }
+            if (count($forum_ids))
+            {
+                $where_included_forum_id = implode(', ', $forum_ids);
+                if (substr_count($where_included_forum_id, ',') == 0)
+                {
+                    $where_forum_id .= ' AND f.id = ' . $where_included_forum_id;
+                }
+                else
+                {
+                    $where_forum_id .= ' AND (f.id IN (' . $where_included_forum_id . '))';
+                }
+            }
+
             // If it's a search for new posts
 			if ($action == 'show_new')
 			{
