@@ -393,6 +393,16 @@ if ($is_not_archive && $is_not_merged)
     if ($mobile_version)
     {
         include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
+
+        if ($is_connected)
+        {
+            $version = $document->getVersion();
+            $txt = __('Edit');
+            echo '<div id="edit_route_button" class="add_content">',
+                 link_to(picto_tag('picto_tools', $txt) . $txt,
+                         "@document_edit_archive?module=routes&id=$id&lang=$lang&version=$version"),
+                 '</div>';
+        }
     }
 
     // annex docs section
