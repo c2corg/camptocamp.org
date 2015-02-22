@@ -649,7 +649,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             }
             elseif (isset($_GET['v6']))
             {
-            	$forum_ids[] = V6_FORUM;
+            	$forum_ids[] = V6_FORUMS;
             }
             if (isset($_GET['partner']))
             {
