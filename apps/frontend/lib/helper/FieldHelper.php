@@ -815,23 +815,29 @@ function field_phone_if_set($document, $name, $options)
 
 function field_export($module, $id, $lang, $version = null)
 {
-    if (c2cTools::mobileVersion()) return '';
-
     $route_suffix = !empty($version) ? "_version?version=$version&" : '?';
     $route_suffix .= "module=$module&id=$id&lang=$lang";
                   
     $title = 'download geo data under %1% format';
-    return '<div class="no_print">' . content_tag('span', __('Export:'), array('class' => 'section_subtitle',
+    $result = '<div class="no_print">' . content_tag('span', __('Export:'), array('class' => 'section_subtitle',
                'id' => 'geo_export', 'data-tooltip' => ''))
            . ' ' . picto_tag('action_gps') . ' ' .
            link_to('GPX', "@export_gpx$route_suffix",
-                   array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'))
-           . ' ' . picto_tag('action_kml') . ' ' .
+                   array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'));
+    
+    if (!c2cTools::mobileVersion())
+    {
+        $result .= ' ' . picto_tag('action_kml') . ' ' .
            link_to('KML', "@export_kml$route_suffix",
                    array('title' => __($title, array('%1%' => 'KML')), 'rel' => 'nofollow'))
            . ' ' . picto_tag('action_json') . ' ' .
            link_to('JSON', "@export_json$route_suffix",
-                   array('title' => __($title, array('%1%' => 'JSON')), 'rel' => 'nofollow')) . '</div>';
+                   array('title' => __($title, array('%1%' => 'JSON')), 'rel' => 'nofollow'));
+    }
+    
+    $result .= '</div>';
+    
+    return $result;
 }
 
 function field_getdirections($id)
