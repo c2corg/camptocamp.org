@@ -40,19 +40,6 @@ function camo_enabled()
 }
 
 //
-// Hexencode data
-//
-function hexencode($data)
-{
-  $ascii = unpack("C*", $data);
-  $retval = '';
-  foreach ($ascii as $v) {
-    $retval .= sprintf("%02x", $v);
-  }
-  return $retval;
-}
-
-//
 // Generate camo url
 //
 function camo_url($url)
@@ -60,7 +47,7 @@ function camo_url($url)
   global $camo_url, $camo_key;
 
   $hash = hash_hmac('sha1', $url, $camo_key);
-  return $camo_url . $hash . '/' . hexencode($url);
+  return $camo_url . $hash . '/' . bin2hex($url);
 }
 
 //
