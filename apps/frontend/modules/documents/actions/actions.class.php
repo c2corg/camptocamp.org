@@ -1471,7 +1471,8 @@ class documentsActions extends c2cActions
             sfLoader::loadHelpers(array('Pagination'));
             $url_params = array();
             unpackUrlParameters($params, $url_params);
-            
+
+            $result_module = $module;
             $field = 'name';
             switch ($module)
             {
@@ -1483,24 +1484,27 @@ class documentsActions extends c2cActions
                     $order = 'orderby=wnam&order=asc';
                     break;
                 case 'summits' :
+                    $result_module = 'routes';
                     $field = 'snam';
-                    $order = 'orderby=snam&order=asc';
+                    $order = 'orderby=rnam&order=asc';
                     break;
                 case 'sites' :
                     $field = 'tnam';
-                    $order = 'orderby=snam&order=asc';
+                    $order = 'orderby=tnam&order=asc';
                     break;
                 case 'routes' :
                     $field = 'srnam';
                     $order = 'orderby=rnam&order=asc';
                     break;
                 case 'parkings' :
+                    $result_module = 'routes';
                     $field = 'pnam';
-                    $order = 'orderby=pnam&order=asc';
+                    $order = 'orderby=rnam&order=asc';
                     break;
                 case 'huts' :
+                    $result_module = 'routes';
                     $field = 'hnam';
-                    $order = 'orderby=hnam&order=asc';
+                    $order = 'orderby=rnam&order=asc';
                     break;
                 case 'products' :
                     $field = 'fnam';
@@ -1511,16 +1515,18 @@ class documentsActions extends c2cActions
                     $order = 'orderby=date&order=desc';
                     break;
                 case 'areas' :
+                    $result_module = 'routes';
                     $field = 'anam';
-                    $order = 'orderby=anam&order=asc';
+                    $order = 'orderby=rnam&order=asc';
                     break;
                 case 'maps' :
                     $field = 'mnam';
                     $order = 'orderby=mnam&order=asc';
                     break;
                 case 'books' :
-                    $field = 'bnam';
-                    $order = 'orderby=bnam&order=asc';
+                    $result_module = 'routes';
+                    $field = 'rbnam';
+                    $order = 'orderby=rnam&order=asc';
                     break;
                 case 'articles' :
                     $field = 'cnam';
@@ -1543,7 +1549,7 @@ class documentsActions extends c2cActions
             $url_params[] = "$field=$query_string";
             $url_params[] = $order;
             
-            $route = '/' . $module . '/list?' . implode('&', $url_params);
+            $route = '/' . $result_module . '/list?' . implode('&', $url_params);
             c2cTools::log("redirecting to $route");
             $this->redirect($route);
         }
