@@ -1878,7 +1878,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         // - ...
         if ($use_docid)
         {
+            $where_vars=array();
             $where_clause = 'm.redirects_to IS NULL AND mi.id = ?';
+            array_push($where_vars, $name);
         }
         else
         {

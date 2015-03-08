@@ -184,7 +184,7 @@ $tpl_main = str_replace('<pun_page>', htmlspecialchars(basename($_SERVER['PHP_SE
 
 // START SUBST - <pun_page_class>
 $page_class = '';
-if (isset($forum_id) && in_array($forum_id, array(3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95)))
+if (isset($forum_id) && in_array($forum_id, explode(', ', ASSOCIATION_FORUMS)))
 {
     $page_class = ' c2c-asso';
 }
