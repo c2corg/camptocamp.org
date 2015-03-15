@@ -339,6 +339,11 @@ all:
   # doc comments where anonymous posts are allowed
   anonymous_comments_allowed:
     list: [ 'fr', 'en', 'de', 'ca', 'eu', 'es' ]
+  # camo configuration for doc comments
+  camo:
+    use: '@USE_CAMO@'
+    url: '@CAMO_URL@'
+    key: '@CAMO_KEY@'
   
   # information inserted in db by historymetadata
   user_creation:
