@@ -31,7 +31,7 @@ echo object_group_tag($document, 'name', array('class' => 'long_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
-echo object_group_tag($document, 'date', array('callback' => 'object_input_date_tag', 'year_start' => date('Y'), 'year_end' => 1950));
+echo object_group_tag($document, 'date', array('callback' => 'object_input_date_tag', 'year_start' => date('Y'), 'year_end' => 'app_date_year_min'));
 ?>
 <div class="article_gauche_5050">
 <?php
