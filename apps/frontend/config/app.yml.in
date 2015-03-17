@@ -371,7 +371,10 @@ all:
     label_class:        fieldname
     global_error_class: global_form_error
     field_error:        field_error
-    
+  
+  date:
+    year_min: 1950
+  
   personalization:
     filter_timeout:           32140800 # = 12*31 days
     cookie_languages_name:    filtered_languages
