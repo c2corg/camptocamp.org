@@ -391,7 +391,7 @@ function date_selector($include_blanks = array('month' => false, 'day' => false,
                                                'include_blank_month' => $include_blanks['month'],
                                                'include_blank_day' => $include_blanks['day'],
                                                'year_start' => date('Y'),
-                                               'year_end' => fConfig::get('app_date_year_min')));
+                                               'year_end' => sfConfig::get('app_date_year_min')));
     $out .= '<span id="date_span2" style="display:none"> ' . __('and') . ' ';
     $out .= my_input_date_tag('date2', NULL, array('class' => 'medium_input',
                                                 'include_blank_year' => $include_blanks['year'],
