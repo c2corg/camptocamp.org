@@ -398,7 +398,7 @@ function date_selector($include_blanks = array('month' => false, 'day' => false,
                                                 'include_blank_month' => $include_blanks['month'],
                                                 'include_blank_day' => $include_blanks['day'],
                                                 'year_start' => date('Y'),
-                                                'year_end' => 'app_date_year_min'));
+                                                'year_end' => sfConfig::get('app_date_year_min')));
     $out .= '</span>' . __('Year and day are optional') . '</span>';
     
     $ages_values = sfConfig::get('app_ages_values');
