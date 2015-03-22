@@ -271,12 +271,11 @@ if (isset($_POST['form_sent']))
 	{
             // Check that the captchaBox is ok
             if (($pun_config['o_guest_post_captchabox'] == '1') && !isset($_POST['preview'])) {
-                if (isset($_SESSION["captchabox"]))
+                if (isset($_SESSION) && is_array($_SESSION) && isset($_SESSION['captchabox']))
                 {
                     $picture=$_SESSION["captchabox"];
                 }
                 else
-                }
                 {
                     redirect('',$lang_common['captchabox denied']) ; 
                 }
