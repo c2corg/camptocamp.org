@@ -169,10 +169,10 @@ if ($is_not_archive && $is_not_merged)
 				echo field_activities_data($outing, array('raw' => true));
                 ?></td><td><?php
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
-                $lang = $outing->get('culture');
+                $outing_lang = $outing->get('culture');
                 echo link_to($outing->get('name'), 
-                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                             array('hreflang' => $lang)) .
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing_lang . '&slug=' . get_slug($outing),
+                             array('hreflang' => $outing_lang)) .
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ? 
