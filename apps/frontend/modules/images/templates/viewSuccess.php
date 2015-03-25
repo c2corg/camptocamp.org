@@ -11,7 +11,7 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')),
                       'images' => (boolean)count($associated_images));
-$lang = $sf_user->getCulture();
+$lang = $document->getCulture();
 $module = $sf_context->getModuleName();
 
 display_page_header('images', $document, $id, $metadata, $current_version,
