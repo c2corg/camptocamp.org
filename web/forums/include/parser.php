@@ -413,7 +413,11 @@ function handle_url_tag($url, $link = '', $show_video = false)
         }
         elseif ($is_internal_url)
         {
-            $link = $full_url;
+            $link = substr($full_url, 1);
+        }
+        elseif (strpos($full_url, '//s\.camptocamp\.org') === 0)
+        {
+            $link = preg_replace('#^//s\.camptocamp\.org/(.+)#i', '$1', $full_url);
         }
         else
         {
@@ -466,7 +470,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     {
         if ($empty_link)
         {
-            $link = $full_url;
+            $link = substr($full_url, 1);
         }
         
         $id = $params[2];
@@ -496,12 +500,6 @@ function handle_url_tag($url, $link = '', $show_video = false)
     
     if ($empty_link)
     {
-        // Truncate link text if its an internal URL
-        if (strpos("#/", $link[0]) !== false)
-        {
-            $link = substr($link, 1);
-        }
-
         // Truncate URL if longer than 55 characters
         $link = ((strlen($link) > 55) ? substr($link, 0 , 39).' &hellip; '.substr($link, -10) : $link);
     }
@@ -889,13 +887,14 @@ function do_clickable($text)
     
     $text = ' '.$text;
 
-    $pattern[] ='#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)\.#i';
-    $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] = '#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)\.#i';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] = '#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
     $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
     $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
-    $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<]+)/*((s\.camptocamp\.org)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] = '#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
@@ -905,6 +904,7 @@ function do_clickable($text)
         $replace[] = '[url]$2[/url]';
         $replace[] = '[url]/$2[/url]';
         $replace[] = '[url]/$2[/url]';
+        $replace[] = '[url]//$2[/url]';
         $replace[] = '[email]$2@$5[/email]';
     }
     else
