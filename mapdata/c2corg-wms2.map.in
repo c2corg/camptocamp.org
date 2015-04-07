@@ -571,6 +571,7 @@ LAYER
     "wms_title"    "slopes"
     "wms_enable_request" "*" 
   END
+  MAXSCALEDENOM 100000
   TILEINDEX "shp/slopes_index.shp"
   TYPE RASTER
   STATUS ON
