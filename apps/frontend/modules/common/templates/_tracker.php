@@ -14,7 +14,7 @@ $form_factor = $sf_user->getAttribute('form_factor');
 $forum_track = isset($tracker_forum_id) ? ",'dimension2':'$tracker_forum_id'" : '';
 ?>
 <script>
-ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+windowg.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
 ga('create','<?php echo sfConfig::get('app_ganalytics_key') ?>',{'cookieDomain':window.location.host});
 ga('send','pageview',{'anonymizeIp':true,'dimension1':'<?php echo $status ?>','dimension3':'<?php echo $form_factor ?>'<?php echo $forum_track ?>});
 <?php 
