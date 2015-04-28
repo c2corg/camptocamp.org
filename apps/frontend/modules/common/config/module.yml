@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_a, millet, adserver, ortovox, adserver, adserver, adserver, camp_a, adserver, adserver ]
+    values: [ adserver, adserver, camp_a, millet, adserver, ortovox, adserver, vibram, adserver, camp_a, adserver, adserver ]
   banners:
     list:
       skalp:
@@ -248,4 +248,10 @@ all:
         id: 99
         image: millet-skirando2015.gif
         alt: "Millet"
+      vibram:
+        id: 100
+        type: flash
+        width: 468
+        height: 60
+        file: vibram-megagrip-trekking.swf
 
