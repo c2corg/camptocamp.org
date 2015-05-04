@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_b, millet, adserver, ortovox, adserver, vibram, adserver, camp_b, adserver, adserver ]
+    values: [ adserver, adserver, camp_f, millet, adserver, ortovox, adserver, vibram, adserver, camp_f, adserver, adserver ]
   banners:
     list:
       skalp:
@@ -243,6 +243,22 @@ all:
       camp_e:
         id: 98
         image: camp2015_E.gif
+        alt: "Camp"
+      camp_f:
+        id: 101
+        image: camp2015_F.gif
+        alt: "Camp"
+      camp_g:
+        id: 102
+        image: camp2015_G.gif
+        alt: "Camp"
+      camp_h:
+        id: 103
+        image: camp2015_H.gif
+        alt: "Camp"
+      camp_i:
+        id: 104
+        image: camp2015_I.gif
         alt: "Camp"
       millet:
         id: 99
