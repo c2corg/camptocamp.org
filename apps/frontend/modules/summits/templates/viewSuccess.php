@@ -12,6 +12,7 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $lat = $document->get('lat');
 $lon = $document->get('lon');
+$elevation = $document->get('elevation');
 
 switch ($document->get('summit_type'))
 {
@@ -80,7 +81,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => true,
                           'lat' => $lat,
-                          'lon' => $lon));
+                          'lon' => $lon,
+                          'elevation' => $elevation));
     
     if (check_not_empty_doc($document, 'maps_info'))
     {
