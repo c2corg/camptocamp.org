@@ -95,7 +95,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => $avalanche_bulletin,
                           'lat' => $lat,
-                          'lon' => $lon
+                          'lon' => $lon,
+                          'elevation' => $elevation
                           ));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
