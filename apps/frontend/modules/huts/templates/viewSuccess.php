@@ -14,6 +14,7 @@ $shelter_type = $document->get('shelter_type');
 $is_gite_camping = ($shelter_type == 5 || $shelter_type == 6);
 $lat = $document->get('lat');
 $lon = $document->get('lon');
+$elevation = $document->get('elevation');
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
 switch($shelter_type)
@@ -82,7 +83,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => true,
                           'lat' => $lat,
-                          'lon' => $lon));
+                          'lon' => $lon,
+                          'elevation' => $elevation));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)
