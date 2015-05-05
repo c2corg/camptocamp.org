@@ -1669,16 +1669,16 @@ all:
     weather_coord_name:
       0: 'Meteoblue'
     weather_coord_url:
-      0: 'www.meteoblue.com/%lang%/latlon/call?lat=%lat%&lon=%lon%'
+      0: 'www.meteoblue.com/%lang%/%lat%N%lon%E%alti%'
     weather_coord_lang:
       0:
-        fr: 'fr/meteo'
-        it: 'it/tempo'
-        de: 'de/wetter'
-        en: 'en/weather'
-        es: 'es/tiempo'
-        ca: 'es/tiempo'
-        eu: 'en/weather'
+        fr: 'fr/meteo/prevision/semaine'
+        it: 'it/tempo/previsioni/settimana'
+        de: 'de/wetter/vorhersage/woche'
+        en: 'en/weather/forecast/week'
+        es: 'es/tiempo/pronostico/semana'
+        ca: 'es/tiempo/pronostico/semana'
+        eu: 'en/weather/forecast/week'
     filled_criteria:
       'atype': ''
   
