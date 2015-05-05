@@ -12,6 +12,9 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $site_types = $document->getRaw('site_types');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
+$lat = $document->get('lat');
+$lon = $document->get('lon');
+$elevation = $document->get('elevation');
 
 display_page_header('sites', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/Landform', 'nb_comments' => $nb_comments));
@@ -79,8 +82,9 @@ if ($is_not_archive)
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
                           'weather' => true,
-                          'lat' => $document->get('lat'),
-                          'lon' => $document->get('lon')));
+                          'lat' => $lat,
+                          'lon' => $lon,
+                          'elevation' => $elevation));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
@@ -186,7 +190,14 @@ if ($is_not_archive && $is_not_merged)
            </div>
         <?php endforeach;
         
-        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'sites', 'nb_outings' => $nb_outings));
+        include_partial( 'outings/linked_outings'
+                       , array(
+                                'id' => $ids
+                              , 'module' => 'sites'
+                              , 'nb_outings' => $nb_outings
+                              , 'lat' => $lat
+                              , 'lon' => $lon
+                        ));
     }
 
     if ($show_link_tool && !in_array(12, $site_types))
