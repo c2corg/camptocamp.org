@@ -40,12 +40,12 @@ foreach ($parameters as $param => $value)
     code += "    params : \"<?php echo $paramstring; ?>\"\n";
     code += "  };\n";
     code += "  var js = d.createElement(t), fjs = d.getElementsByTagName(t)[0];\n";
-    code += "  js.async = 1; js.src = 'http://s.camptocamp.org/static/js/widget.js';\n";
+    code += "  js.async = 1; js.src = 'https://s.camptocamp.org/static/js/widget.js';\n";
     code += "  fjs.parentNode.insertBefore(js, fjs);\n"
     code += "} (document, 'script', window));\n";
     code += "&lt;/script&gt;";
 
-    $('#wgt_code').val(code.unescapeHTML());n
+    $('#wgt_code').val($('textarea').html(code).text());
   }
 
   $('#wgt_title').keyup(updateWidgetCode);
