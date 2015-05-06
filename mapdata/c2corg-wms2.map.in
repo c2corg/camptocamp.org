@@ -6,11 +6,13 @@ STATUS ON
 SYMBOLSET symbols.txt
 EXTENT -20037508 -136554022 20037508 136554022
 UNITS dd
-SHAPEPATH "data"
+SHAPEPATH "@SF_PROJECTS_DIR@/@PROJECT_NAME@/www-data/persistent/geodata"
 IMAGECOLOR 255 255 255
 FONTSET fonts.txt
 CONFIG "PROJ_LIB" "@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata"
 MAXSIZE 2500
+#CONFIG "MS_ERRORFILE" "/tmp/ms_error.txt"
+#DEBUG 5
 
 WEB
   METADATA
@@ -562,6 +564,47 @@ LAYER
     END
   END
 END # Layer
+
+LAYER
+  NAME "slopes"
+  METADATA
+    "wms_title"    "slopes"
+    "wms_enable_request" "*" 
+  END
+  MAXSCALEDENOM 100000
+  TILEINDEX "shp/slopes_index.shp"
+  TYPE RASTER
+  STATUS ON
+  CLASSITEM "[pixel]"
+  CLASS
+    NAME "30-35 deg"
+    EXPRESSION ([pixel] >= 30 AND [pixel] < 35)
+    STYLE
+      COLOR 242 229 10
+    END
+  END
+  CLASS
+    NAME "35-40 deg"
+    EXPRESSION ([pixel] >= 35 AND [pixel] < 40)
+    STYLE
+      COLOR 244 111 36
+    END
+  END
+  CLASS
+    NAME "40-45 deg"
+    EXPRESSION ([pixel] >= 40 AND [pixel] < 45)
+    STYLE
+      COLOR 222 5 91
+    END
+  END
+  CLASS
+    NAME "> 45 deg"
+    EXPRESSION ([pixel] >= 45)
+    STYLE
+      COLOR 200 137 187
+    END
+  END
+END
 
 OUTPUTFORMAT
   NAME "pnga"
