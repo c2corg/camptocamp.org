@@ -10,7 +10,8 @@ if (!defined('PUN_STATIC_URL'))
     define('PUN_STATIC_URL', sfConfig::get('app_static_url'));
 
 
-global $pun_config, $pun_user, $smiley_text, $smiley_img, $lang_common;
+global $pun_config, $pun_user, $smiley_text, $smiley_img, $lang_common,
+       $use_camo, $camo_url, $camo_key;
 $pun_config = $pun_user = array();
 
 $pun_config['o_indent_num_spaces'] = 4;
@@ -24,6 +25,11 @@ $pun_config['p_sig_img_tag'] = '0';
 $pun_user['show_smilies'] = '1';
 $pun_user['show_img'] = '1';
 $pun_user['show_img_sig'] = '0';
+
+// load camo config
+$use_camo = (bool) sfConfig::get('app_camo_use');
+$camo_url = sfConfig::get('app_camo_url');
+$camo_key = sfConfig::get('app_camo_key');
 
 // load needed strings from PunBB
 @include PUN_ROOT.'lang/'.__('meta_language_forum').'/common.php';

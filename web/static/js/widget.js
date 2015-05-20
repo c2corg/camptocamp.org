@@ -39,18 +39,18 @@ window.c2cwgt.insertContent = function (id, content) {
 // rather put it in c2cwgt object
 // but kept as is for compatibility
 function showC2CWidget (content) {
-  window.c2cwgt.callExternalCss("http://s.camptocamp.org/static/css/c2cwgt.css");
+  window.c2cwgt.callExternalCss("https://s.camptocamp.org/static/css/c2cwgt.css");
 
   var title = content.title || 'camptocamp.org';
   var div = document.getElementById(content.div);
   var inserted = '<h1>' + title + '</h1>'
     + '<div class="c2cwgt_loading"></div>'
-    + '<a class="c2cwgt_link" href="http://www.camptocamp.org" title="http://www.camptocamp.org">'
-    + '<img src="http://s.camptocamp.org/static/images/logo_mini.png"></a>';
+    + '<a class="c2cwgt_link" href="https://www.camptocamp.org" title="https://www.camptocamp.org">'
+    + '<img src="https://s.camptocamp.org/static/images/logo_mini.png"></a>';
     div.innerHTML = inserted;
     div.className = "c2cwgt";
 
-  var url = "http://www.camptocamp.org/" + content.module + "/widget";
+  var url = "https://www.camptocamp.org/" + content.module + "/widget";
   if (content.params) {
     url = url + "/" + content.params;
   }

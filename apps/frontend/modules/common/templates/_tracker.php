@@ -14,10 +14,7 @@ $form_factor = $sf_user->getAttribute('form_factor');
 $forum_track = isset($tracker_forum_id) ? ",'dimension2':'$tracker_forum_id'" : '';
 ?>
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+windowg.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
 ga('create','<?php echo sfConfig::get('app_ganalytics_key') ?>',{'cookieDomain':window.location.host});
 ga('send','pageview',{'anonymizeIp':true,'dimension1':'<?php echo $status ?>','dimension3':'<?php echo $form_factor ?>'<?php echo $forum_track ?>});
 <?php 
@@ -26,3 +23,4 @@ if (isset($addthis) && $addthis): ?>
 (function(d) { var a = d.createElement('script'), h = d.getElementsByTagName('head')[0];
 a.async = 1; a.src = '//s7.addthis.com/js/250/addthis_widget.js#domready=1'; h.appendChild(a); }(document));
 <?php endif ?></script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>

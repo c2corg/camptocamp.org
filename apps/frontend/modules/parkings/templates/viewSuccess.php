@@ -12,6 +12,7 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $lat = $document->get('lat');
 $lon = $document->get('lon');
+$elevation = $document->get('elevation');
 
 display_page_header('parkings', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/ParkingFacility', 'nb_comments' => $nb_comments));
@@ -73,7 +74,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => true,
                           'lat' => $lat,
-                          'lon' => $lon));
+                          'lon' => $lon,
+                          'elevation' => $elevation));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)

@@ -40,6 +40,7 @@ class routesActions extends documentsActions
             $highest_summit = c2cTools::extractHighest($main_associated_summits);
             $this->lat = $highest_summit['lat'];
             $this->lon = $highest_summit['lon'];
+            $this->elevation = $highest_summit['elevation'];
 
             // routes associated with this route (eg because they share most of the route)
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');

@@ -339,6 +339,11 @@ all:
   # doc comments where anonymous posts are allowed
   anonymous_comments_allowed:
     list: [ 'fr', 'en', 'de', 'ca', 'eu', 'es' ]
+  # camo configuration for doc comments
+  camo:
+    use: '@USE_CAMO@'
+    url: '@CAMO_URL@'
+    key: '@CAMO_KEY@'
   
   # information inserted in db by historymetadata
   user_creation:
@@ -366,7 +371,10 @@ all:
     label_class:        fieldname
     global_error_class: global_form_error
     field_error:        field_error
-    
+  
+  date:
+    year_min: 1950
+  
   personalization:
     filter_timeout:           32140800 # = 12*31 days
     cookie_languages_name:    filtered_languages
@@ -1661,16 +1669,16 @@ all:
     weather_coord_name:
       0: 'Meteoblue'
     weather_coord_url:
-      0: 'www.meteoblue.com/%lang%/latlon/call?lat=%lat%&lon=%lon%'
+      0: 'www.meteoblue.com/%lang%/%lat%N%lon%E%alti%'
     weather_coord_lang:
       0:
-        fr: 'fr/meteo'
-        it: 'it/tempo'
-        de: 'de/wetter'
-        en: 'en/weather'
-        es: 'es/tiempo'
-        ca: 'es/tiempo'
-        eu: 'en/weather'
+        fr: 'fr/meteo/prevision/semaine'
+        it: 'it/tempo/previsioni/settimana'
+        de: 'de/wetter/vorhersage/woche'
+        en: 'en/weather/forecast/week'
+        es: 'es/tiempo/pronostico/semana'
+        ca: 'es/tiempo/pronostico/semana'
+        eu: 'en/weather/forecast/week'
     filled_criteria:
       'atype': ''
   

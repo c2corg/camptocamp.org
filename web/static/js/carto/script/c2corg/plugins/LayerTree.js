@@ -123,8 +123,21 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         });
     },
 
+    createWMSLayer: function(options) {
+        return new OpenLayers.Layer.WMS(options.name, this.url, {
+            layers: options.layers,
+            transparent: true
+        },{
+            opacity: 0.6,
+            singleTile: true,
+            isBaseLayer: false,
+            visibility: false
+        });
+    },
+
     addLayers: function() {
         this.layers = {
+            "slopes": this.createWMSLayer({name: "slopes", layers: "slopes"}),
             "summits": this.createVectorLayer({name: "summits", featureType: "summits"}),
             "access": this.createVectorLayer({name: "access", featureType: "access"}),
             "public_transportations": this.createVectorLayer({name: "public_transportations", featureType: "public_transportations"}),
@@ -241,6 +254,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 nodeType: "gx_layer",
                 layer: this.layers["maps"],
                 iconCls: "picto_maps",
+                leaf: true
+            }, {
+                text: OpenLayers.i18n("slopes"),
+                nodeType: "gx_layer",
+                layer: this.layers["slopes"],
+                iconCls: "picto_blank",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("areas"),

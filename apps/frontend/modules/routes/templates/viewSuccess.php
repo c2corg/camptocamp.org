@@ -95,7 +95,8 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => $avalanche_bulletin,
                           'lat' => $lat,
-                          'lon' => $lon
+                          'lon' => $lon,
+                          'elevation' => $elevation
                           ));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -254,10 +255,10 @@ if ($is_not_archive && $is_not_merged)
                                                                  $outing['nb_images']));
                     }
                 }
-                $lang = $outing->get('culture');
+                $outing_lang = $outing->get('culture');
                 echo link_to($outing->get('name'), 
-                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                             array('hreflang' => $lang))
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing_lang . '&slug=' . get_slug($outing),
+                             array('hreflang' => $outing_lang))
                    . (!$mobile_version ? '</td><td>' : '' )
                    . $georef
                    . (!$mobile_version ? '</td><td>' : '')
@@ -342,10 +343,10 @@ if ($is_not_archive && $is_not_merged)
                                                                      $outing['nb_images']));
                         }
                     }
-                    $lang = $outing->get('culture');
+                    $outing_lang = $outing->get('culture');
                     echo link_to($outing->get('name'), 
-                                 '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                                 array('hreflang' => $lang))
+                                 '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing_lang . '&slug=' . get_slug($outing),
+                                 array('hreflang' => $outing_lang))
                        . (!$mobile_version ? '</td><td>' : '' )
                        . $georef
                        . (!$mobile_version ? '</td><td>' : '')

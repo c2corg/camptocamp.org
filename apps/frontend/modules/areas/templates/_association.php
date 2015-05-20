@@ -58,7 +58,7 @@ else
 }
 if ($has_weather || $has_avalanche_bulletin)
 {
-    $has_coord = isset($lat) && $lat && isset($lon) && $lon;
+    $has_coord = isset($lat) && $lat && isset($lon) && $lon && isset($elevation) && $elevation;
     $weather_title_list = array();
     $weather_link_list = array();
     $avalanche_title_list = array();
@@ -71,7 +71,7 @@ if ($has_weather || $has_avalanche_bulletin)
     if ($has_weather && $has_coord)
     {
         $lang = $sf_user->getCulture();
-        list($title, $link) = weather_coord_link($lat, $lon, $lang);
+        list($title, $link) = weather_coord_link($lat, $lon, $elevation, $lang);
         if (!empty($link))
         {
             $weather_title_list[] = $title;

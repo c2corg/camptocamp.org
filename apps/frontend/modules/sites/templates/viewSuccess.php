@@ -12,6 +12,9 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $site_types = $document->getRaw('site_types');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
+$lat = $document->get('lat');
+$lon = $document->get('lon');
+$elevation = $document->get('elevation');
 
 display_page_header('sites', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/Landform', 'nb_comments' => $nb_comments));
@@ -79,8 +82,9 @@ if ($is_not_archive)
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
                           'weather' => true,
-                          'lat' => $document->get('lat'),
-                          'lon' => $document->get('lon')));
+                          'lat' => $lat,
+                          'lon' => $lon,
+                          'elevation' => $elevation));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
@@ -169,10 +173,10 @@ if ($is_not_archive && $is_not_merged)
 				echo field_activities_data($outing, array('raw' => true));
                 ?></td><td><?php
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
-                $lang = $outing->get('culture');
+                $outing_lang = $outing->get('culture');
                 echo link_to($outing->get('name'), 
-                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                             array('hreflang' => $lang)) .
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing_lang . '&slug=' . get_slug($outing),
+                             array('hreflang' => $outing_lang)) .
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ? 
@@ -186,7 +190,14 @@ if ($is_not_archive && $is_not_merged)
            </div>
         <?php endforeach;
         
-        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'sites', 'nb_outings' => $nb_outings));
+        include_partial( 'outings/linked_outings'
+                       , array(
+                                'id' => $ids
+                              , 'module' => 'sites'
+                              , 'nb_outings' => $nb_outings
+                              , 'lat' => $lat
+                              , 'lon' => $lon
+                        ));
     }
 
     if ($show_link_tool && !in_array(12, $site_types))

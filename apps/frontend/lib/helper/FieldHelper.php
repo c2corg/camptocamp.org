@@ -1531,7 +1531,7 @@ function weather_link($id, $name)
 }
 
 // generate weather links with coordinate criteria
-function weather_coord_link($lat, $lon, $lang)
+function weather_coord_link($lat, $lon, $alti, $lang)
 {
     $name_list = sfConfig::get('app_areas_weather_coord_name');
     $url_list = sfConfig::get('app_areas_weather_coord_url');
@@ -1543,7 +1543,7 @@ function weather_coord_link($lat, $lon, $lang)
         $weather_names[] = $weather_name;
         $lang = $lang_list[$key][$lang];
         $url = $url_list[$key];
-        $urls[] = str_replace(array('%lat%', '%lon%', '%lang%'), array($lat, $lon, $lang), $url);
+        $urls[] = str_replace(array('%lat%', '%lon%', '%alti%', '%lang%'), array($lat, $lon, $alti, $lang), $url);
     }
     
     if (empty($weather_names))
