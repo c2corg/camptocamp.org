@@ -407,7 +407,7 @@ all:
     # simplify using douglas peuker algorithm (aka crosstrack for gpsbabel)
     # its value is expressed in meters (epsilon):
     filter_simplify_switch:   true
-    filter_simplify_value:    5
+    filter_simplify_value:    3
     # hdop is horizontal dilution of precision in GPX files
     # this filter is useful to remove unprecise points:
     filter_hdop_switch:       true
