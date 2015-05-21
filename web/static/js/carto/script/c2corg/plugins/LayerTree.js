@@ -2,6 +2,7 @@
  * @requires plugins/Tool.js
  * @requires OpenLayers/Request.js
  * @include OpenLayers/Layer/Vector.js
+ * @include OpenLayers/Layer/WMS.js
  * @include OpenLayers/Strategy/BBOX.js
  * @include OpenLayers/Protocol/WFS/v1_0_0.js
  * @include OpenLayers/Protocol/WFS.js
@@ -124,7 +125,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     },
 
     createWMSLayer: function(options) {
-        return new OpenLayers.Layer.WMS(options.name, this.url, {
+        var layer = new OpenLayers.Layer.WMS(options.name, this.url, {
             layers: options.layers,
             transparent: true
         },{
@@ -133,11 +134,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             isBaseLayer: false,
             visibility: false
         });
+        this.mapPanel.map.addLayer(layer);
+        return layer;
     },
 
     addLayers: function() {
         this.layers = {
-            "slopes": this.createWMSLayer({name: "slopes", layers: "slopes"}),
             "summits": this.createVectorLayer({name: "summits", featureType: "summits"}),
             "access": this.createVectorLayer({name: "access", featureType: "access"}),
             "public_transportations": this.createVectorLayer({name: "public_transportations", featureType: "public_transportations"}),
@@ -258,7 +260,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }, {
                 text: OpenLayers.i18n("slopes"),
                 nodeType: "gx_layer",
-                layer: this.layers["slopes"],
+                layer: this.createWMSLayer({name: "slopes", layers: "slopes"}),
                 iconCls: "picto_blank",
                 leaf: true
             }, {
