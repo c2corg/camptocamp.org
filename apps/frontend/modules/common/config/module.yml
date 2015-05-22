@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_Scout11, adserver, camp_b, diamir_vipec, ortovox, adserver, montania, diamir_Scout11, adserver, camp_b, diamir_vipec, adserver ]
+    values: [ adserver, adserver, camp_h, millet, adserver, ortovox, adserver, vibram, adserver, camp_h, adserver, adserver ]
   banners:
     list:
       skalp:
@@ -102,38 +102,14 @@ all:
         id_fr: 40
         image: baechli.jpg
         alt: "Bächli Bergsport"
-      camp_xenon:
-        id: 25
-        image: camp-xenon.png
-        alt: "Camp Xenon"
-      camp_photon:
-        id: 27
-        image: camp-photon.png
-        alt: "Camp Photon"
       assises_alpi:
         id: 26
         image: assises-alpi.jpeg
         alt: "Assises de l'Alpinisme"
-      camp_campack:
-        id: 28
-        image: camp-campack.png
-        alt: "Camp Campack"
-      camp_minima:
-        id: 29
-        image: camp-minima.png
-        alt: "Camp Minima"
-      camp_matrix:
-        id: 30
-        image: camp-matrix.png
-        alt: "Camp Matrix"
       natxplore:
         id: 37
         image: natxplore.gif
         alt: "natXplore.com"
-      camp:
-        id: 36
-        image: camp.gif
-        alt: Camp
       simond:
         id: 35
         image: toucan.jpg
@@ -154,42 +130,6 @@ all:
         id: 44
         image: anena.png
         alt: Anena
-      camp_crampons:
-        id: 45
-        image: camp-crampons.gif
-        alt: Camp Race 290
-      camp_pelle_sac_sonde:
-        id: 46
-        image: camp-pelle-sac-sonde.gif
-        alt: "Camp pelle/sac/sonde"
-      camp_gants:
-        id: 47
-        image: camp-gants.gif
-        alt: "Camp gants"
-      camp_d:
-        id: 81
-        image: camp2014_D.gif
-        alt: "Camp"
-      camp_e:
-        id: 85
-        image: camp2014_E.gif
-        alt: "Camp"
-      camp_f:
-        id: 86
-        image: camp2014_F.gif
-        alt: "Camp"
-      camp_g:
-        id: 87
-        image: camp2014_G.gif
-        alt: "Camp"
-      camp_h:
-        id: 88
-        image: camp2014_H.gif
-        alt: "Camp"
-      camp_gravitezero:
-        id: 53
-        image: camp-gravitezero.gif
-        alt: "Gravité Zéro"
       diamir_WIN:
         id: 55
         image: diamir-WIN.gif
@@ -218,18 +158,6 @@ all:
         id: 61
         image: ibex.gif
         alt: "Livres de montagne Ibex Books"
-      camp_b:
-        id: 83
-        image: camp2014_B.gif
-        alt: "Camp"
-      camp_c:
-        id: 80
-        image: camp2014_C.gif
-        alt: "Camp"
-      camp_a:
-        id: 82
-        image: camp2014_A.gif
-        alt: "Camp"
       rayonrando:
         type: flash
         width: 468
@@ -243,10 +171,6 @@ all:
         id: 69
         image: chamMtnFest2.gif
         alt: "Chamonix Mountain Festival"
-      camp_i:
-        id: 89
-        image: camp2014_I.gif
-        alt: "Camp"
       bd_revolt:
         id: 70
         type: flash
@@ -300,4 +224,50 @@ all:
         width: 468
         height: 60
         file: ortovox-safety.swf
+      camp_a:
+        id: 94
+        image: camp2015_A.gif
+        alt: "Camp"
+      camp_b:
+        id: 95
+        image: camp2015_B.gif
+        alt: "Camp"
+      camp_c:
+        id: 96
+        image: camp2015_C.gif
+        alt: "Camp"
+      camp_d:
+        id: 97
+        image: camp2015_D.gif
+        alt: "Camp"
+      camp_e:
+        id: 98
+        image: camp2015_E.gif
+        alt: "Camp"
+      camp_f:
+        id: 101
+        image: camp2015_F.gif
+        alt: "Camp"
+      camp_g:
+        id: 102
+        image: camp2015_G.gif
+        alt: "Camp"
+      camp_h:
+        id: 103
+        image: camp2015_H.gif
+        alt: "Camp"
+      camp_i:
+        id: 104
+        image: camp2015_I.gif
+        alt: "Camp"
+      millet:
+        id: 99
+        image: millet-skirando2015.gif
+        alt: "Millet"
+      vibram:
+        id: 100
+        type: flash
+        width: 468
+        height: 60
+        file: vibram-megagrip-trekking.swf
 
