@@ -23,5 +23,5 @@ echo javascript_tag("var map_connected = $connected;");
 ?>
 
 <div id="mapPort">
-  <div id="mapLoading"><img src="<?php echo $app_static_url ?>/static/images/indicator.gif" alt="" /> <?php echo __('Map is loading...') ?></div>
+  <div id="mapLoading"><img src="<?php echo  sfConfig::get('app_static_url') ?>/static/images/indicator.gif" alt="" /> <?php echo __('Map is loading...') ?></div>
 </div>
