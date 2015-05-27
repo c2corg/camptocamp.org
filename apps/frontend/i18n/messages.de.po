@@ -2284,7 +2284,7 @@ msgstr "Dieser Klettersektor existiert nicht."
 
 # [WARNING] needs_review
 msgid "Snow elevation is correct?"
-msgstr "Sind die Schneegrenzen für Aufstieg und Abstieg korrekt?"
+msgstr "Sind die Höhenmeter für den Zustieg, für den Beginn des Skiaufstiegs sowie dem Ende der Skiabfahrt korrekt angegeben ?"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -3090,9 +3090,9 @@ msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region de
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
 # [WARNING] needs_update
 msgid "_avalanche_date_info"
-msgstr "<h3>Art der Beobachtung betreffend Lawinen</h3>\n"
-"Art der Lawinenbeobachtung oder der Alarmzeichen (Mehrfachauswahl möglich).<br />\n"
-"Schreibe die Beobachtungen in das Textfeld."
+msgstr "<h3>Art der Beobachtungen betreffend Lawinen</h3>\n"
+"Art der Lawinenbeobachtung oder der Warnzeichen (Mehrfachauswahl möglich).<br />\n"
+"Detaillieren der Beobachtungen im zugehörigen Textfeld."
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
@@ -3100,7 +3100,7 @@ msgstr "<h3>Art der Beobachtung betreffend Lawinen</h3>\n"
 msgid "_avalanche_desc_info"
 msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
 "Details betreffend der Schneedeckenstabilität:\n"
-"<h4>Alarmzeichen</h4>\n"
+"<h4>Warnzeichen</h4>\n"
 "- frische Wächten<br />\n"
 "- brettige Struktur des Schnees, gefühlt mit dem Skistock<br />\n"
 "- Wummgeräusche<br />\n"
@@ -3117,7 +3117,7 @@ msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
 # [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Beobachtungen zur Lawinensituation</h3>\n"
-"Beobachtungen von Alarmzeichen, kürzlichen Lawinenabgängen, von spontanen oder durch Personen ausgelösten Lawinen am Tag der Tour."
+"Beobachtungen von Warnzeichen, kürzlichen Lawinenabgängen, von spontanen oder durch Personen ausgelösten Lawinen am Tag der Tour."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Anfänger</h3>\n"
@@ -3192,8 +3192,8 @@ msgstr "<h3>Verhältnisse des Gelände, Ausstattung und Felsqualität</h3> \n"
 # [WARNING] needs_update
 msgid "_conditions_info"
 msgstr "<h3>Verhältnisse</h3>\n"
-"Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />\n"
-"Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br />\n"
+"Informationen über die vorgefundenen Verhältnisse auf einer Route, sowie der visuellen Verhältnisse der benachbarten Routen.<br />\n"
+"Diese Informationen sind schnelllebig und verlieren schnell ihre Aktualität. Beachten sie deshalb das Datum der Tour bevor sie solche Informationen benutzen.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br />\n"
 "Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
 msgid "_conditions_levels_info"
@@ -3765,6 +3765,16 @@ msgstr "<h3>Typ des Klettersektors</h3>Type(s) of crag(s) offered by the climbin
 msgid "_slope_info"
 msgstr "<h3>Neigung</h3>Maximale Neigung und Länge des Hangs."
 
+# [general comment]
+# pentes >30°, légende (html)
+# [WARNING] en translation used
+msgid "_slopes_info"
+msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
+"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumung der Zugangsstrasse im Winter. Ort der mechanischen Schneeräumung. Ungefährer Zeitpunkt der Schneeräumung oder Schneeschmelze der Zugangsstrasse falls im Winter keine Räumung stattfindet.\n"
 "\n"
@@ -4183,15 +4193,13 @@ msgstr "Schweiz (englisch)"
 
 # [WARNING] needs_review
 msgid "avalanche_date"
-msgstr "Beobachtunsart betreffs Lawinen:"
+msgstr "Beobachtunsart betreffend Lawinen:"
 
-# [WARNING] needs_review
 msgid "avalanche_desc"
 msgstr "Beschreibung der Beobachtung betreffend Lawinen:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
 msgstr "Beschreibe Deine Beobachtungen zur Stabilität der Schneedecke:\n"
 "frische Wächten, Wummgeräusche, kürzlich abgegangene Lawinen, direkt beobachtete Lawinen. Für eine Lawine, gib den ungefähren Ort, die Meereshöhe und die Dimensionen von Anriss und Ablagerung an."
@@ -4200,7 +4208,6 @@ msgstr "Beschreibe Deine Beobachtungen zur Stabilität der Schneedecke:\n"
 # Titre affiché dans la sortie, au dessus des champs "type des observations" et "description des observations".
 # [comment]
 # it always depends a little bit on the context it will be in - "Lawinenbeobachtungen" is nicer than "Beobachtungen betreffs Lawinen" - similar applies to some of the other previous translations
-# [WARNING] needs_review
 msgid "avalanche_infos"
 msgstr "Lawinenbeobachtungen:"
 
@@ -4401,7 +4408,6 @@ msgstr "c2c-Objekte"
 # [general comment]
 # Option de la catégorie d'un article : rassemblements / G2G
 # La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
-# [WARNING] needs_review
 msgid "c2c meetings"
 msgstr "c2c Treffen"
 
@@ -4421,7 +4427,7 @@ msgstr "Luftseilbahn"
 
 # [WARNING] needs_review
 msgid "cable_car_access"
-msgstr "Durch Bergbahn erschlossen"
+msgstr "Durch Bergbahnen erschlossen"
 
 msgid "calabre"
 msgstr "Kalabrien"
@@ -4704,7 +4710,6 @@ msgstr "Verhältnisse"
 msgid "conditions"
 msgstr "Angetroffene Verhältnisse (Zustieg, Route und Umfeld):"
 
-# [WARNING] needs_review
 msgid "conditions and comments"
 msgstr "Verhältnisse und Kommentare"
 
@@ -4765,11 +4770,8 @@ msgstr "Eis-, Wasserfall- oder Mixed-klettern "
 msgid "config pillar"
 msgstr "Pfeiler"
 
-# [comment]
-# Oder etwas psychologistischer: "Routengestalt"
-# [WARNING] needs_review
 msgid "configuration"
-msgstr "Routenmorphologie:"
+msgstr "Routengestaltung:"
 
 msgid "conglomerat"
 msgstr "Konglomerat"
@@ -4799,11 +4801,9 @@ msgstr "Korsika"
 
 # [general comment]
 # http://paleo.blms.free.fr/cotometre/cotometre.php
-# [comment]
-# ???
 # [WARNING] needs_review
 msgid "cotometre"
-msgstr "Messung des Skischwierigkeitsgrades "
+msgstr "Bestimmungstool des Skischwierigkeitsgrades "
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
@@ -4861,9 +4861,8 @@ msgstr "Gefahrenzeichen"
 
 # [general comment]
 # option "danger_sign_avalanche" à l'édition
-# [WARNING] needs_update
 msgid "danger_sign_avalanche_long"
-msgstr "Gefahrenzeichen"
+msgstr "Warnzeichen anders als Lawinenniedergänge"
 
 msgid "dangerous"
 msgstr "wenig sicher"
@@ -4993,9 +4992,8 @@ msgstr "Die Geodaten im Format %1% herunterladen"
 msgid "draft"
 msgstr "Entwurf"
 
-# [WARNING] fr translation used
 msgid "dry tooling portal"
-msgstr "Dry-tooling"
+msgstr "Dry-Tooling"
 
 msgid "duration"
 msgstr "Dauer:"
@@ -5124,9 +5122,8 @@ msgstr "Exp."
 msgid "facings"
 msgstr "Expositionen:"
 
-# [WARNING] en translation used
 msgid "family portal"
-msgstr "Family"
+msgstr "Familie"
 
 msgid "fauna pic"
 msgstr "Fauna"
@@ -5346,9 +5343,8 @@ msgstr "Herberge"
 msgid "glacier"
 msgstr "Gletscher"
 
-# [WARNING] needs_update
 msgid "glacier config can't be selected with another config"
-msgstr "die Kategorie \"Hochtour - Gletscherroute\" kann nur ausgewählt werden, fall keine andere Kategorie zutrifft."
+msgstr "die Kategorien lehr und \"Hochtour - Gletscherroute\" können nur ausgewählt werden, wenn keine andere Kategorie zutrifft."
 
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
@@ -6421,9 +6417,9 @@ msgstr "Länge:"
 msgid "outing_route_desc"
 msgstr "Verwendete Route:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "outing_route_desc_default"
-msgstr "Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde."
+msgstr "Beschreiben Sie die verfolgte Route in den folgenden Fällen: andere Route als jene des Tourenführer, Variante der beschriebene Route, Kombination von verschiedene Routen, Umkehrpunkt."
 
 msgid "outing_with_public_transportation"
 msgstr "Mit öV gemachte Tour"
@@ -6445,9 +6441,9 @@ msgstr "Die ab diesen Zugang mit öV gemachten Touren."
 
 # [general comment]
 # texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "outings_description_default"
-msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
+msgstr "Organisiere die Kommentare der verschiedenen Teilnehmer mittels der Untertitel (h3 Knopf)"
 
 msgid "overhanging wall"
 msgstr "überhängend"
@@ -6718,9 +6714,8 @@ msgstr "Bevorzugte Täler"
 # [comment]
 # - Traduire DDE -> informations routières
 # - I removed the links to french departments BRAs, since it's not very usefull for german speaking people
-# [WARNING] needs_review
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -7084,9 +7079,9 @@ msgstr "Eine Route verbindet zwei oder mehrere geographische Orte. Eine Route mu
 
 # [general comment]
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes_description_default"
-msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
+msgstr "Organisiere die Routenbeschreibung mittels der Untertitel (h2 Knopf) : Anstieg, Route, Abstieg. Beschreibe die Route generell (permanente Informationen). Die angetroffenen Bedingungen sowie persönliche Kommentare sollten hingegen im Tourenbericht aufgeführt werden. "
 
 msgid "routes_quantity"
 msgstr "Anzahl der Kletterrouten:"
@@ -7233,31 +7228,24 @@ msgstr "Ski"
 
 # [general comment]
 # cotometre
-# [comment]
-# ???
-# [WARNING] needs_review
 msgid "skiabilite"
-msgstr "Skibefahrbarkeit:"
+msgstr "Fahrbarkeit mit Ski:"
 
 # [general comment]
 # cotometre
-# [comment]
-# gleichmässig oder anhaltend?
-# [WARNING] needs_review
 msgid "skiabilite0"
-msgstr "Weit und gleichmässig"
+msgstr "Breit und gleichmässig"
 
 # [general comment]
 # cotometre
-# [WARNING] needs_review
 msgid "skiabilite01"
-msgstr "1 oder 2 Erschwernisse (Aufwölbung, Verengung, etc.)"
+msgstr "1 oder 2 Schwierigkeiten (Absätze, Verengung, uzw.)"
 
 # [general comment]
 # cotometre
 # [WARNING] needs_review
 msgid "skiabilite02"
-msgstr "sehr wild (Stufen, Verengungen, Grate, etc.)"
+msgstr "sehr unregelmäßig (Absätze, Verengungen, Gräte, usw.)"
 
 msgid "skitouring"
 msgstr "Ski-, Snowtouren"
@@ -7267,6 +7255,11 @@ msgstr "Platte"
 
 msgid "slope"
 msgstr "Neigung:"
+
+# [general comment]
+# pentes de plus de 30° sur la carto
+msgid "slopes"
+msgstr "Hangneigungen ab 30°"
 
 msgid "small pillar"
 msgstr "kleiner Pfeiler"
@@ -7355,13 +7348,11 @@ msgstr "Steilwandskifahren"
 msgid "stories"
 msgstr "Erlebnisberichte, Erzählungen"
 
-# [WARNING] needs_review
 msgid "sub-parkings"
 msgstr "untergeordneter Zugang"
 
-# [WARNING] needs_review
 msgid "sub-sites"
-msgstr "untergeordnetes Klettergebiet"
+msgstr "Sektor eines Kletter- oder Bouldergebiet"
 
 # [general comment]
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits

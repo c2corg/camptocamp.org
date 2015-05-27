@@ -10,22 +10,24 @@ class ParseGeo
 {
     /*
      * filter_gpx looks for filter switches in config files and applies these filters to input gps file
-     * eg: - distance filter to prebent too many points
+     * eg: - distance filter to prevent too many points
+     *     - simplify with douglas-peucker algorithm
      *     - hdop filter to remove very unprecise points
      * it needs gpsbabel installed to work
      */
     public static function filterGpx($path)
     {
-        $filter_distance = (sfConfig::get('app_gpx_filter_distance_switch', true)) ?
-                            '-x position,distance=' . sfConfig::get('app_gpx_filter_distance_value', 5).'m' :
+        // simplify track using douglas peucker algorithm
+        $filter_distance = (sfConfig::get('app_gpx_filter_simplify_switch', true)) ?
+                            '-x simplify,crosstrack,error=' . (sfConfig::get('app_gpx_filter_simplify_value', 5) / 1000) .'k' :
                             '' ;
-            
+        // discard points where horizontal dilution of precision is given and is too big (unreliable points)
         $filter_hdop = (sfConfig::get('app_gpx_filter_hdop_switch', true)) ? 
-                            '--x discard,hdop=' . sfConfig::get('app_gpx_filter_hdop_value', 4) :
+                            '-x discard,hdop=' . sfConfig::get('app_gpx_filter_hdop_value', 4) :
                             '' ;
-                
-        exec("gpsbabel -t $filter_distance $filter_hdop -i gpx -f $path -o gpx -F $path");
-                
+
+        exec("gpsbabel -t -i gpx -f $path $filter_distance $filter_hdop -o gpx -F $path");
+
         c2cTools::log("File filtered with gpsbabel");
     }
 

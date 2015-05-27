@@ -2334,9 +2334,9 @@ msgstr "Map"
 msgid "Statistics"
 msgstr "Statistics"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Step 1: choose a summit"
-msgstr "Step 1: choose a summit"
+msgstr "Step 1: choose a summit, pass, lake, cliff or a climbing site"
 
 msgid "Step 2: Create a route"
 msgstr "Step 2: create a route"
@@ -2766,9 +2766,9 @@ msgstr "View original picture"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "View the associations history of the document"
-msgstr "Historique des associations et désassociations du document"
+msgstr "History of associations and dissociations to the document"
 
 msgid "View user profile"
 msgstr "View user profile"
@@ -3085,9 +3085,9 @@ msgstr "<h3>Avalanche bulletin</h3>Links to the recent avalanche bulletins cover
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_avalanche_date_info"
-msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+msgstr "<h3>Type of observations related to avalanches</h3>\n"
 "Type of observations of avalanches or danger signs (multiple choice possible).<br />\n"
 "You can give precisions about observations in the following text area."
 
@@ -3701,6 +3701,15 @@ msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or cra
 msgid "_slope_info"
 msgstr "<h3>Slope</h3>Maximum inclination and length of the snow or ice slopes encountered."
 
+# [general comment]
+# pentes >30°, légende (html)
+msgid "_slopes_info"
+msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
+"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access roads: location of mechanical snow clearnig, most likely dates of natural snow melt."
 
@@ -3970,9 +3979,9 @@ msgstr "Alps - E"
 msgid "alpes_s"
 msgstr "Western Alps - S"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "alpinism big portal"
-msgstr "Alpinisme grandes courses"
+msgstr "Alpinism long routes"
 
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
@@ -4603,9 +4612,9 @@ msgstr "Estimate the technical skiing grade (toponeige)"
 msgid "cond short"
 msgstr "Conditions"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions"
-msgstr "Conditions (incl. approach):"
+msgstr "Conditions (approach, route, and around):"
 
 msgid "conditions and comments"
 msgstr "Conditions and comments"
@@ -4613,9 +4622,9 @@ msgstr "Conditions and comments"
 msgid "conditions linked to"
 msgstr "list of associated conditions"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Conditions, equipment and rock quality (incl. approach):"
+msgstr "Conditions, equipment and rock quality (approach, route, and around):"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
@@ -4898,7 +4907,6 @@ msgstr "download geographic data under %1% format"
 msgid "draft"
 msgstr "draft"
 
-# [WARNING] fr translation used
 msgid "dry tooling portal"
 msgstr "Dry-tooling"
 
@@ -7201,6 +7209,11 @@ msgstr "slab"
 
 msgid "slope"
 msgstr "Slope:"
+
+# [general comment]
+# pentes de plus de 30° sur la carto
+msgid "slopes"
+msgstr "Slopes over 30°"
 
 msgid "small pillar"
 msgstr "columns"

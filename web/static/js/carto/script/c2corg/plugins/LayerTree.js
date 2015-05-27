@@ -2,6 +2,7 @@
  * @requires plugins/Tool.js
  * @requires OpenLayers/Request.js
  * @include OpenLayers/Layer/Vector.js
+ * @include OpenLayers/Layer/WMS.js
  * @include OpenLayers/Strategy/BBOX.js
  * @include OpenLayers/Protocol/WFS/v1_0_0.js
  * @include OpenLayers/Protocol/WFS.js
@@ -62,6 +63,45 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
 Ext.preg(c2corg.plugins.LayerTree.prototype.ptype, c2corg.plugins.LayerTree);
 
 Ext.namespace("c2corg.tree");
+
+c2corg.tree.TreeNodeUIWithTooltip = Ext.extend(Ext.tree.TreeNodeUI, {
+    render : function(bulkRender){
+        var n = this.node, a = n.attributes;
+        var targetNode = n.parentNode ?
+              n.parentNode.ui.getContainer() : n.ownerTree.innerCt.dom;
+
+        if (!this.rendered) {
+            this.rendered = true;
+
+            // make sure to have the checkbox
+            a.checked = !!a.checked;
+
+            this.renderElements(n, a, targetNode, bulkRender);
+
+            // add tooltip button
+            Ext.DomHelper
+                .insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
+                .on("click", function() {
+                    new Ext.Window({
+                        title: a.tooltipTitle,
+                        html: a.tooltipHtml,
+                        width: 400,
+                        modal: true
+                    }).show();
+                });
+
+            this.initEvents();
+
+            if(!this.node.expanded){
+                this.updateExpandIcon(true);
+            }
+        } else {
+            if (bulkRender === true) {
+                targetNode.appendChild(this.wrap);
+            }
+        }
+    }
+});
 
 c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
@@ -124,20 +164,22 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     },
 
     createWMSLayer: function(options) {
-        return new OpenLayers.Layer.WMS(options.name, this.url, {
+        var layer = new OpenLayers.Layer.WMS(options.name, this.url, {
             layers: options.layers,
             transparent: true
         },{
             opacity: 0.6,
             singleTile: true,
             isBaseLayer: false,
+            ratio: 1,
             visibility: false
         });
+        this.mapPanel.map.addLayer(layer);
+        return layer;
     },
 
     addLayers: function() {
         this.layers = {
-            "slopes": this.createWMSLayer({name: "slopes", layers: "slopes"}),
             "summits": this.createVectorLayer({name: "summits", featureType: "summits"}),
             "access": this.createVectorLayer({name: "access", featureType: "access"}),
             "public_transportations": this.createVectorLayer({name: "public_transportations", featureType: "public_transportations"}),
@@ -258,9 +300,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }, {
                 text: OpenLayers.i18n("slopes"),
                 nodeType: "gx_layer",
-                layer: this.layers["slopes"],
+                layer: this.createWMSLayer({name: "slopes", layers: "slopes"}),
                 iconCls: "picto_blank",
-                leaf: true
+                leaf: true,
+                tooltipHtml: OpenLayers.i18n("slopes_info"),
+                tooltipTitle: OpenLayers.i18n("slopes"),
+                uiProvider: c2corg.tree.TreeNodeUIWithTooltip
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,
