@@ -37,7 +37,7 @@ c2corg.Map = function (config) {
             closable: false,
             title: OpenLayers.i18n("c2c data"),
             collapsible: true,
-            header: true,
+            header: false,
             width: 250
         },
         initialThemes: config.layers,
