@@ -1,6 +1,7 @@
 /*
  * @requires plugins/Tool.js
  * @requires OpenLayers/Request.js
+ * @requires GeoExt/widgets/tree/LayerNode.js
  * @include OpenLayers/Layer/Vector.js
  * @include OpenLayers/Layer/WMS.js
  * @include OpenLayers/Strategy/BBOX.js
@@ -9,7 +10,6 @@
  * @include OpenLayers/Protocol/HTTP.js
  * @include OpenLayers/Format/JSON.js
  * @include OpenLayers/Control/SelectFeature.js
- * @include GeoExt/widgets/tree/LayerNode.js
  * @include c2corg/config/styles.js
  */
 
@@ -64,42 +64,22 @@ Ext.preg(c2corg.plugins.LayerTree.prototype.ptype, c2corg.plugins.LayerTree);
 
 Ext.namespace("c2corg.tree");
 
-c2corg.tree.TreeNodeUIWithTooltip = Ext.extend(Ext.tree.TreeNodeUI, {
+c2corg.tree.LayerNodeUIWithTooltip = Ext.extend(GeoExt.tree.LayerNodeUI, {
     render : function(bulkRender){
         var n = this.node, a = n.attributes;
-        var targetNode = n.parentNode ?
-              n.parentNode.ui.getContainer() : n.ownerTree.innerCt.dom;
 
-        if (!this.rendered) {
-            this.rendered = true;
-
-            // make sure to have the checkbox
-            a.checked = !!a.checked;
-
-            this.renderElements(n, a, targetNode, bulkRender);
-
-            // add tooltip button
-            Ext.DomHelper
-                .insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
-                .on("click", function() {
-                    new Ext.Window({
-                        title: a.tooltipTitle,
-                        html: a.tooltipHtml,
-                        width: 400,
-                        modal: true
-                    }).show();
-                });
-
-            this.initEvents();
-
-            if(!this.node.expanded){
-                this.updateExpandIcon(true);
-            }
-        } else {
-            if (bulkRender === true) {
-                targetNode.appendChild(this.wrap);
-            }
-        }
+        c2corg.tree.LayerNodeUIWithTooltip.superclass.render.apply(this, arguments);
+        
+        // add tooltip button
+        Ext.DomHelper.insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
+            .on("click", function() {
+                new Ext.Window({
+                    title: a.tooltipTitle,
+                    html: a.tooltipHtml,
+                    width: 400,
+                    modal: true
+                }).show();
+            });
     }
 });
 
@@ -159,12 +139,13 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }),
             isBaseLayer: false,
             visibility: false,
-            styleMap: this.getStyleMap()
+            styleMap: this.getStyleMap(),
+            interactive: true
         });
     },
 
     createWMSLayer: function(options) {
-        var layer = new OpenLayers.Layer.WMS(options.name, this.url, {
+        return new OpenLayers.Layer.WMS(options.name, this.url, {
             layers: options.layers,
             transparent: true
         },{
@@ -174,8 +155,6 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             ratio: 1,
             visibility: false
         });
-        this.mapPanel.map.addLayer(layer);
-        return layer;
     },
 
     addLayers: function() {
@@ -193,7 +172,8 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             "maps": this.createVectorLayer({name: "maps", featureType: "maps"}),
             "ranges": this.createVectorLayer({name: "ranges", featureType: "ranges"}),
             "admin_limits": this.createVectorLayer({name: "admin_limits", featureType: "admin_limits"}),
-            "countries": this.createVectorLayer({name: "countries", featureType: "countries"})
+            "countries": this.createVectorLayer({name: "countries", featureType: "countries"}),
+            "slopes": this.createWMSLayer({name: "slopes", layers: "slopes"})
         };
         for (var i in this.layers) {
             this.mapPanel.map.addLayer(this.layers[i]);
@@ -300,7 +280,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }, {
                 text: OpenLayers.i18n("slopes"),
                 nodeType: "gx_layer",
-                layer: this.createWMSLayer({name: "slopes", layers: "slopes"}),
+                layer: this.layers["slopes"],
                 iconCls: "picto_blank",
                 leaf: true,
                 tooltipHtml: OpenLayers.i18n("slopes_info"),
@@ -378,7 +358,9 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     makeThemesInteractive: function() {
         var layers = [];
         for (var name in this.layers) {
-            layers.push(this.layers[name]);
+            if (this.layers[name].interactive) {
+                layers.push(this.layers[name]);
+            }
         }
 
         var clickControl = new OpenLayers.Control.SelectFeature(
