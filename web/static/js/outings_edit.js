@@ -124,6 +124,7 @@
       return true;
     }
 
+    var activities = $('#activities').val();
     var access_elevation = $('#access_elevation').val();
     var up_snow_elevation = $('#up_snow_elevation').val();
     var down_snow_elevation = $('#down_snow_elevation').val();
@@ -133,6 +134,11 @@
     // ask for confirmation if shoesage elevation is equal to access_elevation
     if (!$('#revision').val()) {
       if (   !!access_elevation_init
+          && (    $.inArray (1, activities)
+              ||  $.inArray (2, activities)
+              ||  $.inArray (5, activities)
+              ||  $.inArray (7, activities)
+             )
           && access_elevation    == access_elevation_init
           && up_snow_elevation   == access_elevation_init
           && down_snow_elevation == access_elevation_init
@@ -142,7 +148,11 @@
              || (access_elevation < 1600 && month == 5)
              || (access_elevation < 2000 && month == 6)
              || (access_elevation < 2400 && month == 7)
-             || (access_elevation > 2000 && (month <= 2 || month >= 12))
+             || (access_elevation > 1600 && (month <= 2 || month >= 12))
+             || (access_elevation > 1800 && month == 3)
+             || (access_elevation > 2000 && (month <= 4 || month >= 11))
+             || (access_elevation > 2200 && month == 5)
+             || (access_elevation > 2600 && month == 6)
             ) {
            snow_elevation_already_tested = confirm(C2C.confirm_snow_elevation_message);
            return snow_elevation_already_tested;
