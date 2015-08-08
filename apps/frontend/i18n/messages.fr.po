@@ -3772,10 +3772,10 @@ msgstr "<h3>Pente</h3>Inclinaison maximale et longueur des pentes de neige ou de
 # pentes >30°, légende (html)
 msgid "_slopes_info"
 msgstr "Attention, outre sa résolution limitée par rapport aux subtilités du terrain, cette catégorisation est basée sur des données altimétriques satellitaires pouvant comporter un certain nombre d'artefacts, en particulier pour les plus fortes pentes. Cet outil est donc à considérer d'une manière globale comme une aide pour l'élaboration et le choix d'itinéraires, et non comme une vérité terrain absolue.\n"
-"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
-"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
-"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1em\"></span> 40-45°\n"
-"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+"<br><span style=\"background-color:#F7EF6C;display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:#F8A97C;display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:#E8669A;display:inline-block;width:1.5em;height:1em\"></span> 40-45°\n"
+"<br><span style=\"background-color:#DEB8D6;display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement de l'accès en hiver&nbsp;: lieu du déneigement mécanique, dates approximatives de déneigement de l'accès s'il n'est pas déneigé en hiver."

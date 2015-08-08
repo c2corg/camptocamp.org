@@ -3687,10 +3687,10 @@ msgstr "<h3>Pendiente</h3>Inclinación máxima y longitud de las pendientes de n
 # [WARNING] en translation used
 msgid "_slopes_info"
 msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
-"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
-"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
-"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
-"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+"<br><span style=\"background-color:#F7EF6C;display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:#F8A97C;display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:#E8669A;display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:#DEB8D6;display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Detalles sobre el limpiado de la nieve </h3>Datos sobre el limpiado de la nieve del acceso en hivierno: ubicación del limpiado mecánico de la nieve, fechas aproximativas del apertura del acceso en caso de no estar limpiado en hivierno."
@@ -4337,9 +4337,9 @@ msgstr "Noticias de c2c"
 msgid "cable_car"
 msgstr "teleférico"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cable_car_access"
-msgstr "Desservi par des remontées mécaniques"
+msgstr "Served by lifts"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -6376,9 +6376,9 @@ msgstr "Salidas desde este acceso que se hicieron con <i>ecomobilidad</i> (como 
 
 # [general comment]
 # texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings_description_default"
-msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
+msgstr "Organize the comments from multiple participants with subtitles (h3 button)."
 
 msgid "overhanging wall"
 msgstr "extraplomado"

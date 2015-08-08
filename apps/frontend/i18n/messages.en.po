@@ -837,9 +837,8 @@ msgstr "Document title"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Document types differ, thus cannot be merged"
 
-# [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
-msgstr "Donate to Camptocamp Association"
+msgstr "Donate to Camptocamp Association, become a member or pay fee for renewal"
 
 # [general comment]
 # Pour indiquer la durée écoulée
@@ -3705,10 +3704,10 @@ msgstr "<h3>Slope</h3>Maximum inclination and length of the snow or ice slopes e
 # pentes >30°, légende (html)
 msgid "_slopes_info"
 msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
-"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
-"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
-"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
-"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+"<br><span style=\"background-color:#F7EF6C;display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:#F8A97C;display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:#E8669A;display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:#DEB8D6;display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access roads: location of mechanical snow clearnig, most likely dates of natural snow melt."
@@ -4362,9 +4361,9 @@ msgstr "Camptocamp News"
 msgid "cable_car"
 msgstr "cable car"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cable_car_access"
-msgstr "Desservi par des remontées mécaniques"
+msgstr "Served by lifts"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -6367,9 +6366,9 @@ msgstr "Outings from this access point that used public transport or other low-i
 
 # [general comment]
 # texte affiché dans le champ "commentaires personnels" d'une sortie, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "outings_description_default"
-msgstr "Organisez les commentaires des différents participants à l'aide des sous-titres (bouton h3)."
+msgstr "Organize the comments from multiple participants with subtitles (h3 button)."
 
 msgid "overhanging wall"
 msgstr "overhanging wall"
