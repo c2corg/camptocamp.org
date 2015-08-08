@@ -36,7 +36,7 @@ Ext.onReady(function () {
                 closable: false,
                 title: OpenLayers.i18n("c2c data"),
                 collapsible: true,
-                header: true,
+                header: false,
                 width: 250
             },
             url: c2corg.config.mapserverUrl

@@ -3060,11 +3060,24 @@ msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Tipus d'observació relativa a les allaus</h3>\n"
 "Tipus d'observacio d'allaus o de senyals d'alerta (se'n pot triar més d'un).<br />\n"
-"Detalleu les observacions en el camp de text associat."
+"Detalleu les observacions en el camp de text associat.\n"
+"<h4>cap observació</h4>\n"
+"Aquesta opció no pot ser simultània a qualsevol altra.\n"
+"<h4>senyals d'alerta</h4>\n"
+"- cornisa recent<br />\n"
+"- estructura de placa detectada amb el bastó<br />\n"
+"- soroll de trencament de capa feble (\"xiii\", \"woumpf\" o \"bang\")<br />\n"
+"- fissura que s'obre en avancar<br />\n"
+"<h4>traça d'allau recent</h4>\n"
+"Traça d'una allau natural o accidental que ha caigut d'ençà de la darrera nevada, pluja, ventada o pujada de les temperatures, però abans del dia de la sortida.<br />\n"
+"La traça d'una allau pot ser un trencament d'una placa, una traça d'una allau o bé un dipòsit.\n"
+"<h4>allau natural del dia de la sortida</h4>\n"
+"Allau natural observada en directe o caiguda el dia de la sortida (traça observada a la tornada però que no hi era a l'anada).\n"
+"<h4>allau accidental el dia de la sortida</h4>\n"
+"Allau desencadenada per una persona o animal, observada en directe, o que ha caigut el dia de la sortida (traça observada a la tornada però que no hi era a l'anada)."
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
@@ -3085,10 +3098,23 @@ msgstr "<h3>Descripció del que s'ha observat en relació a les allaus</h3>\n"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
-# [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Observació d'elements relatius a les allaus</h3>\n"
-"Observació de senyals d'alerta, de traces d'allau recents, i allaus espontànies o accidentals vistes el dia de la sortida."
+"Els comentaris relatius a les allaus es descriuen mitjançant un resum de text predefinit i amb el detall de les observacions.\n"
+"<h4>no s'ha observat res</h4>\n"
+"Cap senyal d'alerta, cap traça d'allau recent ni cap allau.\n"
+"<h4>senyals d'alerta</h4>\n"
+"- cornisa recent<br />\n"
+"- estructura de placa detectada amb el bastó<br />\n"
+"- soroll de trencament de capa feble (\"xiii\", \"woumpf\" o \"bang\")<br />\n"
+"- fissura que s'obre en avançar<br />\n"
+"<h4>traça d'allau recent</h4>\n"
+"Traça d'una allau natural o accidental que ha caigut d'ençà de la darrera nevada, pluja, ventada o pujada de temperatures, però abans del dia de la sortida.<br />\n"
+"La traça d'una allau pot ser un trencament d'una placa, una traça d'una allau o bé un dipòsit.\n"
+"<h4>allau natural del dia de la sortida</h4>\n"
+"Allau natural observada en directe o caiguda el dia de la sortida (traça observada a la tornada però que no hi era a l'anada).\n"
+"<h4>allau accidental el dia de la sortida</h4>\n"
+"Allau desencadenada per una persona o animal, observada en directe, o que ha caigut el dia de la sortida (traça observada a la tornada però que no hi era a l'anada)."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Iniciació</h3>\n"
@@ -3739,13 +3765,12 @@ msgstr "<h3>Pendent</h3>Inclinació màxima i llargada dels pendents de neu o de
 
 # [general comment]
 # pentes >30°, légende (html)
-# [WARNING] en translation used
 msgid "_slopes_info"
-msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
-"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
-"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
-"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
-"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+msgstr "Atenció, a més de la seva resolució limitada pel que fa a les subtileses del terreny, aquesta categorització es basa en dades altimètriques per satèl·lit que poden provocar desajustos, en particular en els pendents més forts. Aquesta eina, doncs, s'ha d'entendre de manera global com una ajuda a l'elaboració i la tria dels itineraris i no pas com una veritat absoluta sobre el terreny.\n"
+"<br><span style=\"background-color:#F7EF6C;display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:#F8A97C;display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:#E8669A;display:inline-block;width:1.5em;height:1em\"></span> 40-45°\n"
+"<br><span style=\"background-color:#DEB8D6;display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informació sobre la retirada de neu de l'accés a l'hivern: lloc fins on es retira la neu, dates aproximades de la neteja de l'accés, en cas no es netegi durant l'hivern."
@@ -4384,7 +4409,6 @@ msgstr "L'actualitat de C2C"
 msgid "cable_car"
 msgstr "remuntadors mecànics"
 
-# [WARNING] needs_review
 msgid "cable_car_access"
 msgstr "Accessible amb remuntadors mecànics"
 
@@ -4637,7 +4661,6 @@ msgstr "Condicions"
 msgid "conditions"
 msgstr "Condicions trobades (aproximació, via, i a proximitat):"
 
-# [WARNING] needs_review
 msgid "conditions and comments"
 msgstr "Condicions i comentaris"
 
@@ -7137,7 +7160,6 @@ msgstr "Pendent:"
 
 # [general comment]
 # pentes de plus de 30° sur la carto
-# [WARNING] needs_review
 msgid "slopes"
 msgstr "Pendents més de 30°"
 
