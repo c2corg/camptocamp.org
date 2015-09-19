@@ -80,7 +80,7 @@ class Product extends BaseProduct
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'fi.culture', 'fcult', $join_i18n);
             
             // article criteria
-            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'o', 'linked_id');
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'f', 'linked_id');
             if ($nb_name === 'no_result')
             {
                 return $nb_name;
