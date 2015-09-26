@@ -3376,6 +3376,12 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data, #
   margin: 0 !important;
 }
 
+/* documents that mix ltr and rtl chars */
+.linked_elt > a, .linked_elt > span
+{
+  unicode-bidi: embed;
+}
+
 .association_content_inside_field .linked_elt
 {
   padding-left:0;
