@@ -36,14 +36,20 @@ INSERT INTO app_association_types (type) VALUES ('sh'); -- 'sh' = summit-hut (ma
 INSERT INTO app_association_types (type) VALUES ('pp'); -- 'pp' = parking-parking (main = left column)
 INSERT INTO app_association_types (type) VALUES ('pf'); -- 'pf' = parking-product (main = parking)
 
--- associations with sites:
+-- associations with sites
 INSERT INTO app_association_types (type) VALUES ('tt'); -- 'tt' = site-site * : was 'ii'
 INSERT INTO app_association_types (type) VALUES ('st'); -- 'st' = summit-site (main = summit) * : was 'us'
 INSERT INTO app_association_types (type) VALUES ('ht'); -- 'ht' = hut-site (main = hut) * : was 'hs'
 INSERT INTO app_association_types (type) VALUES ('pt'); -- 'pt' = parking-site (main = parking) * : was 'ps'
 INSERT INTO app_association_types (type) VALUES ('bt'); -- 'bt' = book-site (main = book)
 
--- associations with articles:
+-- association with xreports
+INSERT INTO app_association_types (type) VALUES ('rx'); -- 'rx' = route-xreport (main = route)
+INSERT INTO app_association_types (type) VALUES ('tx'); -- 'tx' = site-xreport (main = site)
+INSERT INTO app_association_types (type) VALUES ('ox'); -- 'ox' = outing-xreport (main = outing)
+INSERT INTO app_association_types (type) VALUES ('ux'); -- 'ux' = user-xreport (main = user)
+
+-- associations with articles
 INSERT INTO app_association_types (type) VALUES ('cc'); -- 'cc' = article-article
 INSERT INTO app_association_types (type) VALUES ('sc'); -- 'sc' = summit-article (main = summit)
 INSERT INTO app_association_types (type) VALUES ('bc'); -- 'bc' = book-article (main = book)
@@ -54,8 +60,9 @@ INSERT INTO app_association_types (type) VALUES ('tc'); -- 'tc' = site-article (
 INSERT INTO app_association_types (type) VALUES ('uc'); -- 'uc' = user-article (main = user)
 INSERT INTO app_association_types (type) VALUES ('pc'); -- 'pc' = parking-article (main = parking)
 INSERT INTO app_association_types (type) VALUES ('fc'); -- 'fc' = product-article (main = product)
+INSERT INTO app_association_types (type) VALUES ('xc'); -- 'xc' = xreport-article (main = xreport)
 
--- associations with images:
+-- associations with images
 --was : INSERT INTO app_association_types (type) VALUES ('di'); -- 'di' = document-image (main = document, in that case, image is linked)
 INSERT INTO app_association_types (type) VALUES ('ii'); -- 'ii' = image-image
 INSERT INTO app_association_types (type) VALUES ('ai'); -- 'ai' = area-image (main = area)
@@ -71,6 +78,7 @@ INSERT INTO app_association_types (type) VALUES ('si'); -- 'si' = summit-image (
 INSERT INTO app_association_types (type) VALUES ('ui'); -- 'ui' = user-image (main = user)
 INSERT INTO app_association_types (type) VALUES ('fi'); -- 'fi' = product-image (main = product)
 INSERT INTO app_association_types (type) VALUES ('wi'); -- 'wi' = portal-image (main = portal)
+INSERT INTO app_association_types (type) VALUES ('xi'); -- 'xi' = xreport-image (main = xreport)
 
 
 CREATE TABLE app_documents_associations (

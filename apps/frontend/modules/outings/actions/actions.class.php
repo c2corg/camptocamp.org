@@ -391,7 +391,7 @@ class outingsActions extends documentsActions
                     $this->linked_doc = $linked_doc;
                     break;
                 default:
-                    $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site3', '@default_index?module=outings');
+                    $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
             }   
         }
         $this->document = $document;
@@ -433,7 +433,7 @@ class outingsActions extends documentsActions
     {
         if (!$this->getRequestParameter('document_id') && !$this->getRequestParameter('link'))
         {
-            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site2', '@default_index?module=outings');
+            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
         }
         
         $id = $this->getRequestParameter('link', 0) + $this->getRequestParameter('document_id', 0);
@@ -463,7 +463,7 @@ class outingsActions extends documentsActions
         
         if (!$linked_doc)
         {
-            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site1', '@default_index?module=outings');
+            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
         }
     }
     

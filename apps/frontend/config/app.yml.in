@@ -25,6 +25,7 @@ all:
       10: huts
       14: products
       5: outings
+      16: xreports
       8: images
       11: articles
       12: books
@@ -85,8 +86,8 @@ all:
       u: User
       v: # Article (ouvreur)
       w: Portal
-      x: # Route (approche)
-      y: # Route (retour)
+      x: Xreport
+      y: 
       z: 
     model2letter:
       Area: a
@@ -108,6 +109,7 @@ all:
       Site: t
       User: u
       Portal: w
+      Xreport: x
     types:
       1: sr
       2: ro
@@ -154,6 +156,12 @@ all:
       43: fi
       44: wi
       45: sh
+      46: rx
+      47: tx
+      48: ox
+      49: ux
+      50: xc
+      51: xi
 
   static_url: "@STATIC_BASE_URL@"
   

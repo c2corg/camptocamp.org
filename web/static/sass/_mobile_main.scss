@@ -700,7 +700,18 @@ li.list_odd
     float: none;
     text-align: left;
     clear: both;
-    margin: 5px;
+    margin: 5px 0;
+  }
+  
+  .img_box
+   {
+    padding: 3px 0;
+    border-width: 1px 0;
+    width: 100%;
+  }
+  .img_box img
+   {
+    width: 100%;
   }
 
   .img_mobile
