@@ -3787,6 +3787,29 @@ class documentsActions extends c2cActions
             }
         }
         
+        if ($linked_module_new == 'xreports')
+        {
+            if (!$is_moderator)
+            {
+                if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'ux')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link an user to another user xreport');
+                }
+                if (($main_module_new == 'outings') && (!Association::find($user_id, $linked_id_new, 'ux')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link an outing to another user xreport');
+                }
+                if (($main_module_new == 'routes') && (!Association::find($user_id, $linked_id_new, 'ux')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link a route to another user xreport');
+                }
+                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'ux')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link a site to another user xreport');
+                }
+            }
+        }
+        
         if ($linked_module_new == 'huts')
         {
             if ($main_module_new == 'summits')
@@ -3899,7 +3922,7 @@ class documentsActions extends c2cActions
             {
                 if (Association::countAllMain(array($linked_id_new), 'pp'))
                 {
-                    return $this->ajax_feedback('A sub parking can not be linked to more than one main parking');
+                    // return $this->ajax_feedback('A sub parking can not be linked to more than one main parking');
                 }
             }
         }
