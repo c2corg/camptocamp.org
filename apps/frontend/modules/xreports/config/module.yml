@@ -14,7 +14,7 @@ all:
       1: avalanche
       2: external_fall
       3: person_fall
-      4: physucal_failure
+      4: physical_failure
 
   author_status:
     list:
