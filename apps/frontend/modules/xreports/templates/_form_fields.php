@@ -35,7 +35,7 @@ echo object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_lis
 echo object_group_tag($document, 'rescue', array('callback' => 'object_checkbox_tag'));
 
 echo form_section_title('Accident description', 'form_desc', 'preview_desc');
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext', 'placeholder' => __('xreport_description_default')));
 
 echo form_section_title('Accident factors', 'form_factors', 'preview_factors');
 ?>
