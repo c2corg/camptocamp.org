@@ -1,0 +1,17 @@
+_filter_form:
+  enabled: off 
+
+_linked_xreports:
+  enabled: off
+
+_xreports_filter:
+  enabled: off
+
+_feature:
+  enabled: off 
+
+filter:
+  enabled: off 
+
+popupSuccess:
+  enabled: on

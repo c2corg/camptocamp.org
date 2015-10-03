@@ -1,0 +1,88 @@
+fields:
+  lon:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -180
+      min_error:    value must be at least -180
+      max:          180
+      max_error:    value must be less than or equal to 180
+    myLatLonValidator:
+      check: lat
+      lat_or_lon_alone_error: You cannot set lat or lon alone
+  lat:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -90
+      min_error:    value must be at least -90
+      max:          90
+      max_error:    value must be less than or equal to 90
+    myLatLonValidator:
+      check: lon
+      lat_or_lon_alone_error: You cannot set lat or lon alone
+  elevation:
+    sfNumberValidator:
+      nan_error:    value must an integer
+      min:          0
+      min_error:    value must be at least 0
+      max:          10000
+      max_error:    value must be less than or equal to 10000
+      type:         int
+      type_error:   value must an integer
+  name:
+    required:
+      msg:          field cannot be left blank
+    sfStringValidator:
+      min:          4
+      min_error:    this name is too short (4 characters minimum)
+      max:          150
+      max_error:    this name is too long (150 characters maximum)
+  date:
+    required:
+      msg:          field cannot be left blank
+    myDateValidator:
+      date_error:   invalid date
+  activities:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: app_activities_list
+      unique: false
+      array_except: [ 0 ]
+  severity:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_severity_list
+      array_except: [ 0 ]
+  event_type:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_event_type_list
+      unique: false
+      array_except: [ 0 ]
+  participants:
+    required:
+      msg:          field cannot be left blank
+    sfNumberValidator:
+      nan_error:    value must an integer
+      min:          0
+      min_error:    value must be at least 0
+      max:          90
+      max_error:    value must be less than or equal to 90
+      type:         int
+      type_error:   value must an integer
+  impacted:
+    required:
+      msg:          field cannot be left blank
+    sfNumberValidator:
+      nan_error:    value must an integer
+      min:          0
+      min_error:    value must be at least 0
+      max:          90
+      max_error:    value must be less than or equal to 90
+      type:         int
+      type_error:   value must an integer
+  description:
+    required:
+      msg:          field cannot be left blank

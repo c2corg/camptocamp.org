@@ -1,0 +1,87 @@
+all:
+  severity:
+    list:
+      0:
+      1: no
+      3: '1 to 3 days'
+      30: '4 days to 1 month'
+      90: '1 to 3 months'
+      100: 'more than 3 months'
+
+  event_type:
+    list:
+      0:
+      1: avalanche
+      2: external_fall
+      3: person_fall
+      4: physucal_failure
+
+  author_status:
+    list:
+      0:
+      1: primary_impacted
+      2: secondary_impacted
+      3: internal_witness
+      4: external_witness
+
+  activity_rate:
+    list:
+      0:
+      150: activity_rate_150
+      50: activity_rate_50
+      30: activity_rate_30
+      20: activity_rate_20
+      10: activity_rate_10
+      5: activity_rate_5
+      1: activity_rate_1
+
+  nb_outings:
+    list:
+      0:
+      4: nb_outings_4
+      9: nb_outings_9
+      14: nb_outings_14
+      15: nb_outings_15
+
+  autonomy:
+    list:
+      0:
+      10: 'non autonomous'
+      20: autonomous
+      30: initiator
+      40: expert
+
+  gender:
+    list:
+      0:
+      1: man
+      2: woman
+
+  previous_injuries:
+    list:
+      0:
+      1: previous_injuries_1
+      2: previous_injuries_2
+      3: previous_injuries_3
+
+  sort:
+    criteria:
+      'id': ID
+      'xnam': name
+      'act': activities
+      'date': date short
+      'xpar': participants
+      'ximp': impacted
+      'xtyp': event_type
+      'xsev': severity
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
+      'xalt': elevation
+    filled_criteria:
+      'xpar': ''
+      'ximp': ''
+      'xsev': ''
+      'xalt': ''
