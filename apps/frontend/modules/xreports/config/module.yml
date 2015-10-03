@@ -70,8 +70,8 @@ all:
       'xnam': name
       'act': activities
       'date': date short
-      'xpar': participants
-      'ximp': impacted
+      'xpar': nb_participants
+      'ximp': nb_impacted
       'xtyp': event_type
       'xsev': severity
       'range': ranges
