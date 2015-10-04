@@ -54,8 +54,8 @@ all:
   gender:
     list:
       0:
-      1: man
-      2: woman
+      1: male
+      2: female
 
   previous_injuries:
     list:
