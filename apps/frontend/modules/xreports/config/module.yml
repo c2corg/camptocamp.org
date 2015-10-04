@@ -60,7 +60,7 @@ all:
   previous_injuries:
     list:
       0:
-      1: previous_injuries_1
+      1: no
       2: previous_injuries_2
       3: previous_injuries_3
 
