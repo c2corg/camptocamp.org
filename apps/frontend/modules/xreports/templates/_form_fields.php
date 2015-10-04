@@ -59,7 +59,7 @@ echo form_section_title('Profil', 'form_profil', 'preview_profil');
 
 echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list');
 echo object_group_dropdown_tag($document, 'activity_rate', 'mod_xreports_activity_rate_list');
-echo object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list');
+echo object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list', null, true, 'nb_outings_per_year');
 echo object_group_dropdown_tag($document, 'autonomy', 'mod_xreports_autonomy_list');
 echo object_group_tag($document, 'age', array('class' => 'short_input', 'type' => 'number'));
 echo object_group_dropdown_tag($document, 'gender', 'mod_xreports_gender_list');
