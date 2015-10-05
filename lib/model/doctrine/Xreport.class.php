@@ -2,6 +2,15 @@
 
 class Xreport extends BaseXreport
 {
+    public static function filterSetDate($value)
+    {
+        $year  = $value['year'];
+        $month = (strlen($value['month']) == 2) ? $value['month'] : ('0' . $value['month']);
+        $day   = (strlen($value['day']) == 2) ? $value['day'] : ('0' . $value['day']);
+        
+        return "$year-$month-$day";
+    }
+    
     public static function filterSetActivities($value)
     {   
         return self::convertArrayToString($value);
@@ -12,6 +21,26 @@ class Xreport extends BaseXreport
         return self::convertStringToArray($value);
     }
 
+    public static function filterSetElevation($value)
+    {   
+        return self::returnNullIfEmpty($value);
+    }
+
+    public static function filterSetNb_participants($value)
+    {   
+        return self::returnNullIfEmpty($value);
+    }
+
+    public static function filterSetNb_impacted($value)
+    {   
+        return self::returnNullIfEmpty($value);
+    }
+
+    public static function filterSetSeverity($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function filterSetEvent_type($value)
     {   
         return self::convertArrayToString($value);
@@ -20,6 +49,41 @@ class Xreport extends BaseXreport
     public static function filterGetEvent_type($value)
     {   
         return self::convertStringToArray($value);
+    }
+
+    public static function filterSetAuthor_status($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetActivity_rate($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetNb_outings($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetAutonomy($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetAge($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetGender($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetPrevious_injuries($value)
+    {   
+        return self::returnPosIntOrNull($value);
     }
 
     public static function buildXreportListCriteria(&$criteria, &$params_list, $is_module = false, $mid = 'm.id')
