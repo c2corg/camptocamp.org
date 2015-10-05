@@ -103,7 +103,7 @@ echo end_section_tag();
 // profil
 if ($is_connected && $is_moderator)
 {
-    echo start_section_tag('Profil', 'profil');
+    echo start_section_tag('Accident profil', 'profil');
     include_partial('profil', array('document' => $document));
     echo end_section_tag();
 }
