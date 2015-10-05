@@ -73,6 +73,12 @@ msgstr "(sens horaire)"
 msgid "). It is thus write-protected."
 msgstr "). Il est donc protégé en écriture."
 
+msgid "1 to 3 days"
+msgstr "1 à 3 jours"
+
+msgid "1 to 3 months"
+msgstr "1 à 3 mois"
+
 msgid "1/100000"
 msgstr "1/100000"
 
@@ -81,6 +87,10 @@ msgstr "1/25000"
 
 msgid "1/50000"
 msgstr "1/50000"
+
+# [WARNING] needs_review
+msgid "4 days to 1 month"
+msgstr "4 à 29 jours"
 
 msgid "404_error"
 msgstr "Document non trouvé"
@@ -103,11 +113,9 @@ msgstr "Un accès ne peut pas être associé à un itinéraire si un sur/sous ac
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
 msgstr "Un accès ne peut pas être associé à un site de couenne ou de bloc si un sur/sous accès de cet accès est déjà associé au site"
 
-# [WARNING] needs_review
 msgid "A raid summit can not be linked to a real summit"
 msgstr "Un sommet-raid ne peut pas être associé à un sommet réel"
 
-# [WARNING] needs_review
 msgid "A raid summit can not be linked to a stage route"
 msgstr "Un sommet-raid ne peut pas être associé à une étape d'un raid"
 
@@ -137,6 +145,22 @@ msgstr "AD-"
 
 msgid "Access point:"
 msgstr "Accès&nbsp;:"
+
+msgid "Accident description"
+msgstr "Description des faits"
+
+msgid "Accident factors"
+msgstr "Facteurs et influences"
+
+# [WARNING] needs_review
+msgid "Accident factors intro"
+msgstr "Si vous ne les avez pas déjà mentionnés dans la description des faits, précisez l’éventuelle influence des éléments suivants sur votre situation. Vous n’avez pas besoin de fournir une réponse pour chaque élément, limitez vous aux aspects qui ont eu selon vous une incidence sur l’événement décrit."
+
+msgid "Accident infos"
+msgstr "Caractérisation de l'événement"
+
+msgid "Accident profil"
+msgstr "Profil"
 
 msgid "Activate map search"
 msgstr "Restreindre la recherche aux limites de la carte"
@@ -396,6 +420,10 @@ msgstr "Revenir à la liste des sommets"
 
 msgid "Back to users list"
 msgstr "Revenir à la liste des utilisateurs"
+
+# [WARNING] needs_review
+msgid "Back to xreports list"
+msgstr "Revenir à la liste des incidents et accidents"
 
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
@@ -667,6 +695,10 @@ msgstr "Création d'un nouveau site"
 
 msgid "Creating new summits"
 msgstr "Création d'un nouveau sommet"
+
+# [WARNING] needs_review
+msgid "Creating new xreports"
+msgstr "Création d'un nouveau compte-rendu d'incident ou accident"
 
 msgid "Culture is missing"
 msgstr "Le paramètre linguistique de ce document est manquant."
@@ -1155,6 +1187,9 @@ msgstr "Aide topoguide"
 msgid "Has this outing really been done today?"
 msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui ?"
 
+msgid "Has this xreport really been done today?"
+msgstr "Cet évènement a-t-il vraiment eu lieu aujourd'hui ?"
+
 msgid "Hello %1%"
 msgstr "Bonjour %1%"
 
@@ -1313,6 +1348,9 @@ msgstr "Est associé aux sous-sommets suivants&nbsp;:"
 
 msgid "Is really a multi-activity outing?"
 msgstr "Cette sortie est-elle vraiment multi-activité ?"
+
+msgid "Is really a multi-activity xreport?"
+msgstr "Cet évènement est-il vraiment multi-activité ?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Il semble que vous ayez oublié de renseigner un nom ou un fichier."
@@ -2017,7 +2055,6 @@ msgstr "Réservé aux membres connectés"
 
 # [general comment]
 # Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
-# [WARNING] needs_review
 msgid "Reset georef"
 msgstr "Réinitialiser"
 
@@ -2504,6 +2541,9 @@ msgstr "Le document est déjà associé au présent document"
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
+msgid "The following infos are visible only by the moderators"
+msgstr "Les données ci-dessous ne sont visibles que par les modérateurs."
+
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same admin_limits"
@@ -2886,6 +2926,9 @@ msgstr "Vous n'avez pas les droits nécessaires pour modifier cette sortie ou vo
 msgid "You do not have the rights to edit this picture"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
 
+msgid "You do not have the rights to edit this xreport"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier ce compte rendu d'incident/accident ou voir son historique"
+
 msgid "You do not have the rights to link a user to this document"
 msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce document"
 
@@ -2988,7 +3031,6 @@ msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits 
 msgid "_access_status_info"
 msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <em>Commentaires sur l'accès routier ou TC</em> permet d'ajouter une remarque."
 
-# [WARNING] needs_review
 msgid "_accommodation_info"
 msgstr "<h3>Hébergement, restauration et patrimoine culturel à proximité</h3>Informations sur les possibilités de restauration et d'hébergement, ainsi que sur le patrimoine culturel, à proximité du point d'accès."
 
@@ -3019,6 +3061,9 @@ msgstr "<h3>Activités</h3>\n"
 "- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />\n"
 "- altitude > 2700m : rocher haute montagne<br />\n"
 "Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
+
+msgid "_activity_rate_info"
+msgstr "À quelle fréquence pratiquez-vous cette activité en moyenne à l'époque de l'événement ?"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
@@ -3051,6 +3096,9 @@ msgstr "<h3>Associer des documents existant</h3>\n"
 
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
+
+msgid "_autonomy_info"
+msgstr "Quelle est votre autonomie dans cette activité au moment de l'évènement ?"
 
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bulletin Neige et Avalanche</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Pour une sortie réalisée en Suisse, les bulletins de la veille et du jour de la sortie sont aussi disponibles.<br />Attention&nbsp;: pour les autres pays, seul le dernier bulletin est disponible, ne correspondant pas au jour de la sortie."
@@ -3125,7 +3173,6 @@ msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/sect
 msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
-# [WARNING] needs_review
 msgid "_cable_car_access_info"
 msgstr "Indique si le document \"accès\" est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
 "<br />\n"
@@ -3278,6 +3325,10 @@ msgstr "<h3>Qualité de l'équipement en place</h3>\n"
 "<strong>P4 (pas équipé)</strong><br />\n"
 "Voie sans équipement ou avec quelques points de qualité douteuse.<br />\n"
 "<em><u>Matériel à prendre</u>&nbsp;:</em> Il dépend de la voie. Pour une voie D ou plus, au minimum celui de la catégorie P3."
+
+msgid "_event_type_info"
+msgstr "<h3>Type d'événement</h3>\n"
+"Type d'événement constaté ou qui aurait pu découler de la situation."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposition</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
@@ -3564,6 +3615,9 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
+msgid "_nb_outings_per_year_info"
+msgstr "Approximativement, combien de sorties dans cette activité avez-vous réalisé au cours des 12 derniers mois précédent l'événement ?"
+
 msgid "_nb_pages_info"
 msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
 
@@ -3627,6 +3681,9 @@ msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
 
 # [WARNING] needs_review
+msgid "_previous_injuries_info"
+msgstr "Aviez-vous été blessé en montagne ou en falaise au cours des 12 derniers mois (que vous ayez été touché ou non par l'évènement) ?"
+
 msgid "_product_type_info"
 msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br />\n"
 "<strong>restaurant\n"
@@ -3657,6 +3714,9 @@ msgstr "<h3>Remarques</h3>Ce champ permet de compléter ou nuancer les informati
 
 msgid "_remember_info"
 msgstr "<h3>Se souvenir de moi ?</h3>En cochant cette case, vous serez connecté automatiquement lors de votre prochaine visite sur camptocamp.org.<br />Sinon, vous serez déconnecté à la fermeture du navigateur."
+
+msgid "_rescue_info"
+msgstr "L’événement a-t-il nécessité une intervention des services de secours ?"
 
 msgid "_rev_comment_info"
 msgstr "<h3>Informations sur les modifications</h3>Indiquez brièvement dans ce champ les modifications apportées au document.<br />Si vous avez copié un texte depuis une source dont la licence est compatible avec le document, mentionnez l'auteur et/ou le lien vers la source dans ce champ."
@@ -3740,6 +3800,9 @@ msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secte
 
 msgid "_scale_info"
 msgstr "<h3>Échelle</h3>Échelle de la carte."
+
+msgid "_severity_info"
+msgstr "Pour les personnes touchées, l’événement a-t-il causé une interruption de la pratique de l'activité pour des raisons physiques ?"
 
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gîte</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture, répondant aux critères suivants :<br />- il est possible de réserver une ou plusieurs nuits au gîte (principe des gîtes d'étape, sont exclues les locations à la semaine)<br />- le gîte propose un hébergement en dortoirs, à prix raisonnable.<br />Les cas suivants sont tolérés : les hôtels à prix raisonnable dans les vallées où ce sont les seules possibilités d'hébergement. <br /><br />"
@@ -3973,6 +4036,30 @@ msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités et de rég
 msgid "activity filters applied"
 msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités ont été appliqués au formulaire"
 
+msgid "activity_rate"
+msgstr "Fréquence de pratique de l'activité&nbsp;:"
+
+msgid "activity_rate_1"
+msgstr "1ère fois de sa vie"
+
+msgid "activity_rate_10"
+msgstr "moins d'1 fois par mois"
+
+msgid "activity_rate_150"
+msgstr "au moins 3 fois par semaine"
+
+msgid "activity_rate_20"
+msgstr "1 fois par mois"
+
+msgid "activity_rate_30"
+msgstr "2 à 3 fois par mois"
+
+msgid "activity_rate_5"
+msgstr "moins d'1 fois par an"
+
+msgid "activity_rate_50"
+msgstr "1 à 2 fois par semaine"
+
 msgid "add a comment"
 msgstr "Ajouter un commentaire"
 
@@ -4008,6 +4095,9 @@ msgstr "limites administratives"
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
 msgid "africa"
 msgstr "Afrique"
+
+msgid "age"
+msgstr "Age au moment de l'évènement&nbsp;:"
 
 msgid "aid_rating"
 msgstr "Cotation escalade artificielle&nbsp;:"
@@ -4175,16 +4265,29 @@ msgstr "Auteur(s)&nbsp;:"
 msgid "author short"
 msgstr "Auteur"
 
+# [WARNING] needs_review
+msgid "author_status"
+msgstr "Implication dans la situation (en cas d’incident)&nbsp;:"
+
 # [comment]
 # il faut un s à correspondant ?  
 msgid "autocomplete_help"
 msgstr "Tapez le début du nom recherché ci-dessus et les éléments correspondants s'afficheront ici."
+
+msgid "autonomous"
+msgstr "autonome"
+
+msgid "autonomy"
+msgstr "Autonomie"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "auvergne"
 msgstr "Auvergne"
+
+msgid "avalanche"
+msgstr "avalanche"
 
 msgid "avalanche ML title"
 msgstr "Suisse (français)"
@@ -4334,7 +4437,6 @@ msgstr "Bourgogne"
 msgid "bretagne"
 msgstr "Bretagne"
 
-# [WARNING] needs_review
 msgid "building"
 msgstr "refuge"
 
@@ -4402,7 +4504,6 @@ msgstr "Objets C2C"
 # [general comment]
 # Option de la catégorie d'un article : rassemblements / G2G
 # La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
-# [WARNING] needs_review
 msgid "c2c meetings"
 msgstr "rassemblements / G2G"
 
@@ -4490,7 +4591,6 @@ msgstr "Catégorie&nbsp;:"
 
 # [general comment]
 # [cda]
-# [WARNING] needs_review
 msgid "cda More"
 msgstr "Pour aller plus loin"
 
@@ -4501,7 +4601,6 @@ msgstr "La carte affiche les départs de randonnées ou de marches d'approche ac
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
-# [WARNING] needs_review
 msgid "cda map title"
 msgstr "Trouver un itinéraire accessible en mobilité douce avec la carte"
 
@@ -4677,7 +4776,6 @@ msgstr "images collaboratives"
 msgid "collaborative images of associated documents"
 msgstr "images collaboratives des documents associés"
 
-# [WARNING] needs_review
 msgid "collaborative images of associated outings"
 msgstr "images collaboratives des sorties associées"
 
@@ -4712,13 +4810,11 @@ msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (ap
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie randonnée pédestre, lorsque le champ est vide
-# [WARNING] needs_review
 msgid "conditions_hike_default"
 msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'itinéraire (sec, mouillé, enneigé, ...), conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
-# [WARNING] needs_review
 msgid "conditions_ice_default"
 msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions des sections habituellement en glace ou mixte, quantité et qualité de l'équipement en place, conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
@@ -4727,13 +4823,11 @@ msgstr "Enneigement par zones&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
-# [WARNING] needs_review
 msgid "conditions_rock_default"
 msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
-# [WARNING] needs_review
 msgid "conditions_ski_default"
 msgstr "Saisissez des informations complémentaires à l'enneigement par zone : conditions de visu sur des itinéraires voisins, fréquentation. Les observations relatives aux avalanches doivent être décrites dans les champs dédiés ci-dessous."
 
@@ -5084,6 +5178,14 @@ msgstr "Europe de l'W"
 msgid "euskara"
 msgstr "basque"
 
+# [WARNING] needs_review
+msgid "event_type"
+msgstr "Type d'événement&nbsp;:"
+
+# [WARNING] needs_review
+msgid "event_type short"
+msgstr "Type d'événement"
+
 msgid "events"
 msgstr "événements"
 
@@ -5093,11 +5195,21 @@ msgstr "excellentes"
 msgid "expeditions"
 msgstr "expéditions et voyages lointains"
 
+msgid "expert"
+msgstr "expert et/ou possédant un diplôme d’encadrement"
+
 msgid "exposure_time"
 msgstr "Temps d'exposition&nbsp;:"
 
+# [WARNING] needs_review
+msgid "external_fall"
+msgstr "chute de pierre, de sérac ou de glace, foudre, vent"
+
 msgid "external_resources"
 msgstr "Bibliographie et webographie&nbsp;:"
+
+msgid "external_witness"
+msgstr "témoin extérieur au groupe"
 
 msgid "facing"
 msgstr "Orientation principale&nbsp;:"
@@ -5113,6 +5225,9 @@ msgstr "Famille"
 
 msgid "fauna pic"
 msgstr "faune"
+
+msgid "female"
+msgstr "femme"
 
 # [general comment]
 # A revoir : le texte entre parenthèse est le même que pour P3+
@@ -5300,6 +5415,9 @@ msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'
 msgid "gear_shop"
 msgstr "magasin de sport, location, réparation"
 
+msgid "gender"
+msgstr "Sexe&nbsp;:"
+
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
 
@@ -5371,15 +5489,21 @@ msgstr "&gt; ou ="
 msgid "gres"
 msgstr "grès"
 
+msgid "group_management"
+msgstr "Dynamique de groupe&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Dynamique de groupe" lorsqu'il est vide, à l'édition d'un incident/accident.
 # [WARNING] needs_review
+msgid "group_management_default"
+msgstr "Communication des objectifs et attentes de chacun, des craintes et observations en cours de sortie, briefing pour établir de nouvelles stratégies, éléments de conduite de groupe et de responsabilités, groupe habitué à fonctionner ensemble ou non, émulation, etc."
+
 msgid "h2 button title"
 msgstr "Sous-titre de niveau 2"
 
-# [WARNING] needs_review
 msgid "h3 button title"
 msgstr "Sous-titre de niveau 3"
 
-# [WARNING] needs_review
 msgid "h4 button title"
 msgstr "Sous-titre de niveau 4"
 
@@ -5572,6 +5696,16 @@ msgstr "Transféré depuis la version 4 du site"
 msgid "impossible crossing"
 msgstr "infranchissable - passage impossible"
 
+# [WARNING] needs_review
+msgid "increase_impact"
+msgstr "Éléments qui ont accentué les conséquences&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Éléments qui ont accentué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "increase_impact_default"
+msgstr "Y-a t-il des éléments qui ont accentué les conséquences de l’événement ou aggravé la situation ? (accessibilité, engagement engagement de la voie, non préparation à faire face à un incident, manque d'expérience dans la gestion d'un incident/accident, matériel manquant, etc.)"
+
 msgid "informations"
 msgstr "informations"
 
@@ -5579,6 +5713,9 @@ msgstr "informations"
 # Bouton dans les cartes insérées dans les documents
 msgid "initial map"
 msgstr "Carte initiale"
+
+msgid "initiator"
+msgstr "peut emmener d’autres personnes"
 
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
@@ -5591,6 +5728,9 @@ msgstr "Cet outil permet d'insérer dans le texte une image <b>préalablement as
 
 msgid "institution"
 msgstr "institution ou organisme divers"
+
+msgid "internal_witness"
+msgstr "témoin membre du groupe"
 
 msgid "invalid URL"
 msgstr "cette URL est invalide"
@@ -5802,6 +5942,9 @@ msgstr "En vous inscrivant ci-dessous, vous recevrez le courrier envoyé à ces 
 
 msgid "mailing lists"
 msgstr "Listes de diffusion par email des bulletins nivologiques"
+
+msgid "male"
+msgstr "homme"
 
 msgid "manage images presentation"
 msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.org.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponibles en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />En effet, seules les images collaboratives peuvent être insérées dans le texte d'un document collaboratif (photo illustrant un itinéraire par exemple), afin d'avoir le texte et les images insérées sous la même licence.<br />Pour l'instant, il n'y a pas de limitation technique, le temps qu'une proportion importante de ces photos soient passées sous licence collaborative, ou soient supprimées du texte.<br /><em>Pour plus d'informations, <a href=\"/forums/viewtopic.php?id=155692\">voir la discussion à ce sujet sur le forum</a>.</em><br /><br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <em>Changer la licence</em>.<br /><span style=\"color: red\">Attention : ce changement est irréversible, et il n'est pas possible de basculer la licence d'une image collaborative vers une licence personnelle.</span><br /><br />Pour faciliter la recherche des images, plusieurs listes sont disponibles :<br />- <a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Images personnelles associées à un article collaboratif</a><br />- <a href=\"/users/manageimages/dtyp/2\">Images personnelles associées à un document personnel</a> (hors article)<br />- <a href=\"/users/manageimages/ctyp/2\">Images personnelles associées à un article personnel</a>"
@@ -6067,6 +6210,18 @@ msgstr "mois"
 msgid "months"
 msgstr "mois"
 
+msgid "more than 3 months"
+msgstr "plus de 3 mois"
+
+msgid "motivations"
+msgstr "Motivations&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Motivations" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "motivations_default"
+msgstr "Pourquoi avoir choisi cette sortie ? A quel point étiez-vous attaché à l'objectif fixé ? Considérez l'influence de possibles choix effectués en amont (jours de congés, long trajet, réservations de nuitées...), des efforts réalisés jusque-là, de la rareté de l'opportunité, etc."
+
 msgid "mountain"
 msgstr "montagne"
 
@@ -6118,6 +6273,13 @@ msgstr "Nombre de commentaires associés"
 msgid "nb_images"
 msgstr "Nombre d'images"
 
+msgid "nb_impacted"
+msgstr "Nombre de personnes touchées&nbsp;:"
+
+# [WARNING] needs_review
+msgid "nb_impacted short"
+msgstr "Nb imp."
+
 msgid "nb_linked_images"
 msgstr "Nombre d'images associées"
 
@@ -6129,8 +6291,28 @@ msgstr "Nombre de sorties associées et lien vers les conditions"
 msgid "nb_outings"
 msgstr "Nombre de sorties"
 
+msgid "nb_outings_14"
+msgstr "10 à 14"
+
+msgid "nb_outings_15"
+msgstr "15 ou plus"
+
+msgid "nb_outings_4"
+msgstr "0 à 4"
+
+msgid "nb_outings_9"
+msgstr "5 à 9"
+
+msgid "nb_outings_per_year"
+msgstr "Nombre de sorties réalisées dans l'année&nbsp;:"
+
 msgid "nb_pages"
 msgstr "Nombre de pages&nbsp;:"
+
+# [general comment]
+# xreport
+msgid "nb_participants"
+msgstr "Nombre de participants&nbsp;:"
 
 msgid "nb_routes"
 msgstr "Nombre d'itinéraires associés"
@@ -6240,6 +6422,9 @@ msgstr "aucune observation de signaux d'alerte ni de trace d'avalanche récente"
 
 msgid "non applicable"
 msgstr "non applicable"
+
+msgid "non autonomous"
+msgstr "besoin d’être accompagné ou guidé"
 
 msgid "nonwell informed"
 msgstr "non renseigné"
@@ -6374,7 +6559,6 @@ msgstr "Longueur&nbsp;:"
 msgid "outing_route_desc"
 msgstr "Itinéraire emprunté&nbsp;:"
 
-# [WARNING] needs_review
 msgid "outing_route_desc_default"
 msgstr "Décrivez brièvement l'itinéraire que vous avez suivi dans les cas suivants : itinéraire différent de celui du topo, topo comportant des variantes, itinéraire en boucle, enchainement, point atteint lors d'un parcours partiel."
 
@@ -6507,6 +6691,9 @@ msgstr "personnages"
 msgid "permalink"
 msgstr "Permalien"
 
+msgid "person_fall"
+msgstr "chute d'une personne ou de la cordée"
+
 msgid "personal article"
 msgstr "article personnel"
 
@@ -6531,6 +6718,9 @@ msgstr "Tél."
 msgid "photos-art"
 msgstr "photos-art"
 
+msgid "physical_failure"
+msgstr "défaillance physique"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -6545,6 +6735,15 @@ msgstr "en images"
 
 msgid "piemont"
 msgstr "Piémont"
+
+msgid "place"
+msgstr "Lieu de l'événement&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Lieu de l'événement" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "place_default"
+msgstr "Précisions sur le lieu de l'événement. Géoréférencez l'évènement sur la carte ci-dessus. Après l'enregistrement de ce compte-rendu, vous pourrez l'associer à un itinéraire, un site d'escalade ou une sortie."
 
 msgid "places_to_display"
 msgstr "Régions à afficher"
@@ -6767,6 +6966,19 @@ msgstr "Site précédent"
 msgid "previous summit"
 msgstr "Sommet précédent"
 
+msgid "previous_injuries"
+msgstr "Blessures antérieures&nbsp;:"
+
+msgid "previous_injuries_2"
+msgstr "1 à 2 fois"
+
+msgid "previous_injuries_3"
+msgstr "3 fois ou plus"
+
+# [WARNING] needs_review
+msgid "primary_impacted"
+msgstr "personne touchée principale"
+
 msgid "pro"
 msgstr "professionnel de l'encadrement"
 
@@ -6893,6 +7105,16 @@ msgstr "trace d'avalanche récente (après la dernière chute de neige, pluie, c
 msgid "recenter"
 msgstr "Recentrer"
 
+# [WARNING] needs_review
+msgid "reduce_impact"
+msgstr "Éléments qui ont atténué les conséquences&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Éléments qui ont atténué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "reduce_impact_default"
+msgstr "Y-a t-il des éléments qui ont permis d’atténuer les conséquences de l’événement ou d’empêcher la situation de se transformer en accident plus grave ? (capacités d'évitement, compétences dans les techniques de secours, avoir prévu une marge horaire confortable, matériel à disposition, etc.)"
+
 msgid "region_name"
 msgstr "Régions"
 
@@ -6907,6 +7129,12 @@ msgstr "Remarques&nbsp;:"
 
 msgid "report_type"
 msgstr "Type de rapport&nbsp;:"
+
+msgid "rescue"
+msgstr "Intervention des secours&nbsp;:"
+
+msgid "rescue short"
+msgstr "Secours"
 
 msgid "restaurant"
 msgstr "restaurant"
@@ -6970,7 +7198,6 @@ msgstr "escalade (couenne)"
 # 
 # Faut-il préciser "rocher" dans les trads ?
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
-# [WARNING] needs_review
 msgid "rock_exposition_rating"
 msgstr "Exposition rocher&nbsp;:"
 
@@ -7037,6 +7264,15 @@ msgstr "Longueur&nbsp;:"
 msgid "route_line_prefix"
 msgstr "L"
 
+msgid "route_study"
+msgstr "Étude de l’itinéraire&nbsp;"
+
+# [general comment]
+# Texte affichée dans le champ "Étude de l’itinéraire" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "route_study_default"
+msgstr "Cartes, topos, compte rendus de sorties consultés. Réévaluation de l'itinéraire au cours de la sortie."
+
 msgid "route_type"
 msgstr "Type d'itinéraire&nbsp;:"
 
@@ -7069,7 +7305,6 @@ msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doi
 
 # [general comment]
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
-# [WARNING] needs_review
 msgid "routes_description_default"
 msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
 
@@ -7086,6 +7321,15 @@ msgstr "Barrer le texte sélectionné"
 
 msgid "safe"
 msgstr "adapté"
+
+msgid "safety"
+msgstr "Mesures et techniques de sécurité mises en oeuvres&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Mesures et techniques de sécurité mises en oeuvres" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "safety_default"
+msgstr "Type d'assurage et de protection, vérifications entre grimpeurs, tests de stabilité du manteau neigeux, test des DVA, etc."
 
 msgid "sardaigne"
 msgstr "Sardaigne"
@@ -7113,6 +7357,10 @@ msgstr "couenne"
 
 msgid "seasonal service"
 msgstr "service saisonnier"
+
+# [WARNING] needs_review
+msgid "secondary_impacted"
+msgstr "personne touchée secondaire"
 
 msgid "section close"
 msgstr "Fermer la section"
@@ -7156,6 +7404,12 @@ msgstr "Vallées pré-sélectionnées"
 
 msgid "service_on_demand"
 msgstr "service à la demande"
+
+msgid "severity"
+msgstr "Conséquence physique de l'événement&nbsp;:"
+
+msgid "severity short"
+msgstr "Gravité"
 
 msgid "shelter"
 msgstr "abri sommaire"
@@ -7349,7 +7603,6 @@ msgstr "secteurs d'un site de couenne/bloc"
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
 # 
 # In that case, 
-# [WARNING] needs_review
 msgid "sub-summits"
 msgstr "sous-sommets, cols, lacs, falaises"
 
@@ -7476,6 +7729,15 @@ msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
 msgid "this phonenumber is too short (8 characters minimum)"
 msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
 
+msgid "time_management"
+msgstr "Gestion du temps&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Gestion du temps" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "time_management_default"
+msgstr "Un horaire avait-il été prévu ? A t-il été tenu ? La gestion du temps a t-elle eu une influence sur le déclenchement de l'événement ?"
+
 msgid "timing"
 msgstr "Heure de départ&nbsp;/ horaire&nbsp;:"
 
@@ -7551,6 +7813,15 @@ msgstr "terrain d'aventure"
 
 msgid "train"
 msgstr "train"
+
+msgid "training"
+msgstr "Préparation physique et entraînement par rapport à l’objectif&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Préparation physique et entraînement" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "training_default"
+msgstr "Niveau technique, condition physique et fatigue, acclimatation, etc."
 
 msgid "translate"
 msgstr "Traduire avec Google"
@@ -7765,9 +8036,64 @@ msgstr "Web"
 
 # [general comment]
 # Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
-# [WARNING] needs_review
 msgid "x axis:"
 msgstr "Voir le profil en fonction de&nbsp;:"
+
+# [WARNING] needs_review
+msgid "xreport"
+msgstr "incident / accident"
+
+msgid "xreport_conditions"
+msgstr "Étude des conditions (informations à l'avance et évolution sur le terrain)&nbsp;:"
+
+msgid "xreport_conditions short"
+msgstr "Étude des conditions&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Etude des conditions" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "xreport_conditions_default"
+msgstr "Météo, bulletin de risque d'avalanche, regel, qualité de la neige/glace/rocher, compte rendu des jours précédents..."
+
+msgid "xreport_description"
+msgstr "Déroulement de la sortie&nbsp;:"
+
+msgid "xreport_description_default"
+msgstr "Décrivez le déroulement de la sortie."
+
+msgid "xreport_modifications"
+msgstr "Conséquences sur ses pratiques&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Conséquences sur ses pratiques" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "xreport_modifications_default"
+msgstr "Cet événement a-t-il eu un impact sur votre pratique ou modifié vos habitudes ? Dans quel sens ? (appréhension, préparation plus soutenue, arrêt de l'activité, changement de compagnon en montagne, etc)."
+
+msgid "xreport_other_comments"
+msgstr "Autres commentaires&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
+msgid "xreport_other_comments_default"
+msgstr ""
+
+msgid "xreport_risk"
+msgstr "Niveau de l'attention et (ré)évaluation des risques&nbsp;:"
+
+# [general comment]
+# Texte affichée dans le champ "Niveau de l'attention et (ré)évaluation des risques" lorsqu'il est vide, à l'édition d'un incident/accident.
+# [WARNING] needs_review
+msgid "xreport_risk_default"
+msgstr "Avez-vous réévalué les risques à chaque changement de situation ? Considérez des facteurs qui ont pu influencer votre niveau d'attention tels que la fatigue, le stress, la baisse d'attention une fois les difficultés passées ou à la descente, un secteur connu ou réputé facile, la présence de traces ou d'autres personnes, une confiance totale dans le responsable du groupe, etc."
+
+# [WARNING] needs_review
+msgid "xreports"
+msgstr "incidents et accidents"
+
+# [WARNING] needs_review
+msgid "xreports list"
+msgstr "Liste des incidents et accidents"
 
 msgid "year"
 msgstr "an"
@@ -7781,7 +8107,6 @@ msgstr "oui"
 msgid "yesterday, at %1%"
 msgstr "hier, à %1%"
 
-# [WARNING] needs_review
 msgid "you cannot select public transportation types without appropriate service rating"
 msgstr "Vous ne pouvez pas sélectionner de transports en commun si le champ 'accessibilité' n'est pas compatible"
 
