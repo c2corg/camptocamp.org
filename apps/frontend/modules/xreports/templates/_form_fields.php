@@ -35,7 +35,7 @@ echo object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_lis
 echo object_group_tag($document, 'rescue', array('callback' => 'object_checkbox_tag'));
 
 echo form_section_title('Accident description', 'form_desc', 'preview_desc');
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext', 'placeholder' => __('xreport_description_default')));
+echo object_group_bbcode_tag($document, 'description', 'xreport_description', array('class' => 'largetext', 'placeholder' => __('xreport_description_default')), true, 'xreport_description');
 
 echo form_section_title('Accident factors', 'form_factors', 'preview_factors');
 ?>
@@ -43,19 +43,19 @@ echo form_section_title('Accident factors', 'form_factors', 'preview_factors');
 <?php
 
 echo object_group_bbcode_tag($document, 'route_study', null, array('class' => 'smalltext', 'placeholder' => __('route_study_default')));
-echo object_group_bbcode_tag($document, 'conditions', 'xreport_conditions', array('class' => 'smalltext', 'placeholder' => __('xreport_conditions_default')));
+echo object_group_bbcode_tag($document, 'conditions', 'xreport_conditions', array('class' => 'smalltext', 'placeholder' => __('xreport_conditions_default')), true, 'xreport_conditions');
 echo object_group_bbcode_tag($document, 'training', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('training_default')));
 echo object_group_bbcode_tag($document, 'motivations', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('motivations_default')));
 echo object_group_bbcode_tag($document, 'group_management', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('group_management_default')));
-echo object_group_bbcode_tag($document, 'risk', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('risk_default')));
+echo object_group_bbcode_tag($document, 'risk', 'xreport_risk', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_risk_default')), true, 'xreport_risk');
 echo object_group_bbcode_tag($document, 'time_management', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('time_management_default')));
 echo object_group_bbcode_tag($document, 'safety', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('safety_default')));
 echo object_group_bbcode_tag($document, 'reduce_impact', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('reduce_impact_default')));
 echo object_group_bbcode_tag($document, 'increase_impact', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('increase_impact_default')));
-echo object_group_bbcode_tag($document, 'modifications', 'xreport_modifications', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_modifications_default')));
-echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comments', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_other_comments_default')));
+echo object_group_bbcode_tag($document, 'modifications', 'xreport_modifications', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_modifications_default')), true, 'xreport_modifications');
+echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comments', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_other_comments_default')), true, 'xreport_other_comments');
 
-echo form_section_title('Profil', 'form_profil', 'preview_profil');
+echo form_section_title('Accident profil', 'form_profil', 'preview_profil');
 
 echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list');
 echo object_group_dropdown_tag($document, 'activity_rate', 'mod_xreports_activity_rate_list');
