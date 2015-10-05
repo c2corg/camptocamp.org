@@ -52,13 +52,13 @@ fields:
     required:
       msg:          field cannot be left blank
     myChoiceValidator:
-      config_choice: mod_severity_list
+      config_choice: mod_xreports_severity_list
       array_except: [ 0 ]
   event_type:
     required:
       msg:          field cannot be left blank
     myChoiceValidator:
-      config_choice: mod_event_type_list
+      config_choice: mod_xreports_event_type_list
       unique: false
       array_except: [ 0 ]
   nb_participants:
@@ -86,3 +86,27 @@ fields:
   description:
     required:
       msg:          field cannot be left blank
+  activity_rate:
+    myChoiceValidator:
+      config_choice: mod_xreports_activity_rate_list
+  nb_outings:
+    myChoiceValidator:
+      config_choice: mod_xreports_nb_outings_list
+  autonomy:
+    myChoiceValidator:
+      config_choice: mod_xreports_autonomy_list
+  age:
+    sfNumberValidator:
+      nan_error:    value must an integer
+      min:          0
+      min_error:    value must be at least 0
+      max:          180
+      max_error:    value must be less than or equal to 180
+      type:         int
+      type_error:   value must an integer
+  gender:
+    myChoiceValidator:
+      config_choice: mod_xreports_gender_list
+  previous_injuries:
+    myChoiceValidator:
+      config_choice: mod_xreports_previous_injuries_list
