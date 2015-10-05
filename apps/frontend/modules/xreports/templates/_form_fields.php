@@ -58,6 +58,9 @@ echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comment
 echo form_section_title('Accident profil', 'form_profil', 'preview_profil');
 
 echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list');
+?>
+<p class="big_tips"><?php echo __('The following infos are visible only by the moderators') ?></p>
+<?php
 echo object_group_dropdown_tag($document, 'activity_rate', 'mod_xreports_activity_rate_list');
 echo object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list', null, true, 'nb_outings_per_year');
 echo object_group_dropdown_tag($document, 'autonomy', 'mod_xreports_autonomy_list');
