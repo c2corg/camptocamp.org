@@ -33,7 +33,7 @@ include_partial('i18n', array('document' => $document, 'needs_translation' => fa
 ?></div><?php 
 echo end_preview_section_tag();
 
-echo start_preview_section_tag('Profil', 'profil', 'profil');
+echo start_preview_section_tag('Accident profil', 'profil', 'profil');
 include_partial('profil', array('document' => $document, 'preview' => true));
 echo end_preview_section_tag();
 
