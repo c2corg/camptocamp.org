@@ -101,13 +101,11 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
 echo end_section_tag();
 
 // profil
-if ($is_connected && $is_moderator)
-{
-    echo start_section_tag('Accident profil', 'profil');
-    include_partial('profil', array('document' => $document));
-    echo end_section_tag();
-}
+echo start_section_tag('Accident profil', 'profil');
+include_partial('profil', array('document' => $document));
+echo end_section_tag();
 
+// images
 if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_connected))
 {
     include_partial('documents/images',
@@ -118,6 +116,7 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
                           'is_protected' => $document->get('is_protected')));
 }
 
+// comments
 if ($mobile_version)
 {
     include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
@@ -138,7 +137,7 @@ if ($mobile_version)
     }
 }
 
-
+// annex
 if ($is_not_archive)
 {
     include_partial('documents/annex_docs',
