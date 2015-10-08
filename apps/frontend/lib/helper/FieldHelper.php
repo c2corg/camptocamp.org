@@ -729,6 +729,7 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     $show_label = _option($options, 'show_label', true);
     $show_images = _option($options, 'show_images', true);
     $class = _option($options, 'class', '');
+    $label_id = _option($options, 'label_id', $name);
 
     if (!empty($class))
     {
@@ -738,7 +739,7 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     if ($show_label)
     {
         $label = content_tag('div', __($label), array('class' => 'section_subtitle htext',
-            'id' => '_'.$name, 'data-tooltip' => '')) . "\n";
+            'id' => '_'.$label_id, 'data-tooltip' => '')) . "\n";
     }
     else
     {

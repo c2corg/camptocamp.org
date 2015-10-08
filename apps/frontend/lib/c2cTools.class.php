@@ -319,6 +319,11 @@ class c2cTools
         return ($a['module'] == 'products');
     }
     
+    public static function is_xreport($a)
+    {
+        return ($a['module'] == 'xreports');
+    }
+    
     public static function is_not_image($a)
     {
         return ($a['module'] != 'images');
