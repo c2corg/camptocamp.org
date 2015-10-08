@@ -271,6 +271,6 @@ all:
         height: 60
         file: vibram-megagrip-trekking.swf
       millet_jorasses:
-        id: 105
+        id: 106
         image: millet_jorasses.gif
         alt: "Millet Artists on Jorasses"
