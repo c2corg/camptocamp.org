@@ -48,6 +48,12 @@ class xreportsActions extends documentsActions
         }
     }
 
+    public function executePreview()
+    {
+        parent::executePreview();
+        $this->setTemplate('../../xreports/templates/preview');
+    }
+
     public function executeDiff()
     {
         $id = $this->getRequestParameter('id');
