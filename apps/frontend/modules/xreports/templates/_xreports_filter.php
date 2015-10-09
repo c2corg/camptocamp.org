@@ -15,10 +15,10 @@ echo    '<div class="col_left">'
 echo    '<div class="col">'
       . '<div class="section_subtitle">' . __('severity') . '</div>'
       . field_value_selector('xsev', 'mod_xreports_severity_list', array('keepfirst' => false, 'multiple' => true))
+      . '<br />'
+      . __('rescue') . ' ' . bool_selector('xres')
       . '</div>';
 echo '<p></p>';
-echo __('rescue') . ' ' . bool_selector('xres');
-echo '<br />';
 echo __('nb_participants') . ' ' . elevation_selector('xpar', '');
 echo '<br />';
 echo __('nb_impacted') . ' ' . elevation_selector('ximp', '');
