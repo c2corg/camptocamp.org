@@ -9,7 +9,10 @@ include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected
 include_partial('xreports_filter', array('autofocus' => true));
 ?>
 <br />
-<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('xcult') ?>
+<?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('xcult');
+echo georef_selector();
+?>
 <br />
 <?php
 include_partial('documents/filter_sort');
