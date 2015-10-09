@@ -12,9 +12,14 @@ all:
     list:
       0:
       1: avalanche
-      2: external_fall
-      3: person_fall
-      4: physical_failure
+      2: stone_fall
+      3: falling_ice
+      4: lightning
+      5: wind
+      6: crevasse_fall
+      7: other_fall
+      8: roped_fall
+      9: physical_failure
 
   author_status:
     list:
