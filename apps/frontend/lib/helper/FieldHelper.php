@@ -38,7 +38,7 @@ function field_data($document, $name, $options = array())
 
 function field_data_arg($name, $value, $options = array())
 {
-    if (empty($value))
+    if (!check_is_numeric_or_text($value))
     {
         $value = '';
     }
@@ -61,7 +61,7 @@ function field_data_if_set($document, $name, $options = array())
 
 function field_data_arg_if_set($name, $value, $options = array())
 {
-    if (!check_is_numeric($value))
+    if (!check_is_numeric_or_text($value))
     {
         return '';
     }
@@ -82,15 +82,19 @@ function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $opt
     $range_only = _option($options, 'range_only', false);
 
     $name = $name_min . '_' . $name_max;
-    if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
+    
+    $is_not_empty_value_min = check_is_numeric_or_text($value_min);
+    $is_not_empty_value_max = check_is_numeric_or_text($value_max);
+    
+    if (($is_not_empty_value_min && $is_not_empty_value_max) || (($is_not_empty_value_min || $is_not_empty_value_max) && $range_only))
     {
         return _format_data_range($name, $value_min, $value_max, $options);
     }
-    else if (!empty($value_min) && empty($value_max))
+    else if ($is_not_empty_value_min && !$is_not_empty_value_max)
     {
         return _format_data($name_min, $value_min, $options);
     }
-    else if (empty($value_min) && !empty($value_max))
+    else if (!$is_not_empty_value_min && $is_not_empty_value_max)
     {
         return _format_data($name_max, $value_max, $options);
     }
@@ -425,7 +429,7 @@ function _format_data($name, $value, $options = array())
     $show_if_empty = _option($options, 'show_if_empty', true);
     $label = _option($options, 'label', $name);
 
-    if (!is_numeric($value))
+    if (!check_is_numeric_or_text($value))
     {
         if (!$show_if_empty)
         {
@@ -486,8 +490,11 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
         $text = content_tag('div', __($name), array('class' => 'section_subtitle',
             'id' => '_'.$name, 'data-tooltip' => '')) . ' ';
     }
-
-    if (is_numeric($value_min) && is_numeric($value_max) && $value_min == $value_max)
+    
+    $is_not_empty_value_min = check_is_numeric_or_text($value_min);
+    $is_not_empty_value_max = check_is_numeric_or_text($value_max);
+    
+    if ($is_not_empty_value_min && $is_not_empty_value_max && $value_min == $value_max)
     {
         $text .= $value_min;
         
@@ -498,7 +505,7 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
     }
     else
     {
-        if (is_numeric($value_min))
+        if ($is_not_empty_value_min)
         {
             if (!empty($prefix_min))
             {
@@ -513,12 +520,12 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
             }
         }
         
-        if (is_numeric($value_min) && is_numeric($value_max))
+        if ($is_not_empty_value_min && $is_not_empty_value_max)
         {
             $text .= __($separator);
         }
 
-        if (is_numeric($value_max))
+        if ($is_not_empty_value_max)
         {
             if (!empty($prefix_max))
             {
