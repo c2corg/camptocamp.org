@@ -45,6 +45,7 @@ CREATE TABLE app_xreports_i18n_archives (
     training text,
     motivations text,
     group_management text,
+    risk text,
     time_management text,
     safety text,
     reduce_impact text,
@@ -104,6 +105,7 @@ CREATE OR REPLACE VIEW xreports_i18n AS SELECT
     sa.training,
     sa.motivations,
     sa.group_management,
+    sa.risk,
     sa.time_management,
     sa.safety,
     sa.reduce_impact,
@@ -246,6 +248,7 @@ CREATE OR REPLACE RULE insert_xreports_i18n AS ON INSERT TO xreports_i18n DO INS
         training,
         motivations,
         group_management,
+        risk,
         time_management,
         safety,
         reduce_impact,
@@ -267,6 +270,7 @@ CREATE OR REPLACE RULE insert_xreports_i18n AS ON INSERT TO xreports_i18n DO INS
         NEW.training,
         NEW.motivations,
         NEW.group_management,
+        NEW.risk,
         NEW.time_management,
         NEW.safety,
         NEW.reduce_impact,
@@ -292,6 +296,7 @@ CREATE OR REPLACE RULE update_xreports_i18n AS ON UPDATE TO xreports_i18n DO INS
         training,
         motivations,
         group_management,
+        risk,
         time_management,
         safety,
         reduce_impact,
@@ -313,6 +318,7 @@ CREATE OR REPLACE RULE update_xreports_i18n AS ON UPDATE TO xreports_i18n DO INS
         NEW.training,
         NEW.motivations,
         NEW.group_management,
+        NEW.risk,
         NEW.time_management,
         NEW.safety,
         NEW.reduce_impact,
@@ -322,6 +328,9 @@ CREATE OR REPLACE RULE update_xreports_i18n AS ON UPDATE TO xreports_i18n DO INS
         true
     )
 );
+
+-------------------------------------------------------------------------------
+-- Triggers
 
 -- Set is_latest_version to false before adding a new version.
 CREATE TRIGGER update_xreports_latest_version BEFORE INSERT ON app_xreports_archives FOR EACH ROW EXECUTE PROCEDURE reset_latest_version(app_xreports_archives);
@@ -339,7 +348,9 @@ CREATE TRIGGER insert_geom_xreports BEFORE INSERT OR UPDATE ON app_xreports_arch
 CREATE TRIGGER update_search_name_xreports_i18n_archives BEFORE INSERT OR UPDATE ON app_xreports_i18n_archives FOR EACH ROW EXECUTE PROCEDURE update_search_name();
 
 
--- association with xreports
+-------------------------------------------------------------------------------
+-- Association with xreports
+
 INSERT INTO app_association_types (type) VALUES ('rx'); -- 'rx' = route-xreport (main = route)
 INSERT INTO app_association_types (type) VALUES ('tx'); -- 'tx' = site-xreport (main = site)
 INSERT INTO app_association_types (type) VALUES ('ox'); -- 'ox' = outing-xreport (main = outing)
