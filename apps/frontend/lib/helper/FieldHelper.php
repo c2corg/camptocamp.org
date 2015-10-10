@@ -61,7 +61,7 @@ function field_data_if_set($document, $name, $options = array())
 
 function field_data_arg_if_set($name, $value, $options = array())
 {
-    if (!check_not_empty($value))
+    if (!check_is_numeric($value))
     {
         return '';
     }
@@ -425,7 +425,7 @@ function _format_data($name, $value, $options = array())
     $show_if_empty = _option($options, 'show_if_empty', true);
     $label = _option($options, 'label', $name);
 
-    if (empty($value))
+    if (!is_numeric($value))
     {
         if (!$show_if_empty)
         {
@@ -487,7 +487,7 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
             'id' => '_'.$name, 'data-tooltip' => '')) . ' ';
     }
 
-    if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
+    if (is_numeric($value_min) && is_numeric($value_max) && $value_min == $value_max)
     {
         $text .= $value_min;
         
@@ -498,7 +498,7 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
     }
     else
     {
-        if (!empty($value_min))
+        if (is_numeric($value_min))
         {
             if (!empty($prefix_min))
             {
@@ -513,12 +513,12 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
             }
         }
         
-        if (!empty($value_min) && !empty($value_max))
+        if (is_numeric($value_min) && is_numeric($value_max))
         {
             $text .= __($separator);
         }
 
-        if (!empty($value_max))
+        if (is_numeric($value_max))
         {
             if (!empty($prefix_max))
             {
@@ -1249,7 +1249,7 @@ function simple_data($name, $value, $suffix = '')
 function check_not_empty_doc($document, $name)
 {
     $value = $document->get($name);
-    return (!$value instanceof Doctrine_Null && !empty($value));
+    return check_is_numeric($value);
 }
 
 function summarize_route($route, $show_activities = true, $add_tooltips = false, $avalaible_activities = null, $list_format = true)
