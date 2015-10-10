@@ -68,8 +68,8 @@ fields:
       nan_error:    value must an integer
       min:          0
       min_error:    value must be at least 0
-      max:          90
-      max_error:    value must be less than or equal to 90
+      max:          10000
+      max_error:    value must be less than or equal to 10000
       type:         int
       type_error:   value must an integer
   nb_impacted:
@@ -79,8 +79,8 @@ fields:
       nan_error:    value must an integer
       min:          0
       min_error:    value must be at least 0
-      max:          90
-      max_error:    value must be less than or equal to 90
+      max:          10000
+      max_error:    value must be less than or equal to 10000
       type:         int
       type_error:   value must an integer
   description:
