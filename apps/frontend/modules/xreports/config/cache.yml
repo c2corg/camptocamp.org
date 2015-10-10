@@ -10,6 +10,9 @@ _xreports_filter:
 _feature:
   enabled: off 
 
+_profil:
+  enabled: off 
+
 filter:
   enabled: off 
 
