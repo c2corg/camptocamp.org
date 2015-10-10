@@ -193,10 +193,20 @@ function check_not_empty($value)
             !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null));
 }
 
+function check_is_numeric($value)
+{
+    return (   !$value instanceof Doctrine_Null
+            && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+            && is_numeric($value)
+            && ($value == (int)$value)
+            && ($value >= 0)
+           );
+}
+
 // escaped doctrine null is not directly null, which is often annoying
 function doctrine_value($value)
 {
-    return check_not_empty($value) ? $value : null;
+    return (check_not_empty($value) || check_is_numeric($value)) ? $value : null;
 }
 
 function _option(&$options, $name, $default = null)
