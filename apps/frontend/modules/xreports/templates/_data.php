@@ -11,8 +11,8 @@ if (isset($nb_comments) && $nb_comments)
 <ul id="article_gauche_5050" class="data">
     <?php
     li(field_activities_data($document));
-    li(field_data_if_set($document, 'nb_participants'));
-    li(field_data_if_set($document, 'nb_impacted'));
+    li(field_data($document, 'nb_participants'));
+    li(field_data($document, 'nb_impacted'));
     li(field_data_from_list($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true)));
     li(field_data_from_list($document, 'severity', 'mod_xreports_severity_list'));
     li(field_bool_data($document, 'rescue', array('null_equals_no' => true)));
