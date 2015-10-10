@@ -2409,6 +2409,16 @@ class BaseDocument extends sfDoctrineRecordI18n
         return NULL;
     }
 
+    public static function returnNaturalIntOrNull($value)
+    {
+        if (is_numeric($value) && $value == (int)$value && $value >= 0)
+        {
+            return $value;
+        }
+
+        return NULL;
+    }
+
     /**
      * Retrieves the user (with id and name (the one to use) correctly hydrated) who created/uploaded this document
      * (specific to language version)
