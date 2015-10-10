@@ -152,6 +152,8 @@ msgstr "Description des faits"
 msgid "Accident factors"
 msgstr "Facteurs et influences"
 
+# [comment]
+# "elements suivants" -> lesquels??
 # [WARNING] needs_review
 msgid "Accident factors intro"
 msgstr "Si vous ne les avez pas déjà mentionnés dans la description des faits, précisez l’éventuelle influence des éléments suivants sur votre situation. Vous n’avez pas besoin de fournir une réponse pour chaque élément, limitez vous aux aspects qui ont eu selon vous une incidence sur l’événement décrit."
@@ -650,6 +652,10 @@ msgstr "Ajouter un site"
 msgid "Create new summits"
 msgstr "Ajouter un sommet"
 
+# [WARNING] needs_review
+msgid "Create new xreports"
+msgstr "Ajouter un compte-rendu d'incident/accident"
+
 # [general comment]
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
 msgid "Created summit synchronized with hut for access"
@@ -696,9 +702,11 @@ msgstr "Création d'un nouveau site"
 msgid "Creating new summits"
 msgstr "Création d'un nouveau sommet"
 
+# [comment]
+# Phil: suppression du trait d'union à "compte rendu"
 # [WARNING] needs_review
 msgid "Creating new xreports"
-msgstr "Création d'un nouveau compte-rendu d'incident ou accident"
+msgstr "Création d'un nouveau compte rendu d'incident ou accident"
 
 msgid "Culture is missing"
 msgstr "Le paramètre linguistique de ce document est manquant."
@@ -1119,6 +1127,9 @@ msgstr "Aller à l'itinéraire suivant"
 msgid "Go to next summit"
 msgstr "Aller au sommet suivant"
 
+msgid "Go to next xreports"
+msgstr "Aller à l'incident/accident suivant"
+
 msgid "Go to preview"
 msgstr "Aller à la prévisualisation"
 
@@ -1157,6 +1168,9 @@ msgstr "Aller à l'itinéraire précédent"
 
 msgid "Go to previous summit"
 msgstr "Aller au sommet précédent"
+
+msgid "Go to previous xreports"
+msgstr "Aller à l'incident/accident précédent"
 
 msgid "Go to the homepage"
 msgstr "Aller à la page d'accueil"
@@ -1501,6 +1515,9 @@ msgstr "Sites d'escalade associés"
 msgid "Linked summits"
 msgstr "Sommets associés"
 
+msgid "Linked xreports"
+msgstr "Incidents/accidents associés"
+
 msgid "List all images of associated outings"
 msgstr "Lister toutes les images des sorties associées"
 
@@ -1783,6 +1800,9 @@ msgstr "Aucun site d'escalade n'est associé à ce document."
 
 msgid "No linked summit"
 msgstr "Aucun sommet n'est associé à ce document."
+
+msgid "No linked xreports"
+msgstr "Aucun incident/accident n'est associé à ce document."
 
 msgid "No message defined. Click to edit"
 msgstr "<i>Pas de message défini. Cliquer ici pour l'éditer.</i>"
@@ -2171,6 +2191,9 @@ msgstr "Rechercher un sommet, un col, un lac, une falaise"
 
 msgid "Search a users"
 msgstr "Rechercher un contributeur"
+
+msgid "Search a xreports"
+msgstr "Rechercher un incident ou un accident"
 
 msgid "Search criteria"
 msgstr "Critères de recherche"
@@ -2828,6 +2851,12 @@ msgstr "Mot de passe incorrect"
 msgid "Wrong image type"
 msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif.<br /><a href=\"/articles/151910#image\">Plus d'informations</a>"
 
+msgid "Xreport"
+msgstr "Incident/accident&nbsp;:"
+
+msgid "Xreport not found"
+msgstr "Ce compte-rendu d'incident ou accident n'existe pas."
+
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
 
@@ -2896,8 +2925,14 @@ msgstr "Vous ne disposez pas des droits suffisants pour associer un document à 
 msgid "You do not have the right to link a route to another user outing"
 msgstr "Vous ne disposez pas des droits suffisants pour associer un itinéraire à une sortie à laquelle vous n'êtes pas associé"
 
+msgid "You do not have the right to link a route to another user xreport"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un itinéraire à un compte-rendu d'incident/accident auquel vous n'êtes pas associé"
+
 msgid "You do not have the right to link a site to another user outing"
 msgstr "Vous ne disposez pas des droits suffisants pour associer un site d'escalade à une sortie à laquelle vous n'êtes pas associé"
+
+msgid "You do not have the right to link a site to another user xreport"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un site de couenne/bloc à un compte-rendu d'incident/accident auquel vous n'êtes pas associé"
 
 msgid "You do not have the right to link an article to another user outing"
 msgstr "Vous ne disposez pas des droits suffisants pour associer un article à une sortie à laquelle vous n'êtes pas associé"
@@ -2914,8 +2949,17 @@ msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un
 msgid "You do not have the right to link an image to another user profile"
 msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un profil d'utilisateur"
 
+msgid "You do not have the right to link an image to another user xreport"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un compte-rendu d'incident/accident auquel vous n'êtes pas associé"
+
+msgid "You do not have the right to link an outing to another user xreport"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une sortie à un compte-rendu d'incident/accident auquel vous n'êtes pas associé"
+
 msgid "You do not have the right to link an user to another user outing"
 msgstr "Vous ne disposez pas des droits suffisants pour associer un contributeur à une sortie à laquelle vous n'êtes pas associé"
+
+msgid "You do not have the right to link an user to another user xreport"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un contributeur à un compte-rendu d'incident/accident auquel vous n'êtes pas associé"
 
 msgid "You do not have the rights to edit this article"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cet article"
@@ -4278,7 +4322,7 @@ msgid "autonomous"
 msgstr "autonome"
 
 msgid "autonomy"
-msgstr "Autonomie"
+msgstr "Autonomie&nbsp;:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4929,6 +4973,9 @@ msgstr "créations"
 msgid "credits"
 msgstr "Crédits"
 
+msgid "crevasse_fall"
+msgstr "chute en crevasse"
+
 msgid "culmen"
 msgstr "point culminant"
 
@@ -5201,10 +5248,6 @@ msgstr "expert et/ou possédant un diplôme d’encadrement"
 msgid "exposure_time"
 msgstr "Temps d'exposition&nbsp;:"
 
-# [WARNING] needs_review
-msgid "external_fall"
-msgstr "chute de pierre, de sérac ou de glace, foudre, vent"
-
 msgid "external_resources"
 msgstr "Bibliographie et webographie&nbsp;:"
 
@@ -5219,6 +5262,9 @@ msgstr "Ori."
 
 msgid "facings"
 msgstr "Orientations&nbsp;:"
+
+msgid "falling_ice"
+msgstr "chute de glace ou de sérac"
 
 msgid "family portal"
 msgstr "Famille"
@@ -5859,6 +5905,9 @@ msgstr "approche en remontée mécanique possible"
 msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"
 
+msgid "lightning"
+msgstr "foudre"
+
 msgid "ligurie"
 msgstr "Ligurie"
 
@@ -6377,6 +6426,9 @@ msgstr "Site suivant"
 msgid "next summit"
 msgstr "Sommet suivant"
 
+msgid "next xreports"
+msgstr "Incident/accident suivant"
+
 msgid "nickName_desc"
 msgstr "Nom affiché dans le forum&nbsp;:"
 
@@ -6535,6 +6587,9 @@ msgstr "Autres massifs"
 msgid "other valley_area"
 msgstr "Autres vallées"
 
+msgid "other_fall"
+msgstr "autre chute d'une personne ou de la cordée"
+
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
@@ -6690,9 +6745,6 @@ msgstr "personnages"
 
 msgid "permalink"
 msgstr "Permalien"
-
-msgid "person_fall"
-msgstr "chute d'une personne ou de la cordée"
 
 msgid "personal article"
 msgstr "article personnel"
@@ -6966,6 +7018,9 @@ msgstr "Site précédent"
 msgid "previous summit"
 msgstr "Sommet précédent"
 
+msgid "previous xreports"
+msgstr "Incident/accident précédent"
+
 msgid "previous_injuries"
 msgstr "Blessures antérieures&nbsp;:"
 
@@ -7131,7 +7186,7 @@ msgid "report_type"
 msgstr "Type de rapport&nbsp;:"
 
 msgid "rescue"
-msgstr "Intervention des secours&nbsp;:"
+msgstr "Intervention des secours"
 
 msgid "rescue short"
 msgstr "Secours"
@@ -7228,6 +7283,9 @@ msgstr "Rocher"
 msgid "roof"
 msgstr "toit"
 
+msgid "roped_fall"
+msgstr "chute en étant encordé"
+
 msgid "route"
 msgstr "itinéraire"
 
@@ -7265,7 +7323,7 @@ msgid "route_line_prefix"
 msgstr "L"
 
 msgid "route_study"
-msgstr "Étude de l’itinéraire&nbsp;"
+msgstr "Étude de l’itinéraire&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Étude de l’itinéraire" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -7589,6 +7647,9 @@ msgstr "Périodes de gardiennage&nbsp;:"
 
 msgid "steep skiing portal"
 msgstr "Ski de pente raide"
+
+msgid "stone_fall"
+msgstr "chute de pierre"
 
 msgid "stories"
 msgstr "récits, contes, nouvelles"
@@ -8009,6 +8070,9 @@ msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet
 # image width
 msgid "width"
 msgstr "Largeur de l'image&nbsp;:"
+
+msgid "wind"
+msgstr "vent"
 
 msgid "with rain"
 msgstr "exposé à la pluie"
