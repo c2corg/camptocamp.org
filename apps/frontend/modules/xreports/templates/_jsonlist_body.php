@@ -9,6 +9,7 @@ $item_i18n = $item_i18n[0];
   <?php if (is_scalar($item['lat'])): ?>
   "latitude": <?php echo $item['lat'] ?>,
   "longitude": <?php echo $item['lon'] ?>,
+  "activities": <?php echo json_encode(BaseDocument::convertStringToArray($item['activities'])) ?>,
   "eventTypes": <?php echo json_encode($item['event_type']) ?>,
   "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
   "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>,
