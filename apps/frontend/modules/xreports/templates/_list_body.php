@@ -2,6 +2,8 @@
 use_helper('Date', 'General', 'Field', 'Link');
 
 $item_i18n = $item['XreportI18n'][0];
+$activities = $item['activities'];
+$date_class = $date_light ? ' class="light"' : '';
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php echo list_link($item_i18n, 'xreports') ?></td>
