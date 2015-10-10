@@ -2,6 +2,8 @@
 use_helper('Field', 'Link');
 
 $item_i18n = $item['XreportI18n'][0];
+$activities = $item['activities'];
+$date_class = $date_light ? ' class="light"' : '';
 ?>
 <div><?php echo list_link($item_i18n, 'xreports') ?></div>
 <div<?php echo $date_class ?>><time datetime="<?php echo $item['date'] ?>"><?php echo format_date($item['date'], 'D') ?></time></div>
