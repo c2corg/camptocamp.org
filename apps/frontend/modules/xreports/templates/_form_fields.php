@@ -24,18 +24,36 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 
 include_partial('documents/oam_coords', array('document' => $document));
 
-echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
 
 echo object_group_bbcode_tag($document, 'place', null, array('class' => 'smalltext', 'placeholder' => __('place_default')));
 
-echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'nb_impacted', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true));
-echo object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list');
+echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number', 'min' => '1', 'max' => '10000'));
+echo    '<div class="col_left">'
+      , object_group_tag($document, 'nb_impacted', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '10000'))
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('_nb_impacted_info')
+      , '</div>'
+;
+echo    '<div class="col_left">'
+      , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true, 'na' => array(0)))
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('unselect dropdown tip')
+      , '</div>'
+;
+echo    '<div class="col_left">'
+      , object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list')
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('_severity_info')
+      , '</div>'
+;
 echo object_group_tag($document, 'rescue', array('callback' => 'object_checkbox_tag'));
 
 echo form_section_title('Accident description', 'form_desc', 'preview_desc');
-echo object_group_bbcode_tag($document, 'description', 'xreport_description', array('class' => 'largetext', 'placeholder' => __('xreport_description_default')), true, 'xreport_description');
+echo object_group_bbcode_tag($document, 'description', 'xreport_description', array('class' => 'medlargetext', 'placeholder' => __('xreport_description_default')), true, 'xreport_description');
 
 echo form_section_title('Accident factors', 'form_factors', 'preview_factors');
 ?>
@@ -64,7 +82,7 @@ echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_
 echo object_group_dropdown_tag($document, 'activity_rate', 'mod_xreports_activity_rate_list');
 echo object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list', null, true, 'nb_outings_per_year');
 echo object_group_dropdown_tag($document, 'autonomy', 'mod_xreports_autonomy_list');
-echo object_group_tag($document, 'age', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'age', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '130'));
 echo object_group_dropdown_tag($document, 'gender', 'mod_xreports_gender_list');
 echo object_group_dropdown_tag($document, 'previous_injuries', 'mod_xreports_previous_injuries_list');
 
