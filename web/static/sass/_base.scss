@@ -751,7 +751,7 @@ fieldset.separator
   margin-top: 0.5em;
 }
 
-#data_section_container .section_subtitle
+#data_section_container .section_subtitle, #profil_section_container .section_subtitle
 {
   display: -moz-inline-box;
   display: inline-block;
@@ -2068,6 +2068,11 @@ fieldset .select_title
   float: left;
   margin: 0 0.3em 0 0;
   min-width: 8em;
+}
+
+#filterform .field_title
+{
+  margin: 0.3 0 0.2 0;
 }
 
 #filterform .picto
