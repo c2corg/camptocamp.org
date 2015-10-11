@@ -23,17 +23,17 @@ class Xreport extends BaseXreport
 
     public static function filterSetElevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetNb_participants($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnPosIntOrNull($value);
     }
 
     public static function filterSetNb_impacted($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetSeverity($value)
@@ -73,7 +73,7 @@ class Xreport extends BaseXreport
 
     public static function filterSetAge($value)
     {   
-        return self::returnPosIntOrNull($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetGender($value)
