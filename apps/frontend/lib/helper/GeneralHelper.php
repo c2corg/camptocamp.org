@@ -188,15 +188,42 @@ function _implode($glue, $items)
 
 function check_not_empty($value)
 {
-    return (!empty($value) &&
-            !$value instanceof Doctrine_Null &&
-            !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null));
+    return
+    (   !empty($value)
+     && !$value instanceof Doctrine_Null
+     && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+    );
+}
+
+function check_is_numeric($value)
+{
+    return
+    (   !$value instanceof Doctrine_Null
+     && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+     && is_numeric($value)
+     && ($value == (int)$value)
+     && ($value >= 0)
+    );
+}
+
+function check_is_numeric_or_text($value)
+{
+    return
+    (   !$value instanceof Doctrine_Null
+     && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+     && (   (   is_numeric($value)
+             && ($value == (int)$value)
+             && ($value >= 0)
+            )
+         || !empty($value)
+        )
+    );
 }
 
 // escaped doctrine null is not directly null, which is often annoying
 function doctrine_value($value)
 {
-    return check_not_empty($value) ? $value : null;
+    return (check_is_numeric_or_text($value)) ? $value : null;
 }
 
 function _option(&$options, $name, $default = null)
