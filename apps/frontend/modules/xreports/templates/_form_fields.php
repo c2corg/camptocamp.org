@@ -24,6 +24,7 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 
 include_partial('documents/oam_coords', array('document' => $document));
 
+echo '<br />';
 echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
 
 echo object_group_bbcode_tag($document, 'place', null, array('class' => 'smalltext', 'placeholder' => __('place_default')));
