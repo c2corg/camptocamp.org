@@ -154,9 +154,9 @@ msgstr "Facteurs et influences"
 
 # [comment]
 # "elements suivants" -> lesquels??
-# [WARNING] needs_review
+# -> ben ceux qui sotn dans les champs qui suivent
 msgid "Accident factors intro"
-msgstr "Si vous ne les avez pas déjà mentionnés dans la description des faits, précisez l’éventuelle influence des éléments suivants sur votre situation. Vous n’avez pas besoin de fournir une réponse pour chaque élément, limitez vous aux aspects qui ont eu selon vous une incidence sur l’événement décrit."
+msgstr "Si vous ne les avez pas déjà mentionnés dans la description des faits, précisez l’éventuelle influence des éléments suivants sur votre situation. Vous n’avez pas besoin de fournir une réponse pour chaque élément, limitez-vous aux aspects qui ont eu selon vous une incidence sur l’événement décrit."
 
 msgid "Accident infos"
 msgstr "Caractérisation de l'événement"
@@ -3371,8 +3371,8 @@ msgstr "<h3>Qualité de l'équipement en place</h3>\n"
 "<em><u>Matériel à prendre</u>&nbsp;:</em> Il dépend de la voie. Pour une voie D ou plus, au minimum celui de la catégorie P3."
 
 msgid "_event_type_info"
-msgstr "<h3>Type d'événement</h3>\n"
-"Type d'événement constaté ou qui aurait pu découler de la situation."
+msgstr "Type d'événement constaté ou qui aurait pu découler de la situation.\n"
+"Plusieurs types peuvent être sélectionnés."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposition</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
@@ -3659,6 +3659,10 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
+# [WARNING] needs_review
+msgid "_nb_impacted_info"
+msgstr "Nombre de personnes touchées par l'évènement. Si l'évènement ne s'est pas produit ou si personne n'a été emporté, n'a chuté ou n'a été touché, saisissez 0."
+
 msgid "_nb_outings_per_year_info"
 msgstr "Approximativement, combien de sorties dans cette activité avez-vous réalisé au cours des 12 derniers mois précédent l'événement ?"
 
@@ -3846,7 +3850,7 @@ msgid "_scale_info"
 msgstr "<h3>Échelle</h3>Échelle de la carte."
 
 msgid "_severity_info"
-msgstr "Pour les personnes touchées, l’événement a-t-il causé une interruption de la pratique de l'activité pour des raisons physiques ?"
+msgstr "Pour les personnes touchées, l’événement a-t-il causé une interruption de la pratique de l'activité pour des raisons physiques (blessure) ?"
 
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gîte</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture, répondant aux critères suivants :<br />- il est possible de réserver une ou plusieurs nuits au gîte (principe des gîtes d'étape, sont exclues les locations à la semaine)<br />- le gîte propose un hébergement en dortoirs, à prix raisonnable.<br />Les cas suivants sont tolérés : les hôtels à prix raisonnable dans les vallées où ce sont les seules possibilités d'hébergement. <br /><br />"
@@ -5748,9 +5752,8 @@ msgstr "Éléments qui ont accentué les conséquences&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont accentué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
-# [WARNING] needs_review
 msgid "increase_impact_default"
-msgstr "Y-a t-il des éléments qui ont accentué les conséquences de l’événement ou aggravé la situation ? (accessibilité, engagement engagement de la voie, non préparation à faire face à un incident, manque d'expérience dans la gestion d'un incident/accident, matériel manquant, etc.)"
+msgstr "Y-a t-il des éléments qui ont accentué les conséquences de l’événement ou aggravé la situation ? (accessibilité, engagement de la voie, non préparation à faire face à un incident, manque d'expérience dans la gestion d'un incident/accident, matériel manquant, etc.)"
 
 msgid "informations"
 msgstr "informations"
@@ -7463,8 +7466,9 @@ msgstr "Vallées pré-sélectionnées"
 msgid "service_on_demand"
 msgstr "service à la demande"
 
+# [WARNING] needs_review
 msgid "severity"
-msgstr "Conséquence physique de l'événement&nbsp;:"
+msgstr "Durée d'interruption de l'activité&nbsp;:"
 
 msgid "severity short"
 msgstr "Gravité"
@@ -8123,7 +8127,7 @@ msgid "xreport_description"
 msgstr "Déroulement de la sortie&nbsp;:"
 
 msgid "xreport_description_default"
-msgstr "Décrivez le déroulement de la sortie."
+msgstr "Décrivez le déroulement de la sortie. Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
 
 msgid "xreport_modifications"
 msgstr "Conséquences sur ses pratiques&nbsp;:"
@@ -8139,8 +8143,10 @@ msgstr "Autres commentaires&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
+# Pour l'instant c'est vide (mais il faut mettre au moins un espace).
+# [WARNING] needs_review
 msgid "xreport_other_comments_default"
-msgstr ""
+msgstr " "
 
 msgid "xreport_risk"
 msgstr "Niveau de l'attention et (ré)évaluation des risques&nbsp;:"
