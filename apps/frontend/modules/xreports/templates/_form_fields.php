@@ -40,7 +40,8 @@ echo    '<div class="col_left">'
       , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true, 'na' => array(0)))
       , '</div>'
       , '<div class="col col_50 tips">'
-      , __('unselect dropdown tip')
+      , '<p>' , __('_event_type_info') , '</p>'
+      , '<p>' , __('unselect dropdown tip') , '</p>'
       , '</div>'
 ;
 echo    '<div class="col_left">'
