@@ -2,6 +2,11 @@
 
 class Product extends BaseProduct
 {
+    public static function filterSetElevation($value)
+    {   
+        return self::returnNaturalIntOrNull($value);
+    }
+    
     public static function filterSetProduct_type($value)
     {   
         return self::convertArrayToString($value);
