@@ -79,12 +79,7 @@ if ($is_not_archive)
     
     if ($is_not_merged && $show_link_tool)
     {
-        $modules_list = array('routes', 'sites', 'outings', 'articles');
-        if ($is_connected && !$is_moderator)
-        {
-          $modules_list[] = 'users';
-        }
-        
+        $modules_list = array('routes', 'sites', 'outings', 'users', 'articles');
         echo c2c_form_add_multi_module('xreports', $id, $modules_list, 7, 'multi_1', true);
     }
     
