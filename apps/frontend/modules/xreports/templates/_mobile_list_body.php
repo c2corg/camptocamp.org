@@ -1,5 +1,5 @@
 <?php
-use_helper('Field', 'Link');
+use_helper('Date', 'General', 'Field', 'Link');
 
 $item_i18n = $item['XreportI18n'][0];
 $activities = $item['activities'];
