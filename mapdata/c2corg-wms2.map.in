@@ -566,6 +566,38 @@ LAYER
 END # Layer
 
 LAYER
+  NAME "xreports"
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
+  METADATA
+    "wms_title"    "xreports"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "point"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from products"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  OPACITY ALPHA
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      SYMBOL ../web/static/images/picto/cancel.png
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
   NAME "slopes"
   METADATA
     "wms_title"    "slopes"
