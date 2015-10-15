@@ -30,9 +30,6 @@ if ($is_not_archive)
 {
     echo '<div class="all_associations">';
     
-    // if the user is not a moderator, but connected, use javascript to distinguish
-    // between document authors and others
-    
     if ($is_not_merged)
     {
         include_partial('documents/association',
@@ -43,6 +40,14 @@ if ($is_not_archive)
                               'type' => 'ux', // user-xreport
                               'strict' => true));
         
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_outings, 
+                              'module' => 'outings',  // this is the module of the documents displayed by this partial
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'ox', // route-xreport
+                              'strict' => true));
+
         include_partial('routes/association',
                         array('associated_docs' => $associated_routes, 
                               'module' => 'routes',  // this is the module of the documents displayed by this partial
@@ -59,6 +64,10 @@ if ($is_not_archive)
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'tx', // site-xreport
                               'strict' => false)); // no strict looking for main_id in column main of Association table
+        
+        // if the user is not a moderator, but connected, use javascript to distinguish
+        // between document authors and others
+        
         if ($is_connected && !$is_moderator)
         {
             $associated_users_ids = array();
@@ -77,10 +86,22 @@ if ($is_not_archive)
                           'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
-    if ($is_not_merged && $show_link_tool)
+    if ($show_link_tool)
     {
         $modules_list = array('routes', 'sites', 'outings', 'users', 'articles');
-        echo c2c_form_add_multi_module('xreports', $id, $modules_list, 7, 'multi_1', true);
+        $options = array('field_prefix' => 'multi_1');
+        if (check_not_empty_doc($document, 'lon'))
+        {
+            $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+        }
+    
+        if (isset($options['suggest_near_docs']))
+        {
+            $options['suggest_exclude'] = array('sites' => get_directly_linked_ids($associated_sites),
+                                                'users' => get_directly_linked_ids($associated_users));
+        }
+        
+        echo c2c_form_add_multi_module('xreports', $id, $modules_list, 7, $options);
     }
     
     echo '</div>';
