@@ -225,39 +225,39 @@ all:
         height: 60
         file: ortovox-safety.swf
       camp_a:
-        id: 94
+        id: 111
         image: camp2015_A.gif
         alt: "Camp"
       camp_b:
-        id: 95
+        id: 112
         image: camp2015_B.gif
         alt: "Camp"
       camp_c:
-        id: 96
+        id: 113
         image: camp2015_C.gif
         alt: "Camp"
       camp_d:
-        id: 97
+        id: 114
         image: camp2015_D.gif
         alt: "Camp"
       camp_e:
-        id: 98
+        id: 115
         image: camp2015_E.gif
         alt: "Camp"
       camp_f:
-        id: 101
+        id: 110
         image: camp2015_F.gif
         alt: "Camp"
       camp_g:
-        id: 102
+        id: 109
         image: camp2015_G.gif
         alt: "Camp"
       camp_h:
-        id: 103
+        id: 108
         image: camp2015_H.gif
         alt: "Camp"
       camp_i:
-        id: 104
+        id: 107
         image: camp2015_I.gif
         alt: "Camp"
       millet:
