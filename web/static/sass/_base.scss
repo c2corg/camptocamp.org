@@ -2,7 +2,8 @@ $orange: #f93;
 $title_black: #535354; // not completely black, used for some titles
 
 $modules: areas, articles, books, huts, images, maps, outings, parkings,
-          routes, sites, summits, users, products, portals, documents;
+          routes, sites, summits, users, products, portals, documents,
+          xreports;
 
 $languages: fr, it, de, en, es, ca, eu;
 
@@ -1954,6 +1955,10 @@ select.picto_forum, select.picto_forums
 
 .picto_1 {
   @extend .picto_documents;
+}
+
+.picto_16 {
+  @extend .picto_xreports;
 }
 
 option.picto_act
