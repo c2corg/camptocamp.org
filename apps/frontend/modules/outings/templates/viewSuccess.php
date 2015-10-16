@@ -71,7 +71,7 @@ if ($is_not_archive && $is_not_merged)
                           'document' => $document,
                           'show_link_to_delete' => $show_link_to_delete,
                           'type' => 'to', // site-outing
-                          'strict' => false)); // no strict looking for main_id in column main of Association table
+                          'strict' => true));
 }
 else
 {
@@ -158,6 +158,19 @@ if ($show_link_tool)
 
     echo '<div class="all_associations empty_content col_left col_66">';
     echo c2c_form_add_multi_module('outings', $id, $modules_list, 2, $options);
+    echo '</div>';
+}
+
+if ($is_not_archive && $is_not_merged)
+{
+    echo '<div class="all_associations col_left col_66">';
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_xreports, 
+                          'module' => 'xreports',  // this is the module of the documents displayed by this partial
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'ox', // outing-xreport
+                          'strict' => true));
     echo '</div>';
 }
 
