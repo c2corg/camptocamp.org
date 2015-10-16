@@ -4,6 +4,8 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript
 echo javascript_queue("C2C.confirm_xreport_date_message = '" . addslashes(__('Has this xreport really been done today?')) . "';
 C2C.confirm_xreport_activities_message = '" . addslashes(__('Is really a multi-activity xreport?')) . "';");
 
+$mobile_version = c2cTools::mobileVersion();
+
 // Here document = xreport
 echo '<div>';
 display_document_edit_hidden_tags($document);
@@ -42,7 +44,7 @@ echo    '<div class="col_left">'
       , '</div>'
       , '<div class="col col_50 tips">'
       , '<p>' , __('_event_type_info') , '</p>'
-      , '<p>' , __('unselect dropdown tip') , '</p>'
+      , ( $mobile_version ? '<p>' . __('unselect dropdown tip') . '</p>' : '' )
       , '</div>'
 ;
 echo    '<div class="col_left">'
