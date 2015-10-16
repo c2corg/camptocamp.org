@@ -192,6 +192,9 @@ class outingsActions extends documentsActions
                 $associated_users = array_merge($creator, $associated_users_2);
             }
             $this->associated_users = $associated_users;
+            
+            // associated xreports
+            $this->associated_xreports = array_filter($this->associated_docs, array('c2cTools', 'is_xreport'));
 
             // related portals
             $related_portals = array();
