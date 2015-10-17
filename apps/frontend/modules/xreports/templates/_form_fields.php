@@ -59,7 +59,7 @@ echo    '<div class="col_left">'
 
 echo '<div id="is_impacted">';
 echo    '<div class="col_left">'
-      , object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list')
+      , object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list', null, true, null, null, '', 1)
       , '</div>'
       , '<div class="col col_50 tips">'
       , __('_severity_info')
