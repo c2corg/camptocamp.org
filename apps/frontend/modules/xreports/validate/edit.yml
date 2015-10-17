@@ -61,6 +61,14 @@ fields:
       config_choice: mod_xreports_event_type_list
       unique: false
       array_except: [ 0 ]
+      array_inclusive: [ 8 ]
+      inclusive_choice_error: roped_fall can not be selected alone
+  avalanche_level:
+    myChoiceValidator:
+      config_choice: mod_xreports_avalanche_level_list
+  avalanche_slope:
+    myChoiceValidator:
+      config_choice: mod_xreports_avalanche_slope_list
   nb_participants:
     required:
       msg:          field cannot be left blank
