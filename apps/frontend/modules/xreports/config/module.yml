@@ -21,6 +21,26 @@ all:
       8: roped_fall
       9: physical_failure
 
+  avalanche_level:
+    list:
+      0:
+      10: 1
+      20: 2
+      30: 3
+      40: 4
+      50: 5
+
+  avalanche_slope:
+    list:
+      0:
+      30: '< 30°'
+      32: '30-32°'
+      35: '33-35°'
+      39: '37-39°'
+      42: '40-42°'
+      45: '43-45°'
+      50: '> 45°'
+
   author_status:
     list:
       0:
