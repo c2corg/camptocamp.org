@@ -33,7 +33,7 @@ all:
   avalanche_slope:
     list:
       0:
-      30: '< 30°'
+      29: '< 30°'
       32: '30-32°'
       35: '33-35°'
       39: '37-39°'
@@ -95,18 +95,22 @@ all:
       'xnam': name
       'act': activities
       'date': date short
+      'xtyp': event_type
       'xpar': nb_participants
       'ximp': nb_impacted
-      'xtyp': event_type
       'xsev': severity
+      'xavlev': avalanche_level
+      'xavslo': avalanche_slope
+      'xalt': elevation
       'range': ranges
       'admin': admin_limits
       'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'
-      'xalt': elevation
     filled_criteria:
       'xpar': ''
       'ximp': ''
       'xsev': ''
+      'xavlev': ''
+      'xavslo': ''
       'xalt': ''
