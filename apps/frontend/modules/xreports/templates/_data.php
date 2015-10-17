@@ -14,6 +14,8 @@ if (isset($nb_comments) && $nb_comments)
     li(field_data($document, 'nb_participants'));
     li(field_data($document, 'nb_impacted'));
     li(field_data_from_list($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true)));
+    li(field_data_from_list_if_set($document, 'avalanche_level', 'mod_xreports_avalanche_level_list'));
+    li(field_data_from_list_if_set($document, 'avalanche_slope', 'mod_xreports_avalanche_slope_list'));
     li(field_data_from_list($document, 'severity', 'mod_xreports_severity_list'));
     li(field_bool_data($document, 'rescue', array('null_equals_no' => true)));
     
