@@ -123,6 +123,7 @@ function object_group_tag($object, $fieldname, $options = array())
     $check_mandatory = _option($options, 'check_mandatory', true);
     $label_name = _option($options, 'label_name', null);
     $label_id = _option($options, 'label_id', $label_name);
+    $default_value = _option($options, 'default_value', null);
 
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -140,7 +141,7 @@ function object_group_tag($object, $fieldname, $options = array())
     if ($prefix && !$suffix && isset($options['class']) && $options['class'] == 'bfc_input')
     {
         $out .= '<span class="bfc_float_left">' . $prefix . '</span><span class="bfc_wrap">' .
-                $callback($object, $method, $options) . '</span></span>';
+                $callback($object, $method, $options, $default_value) . '</span></span>';
     }
     else
     {
@@ -149,7 +150,7 @@ function object_group_tag($object, $fieldname, $options = array())
             $out .= $prefix . ' ';
         }
 
-        $out .= $callback($object, $method, $options) . '</span>';
+        $out .= $callback($object, $method, $options, $default_value) . '</span>';
     }
 
     // display suffix right after the input (for example unit)
