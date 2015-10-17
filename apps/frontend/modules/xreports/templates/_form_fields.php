@@ -1,6 +1,9 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
 
+$response = sfContext::getInstance()->getResponse();
+$response->addJavascript('/static/js/xreports_edit.js', 'last');
+
 echo javascript_queue("C2C.confirm_xreport_date_message = '" . addslashes(__('Has this xreport really been done today?')) . "';
 C2C.confirm_xreport_activities_message = '" . addslashes(__('Is really a multi-activity xreport?')) . "';");
 
@@ -31,7 +34,21 @@ echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class
 
 echo object_group_bbcode_tag($document, 'place', null, array('class' => 'smalltext', 'placeholder' => __('place_default')));
 
-echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number', 'min' => '1', 'max' => '10000'));
+echo    '<div class="col_left">'
+      , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true, 'na' => array(0)))
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , '<p>' , __('_event_type_info') , '</p>'
+      , ( !$mobile_version ? '<p>' . __('unselect dropdown tip') . '</p>' : '' )
+      , '</div>'
+;
+
+echo '<div id="is_avalanche">';
+echo object_group_dropdown_tag($document, 'avalanche_level', 'mod_xreports_avalanche_level_list');
+echo object_group_dropdown_tag($document, 'avalanche_slope', 'mod_xreports_avalanche_slope_list');
+echo '</div>';
+
+echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number', 'min' => '1', 'max' => '10000', 'default_value' => 1));
 echo    '<div class="col_left">'
       , object_group_tag($document, 'nb_impacted', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '10000'))
       , '</div>'
@@ -39,14 +56,8 @@ echo    '<div class="col_left">'
       , __('_nb_impacted_info')
       , '</div>'
 ;
-echo    '<div class="col_left">'
-      , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true, 'na' => array(0)))
-      , '</div>'
-      , '<div class="col col_50 tips">'
-      , '<p>' , __('_event_type_info') , '</p>'
-      , ( $mobile_version ? '<p>' . __('unselect dropdown tip') . '</p>' : '' )
-      , '</div>'
-;
+
+echo '<div id="is_impacted">';
 echo    '<div class="col_left">'
       , object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list')
       , '</div>'
@@ -54,6 +65,8 @@ echo    '<div class="col_left">'
       , __('_severity_info')
       , '</div>'
 ;
+echo '</div>';
+
 echo object_group_tag($document, 'rescue', array('callback' => 'object_checkbox_tag'));
 
 echo form_section_title('Accident description', 'form_desc', 'preview_desc');
@@ -86,7 +99,7 @@ echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_
 echo object_group_dropdown_tag($document, 'activity_rate', 'mod_xreports_activity_rate_list');
 echo object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list', null, true, 'nb_outings_per_year');
 echo object_group_dropdown_tag($document, 'autonomy', 'mod_xreports_autonomy_list');
-echo object_group_tag($document, 'age', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '130'));
+echo object_group_tag($document, 'age', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '130', 'suffix' => __('years')));
 echo object_group_dropdown_tag($document, 'gender', 'mod_xreports_gender_list');
 echo object_group_dropdown_tag($document, 'previous_injuries', 'mod_xreports_previous_injuries_list');
 
