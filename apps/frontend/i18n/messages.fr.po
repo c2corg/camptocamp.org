@@ -309,7 +309,7 @@ msgid "Associate new access"
 msgstr "Créer un nouvel itinéraire d'accès au refuge"
 
 msgid "Associate new outing"
-msgstr "Ajouter votre sortie"
+msgstr "Ajoutez votre sortie"
 
 msgid "Associate new route"
 msgstr "Créer un nouvel itinéraire lié"
@@ -654,7 +654,7 @@ msgstr "Ajouter un sommet"
 
 # [WARNING] needs_review
 msgid "Create new xreports"
-msgstr "Ajouter un compte-rendu d'incident/accident"
+msgstr "Ajouter un compte rendu d'incident/accident"
 
 # [general comment]
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
@@ -3371,7 +3371,7 @@ msgstr "<h3>Qualité de l'équipement en place</h3>\n"
 "<em><u>Matériel à prendre</u>&nbsp;:</em> Il dépend de la voie. Pour une voie D ou plus, au minimum celui de la catégorie P3."
 
 msgid "_event_type_info"
-msgstr "Type d'événement constaté ou qui aurait pu découler de la situation.\n"
+msgstr "Type d'événement constaté ou qui aurait pu découler de la situation.<br />\n"
 "Plusieurs types peuvent être sélectionnés."
 
 msgid "_exposure_time_info"
@@ -3728,6 +3728,16 @@ msgstr "<h3>Accès pédestre</h3>Itinéraire permettant d'accéder au site/secte
 msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
 
+# [general comment]
+# Aide contextuelle du champ texte "Lieu de l'évènement" (ID : place ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir place_default
+# [WARNING] needs_review
+msgid "_place_info"
+msgstr "<h3>Lieu de l'événement</h3>\n"
+"Précisions sur le lieu de l'événement.<br />\n"
+"Géoréférencez l'évènement sur la carte ci-dessus, même de façon imprécise (dans ce cas, précisez-le ici).<br />\n"
+"Après l'enregistrement de ce compte-rendu, vous pourrez l'associer à un itinéraire, un site d'escalade et/ou une sortie."
+
 # [WARNING] needs_review
 msgid "_previous_injuries_info"
 msgstr "Aviez-vous été blessé en montagne ou en falaise au cours des 12 derniers mois (que vous ayez été touché ou non par l'évènement) ?"
@@ -3837,6 +3847,14 @@ msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'histo
 
 msgid "_route_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement en randonnée pédestre, raquette, et ski.<br />Si une trace GPX est associée à l'itinéraire, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
+
+# [general comment]
+# Aide contextuelle du champ texte "Étude de l’itinéraire" (ID : route_study ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir route_study_default
+# [WARNING] needs_review
+msgid "_route_study_info"
+msgstr "<h3>Étude de l’itinéraire</h3>\n"
+"Cartes, topos, compte rendus de sorties consultés. Réévaluation de l'itinéraire au cours de la sortie."
 
 # [comment]
 # ajout précision par rapport au refuge/bivouac
@@ -4021,6 +4039,15 @@ msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes
 
 msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."
+
+# [general comment]
+# Aide contextuelle du champ texte "Déroulement de la sortie" (ID : xreport_description ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_description_default
+# [WARNING] needs_review
+msgid "_xreport_description_info"
+msgstr "<h3>Déroulement de la sortie</h3>\n"
+"Décrivez le déroulement de la sortie.<br />\n"
+"Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
 
 msgid "abruzzes"
 msgstr "Abruzzes"
@@ -4363,6 +4390,14 @@ msgstr "Observations relatives aux avalanches&nbsp;:"
 # intitulé d'un item du menu, pointant vers la liste des conditions possédant des infos relatives aux avalanches
 msgid "avalanche_infos_short"
 msgstr "Infos avalanche"
+
+# [WARNING] needs_review
+msgid "avalanche_level"
+msgstr "Indice de risque d'avalanche (issu du BERA)&nbsp;:"
+
+# [WARNING] needs_review
+msgid "avalanche_slope"
+msgstr "Pente la plus forte sur la zone de départ de l'avalanche&nbsp;:"
 
 msgid "awful conditions"
 msgstr "exécrables"
@@ -4850,6 +4885,9 @@ msgstr "Conditions rencontrées (approche, voie, et à proximité)&nbsp;:"
 msgid "conditions and comments"
 msgstr "Conditions et commentaires"
 
+msgid "conditions and comments linked to"
+msgstr "les conditions et commentaires perso associées"
+
 msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
@@ -4871,6 +4909,8 @@ msgstr "Enneigement par zones&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 msgid "conditions_rock_default"
 msgstr "Saisir ici les observations suivantes : conditions de terrain sur l'approche, la voie et le retour (sec, mouillé, enneigé, ...), quantité et qualité de l'équipement en place, qualité du rocher, conditions de visu sur des itinéraires voisins, fréquentation."
 
@@ -6796,9 +6836,11 @@ msgstr "Lieu de l'événement&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Lieu de l'événement" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "place_default"
-msgstr "Précisions sur le lieu de l'événement. Géoréférencez l'évènement sur la carte ci-dessus. Après l'enregistrement de ce compte-rendu, vous pourrez l'associer à un itinéraire, un site d'escalade ou une sortie."
+msgstr "Précisions sur le lieu de l'événement. Géoréférencez l'évènement sur la carte ci-dessus, même de façon imprécise (dans ce cas, précisez-le ici). Après l'enregistrement de ce compte-rendu, vous pourrez l'associer à un itinéraire, un site d'escalade ou une sortie."
 
 msgid "places_to_display"
 msgstr "Régions à afficher"
@@ -7330,6 +7372,9 @@ msgstr "Étude de l’itinéraire&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Étude de l’itinéraire" lorsqu'il est vide, à l'édition d'un incident/accident.
+# Voir aussi l'aide contextuelle : _route_study_info
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "route_study_default"
 msgstr "Cartes, topos, compte rendus de sorties consultés. Réévaluation de l'itinéraire au cours de la sortie."
@@ -8126,6 +8171,10 @@ msgstr "Météo, bulletin de risque d'avalanche, regel, qualité de la neige/gla
 msgid "xreport_description"
 msgstr "Déroulement de la sortie&nbsp;:"
 
+# [general comment]
+# Texte affichée dans le champ "Déroulement de la sortie" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 msgid "xreport_description_default"
 msgstr "Décrivez le déroulement de la sortie. Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
 
