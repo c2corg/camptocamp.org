@@ -445,14 +445,14 @@ class Xreport extends BaseXreport
             $full_fields_list = array();
             $full_i18n_fields_list = array();
             
-            if (in_array('full', $format))
+            if (in_array('json', $format) || in_array('full', $format))
             {
                 $full_fields_list = array('m.avalanche_level', 'm.avalanche_slope', 'm.author_status');
-                
-                if (!in_array('notext', $format))
-                {
-                    $full_i18n_fields_list = array('mi.description', 'mi.place', 'mi.route_study', 'mi.conditions', 'mi.training', 'mi.motivations', 'mi.group_management', 'mi.risk', 'mi.time_management', 'mi.safety', 'mi.reduce_impact', 'mi.increase_impact', 'mi.modifications', 'mi.other_comments');
-                }
+            }
+            
+            if (in_array('full', $format) && !in_array('notext', $format))
+            {
+                $full_i18n_fields_list = array('mi.description', 'mi.place', 'mi.route_study', 'mi.conditions', 'mi.training', 'mi.motivations', 'mi.group_management', 'mi.risk', 'mi.time_management', 'mi.safety', 'mi.reduce_impact', 'mi.increase_impact', 'mi.modifications', 'mi.other_comments');
             }
             
             $data_fields_list = array_merge(parent::buildGeoFieldsList(),
