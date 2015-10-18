@@ -1,5 +1,10 @@
 BEGIN;
 
+-- Creates the db structure for xreports tables ...
+--
+-- xreports_patch.sql
+--
+
 -------------------------------------------------------------------------------
 -- Table app_xreports_archives --
 CREATE SEQUENCE xreports_archives_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 CACHE 1;
@@ -13,6 +18,8 @@ CREATE TABLE app_xreports_archives (
     severity smallint,
     rescue boolean,
     event_type smallint[],
+    avalanche_level smallint,
+    avalanche_slope smallint,
     author_status smallint,
     activity_rate smallint,
     nb_outings smallint,
@@ -78,6 +85,8 @@ CREATE OR REPLACE VIEW xreports AS SELECT
     sa.severity,
     sa.rescue,
     sa.event_type,
+    sa.avalanche_level,
+    sa.avalanche_slope,
     sa.author_status,
     sa.activity_rate,
     sa.nb_outings,
@@ -137,6 +146,8 @@ CREATE OR REPLACE RULE insert_xreports AS ON INSERT TO xreports DO INSTEAD
         severity,
         rescue,
         event_type,
+        avalanche_level,
+        avalanche_slope,
         author_status,
         activity_rate,
         nb_outings,
@@ -164,6 +175,8 @@ CREATE OR REPLACE RULE insert_xreports AS ON INSERT TO xreports DO INSTEAD
         NEW.severity,
         NEW.rescue,
         NEW.event_type,
+        NEW.avalanche_level,
+        NEW.avalanche_slope,
         NEW.author_status,
         NEW.activity_rate,
         NEW.nb_outings,
@@ -195,6 +208,8 @@ CREATE OR REPLACE RULE update_xreports AS ON UPDATE TO xreports DO INSTEAD
         severity,
         rescue,
         event_type,
+        avalanche_level,
+        avalanche_slope,
         author_status,
         activity_rate,
         nb_outings,
@@ -222,6 +237,8 @@ CREATE OR REPLACE RULE update_xreports AS ON UPDATE TO xreports DO INSTEAD
         NEW.severity,
         NEW.rescue,
         NEW.event_type,
+        NEW.avalanche_level,
+        NEW.avalanche_slope,
         NEW.author_status,
         NEW.activity_rate,
         NEW.nb_outings,
