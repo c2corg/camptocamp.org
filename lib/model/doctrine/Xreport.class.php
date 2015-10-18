@@ -26,6 +26,26 @@ class Xreport extends BaseXreport
         return self::returnNaturalIntOrNull($value);
     }
 
+    public static function filterSetEvent_type($value)
+    {   
+        return self::convertArrayToString($value);
+    }   
+
+    public static function filterGetEvent_type($value)
+    {   
+        return self::convertStringToArray($value);
+    }
+
+    public static function filterSetAvalanche_level($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetAvalanche_slope($value)
+    {   
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function filterSetNb_participants($value)
     {   
         return self::returnPosIntOrNull($value);
@@ -39,16 +59,6 @@ class Xreport extends BaseXreport
     public static function filterSetSeverity($value)
     {   
         return self::returnPosIntOrNull($value);
-    }
-
-    public static function filterSetEvent_type($value)
-    {   
-        return self::convertArrayToString($value);
-    }   
-
-    public static function filterGetEvent_type($value)
-    {   
-        return self::convertStringToArray($value);
     }
 
     public static function filterSetAuthor_status($value)
@@ -149,6 +159,8 @@ class Xreport extends BaseXreport
             $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'xalt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'event_type'), 'xtyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.avalanche_level', 'xavlev', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.avalanche_slope', 'xavslo', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.severity', 'xsev', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.rescue', 'xres', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.nb_participants', 'xpar', $join);
@@ -406,11 +418,13 @@ class Xreport extends BaseXreport
             case 'xalt': return 'm.elevation';
             case 'act':  return 'm.activities';
             case 'date': return array('m.date', 'm.id');
+            case 'xtyp': return 'm.event_type';
+            case 'xavlev': return 'm.avalanche_level';
+            case 'xavslo': return 'm.avalanche_slope';
             case 'xpar': return 'm.nb_participants';
             case 'ximp': return 'm.nb_impacted';
             case 'xsev': return 'm.severity';
             case 'xres': return 'm.rescue';
-            case 'xtyp': return 'm.event_type';
             case 'range': return 'gr.linked_id';
             case 'admin': return 'gd.linked_id';
             case 'country': return 'gc.linked_id';
@@ -426,18 +440,32 @@ class Xreport extends BaseXreport
     {   
         if ($main_query)
         {
-            $data_fields_list = array('m.elevation', 'm.activities', 'm.date', 'm.nb_participants', 'm.nb_impacted', 'm.severity', 'm.rescue', 'm.event_type', 'm.lon', 'm.lat');
-            $data_fields_list = array_merge($data_fields_list,
-                                            parent::buildGeoFieldsList());
+            $base_fields_list = array('m.elevation', 'm.activities', 'm.date', 'm.event_type', 'm.nb_participants', 'm.nb_impacted', 'm.severity', 'm.rescue', 'm.lon', 'm.lat');
+            
+            $full_fields_list = array();
+            $full_i18n_fields_list = array();
+            
+            if (in_array('full', $format))
+            {
+                $full_fields_list = array('m.avalanche_level', 'm.avalanche_slope', 'm.author_status');
+                
+                if (!in_array('notext', $format))
+                {
+                    $full_i18n_fields_list = array('mi.description', 'mi.place', 'mi.route_study', 'mi.conditions', 'mi.training', 'mi.motivations', 'mi.group_management', 'mi.risk', 'mi.time_management', 'mi.safety', 'mi.reduce_impact', 'mi.increase_impact', 'mi.modifications', 'mi.other_comments');
+                }
+            }
+            
+            $data_fields_list = array_merge(parent::buildGeoFieldsList(),
+                                            $base_fields_list,
+                                            $full_fields_list,
+                                            $full_i18n_fields_list);
         }
         else
         {
             $data_fields_list = array();
         }
         
-        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields);
-        
-        return array_merge($base_fields_list, 
+        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields), 
                            $data_fields_list);
     }
 
