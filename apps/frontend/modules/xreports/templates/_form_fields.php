@@ -51,7 +51,7 @@ echo '</div>';
 echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number', 'min' => '1', 'max' => '10000', 'default_value' => 1));
 
 echo    '<div class="col_left">'
-      , object_group_tag($document, 'nb_impacted', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '10000', 'default_value' => 1))
+      , object_group_tag($document, 'nb_impacted', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '10000', 'default_value' => 0))
       , '</div>'
       , '<div class="col col_50 tips">'
       , __('_nb_impacted_info')
