@@ -275,6 +275,10 @@ myarticles:
   url: /articles/myarticles
   param: { module: articles, action: myArticles }
 
+myxreports:
+  url: /xreports/myxreports
+  param: { module: xreports, action: myXreports }
+
 document_edit_archive:
   url: /:module/edit/:id/:lang/:version
   param: { action: edit }
