@@ -762,11 +762,12 @@ function object_datetime_tag($document, $fieldname)
 
 function form_section_title($title, $section_id, $preview_id = '')
 {
-    $out = '<h3 class="title" id="' . $section_id . '">';
-    $out .= '<a href="#' . $preview_id . '">';
-    $out .= __($title);
-    $out .= '<span class="goto_preview tips" style="display:none;">[' . __('Go to preview') . ']</span>';
-    $out .= '</a></h3>';
+    $out = '<div class="clear"></div>'
+         . '<h3 class="title" id="' . $section_id . '">'
+         . '<a href="#' . $preview_id . '">'
+         . __($title)
+         . '<span class="goto_preview tips" style="display:none;">[' . __('Go to preview') . ']</span>'
+         . '</a></h3>';
     
     return $out;
 }
