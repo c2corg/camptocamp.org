@@ -220,6 +220,17 @@ function check_is_numeric_or_text($value)
     );
 }
 
+function check_is_positive($value)
+{
+    return
+    (   !$value instanceof Doctrine_Null
+     && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+     && is_numeric($value)
+     && ($value == (int)$value)
+     && ($value > 0)
+    );
+}
+
 // escaped doctrine null is not directly null, which is often annoying
 function doctrine_value($value)
 {
