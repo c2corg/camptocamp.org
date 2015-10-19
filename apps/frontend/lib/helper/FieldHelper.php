@@ -139,7 +139,7 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
     $value = $document->getRaw($name);
     $title = _option($options, 'title', $name);
 
-    if (!check_not_empty($value) || $value == '0')
+    if (!check_is_positive($value))
     {
         return '';
     }
@@ -160,6 +160,8 @@ function field_data_range_from_list($document, $name_min, $name_max, $config, $o
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    $is_not_empty_value_min = check_is_positive($value_min);
+    $is_not_empty_value_max = check_is_positive($value_max);
     $range_only = _option($options, 'range_only', false);
     $name_if_equal = _option($options, 'name_if_equal', '');
     $prefix = isset($option['prefix']) ? $option['prefix'] : '';
@@ -193,7 +195,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $config, $o
         $suffix_min = $suffix_max = $suffix;
     }
     
-    if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
+    if (($is_not_empty_value_min && $is_not_empty_value_max) || (($is_not_empty_value_min || $is_not_empty_value_max) && $range_only))
     {
         return _format_data_range_from_list($name, $value_min, $value_max, $config, $options);
     }
@@ -202,11 +204,11 @@ function field_data_range_from_list($document, $name_min, $name_max, $config, $o
         $options['prefix'] = $prefix_min;
         $options['suffix'] = $suffix_min;
 
-        if (!empty($value_min) && empty($value_max))
+        if ($is_not_empty_value_min && !$is_not_empty_value_max)
         {
             return _format_data_from_list($name_min, $value_min, $config, $options);
         }
-        else if (empty($value_min) && !empty($value_max))
+        else if (!$is_not_empty_value_min && $is_not_empty_value_max)
         {
             return _format_data_from_list($name_max, $value_max, $config, $options);
         }
@@ -221,7 +223,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $con
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
-    if (empty($value_min) && empty($value_max))
+    if (!check_is_positive($value_min) && !check_is_positive($value_max))
     {
         return '';
     }
@@ -428,21 +430,21 @@ function _format_data($name, $value, $options = array())
     $microdata = _option($options, 'microdata', null);
     $show_if_empty = _option($options, 'show_if_empty', true);
     $label = _option($options, 'label', $name);
-
-    if (!check_is_numeric_or_text($value))
+    
+    $is_not_empty_value = check_is_numeric_or_text($value);
+    
+    if (!$is_not_empty_value)
     {
         if (!$show_if_empty)
         {
             return '';
         }
 
-        $empty_value = true;
         $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
         $div_class = ' default_text';
     }
     else
     {
-        $empty_value = false;
         $div_class = '';
 
         if ($microdata)
@@ -458,14 +460,14 @@ function _format_data($name, $value, $options = array())
 
 
 
-    if (!empty($prefix) && !$empty_value)
+    if (!empty($prefix) && $is_not_empty_value)
     {
         $text .= __($prefix);
     }
     
     $text .= $value;
 
-    if (!empty($suffix) && !$empty_value)
+    if (!empty($suffix) && $is_not_empty_value)
     {
         $text .= __($suffix);
     }
@@ -558,7 +560,10 @@ function _format_data_from_list($name, $value, $config, $options = array())
             $list[$key] = $item;
         }
     }
-    if (!empty($value))
+    
+    $is_not_empty_value = check_is_positive($value);
+    
+    if ($is_not_empty_value)
     {
         if ($multiple)
         {
@@ -580,7 +585,7 @@ function _format_data_from_list($name, $value, $config, $options = array())
         $value = '';
     }
     
-    if ($ifset && empty($value))
+    if ($ifset && !$is_not_empty_value)
     {
         return '';
     }
@@ -618,20 +623,22 @@ function _format_data_range_from_list($name, $value_min, $value_max, $config, $o
         $suffix_min = $suffix_max = $suffix;
     }
     
+    $is_not_empty_value_min = check_is_positive($value_min);
+    $is_not_empty_value_max = check_is_positive($value_max);
     
-    if (!empty($value_min))
+    if ($is_not_empty_value_min)
     {
         $value .= $prefix_min . _get_field_value_in_list($list, $value_min) . $suffix_min;
     }
     
-    if (empty($value_min) || empty($value_max) || $value_min != $value_max)
+    if (!$is_not_empty_value_min || !$is_not_empty_value_max || $value_min != $value_max)
     {
-        if (!empty($value_min) && !empty($value_max))
+        if ($is_not_empty_value_min && $is_not_empty_value_max)
         {
             $value .= __($separator);
         }
     	
-        if (!empty($value_max))
+        if ($is_not_empty_value_max)
         {
             $value .= $prefix_max . _get_field_value_in_list($list, $value_max) . $suffix_max;
         }
