@@ -10,11 +10,13 @@ class BaseXreportArchive extends BaseDocumentArchive
 
         $this->hasColumn('date', 'date', null);
         $this->hasColumn('activities', 'string', null); // array
+        $this->hasColumn('event_type', 'string', null); // array
+        $this->hasColumn('avalanche_level', 'smallint', 1);
+        $this->hasColumn('avalanche_slope', 'smallint', 1);
         $this->hasColumn('nb_participants', 'smallint', 3); 
         $this->hasColumn('nb_impacted', 'smallint', 3); 
         $this->hasColumn('severity', 'smallint', 1);
         $this->hasColumn('rescue', 'boolean', null);
-        $this->hasColumn('event_type', 'string', null); // array
         $this->hasColumn('author_status', 'smallint', 1);
         $this->hasColumn('activity_rate', 'smallint', 1);
         $this->hasColumn('nb_outings', 'smallint', 1);
