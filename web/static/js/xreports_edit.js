@@ -90,8 +90,8 @@
   }
 
   // be sure to hide fields on startup if needed
-  hide_unrelated_fields();
   manage_avalanche_fields();
+  manage_impacted_fields();
 
   // register events
   $('#event_type').on('change', manage_avalanche_fields);
