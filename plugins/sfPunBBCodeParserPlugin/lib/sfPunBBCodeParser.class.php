@@ -441,7 +441,7 @@ class sfPunBBCodeParser
             $class = '';
             
             // si doc collaboratif, le lien est tronqué avant la langue
-        //    if (preg_match('#^(/(routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[\d]+)/\w+(/[\w-]+)?#i', $full_url, $params))
+        //    if (preg_match('#^(/(routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|xreports)/[\d]+)/\w+(/[\w-]+)?#i', $full_url, $params))
         //    {
         //        $full_url = $params[1];
         //    }
@@ -451,7 +451,7 @@ class sfPunBBCodeParser
             }
             
             // "nofollow" sur lien vers liste avec critère sur intitulé
-            if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[^\d]+/(.*)name?/#i', $full_url))
+            if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|xreports)/[^\d]+/(.*)name?/#i', $full_url))
             {
                 $rel = ' rel="nofollow"';
             }
@@ -900,8 +900,8 @@ class sfPunBBCodeParser
         $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|xreports|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|xreports|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
         $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
