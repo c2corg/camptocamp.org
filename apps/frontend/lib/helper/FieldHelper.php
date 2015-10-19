@@ -239,7 +239,7 @@ function field_picto_from_list($document, $name, $config, $options = array())
 function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
     $value = $document->getRaw($name);
-    if (!check_not_empty($value))
+    if (!check_is_positive($value))
     {
         return '';
     }
@@ -1086,9 +1086,9 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
 
     if ($format == 'html' || $format == 'table')
     {
-        if (!check_not_empty($rock_free_raw_value)) return null;
+        if (!check_is_positive($rock_free_raw_value)) return null;
 
-        if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value == $rock_free_raw_value))
+        if (check_is_positive($rock_required_raw_value) && ($rock_required_raw_value == $rock_free_raw_value))
         {
             $alternate_name = 'rock_free_and_required_rating';
         }
@@ -1098,7 +1098,7 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
         }
         $string_rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_json_name, $rock_free_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix, $alternate_name);
 
-        if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
+        if (check_is_positive($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
         {
             $string_rock_required_value = '>' .  _filter_ratings_data($document, $rock_required_name, $rock_required_json_name, $rock_required_config, $format, $add_tooltips, $use_raw_value, $raw_value_prefix);
         }
