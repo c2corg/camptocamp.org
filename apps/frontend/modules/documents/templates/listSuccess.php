@@ -35,7 +35,7 @@ if ($nb_results == 0):
 else:
     $pager_navigation = pager_navigation($pager);
     
-    if (!$mobile_version)
+    if (!$mobile_version && $module != 'xreports')
     {
         echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
     }
@@ -104,7 +104,10 @@ else:
         }
         echo '</div>';
         echo $pager_navigation;
-        echo $result_types_filter;
+        if ($module != 'xreports')
+        {
+            echo $result_types_filter;
+        }
         echo pager_nb_results($pager);
     }
     else
@@ -160,18 +163,25 @@ if (!$mobile_version): ?>
 
     echo $pager_navigation;
     if (!$mobile_version &&
-        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users', 'xreports')))
     {
         echo $result_types_filter_2;
         echo '</form>';
     }
 endif;
 
-if (!$mobile_version && $module != 'xreports')
+if (!$mobile_version)
 {
-    echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
+    if ($module != 'xreports')
+    {
+        echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
+    }
+    else
+    {
+        echo '<p class="list_footer">' . __('to sort by one column, click once or twice in its title') . '</p>';
+    }
 }
-   
+
 echo end_content_tag();
  
 include_partial('common/content_bottom');
