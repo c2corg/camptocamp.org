@@ -206,6 +206,18 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
                           'dissociation' => 'moderator',
                           'author_specific' => !$is_moderator,
                           'is_protected' => $document->get('is_protected')));
+  
+    if ($is_connected)
+    {
+        echo    '<div class="add_content" id="add_xreport">'
+              , link_to(picto_tag('picto_add', __('Associate new xreports')) . __('Associate new xreports'), "reports/edit?link=$id")
+              , '</div>';
+        
+        if (!$is_moderator)
+        {
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('add_xreport').style.display = 'none';");
+        }
+    }
 }
 
 if ($mobile_version)
