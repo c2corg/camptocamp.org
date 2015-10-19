@@ -8,7 +8,7 @@
 
     if (!!event_type && ($.inArray("1", event_type) !== -1)) {
       $('#is_avalanche').show();
-    });
+    };
   }
   
   // show/hide is_impacted tags depending on nb_impacted
@@ -17,14 +17,13 @@
 
     $('#is_impacted').hide();
 
-    if (nb_impacted != 0) {
+    if (!!nb_impacted) {
       $('#is_impacted').show();
-    });
+    };
   }
 
-  // if some activities are active, ask the user
-  // if it is ok:
-  // often routes are multi-activity but the outing shouldn't
+  // if some activities are active, ask the user if it is ok:
+  // often outings are multi-activity but the xreports shouldn't
   var xreport_activities_already_tested = false;
   function check_xreport_activities() {
     var activities = $('#activities').val();
@@ -81,7 +80,7 @@
 
     // ask for confirmation if outing date is today and if it is sooner than 14:00
     if (!$('#revision').val() && year == now.getFullYear() && month == (now.getMonth() + 1) &&
-        day == now.getDate() && now.getHours() <= 14) {
+        day == now.getDate() && now.getHours() <= 16) {
       xreport_date_already_tested = confirm(C2C.confirm_xreport_date_message);
       return xreport_date_already_tested;
     }
