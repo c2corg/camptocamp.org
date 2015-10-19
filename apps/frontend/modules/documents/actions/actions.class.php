@@ -1410,9 +1410,10 @@ class documentsActions extends c2cActions
             case 1 : $module = 'routes'; break;
             case 2 : $module = 'outings'; break;
             case 3 : $module = 'outings'; break;
+            case 4 : $module = 'outings'; break;
             default: $module = $this->getModuleName();
         }
-        if ($result_type == 3)
+        if (in_array($result_type, array(3, 4)))
         {
             $action = 'conditions';
         }
@@ -1425,6 +1426,10 @@ class documentsActions extends c2cActions
         {
             $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
                                     $this->filterSortParameters($module));
+            if ($result_type == 4)
+            {
+                $criteria[] = 'format=full';
+            }
             if ($criteria)
             {
                 $route .= '?' . implode('&', $criteria);
