@@ -81,7 +81,7 @@ if ($is_not_archive)
         }
     }
     
-    $avalanche_bulletin = in_array(1, $document->getRaw('event_type')) ? array(1) : array();
+    $avalanche_bulletin = array_intersect(array(1), $document->getRaw('event_type'));
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
