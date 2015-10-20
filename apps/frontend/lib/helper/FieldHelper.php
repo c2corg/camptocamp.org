@@ -138,13 +138,14 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
 {
     $value = $document->getRaw($name);
     $title = _option($options, 'title', $name);
-
-    if (!check_is_positive($value))
+    $multiple = _option($options, 'multiple', false);
+    
+    if (!check_list_not_empty($value, $multiple))
     {
         return '';
     }
 
-    if (isset($options['multiple']) && $options['multiple'])
+    if ($multiple)
     {
         $value = is_array($value) ? $value : Document::convertStringToArray($value);
         if (empty($value))
@@ -158,8 +159,8 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
 
 function field_data_range_from_list($document, $name_min, $name_max, $config, $options = array())
 {
-    $value_min = $document->get($name_min);
-    $value_max = $document->get($name_max);
+    $value_min = $document->getRaw($name_min);
+    $value_max = $document->getRaw($name_max);
     $is_not_empty_value_min = check_is_positive($value_min);
     $is_not_empty_value_max = check_is_positive($value_max);
     $range_only = _option($options, 'range_only', false);
@@ -223,6 +224,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $con
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    
     if (!check_is_positive($value_min) && !check_is_positive($value_max))
     {
         return '';
@@ -239,7 +241,9 @@ function field_picto_from_list($document, $name, $config, $options = array())
 function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
     $value = $document->getRaw($name);
-    if (!check_is_positive($value))
+    $multiple = _option($options, 'multiple', false);
+    
+    if (!check_list_not_empty($value, $multiple))
     {
         return '';
     }
@@ -561,8 +565,8 @@ function _format_data_from_list($name, $value, $config, $options = array())
         }
     }
     
-    $is_not_empty_value = check_is_positive($value);
-    
+    $is_not_empty_value = check_list_not_empty($value, $multiple);
+
     if ($is_not_empty_value)
     {
         if ($multiple)
