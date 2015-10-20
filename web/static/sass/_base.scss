@@ -161,10 +161,11 @@ a[href^="http://escalade.camptocamp.com"]:after {
 }
 .tips, .edit-tips, .float-tips
 {
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 .tips, .edit-tips, .big_tips
 {
+  margin-top: 5px;
   margin-bottom: 1em;
 }
 .warning-tips
