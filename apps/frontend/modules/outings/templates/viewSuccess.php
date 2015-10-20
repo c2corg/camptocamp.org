@@ -210,7 +210,7 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
     if ($is_connected)
     {
         echo    '<div class="add_content" id="add_xreport">'
-              , link_to(picto_tag('picto_add', __('Associate new xreports')) . __('Associate new xreports'), "reports/edit?link=$id")
+              , link_to(picto_tag('picto_add', __('Associate new xreports')) . __('Associate new xreports'), "xreports/edit?link=$id")
               , '</div>';
         
         if (!$is_moderator)
