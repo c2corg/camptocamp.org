@@ -81,11 +81,16 @@ if ($is_not_archive)
         }
     }
     
+    $avalanche_bulletin = in_array(1, $document->getRaw('event_type')) ? array(1) : array();
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
-                          'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    
+                          'module' => 'areas',
+                          'box' => false,
+                          'weather' => false,
+                          'no_last_avalanche_bulletin' => true,
+                          'avalanche_bulletin' => $avalanche_bulletin,
+                          'date' => $document->getRaw('date')));
+
     if ($show_link_tool)
     {
         $modules_list = array('routes', 'sites', 'outings', 'users', 'articles');
