@@ -107,7 +107,7 @@ echo    '<div class="col_left">'
       , object_group_dropdown_tag($document, 'nb_outings', 'mod_xreports_nb_outings_list', null, true, 'nb_outings_per_year')
       , '</div>'
       , '<div class="col col_50 tips">'
-      , __('_nb_outings_info')
+      , __('_nb_outings_per_year_info')
       , '</div>'
 ;
 echo    '<div class="col_left">'
