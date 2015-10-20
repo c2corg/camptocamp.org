@@ -17,7 +17,7 @@
 
     $('#is_impacted').hide();
 
-    if (!!nb_impacted) {
+    if (!!nb_impacted && nb_impacted > 0) {
       $('#is_impacted').show();
     };
   }
