@@ -234,9 +234,14 @@ function check_is_positive($value)
 // check that the value from a single or multiple choice field is not empty
 function check_list_not_empty($value, $multiple = false)
 {
-    return  ($multiple) ?   check_not_empty($value)
-                        :   check_is_positive($value)
-    ;
+    if ($multiple)
+    {
+        return check_not_empty($value) && $value !== array("0") && $value !== array("");
+    }
+    else
+    {
+        return check_is_positive($value);
+    }
 }
 
 // escaped doctrine null is not directly null, which is often annoying
