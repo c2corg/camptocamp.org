@@ -18,7 +18,7 @@ if (!isset($default_open))
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
-                <li><?php echo link_to(ucfirst(__('xreports')), '@xreports') ?></li>
+                <li><?php echo link_to(ucfirst(__('xreports')), '@default_index?module=xreports') ?></li>
                 <li><?php
                     $portal_config = sfConfig::get('app_portals_firstascent');
                     $text = __($portal_config['name']);
