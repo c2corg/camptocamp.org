@@ -44,7 +44,13 @@ echo    '<div class="col_left">'
 ;
 
 echo '<div id="is_avalanche">';
-echo object_group_dropdown_tag($document, 'avalanche_level', 'mod_xreports_avalanche_level_list');
+echo    '<div class="col_left">'
+      , object_group_dropdown_tag($document, 'avalanche_level', 'mod_xreports_avalanche_level_list')
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('_avalanche_level_info')
+      , '</div>'
+;
 echo object_group_dropdown_tag($document, 'avalanche_slope', 'mod_xreports_avalanche_slope_list');
 echo '</div>';
 
