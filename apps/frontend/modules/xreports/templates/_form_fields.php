@@ -51,7 +51,13 @@ echo    '<div class="col_left">'
       , __('_avalanche_level_info')
       , '</div>'
 ;
-echo object_group_dropdown_tag($document, 'avalanche_slope', 'mod_xreports_avalanche_slope_list');
+echo    '<div class="col_left">'
+      , object_group_dropdown_tag($document, 'avalanche_slope', 'mod_xreports_avalanche_slope_list')
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('_avalanche_slope_info')
+      , '</div>'
+;
 echo '</div>';
 
 echo object_group_tag($document, 'nb_participants', array('class' => 'short_input', 'type' => 'number', 'min' => '1', 'max' => '10000', 'default_value' => 1));
@@ -63,15 +69,15 @@ echo    '<div class="col_left">'
       , __('_nb_impacted_info')
       , '</div>'
 ;
-echo '<div id="is_impacted">';
-echo    '<div class="col_left">'
+echo    '<div data-impacted-filter="">'
+      , '<div class="col_left">'
       , object_group_dropdown_tag($document, 'severity', 'mod_xreports_severity_list', null, true, null, null, '', 1)
       , '</div>'
       , '<div class="col col_50 tips">'
       , __('_severity_info')
       , '</div>'
+      , '</div>'
 ;
-echo '</div>';
 
 echo object_group_tag($document, 'rescue', array('callback' => 'object_checkbox_tag'));
 
@@ -98,7 +104,10 @@ echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comment
 
 echo form_section_title('Accident profil', 'form_profil', 'preview_profil');
 
-echo object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list');
+echo    '<div data-impacted-filter="">'
+      , object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list')
+      , '</div>'
+;
 ?>
 <p class="big_tips"><?php echo __('The following infos are visible only by the moderators') ?></p>
 <?php
