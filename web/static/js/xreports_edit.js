@@ -15,10 +15,10 @@
   function manage_impacted_fields() {
     var nb_impacted = $('#nb_impacted').val();
 
-    $('#is_impacted').hide();
+    $('[data-impacted-filter]').hide();
 
     if (!!nb_impacted && nb_impacted > 0) {
-      $('#is_impacted').show();
+      $('[data-impacted-filter]').show();
     };
   }
 
