@@ -174,7 +174,7 @@ $gear_tips = '<p id="usual_gear" class="edit-tips">'
            . "</p>\n";
 echo $gear_tips;
 
-echo object_group_bbcode_tag($document, 'external_resources');
+echo object_group_bbcode_tag($document, 'external_resources', null, array('placeholder' => __('external_resources_default')));
 if (isset($associated_books) && count($associated_books))
 {
   use_helper('Field');
