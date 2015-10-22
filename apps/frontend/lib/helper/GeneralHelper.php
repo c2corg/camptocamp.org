@@ -220,6 +220,31 @@ function check_is_numeric_or_text($value)
     );
 }
 
+function check_is_positive($value)
+{
+    return
+    (   !empty($value)
+     && !$value instanceof Doctrine_Null
+     && !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null)
+     && is_numeric($value)
+     && ($value == (int)$value)
+     && ($value > 0)
+    );
+}
+
+// check that the value from a single or multiple choice field is not empty
+function check_list_not_empty($value, $multiple = false)
+{
+    if ($multiple)
+    {
+        return check_not_empty($value) && $value !== array("0") && $value !== array("");
+    }
+    else
+    {
+        return check_is_positive($value);
+    }
+}
+
 // escaped doctrine null is not directly null, which is often annoying
 function doctrine_value($value)
 {
