@@ -51,7 +51,7 @@ echo object_group_bbcode_tag($document, 'description', null, array('class' => 'm
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');
 echo object_group_bbcode_tag($document, 'way_back');
-echo object_group_bbcode_tag($document, 'external_resources');
+echo object_group_bbcode_tag($document, 'external_resources', null, array('placeholder' => __('external_resources_default')));
 if (isset($associated_books) && count($associated_books))
 {
   use_helper('Field');
