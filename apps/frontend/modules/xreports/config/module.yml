@@ -29,6 +29,7 @@ all:
       30: '3'
       40: '4'
       50: '5'
+      100: 'avalanche_level_NA'
 
   avalanche_slope:
     list:
