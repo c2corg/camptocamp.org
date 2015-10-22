@@ -104,8 +104,11 @@ echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comment
 
 echo form_section_title('Accident profil', 'form_profil', 'preview_profil');
 
-echo    '<div data-impacted-filter="">'
+echo   '<div class="col_left">'
       , object_group_dropdown_tag($document, 'author_status', 'mod_xreports_author_status_list')
+      , '</div>'
+      , '<div class="col col_50 tips">'
+      , __('_author_status_info')
       , '</div>'
 ;
 ?>
