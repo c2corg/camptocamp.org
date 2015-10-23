@@ -2184,7 +2184,6 @@ all:
     accident:
       id: @ACCIDENT_ID@
       name: 'Incidents and accidents database'
-      menu: 1
     family:
       id: @FAMILY_ID@
       name: 'family portal'
