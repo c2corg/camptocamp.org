@@ -314,6 +314,10 @@ msgstr "Ajoutez votre sortie"
 msgid "Associate new route"
 msgstr "Créer un nouvel itinéraire lié"
 
+# [WARNING] needs_review
+msgid "Associate new xreports"
+msgstr "Ajouter un compte rendu d'incident/accident à cette sortie"
+
 msgid "Association"
 msgstr "Association"
 
@@ -626,7 +630,7 @@ msgstr "Ajouter une carte"
 # 
 # PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien \"S'inscrire\", c'est rapide et gratuit. Merci pour votre future contribution."
 
 msgid "Create new outing with some help"
 msgstr "Ajouter une nouvelle sortie en bénéficiant d'aide"
@@ -651,6 +655,13 @@ msgstr "Ajouter un site"
 
 msgid "Create new summits"
 msgstr "Ajouter un sommet"
+
+# [general comment]
+# Infobulle pour le lien vers la page de création d'un compte rendu d'incident en mode non connecté
+# /!\ no linebreaks allowed
+# /!\ no markup (<.>...<./>)
+msgid "Create new xreport unconnected"
+msgstr "Connectez vous pour ajouter un compte rendu d'incident/accident. Si vous n'avez pas de compte, cliquez sur le lien \"S'inscrire\", c'est rapide et gratuit. Merci pour votre future contribution."
 
 # [WARNING] needs_review
 msgid "Create new xreports"
@@ -1713,6 +1724,10 @@ msgstr "Mes statistiques"
 
 msgid "My topics"
 msgstr "Mes discussions"
+
+# [WARNING] needs_review
+msgid "My xreports"
+msgstr "Mes incidents"
 
 msgid "N"
 msgstr "N"
@@ -2982,9 +2997,29 @@ msgid "You have been associated to an outing"
 msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
+# Title of email sent when a user is associated to a xreport
+msgid "You have been associated to an xreport"
+msgstr "Vous avez été associé à un compte rendu d'incident:accident de Camptocamp.org"
+
+# [general comment]
 # Details of email sent when a user is associated to an outing
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br />\n"
+"<br />\n"
+"Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br />\n"
+"<br />\n"
+"--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
+# Details of email sent when a user is associated to a xreport
+# As model, you can use the text for outing (ID : You have been associated to outing %1% details)
+msgid "You have been associated to xreport %1% details"
+msgstr "Vous avez été associé comme participant à un compte rendu d'incident ou d'accident sur Camptocamp.org.<br />\n"
+"<br />\n"
+"Ce compte rendu est située à l'adresse %1%. En tant qu'auteur, vous possédez désormais des droits de modification et d'association sur celui-ci.<br />\n"
+"<br />\n"
+"--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
 
 # [general comment]
@@ -3141,6 +3176,11 @@ msgstr "<h3>Associer des documents existant</h3>\n"
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
 
+# [WARNING] needs_review
+msgid "_author_status_info"
+msgstr "Si le nombre de personnes touchées est 0, considérez votre implication si l'incident avait eu lieu.<br />\n"
+"S'il est impossible de savoir si vous auriez été touché ou non, laissez le champ vide."
+
 msgid "_autonomy_info"
 msgstr "Quelle est votre autonomie dans cette activité au moment de l'évènement ?"
 
@@ -3204,6 +3244,15 @@ msgstr "<h3>Observations relatives aux avalanches</h3>\n"
 "Avalanche naturelle observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller).\n"
 "<h4>avalanche accidentelle le jour de la sortie</h4>\n"
 "Avalanche déclenchée par une personne ou un animal, observée en direct, ou tombée le jour de la sortie (trace vue au retour mais inexistante à l'aller)."
+
+# [WARNING] needs_review
+msgid "_avalanche_level_info"
+msgstr "Indice de risque d'avalanche issu du BERA sur le lieu et à l'heure de l'évènement (le BERA peut indiquer un risque différent selon l'altitude, l'orientation et l'heure).<br />\n"
+"S'il n'y a pas de BERA ou s'il ne mentionne pas d'indice de risque, sélectionnez \"indisponible\"."
+
+# [WARNING] needs_review
+msgid "_avalanche_slope_info"
+msgstr "Pente des parties les plus raides de la zone de départ de l'avalanche."
 
 msgid "_beginner_proof_info"
 msgstr "<h3>Initiation</h3>\n"
@@ -3350,29 +3399,34 @@ msgstr "<h3>Engagement</h3>\n"
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualité de l'équipement en place</h3>\n"
-"Ce champ permet de préciser la présence et la qualité de points de protections pour l'escalade rocheuse ou glaciaire.<br />\n"
-"<br />\n"
-"<strong>P1 (bien équipé)</strong><br />\n"
-"Voie sportive équipée sur goujons de 10 ou 12mm, scellements, etc. La voie n’est pas nécessairement équipée pour redescendre en rappel.<br />\n"
-"<em><u>Matériel à prendre</u>&nbsp;:</em> 12 à 14 dégaines dont quelques longues, 1 à 2 sangles pour compléter l'équipement dans les longueurs faciles en 2.<br />\n"
-"<br />\n"
-"<strong>P2 (partiellement équipé)</strong><br />\n"
-"- Voie classique avec un équipement abondant et de bonne qualité à base de pitons et quelques spits/goujons. Néanmoins, il pourrait s’avérer nécessaire de compléter ou de renforcer l’équipement en place.<br />\n"
-"- Voie classique ou moderne équipée sur goujons ou pitons uniquement dans les passages improtégeables et aux relais.<br />\n"
-"- Voie sportive sur spit de 8mm ou autre équipement vieillssant.<br />\n"
-"<em><u>Matériel à prendre</u>&nbsp;:</em> il dépend de la voie. Pour une voie D ou plus, au minimum 8 coinceurs, 5 friends, 4 sangles, dégaines longues.<br />\n"
-"<br />\n"
-"<strong>P3 (peu équipé)</strong><br />\n"
-"Voie moins classique avec peu d’équipement (la plupart des points et des relais sont à confectionner) et/ou de très mauvaise qualité.<br />\n"
-"<em><u>Matériel à prendre</u>&nbsp;:</em> Il dépend de la voie. Pour une voie D ou plus, au minimum un jeu complet de coinceurs et de friend du Camalot #0.3 au Camalot #3 - #4, 2 marteaux, 6 pitons variés.<br />\n"
-"<br />\n"
-"<strong>P4 (pas équipé)</strong><br />\n"
-"Voie sans équipement ou avec quelques points de qualité douteuse.<br />\n"
-"<em><u>Matériel à prendre</u>&nbsp;:</em> Il dépend de la voie. Pour une voie D ou plus, au minimum celui de la catégorie P3."
+"La <a href=\"/articles/133323/fr#equipment\">cotation équipement</a> se définit avec la quantité de matériel à emporter et le savoir-faire nécessaire pour l'utiliser. Généralement, un relai est plus difficile à réaliser et nécessite plus de matériel que l'ajout d'un point.<br />\n"
+"<h4>P1</h4>\n"
+"- Prendre uniquement des dégaines et une sangle, + éventuellement des sangles pour passer en A0+.<br />\n"
+"- Tous les relais et tous les points des longueurs sont en place, et sont soit de bonne qualité (goujons > 10mm, scellement), soit impossibles à renforcer (la différence avec un P1 béton se fait alors par la <a href=\"/articles/133323/fr#exposition\">cotation exposition</a>).<br />\n"
+"- Aucun point ne peut être ajouté (même si l'exposition est E4), ou c'est inutile (l'exposition est déjà E2 ou E1).<br />\n"
+"<h4>P1+</h4>\n"
+"- Prendre de quoi protéger un pas ou une courte section dans une ou quelques longueurs, si on souhaite limiter l'exposition.<br />\n"
+"- Quelques pas ou sections courtes de la voie sont mal protégées (équipement en place éloigné ou de mauvaise qualité) et il est possible de compléter l'équipement pour réduire l'exposition à E2 autant que possible.<br />\n"
+"<h4>P2</h4>\n"
+"- Prendre de quoi compléter l'équipement dans les longueurs et renforcer certains relais.<br />\n"
+"- Presque tous les relais sont équipés, et sont de bonne qualité. Ou tout ou partie des relais sont à construire, mais ils sont évidents (béquets ou arbres solides).<br />\n"
+"- Des points sont en place dans les longueurs, dont certains de bonne qualité, et les crux de la plupart des longueurs sont équipés.<br />\n"
+"- L'équipement est à compléter à plusieurs reprises pour réduire l'exposition à E2 autant que possible.<br />\n"
+"<h4>P2+</h4>\n"
+"- Prendre de quoi protéger certaines longueurs en totalité ou presque, et de quoi construire quelques relais.<br />\n"
+"- Peu de points (de bonne ou mauvaise qualité) sont en place dans les longueurs, et les crux des longueurs ne sont pas forcément équipés.<br />\n"
+"<h4>P3 &nbsp; P3+</h4>\n"
+"- Prendre de quoi protéger la plupart des longueurs en totalité (P3+) ou presque (P3), et de quoi construire de nombreux relais.<br />\n"
+"- Certains relais sont équipés et sont de qualité (P3), mais de nombreux relais sont à construire, et peuvent ne pas être évidents.<br />\n"
+"- Très peu de points sont en place dans les longueurs.<br />\n"
+"<h4>P4 &nbsp; P4+</h4>\n"
+"- Prendre de quoi protéger la totalité des longueurs et la totalité des relais.<br />\n"
+"- De rares points de mauvaise qualité sont en place dans la voie (P4), ou aucun équipement n'est en place (P4+)."
 
 msgid "_event_type_info"
 msgstr "Type d'événement constaté ou qui aurait pu découler de la situation.<br />\n"
-"Plusieurs types peuvent être sélectionnés."
+"Plusieurs types peuvent être sélectionnés.<br />\n"
+"Le type \"chute en étant encordé\" permet de préciser les types \"chute en crevasse\", \"autre chute\" et \"avalanche\", mais ne peut pas être sélectionné seul."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposition</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
@@ -3418,6 +3472,22 @@ msgstr "<h3>Cotation globale alpinisme</h3>\n"
 
 msgid "_gps_data_info"
 msgstr "<h3>Trace (.gpx)</h3>Enregistrez facilement une trace au format GPX pour illustrer un itinéraire ou votre sortie.<br />Cela permettra de télécharger ultérieurement un KML avec navigation temporelle.<br /><br />Si votre GPS exporte des fichiers au format NMEA, utilisez <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> pour les convertir en GPX."
+
+# [general comment]
+# Aide contextuelle du champ texte "Dynamique de groupe" (ID : group_management ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir group_management_default
+# [WARNING] needs_review
+msgid "_group_management_info"
+msgstr "<h3>Dynamique de groupe</h3>\n"
+"La dynamique de groupe rassemble les points suivants :<br />\n"
+"- la communication des objectifs dans le groupe<br />\n"
+"- les attentes de chacun et leurs prises en compte<br />\n"
+"- les craintes et observations en cours de sortie<br />\n"
+"- les briefing pour établir de nouvelles stratégies<br />\n"
+"- les éléments de conduite de groupe et de responsabilités<br />\n"
+"- groupe habitué à fonctionner ensemble ou non<br />\n"
+"- l'émulation au sein du groupe<br />\n"
+"- d'autres aspects relatifs au groupe"
 
 msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Couvertures</h3>Présence de couverture hors période de gardiennage."
@@ -3530,6 +3600,20 @@ msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour c
 msgid "_image_type_info"
 msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.\n"
 "<br /><br /><strong>image sous copyright</strong>&nbsp;:<br />Une image peut exceptionnellement ne pas être diffusée sous licence Creative Commons. Les images sous copyright correspondent à certaines couvertures de livre, et la propriété de celles-ci est à l'auteur et/ou l'éditeur de l'ouvrage. Elles ne sont présentes dans camptocamp qu'à titre d'illustration. Il n'est pas possible d'utiliser ces images sans en requérir au préalable à l'ayant droit."
+
+# [general comment]
+# Aide contextuelle du champ texte "Éléments qui ont accentué les conséquences" (ID : increase_impact ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir increase_impact_default
+# [WARNING] needs_review
+msgid "_increase_impact_info"
+msgstr "<h3>Éléments qui ont accentué les conséquences</h3>\n"
+"S'il y en a, décrivez les éléments qui ont accentué les conséquences de l’événement ou aggravé la situation :<br />\n"
+"- accessibilité<br />\n"
+"- engagement de la voie<br />\n"
+"- non préparation à faire face à un incident<br />\n"
+"- manque d'expérience dans la gestion d'un incident/accident<br />\n"
+"- matériel manquant<br />\n"
+"- etc"
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Nécessite le matériel de glacier</h3>Itinéraire passant sur des glaciers pouvant être crevassés."
@@ -3656,6 +3740,15 @@ msgstr "<h3>Cotation mixte</h3>\n"
 msgid "_moderator status_info"
 msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
 
+# [general comment]
+# Aide contextuelle du champ texte "Motivations" (ID : motivations ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir motivations_default
+# [WARNING] needs_review
+msgid "_motivations_info"
+msgstr "<h3>Motivations</h3>\n"
+"Décrivez pourquoi vous avez choisi cette sortie, et à quel point vous étiez attaché à l'objectif fixé.<br />\n"
+"Considérez l'influence de possibles choix effectués en amont (jours de congés, long trajet, réservations de nuitées...), des efforts réalisés jusque-là, de la rareté de l'opportunité, etc."
+
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
@@ -3767,6 +3860,19 @@ msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a ét�
 msgid "_rain_proof_info"
 msgstr "<h3>Pluie</h3>Exposition du site/secteur à la pluie.<br />Utile si le temps est incertain."
 
+# [general comment]
+# Aide contextuelle du champ texte "Éléments qui ont atténué les conséquences" (ID : reduce_impact ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir reduce_impact_default
+# [WARNING] needs_review
+msgid "_reduce_impact_info"
+msgstr "<h3>Éléments qui ont atténué les conséquences</h3>\n"
+"S'il y en a, décrivez les éléments qui ont permis d’atténuer les conséquences de l’événement ou d’empêcher la situation de se transformer en accident plus grave :<br />\n"
+"- capacités d'évitement<br />\n"
+"- compétences dans les techniques de secours<br />\n"
+"- avoir prévu une marge horaire confortable<br />\n"
+"- matériel à disposition<br />\n"
+"- etc"
+
 msgid "_remarks_info"
 msgstr "<h3>Remarques</h3>Ce champ permet de compléter ou nuancer les informations des champs numériques. Par contre les variantes d'un itinéraire doivent être décrites dans sa description.<br />N'hésitez pas à enrichir ce champ pour donner des détails sur les difficultés, le dénivelé, l'orientation, souligner des particularités, insister sur des précautions, etc."
 
@@ -3786,15 +3892,15 @@ msgid "_rock_exposition_rating_info"
 msgstr "<h3>Exposition en rocher</h3>\n"
 "La cotation Exposition E pour les itinéraires d'escalade rocheuse est basée sur les conséquences de la chute.  Le grimpeur ne se blesse pas dans les 3 premiers niveaux (E1, E2, E3). La progression dans la cotation correspond à l'augmentation de la longueur de chute potentielle (ou la distance entre les protections). Pour les niveaux plus élevés (E4, E5, E6) la chute entrainera des blessures. Le cotation correspond à la sévérité des conséquences de la chute depuis la fracture de cheville jusqu'à la mort. <br />\n"
 "<br />\n"
-"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire.<br />\n"
+"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire dans la cotation libre maximale.<br />\n"
 "<br />\n"
-"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.<br />\n"
 "<br />\n"
 "<strong>E3</strong>&nbsp;: La chute va être longue mais sans conséquences physiques. Les points à demeure ou protections amovibles sont espacés.<br />\n"
 "<br />\n"
 "<strong>E4</strong>&nbsp;: La chute n'est pas bénigne. Elle entraîne un accident mineur même si les points à demeure ou protections amovibles ne sont pas trop espacés.<br />\n"
 "<br />\n"
-"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.<br />\n"
 "<br />\n"
 "<strong>E6</strong>&nbsp;: La même chose que E5 mais considérez que vous avez eu de la chance si vous tombez sans mourir dans un E6 même en ayant protégé.<br />\n"
 "<br />\n"
@@ -3863,6 +3969,14 @@ msgstr "<h3>Type de parcours</h3><br />Le type de parcours est utile pour toutes
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secteur."
+
+# [general comment]
+# Aide contextuelle du champ texte "Mesures et techniques de sécurité mises en oeuvres" (ID : safety ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir safety_default
+# [WARNING] needs_review
+msgid "_safety_info"
+msgstr "<h3>Mesures et techniques de sécurité mises en oeuvres</h3>\n"
+"Type d'assurage et de protection, vérifications entre grimpeurs, tests de stabilité du manteau neigeux, test des DVA, etc."
 
 msgid "_scale_info"
 msgstr "<h3>Échelle</h3>Échelle de la carte."
@@ -3988,6 +4102,16 @@ msgstr "<h3>Type du \"sommet\"</h3>\n"
 msgid "_swiss coords_info"
 msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
 
+# [general comment]
+# Aide contextuelle du champ texte "Gestion du temps" (ID : time_management ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir time_management_default
+# [WARNING] needs_review
+msgid "_time_management_info"
+msgstr "<h3>Gestion du temps</h3>\n"
+"Un horaire avait-il été prévu ?<br />\n"
+"A t-il été tenu ?<br />\n"
+"La gestion du temps a t-elle eu une influence sur le déclenchement de l'événement ?"
+
 msgid "_timing_info"
 msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la sortie, comme par exemple&nbsp;:<br />- heures de départ et de retour<br />- heure d'arrivée au sommet, ou durée de la montée<br />- pour le ski&nbsp;: heure de début de la descente<br /><br /><em>ATTENTION&nbsp;: cet horaire est celui qu'a réalisé l'auteur de la sortie. Il peut y avoir de fortes variations en fonction des conditions du moment, de la forme physique et du niveau technique de chacun.</em>"
 
@@ -4005,6 +4129,14 @@ msgstr "<h3>Cotation technique</h3>Cotation des difficultés techniques de desce
 
 msgid "_track_status_info"
 msgstr "<h3>Trace</h3>État de la trace après la sortie et les différents passages de la journée. Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+
+# [general comment]
+# Aide contextuelle du champ texte "Préparation physique et entraînement" (ID : training ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir training_default
+# [WARNING] needs_review
+msgid "_training_info"
+msgstr "<h3>Préparation physique et entraînement par rapport à l’objectif</h3>\n"
+"Décrivez votre niveau technique à la date de l'évènement, votre condition physique, la fatigue accumulée avant l'évènement, l'acclimatation pour une sortie en haute altitude, etc."
 
 msgid "_unstaffed_capacity_info"
 msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
@@ -4041,6 +4173,15 @@ msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."
 
 # [general comment]
+# Aide contextuelle du champ texte "Etude des conditions" (ID : xreport_conditions ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_conditions_default
+# [WARNING] needs_review
+msgid "_xreport_conditions_info"
+msgstr "<h3>Étude des conditions</h3>\n"
+"Décrivez les informations récoltées avant la sortie et le suivi de leur évolution sur le terrain.<br />\n"
+"Cela concerne les prévisions météo, les bulletins d'évaluation du risque d'avalanche, la qualité du regel, la qualité de la neige/glace/rocher, les compte rendu des jours précédents, etc."
+
+# [general comment]
 # Aide contextuelle du champ texte "Déroulement de la sortie" (ID : xreport_description ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_description_default
 # [WARNING] needs_review
@@ -4048,6 +4189,32 @@ msgid "_xreport_description_info"
 msgstr "<h3>Déroulement de la sortie</h3>\n"
 "Décrivez le déroulement de la sortie.<br />\n"
 "Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
+
+# [general comment]
+# Aide contextuelle du champ texte "Conséquences sur ses pratiques" (ID : xreport_modifications ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_modifications_default
+# [WARNING] needs_review
+msgid "_xreport_modifications_info"
+msgstr "<h3>Conséquences sur ses pratiques</h3>\n"
+"Cet événement a-t-il eu un impact sur votre pratique ou modifié vos habitudes ?<br />\n"
+"Si oui, dans quel sens ? (appréhension, préparation plus soutenue, arrêt de l'activité, changement de compagnon en montagne, etc)."
+
+# [general comment]
+# Aide contextuelle du champ texte "Autres commentaires" (ID : xreport_other_comments ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
+# [WARNING] needs_review
+msgid "_xreport_other_comments_info"
+msgstr "<h3>Autres commentaires</h3>\n"
+"Commentaires libres."
+
+# [general comment]
+# Aide contextuelle du champ texte "Niveau de l'attention et (ré)évaluation des risques" (ID : xreport_risk ).
+# Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_risk_default
+# [WARNING] needs_review
+msgid "_xreport_risk_info"
+msgstr "<h3>Niveau de l'attention et (ré)évaluation des risques</h3>\n"
+"Avez-vous réévalué les risques à chaque changement de situation ?<br />\n"
+"Considérez des facteurs qui ont pu influencer votre niveau d'attention tels que la fatigue, le stress, la baisse d'attention une fois les difficultés passées ou à la descente, un secteur connu ou réputé facile, la présence de traces ou d'autres personnes, une confiance totale dans le responsable du groupe, etc."
 
 msgid "abruzzes"
 msgstr "Abruzzes"
@@ -4342,7 +4509,7 @@ msgstr "Auteur"
 
 # [WARNING] needs_review
 msgid "author_status"
-msgstr "Implication dans la situation (en cas d’incident)&nbsp;:"
+msgstr "Implication dans la situation&nbsp;:"
 
 # [comment]
 # il faut un s à correspondant ?  
@@ -4393,11 +4560,14 @@ msgstr "Infos avalanche"
 
 # [WARNING] needs_review
 msgid "avalanche_level"
-msgstr "Indice de risque d'avalanche (issu du BERA)&nbsp;:"
+msgstr "Indice de risque d'avalanche&nbsp;:"
+
+msgid "avalanche_level_NA"
+msgstr "indisponible"
 
 # [WARNING] needs_review
 msgid "avalanche_slope"
-msgstr "Pente la plus forte sur la zone de départ de l'avalanche&nbsp;:"
+msgstr "Pente de la zone de départ&nbsp;:"
 
 msgid "awful conditions"
 msgstr "exécrables"
@@ -5295,6 +5465,13 @@ msgstr "Temps d'exposition&nbsp;:"
 msgid "external_resources"
 msgstr "Bibliographie et webographie&nbsp;:"
 
+# [general comment]
+# Texte affichée dans le champ "Bibliographie et webographie" lorsqu'il est vide, à l'édition d'un itinéraire ou d'un site de couenne.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
+msgid "external_resources_default"
+msgstr "Les livres topo doivent être associés à l'itinéraire ou au site de couenne/bloc après l'enregistrement. Il est en général inutile de les préciser dans ce champ."
+
 msgid "external_witness"
 msgstr "témoin extérieur au groupe"
 
@@ -5584,6 +5761,8 @@ msgstr "Dynamique de groupe&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Dynamique de groupe" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "group_management_default"
 msgstr "Communication des objectifs et attentes de chacun, des craintes et observations en cours de sortie, briefing pour établir de nouvelles stratégies, éléments de conduite de groupe et de responsabilités, groupe habitué à fonctionner ensemble ou non, émulation, etc."
@@ -5792,6 +5971,8 @@ msgstr "Éléments qui ont accentué les conséquences&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont accentué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 msgid "increase_impact_default"
 msgstr "Y-a t-il des éléments qui ont accentué les conséquences de l’événement ou aggravé la situation ? (accessibilité, engagement de la voie, non préparation à faire face à un incident, manque d'expérience dans la gestion d'un incident/accident, matériel manquant, etc.)"
 
@@ -6310,6 +6491,8 @@ msgstr "Motivations&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Motivations" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "motivations_default"
 msgstr "Pourquoi avoir choisi cette sortie ? A quel point étiez-vous attaché à l'objectif fixé ? Considérez l'influence de possibles choix effectués en amont (jours de congés, long trajet, réservations de nuitées...), des efforts réalisés jusque-là, de la rareté de l'opportunité, etc."
@@ -7211,6 +7394,8 @@ msgstr "Éléments qui ont atténué les conséquences&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont atténué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "reduce_impact_default"
 msgstr "Y-a t-il des éléments qui ont permis d’atténuer les conséquences de l’événement ou d’empêcher la situation de se transformer en accident plus grave ? (capacités d'évitement, compétences dans les techniques de secours, avoir prévu une marge horaire confortable, matériel à disposition, etc.)"
@@ -7331,6 +7516,9 @@ msgstr "toit"
 msgid "roped_fall"
 msgstr "chute en étant encordé"
 
+msgid "roped_fall can not be selected alone"
+msgstr "le type \"chute en étant encordé\" ne peut être sélectionné qu'en complément des types \"chute en crevasse\", \"autre chute\", \"avalanche\"."
+
 msgid "route"
 msgstr "itinéraire"
 
@@ -7433,6 +7621,8 @@ msgstr "Mesures et techniques de sécurité mises en oeuvres&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Mesures et techniques de sécurité mises en oeuvres" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "safety_default"
 msgstr "Type d'assurage et de protection, vérifications entre grimpeurs, tests de stabilité du manteau neigeux, test des DVA, etc."
@@ -7844,6 +8034,8 @@ msgstr "Gestion du temps&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Gestion du temps" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "time_management_default"
 msgstr "Un horaire avait-il été prévu ? A t-il été tenu ? La gestion du temps a t-elle eu une influence sur le déclenchement de l'événement ?"
@@ -7929,6 +8121,8 @@ msgstr "Préparation physique et entraînement par rapport à l’objectif&nbsp;
 
 # [general comment]
 # Texte affichée dans le champ "Préparation physique et entraînement" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "training_default"
 msgstr "Niveau technique, condition physique et fatigue, acclimatation, etc."
@@ -8164,9 +8358,11 @@ msgstr "Étude des conditions&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Etude des conditions" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_conditions_default"
-msgstr "Météo, bulletin de risque d'avalanche, regel, qualité de la neige/glace/rocher, compte rendu des jours précédents..."
+msgstr "Décrivez les informations récoltées avant la sortie et le suivi de leur évolution sur le terrain : météo, bulletin d'évaluation du risque d'avalanche, qualité du regel, qualité de la neige/glace/rocher, compte rendu des jours précédents..."
 
 msgid "xreport_description"
 msgstr "Déroulement de la sortie&nbsp;:"
@@ -8183,6 +8379,8 @@ msgstr "Conséquences sur ses pratiques&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Conséquences sur ses pratiques" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_modifications_default"
 msgstr "Cet événement a-t-il eu un impact sur votre pratique ou modifié vos habitudes ? Dans quel sens ? (appréhension, préparation plus soutenue, arrêt de l'activité, changement de compagnon en montagne, etc)."
@@ -8193,6 +8391,8 @@ msgstr "Autres commentaires&nbsp;:"
 # [general comment]
 # Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
 # Pour l'instant c'est vide (mais il faut mettre au moins un espace).
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_other_comments_default"
 msgstr " "
@@ -8202,6 +8402,8 @@ msgstr "Niveau de l'attention et (ré)évaluation des risques&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Niveau de l'attention et (ré)évaluation des risques" lorsqu'il est vide, à l'édition d'un incident/accident.
+# /!\ no linebreaks allowed
+# /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_risk_default"
 msgstr "Avez-vous réévalué les risques à chaque changement de situation ? Considérez des facteurs qui ont pu influencer votre niveau d'attention tels que la fatigue, le stress, la baisse d'attention une fois les difficultés passées ou à la descente, un secteur connu ou réputé facile, la présence de traces ou d'autres personnes, une confiance totale dans le responsable du groupe, etc."
@@ -8212,7 +8414,15 @@ msgstr "incidents et accidents"
 
 # [WARNING] needs_review
 msgid "xreports list"
-msgstr "Liste des incidents et accidents"
+msgstr "Incidents et accidents"
+
+# [WARNING] needs_review
+msgid "xreports presentation"
+msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.<br />\n"
+"Cette base de donnée de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la fondation Petzl. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. Des champs facultatifs demandent des infos personnelles, visibles uniquement des modérateurs et des chercheurs.<br />\n"
+"<br />\n"
+"Pour saisir un compte rendu d'incident ou accident, cliquez sur le lien \"Ajouter...\" ci-dessous, ou celui présent dans votre sortie si vous en avez déjà saisi une.<br />\n"
+"Si vous souhaitez rester anonyme, ou ne pas associer ce récit à votre compte c2c, c'est possible. Envoyez le récit (et éventuellement des photos) par mail à la <a href=\"/articles/106727#content\">modération</a>, il sera saisi sous le compte <a href=\"/users/271737\">Base accidents</a>."
 
 msgid "year"
 msgstr "an"
