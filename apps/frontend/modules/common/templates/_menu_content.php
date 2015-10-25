@@ -354,7 +354,7 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                            . link_to(__('My outings'), 'outings/myoutings') ?></li>
                     <li><?php
                         echo picto_tag('picto_xreports')
-                           . link_to(__('My xreports'), 'outings/myxreports') ?></li>
+                           . link_to(__('My xreports'), 'xreports/myxreports') ?></li>
                     <li><?php
                         echo picto_tag('picto_images')
                            . link_to(__('My images'), 'images/myimages') ?></li>
