@@ -617,7 +617,7 @@ class c2cTools
         $module = $result[0]['module'];
 
         // note: only personal articles are linked with users so it is ok to search users attached for each article
-        if (in_array($module, array('outings', 'users', 'articles', 'images')))
+        if (in_array($module, array('outings', 'users', 'articles', 'images', 'xreports')))
         {
             if ($module == 'users')
             {
