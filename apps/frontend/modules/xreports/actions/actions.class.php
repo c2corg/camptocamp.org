@@ -43,6 +43,7 @@ class xreportsActions extends documentsActions
             Portal::getLocalPortals($related_portals, $this->associated_areas);
             $this->related_portals = $related_portals;
 
+            $doc_name = $this->document->get('name');
             $description = array($doc_name, $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
