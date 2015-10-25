@@ -8,6 +8,7 @@ $menu_search = array(
     url_for('@filter?module=images') => __('images'),
     url_for('@filter?module=summits') => __('summits'),
     url_for('@filter?module=sites') => __('sites'),
+    url_for('@filter?module=xreports') => __('xreports'),
     url_for('@filter?module=parkings') => __('parkings'),
     url_for('@filter?module=huts') => __('huts'),
     url_for('@filter?module=books') => __('books'),
@@ -19,11 +20,12 @@ $menu_search = array(
 $menu_see = array(
     '#' => ' ',
     url_for('@default_index?module=outings&orderby=date&order=desc') => __('outings'),
-    url_for('@default?module=outings&action=conditions&orderby=date&order=desc') =>  __('cond short'),
+    url_for('@default?module=outings&action=conditions&orderby=date&order=desc') => lcfirst(__('cond short')),
     url_for('@default_index?module=routes') => __('routes'),
     url_for('@default_index?module=images') => __('images'),
     url_for('@default_index?module=summits') => __('summits'),
     url_for('@default_index?module=sites') => __('sites'),
+    url_for('@default_index?module=xreports') => __('xreports'),
     url_for('@default_index?module=parkings') => __('parkings'),
     url_for('@default_index?module=huts') => __('huts'),
     url_for('@default_index?module=books') => __('books'),
@@ -32,19 +34,27 @@ $menu_see = array(
     url_for('@default_index?module=users') => __('users')
 );
 
-$menu_more = array(
-    '#' => ' ',
+$menu_more = array('#' => ' ');
+$menu_more_common = array(
     url_for(getMetaArticleRoute('association')) => __('Association'),
     url_for(getMetaArticleRoute('help', false)) => __('Global help'),
     url_for(getMetaArticleRoute('home_guide')) => __('Help').__(' :').' '.__('Guidebook'),
     url_for(getMetaArticleRoute('help_forum', false)) => __('Help').__(' :').' '.__('Forums'),
     url_for('users/sortPreferedLanguages') => __('Set languages preferences')
 );
+$menu_more_connected = array();
 if ($is_connected)
 {
-    $menu_more[url_for('users/mypage')] = __('personal page');
-    $menu_more[url_for('/forums/message_list.php')] =__('mailbox');
+    $menu_more_connected = array(
+        url_for('users/mypage') => __('personal page'),
+        url_for('outings/myoutings') => __('My outings'),
+        url_for('xreports/myxreports') => __('My xreports'),
+        url_for('images/myimages') => __('My images'),
+        url_for('@document_edit?module=xreports&id=&lang=') => __('Create new xreports'),
+        url_for('/forums/message_list.php') => __('mailbox')
+    );
 }
+$menu_more = array_merge($menu_more, $menu_more_connected, $menu_more_common);
 ?>
 <div id="mobile_menu">
   <div id="menu_items">
