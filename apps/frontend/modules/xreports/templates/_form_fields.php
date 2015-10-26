@@ -90,7 +90,7 @@ echo form_section_title('Accident factors', 'form_factors', 'preview_factors');
 <?php
 
 echo object_group_bbcode_tag($document, 'route_study', null, array('class' => 'smalltext', 'placeholder' => __('route_study_default')));
-echo object_group_bbcode_tag($document, 'conditions', 'xreport_conditions', array('class' => 'smalltext', 'placeholder' => __('xreport_conditions_default')), true, 'xreport_conditions');
+echo object_group_bbcode_tag($document, 'conditions', 'xreport_conditions short', array('class' => 'smalltext', 'placeholder' => __('xreport_conditions_default')), true, 'xreport_conditions');
 echo object_group_bbcode_tag($document, 'training', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('training_default')));
 echo object_group_bbcode_tag($document, 'motivations', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('motivations_default')));
 echo object_group_bbcode_tag($document, 'group_management', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('group_management_default')));
