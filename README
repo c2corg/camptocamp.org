@@ -40,4 +40,3 @@ Please note that launching an initial --install or --refresh command is required
 To remove cache files, use the following command:
 
 $ php c2corg --clean
-
