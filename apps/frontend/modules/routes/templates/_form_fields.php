@@ -36,26 +36,26 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 <div data-act-filter="none">
 <div class="article_gauche_5050">
 <?php
-echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
+echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
+echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0'));
 ?>
 <div data-act-filter="1 2 3 6 7">
 <?php
-echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0'));
 ?>
 </div>
 <div  data-act-filter="6 7">
 <?php
-echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
+echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', step => '.1'));
 
 ?>
 </div>
 
 <div data-act-filter="1 2 3 4 5">
 <?php
-echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'label_name' => 'difficulties_start_elevation'));
-echo object_group_tag($document, 'difficulties_height', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900', 'label_name' => 'difficulties_start_elevation'));
+echo object_group_tag($document, 'difficulties_height', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0'));
 ?>
 </div>
 <?php
@@ -174,7 +174,7 @@ $gear_tips = '<p id="usual_gear" class="edit-tips">'
            . "</p>\n";
 echo $gear_tips;
 
-echo object_group_bbcode_tag($document, 'external_resources');
+echo object_group_bbcode_tag($document, 'external_resources', null, array('placeholder' => __('external_resources_default')));
 if (isset($associated_books) && count($associated_books))
 {
   use_helper('Field');

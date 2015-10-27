@@ -23,12 +23,12 @@ class Parking extends BaseParking
     
     public static function filterSetElevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetLowest_elevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetPublic_transportation_rating($value)

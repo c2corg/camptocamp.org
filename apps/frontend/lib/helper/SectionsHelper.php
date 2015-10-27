@@ -45,3 +45,21 @@ function end_section_tag($map = false)
 {
     return !$map ? '</section>' : '';
 }
+
+
+function start_preview_section_tag($label, $container_id, $title_id)
+{
+    $label = __($label) . '<span class="tips">[' . __('Go back to form') . ']</span>';
+
+    $html  = '<div class="title" id="preview_' . $title_id . '">'
+           . '<a href="#form_' . $title_id . '">' . $label . '</a>'
+           . '</div><hr />'
+           . '<div class="section" id="' . $container_id . '_section_container">';
+    
+    return $html;
+}
+
+function end_preview_section_tag()
+{
+    return '</div>';
+}

@@ -37,7 +37,7 @@ class Image extends BaseImage
 
     public static function filterSetElevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
     
     public static function filterSetAuthor($value)

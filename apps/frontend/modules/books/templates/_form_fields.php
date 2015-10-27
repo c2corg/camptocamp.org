@@ -20,7 +20,7 @@ echo object_group_tag($document, 'url', array('class' => 'long_input', 'type' =>
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true),
                                false, null, null, '', '', 'picto_act act_');
 echo object_group_tag($document, 'publication_date', array('class' => 'medium_input'));
-echo object_group_tag($document, 'nb_pages', array('class' => 'short_input'));
+echo object_group_tag($document, 'nb_pages', array('class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '30000'));
 echo object_group_dropdown_tag($document, 'langs', 'app_languages_book', array('multiple' => true));
 echo object_group_dropdown_tag($document, 'book_types', 'mod_books_book_types_list', array('multiple' => true));
 
