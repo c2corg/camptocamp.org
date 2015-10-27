@@ -237,7 +237,7 @@ function check_list_not_empty($value, $multiple = false)
 {
     if ($multiple)
     {
-        return check_not_empty($value) && $value !== array("0") && $value !== array("");
+        return !empty($value);
     }
     else
     {
