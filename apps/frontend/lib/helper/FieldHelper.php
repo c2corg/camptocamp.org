@@ -565,7 +565,7 @@ function _format_data_from_list($name, $value, $config, $options = array())
         }
     }
     
-    $is_not_empty_value = check_list_not_empty($value, $multiple);
+    $is_not_empty_value = !empty($value);
 
     if ($is_not_empty_value)
     {
