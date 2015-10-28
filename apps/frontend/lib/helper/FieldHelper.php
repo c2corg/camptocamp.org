@@ -572,11 +572,12 @@ function _format_data_from_list($name, $value, $config, $options = array())
         if ($multiple)
         {
             $value = is_array($value) ? $value : Document::convertStringToArray($value);
-            foreach ($value as &$item)
+            $value_tmp = array();
+            foreach ($value as $item)
             {
-                $item = _get_field_value_in_list($list, $item);
+                $value_tmp[] = _get_field_value_in_list($list, $item);
             }
-            $value = array_filter($value);
+            $value = array_filter($value_tmp);
             $value = implode(', ', $value);
         }
         else
