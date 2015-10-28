@@ -132,24 +132,24 @@ function field_data_from_list($document, $name, $config, $options = array())
 function field_data_from_list_if_set($document, $name, $config, $options = array())
 {
     $title = _option($options, 'title', $name);
-/*    $multiple = _option($options, 'multiple', false);
+    $multiple = _option($options, 'multiple', false);
     $value = $document->getRaw($name);
     
-    if (!check_list_not_empty($value, $multiple))
+    if ($multiple)
+    {
+        $value_tmp = is_array($value) ? $value : Document::convertStringToArray($value);
+    }
+    else
+    {
+        $value_tmp = $value;
+    }
+    
+    if (!check_list_not_empty($value_tmp, $multiple))
     {
         return '';
     }
-
-    if ($multiple)
-    {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
-        if (empty($value))
-        {
-            return '';
-        }
-    }
-*/    
-    return _format_data_from_list($title, $document->getRaw($name), $config, $options);
+    
+    return _format_data_from_list($title, $value_tmp, $config, $options);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $config, $options = array())
@@ -235,15 +235,24 @@ function field_picto_from_list($document, $name, $config, $options = array())
 
 function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
-    $value = $document->getRaw($name);
     $multiple = _option($options, 'multiple', false);
+    $value = $document->getRaw($name);
     
-    if (!check_list_not_empty($value, $multiple))
+    if ($multiple)
+    {
+        $value_tmp = is_array($value) ? $value : Document::convertStringToArray($value);
+    }
+    else
+    {
+        $value_tmp = $value;
+    }
+    
+    if (!check_list_not_empty($value_tmp, $multiple))
     {
         return '';
     }
 
-    return _format_picto_from_list($name, $document->getRaw($name), $config, $options);
+    return _format_picto_from_list($name, $value_tmp, $config, $options);
 }
 
 function field_activities_data($document, $options = array())
