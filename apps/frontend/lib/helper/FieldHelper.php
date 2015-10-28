@@ -124,21 +124,16 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 
 function field_data_from_list($document, $name, $config, $options = array())
 {
-    $title = _option($options, 'title', '');
-
-    if (empty($title))
-    {
-        $title = $name;
-    }
+    $title = _option($options, 'title', $name);
 
     return _format_data_from_list($title, $document->getRaw($name), $config, $options);
 }
 
 function field_data_from_list_if_set($document, $name, $config, $options = array())
 {
-    $value = $document->getRaw($name);
     $title = _option($options, 'title', $name);
-    $multiple = _option($options, 'multiple', false);
+/*    $multiple = _option($options, 'multiple', false);
+    $value = $document->getRaw($name);
     
     if (!check_list_not_empty($value, $multiple))
     {
@@ -153,7 +148,7 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
             return '';
         }
     }
-    
+*/    
     return _format_data_from_list($title, $document->getRaw($name), $config, $options);
 }
 
