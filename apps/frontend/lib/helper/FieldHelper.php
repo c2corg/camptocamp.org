@@ -154,7 +154,7 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
         }
     }
     
-    return _format_data_from_list($title, $value, $config, $options);
+    return _format_data_from_list($title, $document->getRaw($name), $config, $options);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $config, $options = array())
@@ -248,7 +248,7 @@ function field_picto_from_list_if_set($document, $name, $config, $options = arra
         return '';
     }
 
-    return _format_picto_from_list($name, $value, $config, $options);
+    return _format_picto_from_list($name, $document->getRaw($name), $config, $options);
 }
 
 function field_activities_data($document, $options = array())
