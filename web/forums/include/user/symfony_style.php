@@ -17,7 +17,7 @@ if ($sf_user->getCulture() == 'en')
 
 if ($sf_user->getCulture() == 'fr')
 {
-    $sf_response->addStylesheet('/static/css/donate.css');
+    $sf_response->addStylesheet('/static/css/donate.css', 'last');
 }
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));

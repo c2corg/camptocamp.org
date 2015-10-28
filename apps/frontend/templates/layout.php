@@ -3,6 +3,7 @@ $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $action = $sf_context->getActionName();
+$response = sfContext::getInstance()->getResponse();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
@@ -30,16 +31,15 @@ else
 {
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
 }
-use_helper('MyMinify', 'MetaLink');
-
-$static_base_url = sfConfig::get('app_static_url');
-$response = sfContext::getInstance()->getResponse();
 
 if ($sf_user->getCulture() == 'fr')
 {
-    $response->addJavascript('/static/js/donate.js');
-    $response->addStylesheet('/static/css/donate.css');
+    $response->addStylesheet('/static/css/donate.css', 'last'); 
 }
+
+use_helper('MyMinify', 'MetaLink');
+
+$static_base_url = sfConfig::get('app_static_url');
 ?>
 <!doctype html>
 <html lang="<?php echo $lang_code ?>" data-static-url="<?php echo sfConfig::get('app_static_url') ?>">
@@ -70,6 +70,12 @@ if ($sf_user->getCulture() == 'fr')
 <body itemscope itemtype="http://schema.org/WebPage">
     <?php include_partial('common/section_close'); ?>
     <div id="holder">
+        <?php
+            if ($sf_user->getCulture() == 'fr')
+            {
+                include_partial('common/donate');
+            }
+        ?>
         <header id="page_header">
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';

@@ -1,12 +1,6 @@
 <?php
-if (c2cTools::mobileVersion())
-{
-    include_partial('common/mobile_header');
-}
-else
-{
-    include_partial('common/header');
-}
+include_partial(c2cTools::mobileVersion() ? 'common/mobile_header' : 'common/header');
+
 if (sfConfig::get('app_production') != 1)
 {
     include_partial('common/dev_env');
@@ -16,6 +10,11 @@ if (sfConfig::get('app_production') != 1)
 if (empty($sf_user))
 {
     $sf_user = sfContext::getInstance()->getUser();
+}
+
+if ($sf_user->getCulture() == 'fr' && !c2cTools::mobileVersion())
+{
+    include_partial('common/donate');
 }
 
 // we need to remove flash messages because the flash filter does not get executed in the forum
