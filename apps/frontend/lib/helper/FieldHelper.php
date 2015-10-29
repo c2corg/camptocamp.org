@@ -124,34 +124,25 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 
 function field_data_from_list($document, $name, $config, $options = array())
 {
-    $title = _option($options, 'title', '');
-
-    if (empty($title))
-    {
-        $title = $name;
-    }
+    $title = _option($options, 'title', $name);
 
     return _format_data_from_list($title, $document->getRaw($name), $config, $options);
 }
 
 function field_data_from_list_if_set($document, $name, $config, $options = array())
 {
-    $value = $document->getRaw($name);
     $title = _option($options, 'title', $name);
-    $multiple = _option($options, 'multiple', false);
+    $multiple = _option($options, 'multiple', false, false);
+    $value = $document->getRaw($name);
+    
+    if ($multiple && !is_array($value))
+    {
+        $value =  Document::convertStringToArray($value);
+    }
     
     if (!check_list_not_empty($value, $multiple))
     {
         return '';
-    }
-
-    if ($multiple)
-    {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
-        if (empty($value))
-        {
-            return '';
-        }
     }
     
     return _format_data_from_list($title, $value, $config, $options);
@@ -240,8 +231,13 @@ function field_picto_from_list($document, $name, $config, $options = array())
 
 function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
+    $multiple = _option($options, 'multiple', false, false);
     $value = $document->getRaw($name);
-    $multiple = _option($options, 'multiple', false);
+    
+    if ($multiple && !is_array($value))
+    {
+        $value =  Document::convertStringToArray($value);
+    }
     
     if (!check_list_not_empty($value, $multiple))
     {
@@ -380,7 +376,10 @@ function field_bool_data_from_list($document, $name, $config, $options = array()
     
     if (!empty($value))
     {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        if (!is_array($value))
+        {
+            $value = Document::convertStringToArray($value);
+        }
         $result = array();
         foreach ($list as $key => $item)
         {
@@ -565,18 +564,22 @@ function _format_data_from_list($name, $value, $config, $options = array())
         }
     }
     
-    $is_not_empty_value = check_list_not_empty($value, $multiple);
+    $is_not_empty_value = !empty($value);
 
     if ($is_not_empty_value)
     {
         if ($multiple)
         {
-            $value = is_array($value) ? $value : Document::convertStringToArray($value);
-            foreach ($value as &$item)
+            if (!is_array($value))
             {
-                $item = _get_field_value_in_list($list, $item);
+                $value = Document::convertStringToArray($value);
             }
-            $value = array_filter($value);
+            $value_tmp = array();
+            foreach ($value as $item)
+            {
+                $value_tmp[] = _get_field_value_in_list($list, $item);
+            }
+            $value = array_filter($value_tmp);
             $value = implode(', ', $value);
         }
         else
@@ -664,7 +667,10 @@ function _format_picto_from_list($name, $value, $config, $options = array())
         $list = sfConfig::get($config);
         if ($multiple)
         {
-            $value = is_array($value) ? $value : Document::convertStringToArray($value);
+            if (!is_array($value))
+            {
+                $value = Document::convertStringToArray($value);
+            }
         }
         else
         {
