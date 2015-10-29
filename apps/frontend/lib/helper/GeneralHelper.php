@@ -251,14 +251,17 @@ function doctrine_value($value)
     return (check_is_numeric_or_text($value)) ? $value : null;
 }
 
-function _option(&$options, $name, $default = null)
+function _option(&$options, $name, $default = null, $remove = true)
 {
     if (empty($options)) return $default;
 
     if (array_key_exists($name, $options))
     {
         $value = $options[$name];
-        unset($options[$name]);
+        if ($remove)
+        {
+            unset($options[$name]);
+        }
     }
     else
     {
