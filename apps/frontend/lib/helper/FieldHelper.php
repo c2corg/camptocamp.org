@@ -135,9 +135,9 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
     $multiple = _option($options, 'multiple', false, false);
     $value = $document->getRaw($name);
     
-    if ($multiple)
+    if ($multiple && !is_array($value))
     {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        $value =  Document::convertStringToArray($value);
     }
     
     if (!check_list_not_empty($value, $multiple))
@@ -234,9 +234,9 @@ function field_picto_from_list_if_set($document, $name, $config, $options = arra
     $multiple = _option($options, 'multiple', false, false);
     $value = $document->getRaw($name);
     
-    if ($multiple)
+    if ($multiple && !is_array($value))
     {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        $value =  Document::convertStringToArray($value);
     }
     
     if (!check_list_not_empty($value, $multiple))
@@ -376,7 +376,10 @@ function field_bool_data_from_list($document, $name, $config, $options = array()
     
     if (!empty($value))
     {
-        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        if (!is_array($value))
+        {
+            $value = Document::convertStringToArray($value);
+        }
         $result = array();
         foreach ($list as $key => $item)
         {
@@ -567,7 +570,10 @@ function _format_data_from_list($name, $value, $config, $options = array())
     {
         if ($multiple)
         {
-            $value = is_array($value) ? $value : Document::convertStringToArray($value);
+            if (!is_array($value))
+            {
+                $value = Document::convertStringToArray($value);
+            }
             $value_tmp = array();
             foreach ($value as $item)
             {
@@ -661,7 +667,10 @@ function _format_picto_from_list($name, $value, $config, $options = array())
         $list = sfConfig::get($config);
         if ($multiple)
         {
-            $value = is_array($value) ? $value : Document::convertStringToArray($value);
+            if (!is_array($value))
+            {
+                $value = Document::convertStringToArray($value);
+            }
         }
         else
         {
