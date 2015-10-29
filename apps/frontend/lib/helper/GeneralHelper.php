@@ -237,7 +237,7 @@ function check_list_not_empty($value, $multiple = false)
 {
     if ($multiple)
     {
-        return !empty($value);
+        return check_not_empty($value) && $value !== array("0") && $value !== array("");
     }
     else
     {
@@ -251,14 +251,17 @@ function doctrine_value($value)
     return (check_is_numeric_or_text($value)) ? $value : null;
 }
 
-function _option(&$options, $name, $default = null)
+function _option(&$options, $name, $default = null, $remove = true)
 {
     if (empty($options)) return $default;
 
     if (array_key_exists($name, $options))
     {
         $value = $options[$name];
-        unset($options[$name]);
+        if ($remove)
+        {
+            unset($options[$name]);
+        }
     }
     else
     {
