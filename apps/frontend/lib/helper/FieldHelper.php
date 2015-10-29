@@ -132,19 +132,15 @@ function field_data_from_list($document, $name, $config, $options = array())
 function field_data_from_list_if_set($document, $name, $config, $options = array())
 {
     $title = _option($options, 'title', $name);
-    $multiple = _option($options, 'multiple', false);
+    $multiple = _option($options, 'multiple', false, false);
     $value = $document->getRaw($name);
     
     if ($multiple)
     {
-        $value_tmp = is_array($value) ? $value : Document::convertStringToArray($value);
-    }
-    else
-    {
-        $value_tmp = $value;
+        $value = is_array($value) ? $value : Document::convertStringToArray($value);
     }
     
-    if (!check_list_not_empty($value_tmp, $multiple))
+    if (!check_list_not_empty($value, $multiple))
     {
         return '';
     }
@@ -235,24 +231,20 @@ function field_picto_from_list($document, $name, $config, $options = array())
 
 function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
-    $multiple = _option($options, 'multiple', false);
+    $multiple = _option($options, 'multiple', false, false);
     $value = $document->getRaw($name);
     
     if ($multiple)
     {
-        $value_tmp = is_array($value) ? $value : Document::convertStringToArray($value);
-    }
-    else
-    {
-        $value_tmp = $value;
+        $value = is_array($value) ? $value : Document::convertStringToArray($value);
     }
     
-    if (!check_list_not_empty($value_tmp, $multiple))
+    if (!check_list_not_empty($value, $multiple))
     {
         return '';
     }
 
-    return _format_picto_from_list($name, $value_tmp, $config, $options);
+    return _format_picto_from_list($name, $value, $config, $options);
 }
 
 function field_activities_data($document, $options = array())
