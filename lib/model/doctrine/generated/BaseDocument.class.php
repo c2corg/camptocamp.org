@@ -3088,7 +3088,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildCompareCondition(&$conditions, &$values, $field, $param, $is_null_only = false, $use_not_null = true)
+    public static function buildCompareCondition(&$conditions, &$values, $field, $param, $is_null_only = true, $use_not_null = true)
     {
         if ($param == '-')
         {
@@ -3131,7 +3131,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 return;
             }
 
-            if (!empty($regs[2]))
+            if (is_numeric($regs[2]))
             {
                 $value1 = $regs[2];
             }
@@ -3140,7 +3140,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 return;
             }
 
-            $value2 = !empty($regs[4]) ? $regs[4] : 0;
+            $value2 = is_numeric($regs[4]) ? $regs[4] : 0;
             if (!$use_not_null)
             {
                 $not_null = '';
