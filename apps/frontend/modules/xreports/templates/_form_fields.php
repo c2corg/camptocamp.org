@@ -97,8 +97,10 @@ echo object_group_bbcode_tag($document, 'group_management', null, array('no_img'
 echo object_group_bbcode_tag($document, 'risk', 'xreport_risk', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_risk_default')), true, 'xreport_risk');
 echo object_group_bbcode_tag($document, 'time_management', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('time_management_default')));
 echo object_group_bbcode_tag($document, 'safety', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('safety_default')));
+echo '<div data-impacted-filter="">';
 echo object_group_bbcode_tag($document, 'reduce_impact', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('reduce_impact_default')));
 echo object_group_bbcode_tag($document, 'increase_impact', null, array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('increase_impact_default')));
+echo '</div>';
 echo object_group_bbcode_tag($document, 'modifications', 'xreport_modifications', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_modifications_default')), true, 'xreport_modifications');
 echo object_group_bbcode_tag($document, 'other_comments', 'xreport_other_comments', array('no_img' => true, 'class' => 'smalltext', 'placeholder' => __('xreport_other_comments_default')), true, 'xreport_other_comments');
 
