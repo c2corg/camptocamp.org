@@ -9,11 +9,11 @@ class XreportArchive extends BaseXreportArchive
 
     public static function filterGetActivities($value)
     {   
-        return self::convertStringToArray($value);
+        return BaseDocument::convertStringToArray($value);
     }
 
     public static function filterGetEvent_type($value)
     {   
-        return self::convertStringToArray($value);
+        return BaseDocument::convertStringToArray($value);
     }
 }
