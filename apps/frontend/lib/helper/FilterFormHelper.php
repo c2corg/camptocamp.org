@@ -364,7 +364,7 @@ function around_selector($name, $coords = array(), $multiline = false)
         $out .= '<br />';
     }
     $out .= __('within km: ');
-    $out .= input_tag($name . '_range', 5, array('value' => '10', 'class' => 'short_input'));
+    $out .= input_tag($name . '_range', 5, array('value' => '10', 'type' => 'number', 'min' => 0, 'class' => 'short_input'));
     $out .= ' ' . __('kilometers');
     $out .= '</span>';
 
