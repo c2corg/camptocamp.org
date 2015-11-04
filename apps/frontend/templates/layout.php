@@ -34,6 +34,7 @@ else
 
 if ($sf_user->getCulture() == 'fr')
 {
+    $response->addJavascript('/static/js/donate.js', 'last');
     $response->addStylesheet('/static/css/donate.css', 'last'); 
 }
 
@@ -70,14 +71,13 @@ $static_base_url = sfConfig::get('app_static_url');
 <body itemscope itemtype="http://schema.org/WebPage">
     <?php include_partial('common/section_close'); ?>
     <div id="holder">
-        <?php
-            if ($sf_user->getCulture() == 'fr')
-            {
-                include_partial('common/donate');
-            }
-        ?>
         <header id="page_header">
         <?php
+        if ($sf_user->getCulture() == 'fr')
+        {
+            include_partial('common/donate');
+        }
+
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
 
