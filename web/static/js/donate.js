@@ -12,7 +12,6 @@
       // no cookie present, display the banner
       // only once per session
       console.log("display banner");
-      loadBanner();
       displayBanner();
     } else {
       // do not show something yet
@@ -21,30 +20,25 @@
   });
 
   function displayBanner() {
+    loadBanner()
     donateDiv.show();
     $('.donate-never').click(never);
     $('.donate-notnow').click(notNow);
-    loadBanner();
+    $('.donate-change').click(loadBanner);
   }
 
   function loadBanner() {
     console.log('load banner');
     var random = Math.floor(Math.random() * 9);
-    var banner;
-    switch (random) {
-      case 0: banner = 'stern'; break;
-      case 1: banner = 'soty'; break;
-      case 2: banner = 'bach'; break;
-      case 3: banner = 'jonglez'; break;
-      case 4: banner = 'meignan'; break;
-      case 5: banner = 'jaillet'; break;
-      case 6: banner = 'sansov'; break;
-      case 7: banner = 'gabarrou'; break;
-      case 8: banner = 'vuilleumier'; break;
-    }
-
-    $.get('/banner?people=' + banner).then(function(data) {
+    $.get('/documents/donatebanner?id=' + random).then(function(data) {
       console.log(data);
+      if (data.url) {
+        donateDiv.find('.people').html('<a href="' + data.url + '">' + data.people + '</a>');
+      } else {
+        donateDiv.find('.people').text(data.people);
+      }
+      donateDiv.find('.role').text(data.role);
+      donateDiv.find('.presentation').text(data.presentation);
     });
   }
 
