@@ -1,28 +1,65 @@
 (function($) {
 
-  var COOKIE = "donate";
+  var COOKIE = 'donate';
+  var donateDiv = $('#donate');
+  var expiration = new Date(2016,2,1); // 01/02/2016
 
   $(function() {
+    console.log('plop');
     var cookie = readCookie();
 
     if (!cookie) {
       // no cookie present, display the banner
-      // once per session
-      alert("display banner");
-      setCookie("notnow");
-    } else if (cookie === "never") {
-      // we're done
-      alert("never");
+      // only once per session
+      console.log("display banner");
+      loadBanner();
+      displayBanner();
     } else {
       // do not show something yet
-      alert("not this session");
+      console.log("not this session");
     }
   });
 
-  function setCookie(value, days) {
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  function displayBanner() {
+    donateDiv.show();
+    $('.donate-never').click(never);
+    $('.donate-notnow').click(notNow);
+    loadBanner();
+  }
+
+  function loadBanner() {
+    console.log('load banner');
+    var random = Math.floor(Math.random() * 9);
+    var banner;
+    switch (random) {
+      case 0: banner = 'stern'; break;
+      case 1: banner = 'soty'; break;
+      case 2: banner = 'bach'; break;
+      case 3: banner = 'jonglez'; break;
+      case 4: banner = 'meignan'; break;
+      case 5: banner = 'jaillet'; break;
+      case 6: banner = 'sansov'; break;
+      case 7: banner = 'gabarrou'; break;
+      case 8: banner = 'vuilleumier'; break;
+    }
+
+    $.get('/banner?people=' + banner).then(function(data) {
+      console.log(data);
+    });
+  }
+
+  function notNow() {
+    setCookie("notnow");
+    donateDiv.remove();
+  }
+
+  function never() {
+    setCookie("never", expiration)
+    donateDiv.remove();
+  }
+
+  function setCookie(value, date) {
+    if (date) {
       var expires = "; expires=" + date.toGMTString();
     } else {
       var expires = "";
