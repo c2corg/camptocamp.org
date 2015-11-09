@@ -5087,6 +5087,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Céline Stern',
                     'url' => '/users/131/fr',
+                    'image' => 'stern.jpg',
                     'role' => 'administrateur et contributeur de Campocamp.',
                     'presentation' => '"Découverte d\'itinéraires classiques ou de parcours plus insolites, à côté de la maison ou à l\'autre bout du monde, tout cela est possible pour moi grâce à c2c. Le partage d\'informations, de coups de cœur ou de petits rien sera encore plus facile avec l\'évolution de c2c."'
                 );
@@ -5095,6 +5096,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Charlotte Soty',
                     'url' => '/users/249451/fr',
+                    'image' => 'sotty.jpg',
                     'people' => 'modératrice et contributrice de Camptocamp.',
                     'presentation' => '"c2c, mon petit coin de montagne... je venais juste chercher des conseils pour démarrer le ski de rando et j\'ai trouvé bien plus que cela.... J\'ai trouvé une communauté toujours prête à répondre aux questions, à donner des conseils j\'ai trouvé de l\'humour, de la poésie, du rêve, des belles photos j\'ai trouvé un lieu pour parler montagne j\'ai trouvé des amis j\'ai trouvé... tant d\'autres choses..."'
                 );
@@ -5103,6 +5105,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Dani Bach',
                     'url' => '/users/7897/fr',
+                    'image' => 'bach.jpg',
                     'role' => 'président de Camptocamp-Association.',
                     'presentation' => '"Je me suis senti redevable à la communauté Camptocamp dès que j\'ai commencé à profiter du site. Camptocamp, avec ses vertus et ses défauts, n\'est que le produit de notre effort collectif. Il ne revient qu\'à nous de l\'améliorer."'
                 );
@@ -5111,6 +5114,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'David Jonglez',
                     'url' => '/users/768/fr',
+                    'image' => 'jonglez.jpg',
                     'role' => 'guide de montagne et co-fondateur de Camptocamp.',
                     'presentation' => '"Aider Camptocamp.org c\'est permettre de perpétuer, à l\'âge du numérique, la tradition de collecte et de partage d\'information sur la description des itinéraires et les conditions de la montagne. Aider Camptocamp.org c\'est prendre part à la vie de la communauté montagnarde et garantir l\'accessibilité (technologique, licence de données ouvertes) à la connaissance du milieu montagnard et par là même sécuriser la pratique de chacun. Merci à vous et longue vie à la communauté ! Be safe !!!"'
                 );
@@ -5119,6 +5123,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Frédi Meignan',
                     'url' => '/users/7003/fr',
+                    'image' => 'meignan.jpg',
                     'role' => 'gardien du refuge du Promontoire, président de Mountain Wilderness France, contributeur Camptocamp.',
                     'presentation' => '"Partage des conditions pour s\'engager en montagne et gagner en autonomie, partage des émotions et des rencontres dans ces territoires exceptionnels, partage et échanges sur la vie, les défis, l\'avenir de nos montagnes.... C2C est, juste, essentiel ! C2C est la montagne partagée, avec la communauté et au delà avec tous ceux qui ont aussi envie et peut être besoin de la montagne. Belle vie et bon développement à C2C, avec l\'aide de chacun, de tous."'
                 );
@@ -5127,6 +5132,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Hugues Jaillet',
                     'url' => '/users/11465/fr',
+                    'image' => 'jaillet.jpg',
                     'role' => 'guide de montagne et contributeur de Camptocamp.',
                     'presentation' => '"Informer les personnes qui me le demande sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneaux, il est incontournable ......"'
                 );
@@ -5135,6 +5141,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Liv Sansoz',
                     'url' => '/users/202893/fr',
+                    'image' => 'sansov.jpg',
                     'role' => 'trois fois vainqueur de la coupe du monde d\'escalade, 2ème femme à avoir réussi un 8c+, contributrice Camptocamp.',
                     'presentation' => '"Comme beaucoup de monde j\'utilise Camptocamp pour préparer mes sorties, trouver des idées pour des courses à venir ou encore obtenir de l\'information sur les conditions d\'une course. C\'est pour moi une mine d\'infos dont j\'ai pris l\'habitude de me servir pour chaque course. Avec les améliorations prévues le site sera encore plus efficace, les infos plus accessibles et les échanges simplifiés."'
                 );
@@ -5142,6 +5149,7 @@ class documentsActions extends c2cActions
             case 8:
                 $data = array(
                     'people' => 'Patrick Gabarrou',
+                    'image' => 'gabarrou.jpg',
                     'role' => 'guide de montagne, auteur de nombreuses premières et utilisateur de Camptocamp.',
                     'presentation' => '"Je soutiens de tout coeur cette très belle, utile et impressionnante Association Camptocamp. Impressionnante quand on voit le nombre de rubriques souvent très instructives, les contributions si nombreuses qui reflètent un bel esprit de partage et que l\'on sait que tout cela est l\'oeuvre de bénévoles!! Bravo, merci, et tous mes voeux de longue vie à cette magnifique initiative."'
                 );
@@ -5150,6 +5158,7 @@ class documentsActions extends c2cActions
                 $data = array(
                     'people' => 'Patrick Vuilleumier',
                     'url' => '/users/11256/fr',
+                    'image' => 'vuilleumier.jpg',
                     'role' => 'précurseur du ski de pente raide, contributeur Camptocamp.',
                     'presentation' => '"Les Christophe, Vincent, Manu, Alexandre, Thierry, Olivier, Thomas, Alex et j\'en oublie, sans c2c je ne vous aurais sans doute jamais connus... Partager la belle ligne dans la neige ou en rocher, la relater sur c2c permet de la vivre à double... Formidable site de rêves ! Longue vie à lui !"'
                 );

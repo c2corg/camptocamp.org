@@ -37,6 +37,7 @@
       } else {
         donateDiv.find('.people').text(data.people);
       }
+      donateDiv.find('.donate-image').get(0).src = '/static/images/donation/' + data.image;
       donateDiv.find('.role').text(data.role);
       donateDiv.find('.presentation').text(data.presentation);
     });
