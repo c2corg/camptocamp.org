@@ -15,11 +15,11 @@
 <button class="donate-never">Non merci</button>
 <button class="donate-change">Autre bannière</button>
 
-<button>5€</button>
-<button>10€</button>
-<button>20€</button>
-<button>50€</button>
-<button>100€</button>
-<button>Autre montant</button>
+<button onclick="location.href='/donate?amount=10'">10€</button>
+<button onclick="location.href='/donate?amount=30'">30€</button>
+<button onclick="location.href='/donate?amount=50'">50€</button>
+<button onclick="location.href='/donate?amount=100'">100€</button>
+<button onclick="location.href='/donate?amount=500'">500€</button>
+<button onclick="location.href='/donate'">Autre montant</button>
 
 </aside>

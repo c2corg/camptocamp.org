@@ -364,31 +364,31 @@ cdasearch_by_type:
 ## donation routing
 donate_banner:
   url: /donate/banner
-  param: { module: documents, action: executeDonateBanner }
+  param: { module: documents, action: donateBanner }
 
 donate:
   url: /donate
-  param: { module: documents, action: executeDonate }
+  param: { module: documents, action: donate }
 
 donate_bank_check:
-  url: donate/check
-  param: { module: documents, action: executeDonateCheck }
+  url: /donate/check
+  param: { module: documents, action: donateCheck }
 
 donate_bank_transfer:
-  url: donate/transfer
-  param: { module: documents, action: executeDonateTransfer }
+  url: /donate/transfer
+  param: { module: documents, action: donateTransfer }
 
 donate_credit_card:
-  url: donate/cc
-  param: { module: documents, action: executeDonateCreditCard }
+  url: /donate/cc
+  param: { module: documents, action: donateCreditCard }
 
 donate_cc_thanks:
-  url: donate/cc/thanks
-  param: { module: documents, action: executeCreditCardThanks }
+  url: /donate/cc/thanks
+  param: { module: documents, action: creditCardThanks }
 
 donate_cc_report:
-  url: donate/cc/report
-  param: { module: documents, action: executeCreditCardReport }
+  url: /donate/cc/report
+  param: { module: documents, action: creditCardReport }
 
 default:
   url:   /:module/:action/*

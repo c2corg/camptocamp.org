@@ -8,7 +8,7 @@
     console.log('plop');
     var cookie = readCookie();
 
-    if (!cookie) {
+    if (!cookie && location.pathname != '/donate') {
       // no cookie present, display the banner
       // only once per session
       console.log("display banner");
@@ -17,6 +17,9 @@
       // do not show something yet
       console.log("not this session");
     }
+
+    // donate buttons if present
+    $('.donate-submit').click(notNow);
   });
 
   function displayBanner() {
@@ -30,7 +33,7 @@
   function loadBanner() {
     console.log('load banner');
     var random = Math.floor(Math.random() * 9);
-    $.get('/documents/donatebanner?id=' + random).then(function(data) {
+    $.get('/donate/banner?id=' + random).then(function(data) {
       console.log(data);
       if (data.url) {
         donateDiv.find('.people').html('<a href="' + data.url + '">' + data.people + '</a>');

@@ -5078,7 +5078,7 @@ class documentsActions extends c2cActions
         }
     }
 
-    public function executeDonatebanner()
+    public function executeDonateBanner()
     {
         $bannerid = $this->getRequestParameter('id');
 
@@ -5097,7 +5097,7 @@ class documentsActions extends c2cActions
                     'people' => 'Charlotte Soty',
                     'url' => '/users/249451/fr',
                     'image' => 'sotty.jpg',
-                    'people' => 'modératrice et contributrice de Camptocamp.',
+                    'role' => 'modératrice et contributrice de Camptocamp.',
                     'presentation' => '"c2c, mon petit coin de montagne... je venais juste chercher des conseils pour démarrer le ski de rando et j\'ai trouvé bien plus que cela.... J\'ai trouvé une communauté toujours prête à répondre aux questions, à donner des conseils j\'ai trouvé de l\'humour, de la poésie, du rêve, des belles photos j\'ai trouvé un lieu pour parler montagne j\'ai trouvé des amis j\'ai trouvé... tant d\'autres choses..."'
                 );
                 break;
@@ -5167,5 +5167,70 @@ class documentsActions extends c2cActions
 
         $this->getResponse()->setContentType('application/json');
         return $this->renderText(json_encode($data));
+    }
+
+    public function executeDonateCheck()
+    {
+        // nothing special
+    }
+
+    public function executeDonateTransfer()
+    {
+        // nothing special
+    }
+
+    public function executeDonateCreditCard()
+    {
+        $this->email = $this->getRequestParameter('email');
+        $this->amount = $this->getRequestParameter('amount');
+        $this->name = $this->getRequestParameter('name');
+        // Bruno
+    }
+
+    public function executeDonate()
+    {
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            if ($this->getRequestParameter('check'))
+            {
+               // TODO email
+               $this->redirect('@donate_bank_check');
+            }
+            else if ($this->getRequestParameter('transfer'))
+            {
+                // TODO email
+                $this->redirect('@donate_bank_transfer');
+            }
+            else if ($this->getRequestParameter('cc'))
+            {
+                // TODO email
+                $this->redirect('@donate_credit_card?email='.$this->getRequestParameter('email').
+                    '&amount='.$this->getRequestParameter('amount').
+                    '&name='.$this->getRequestParameter('name'));
+            }
+            else if ($this->getRequestParameter('paypal'))
+            {
+                // TODO email
+                $this->redirect('@PAYPAL');
+            }
+        }
+        else
+        {
+            $connected = $this->getUser()->isConnected();
+
+            // how much?
+            $this->amount = $this->getRequestParameter('amount');
+
+            // user info
+            if ($connected)
+            {
+                $user_id = $this->getUser()->getId();
+                $this->name = $this->getUser()->getUsername();
+                $this->user_private_data = UserPrivateData::find($user_id);
+                $this->email = $this->user_private_data->get('email');
+            }
+
+            $this->setPageTitle($this->__('Financer le projet Camptocamp.org'));
+        }
     }
 }
