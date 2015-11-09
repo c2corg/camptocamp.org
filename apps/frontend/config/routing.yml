@@ -370,18 +370,6 @@ donate:
   url: /donate
   param: { module: documents, action: donate }
 
-donate_bank_check:
-  url: /donate/check
-  param: { module: documents, action: donateCheck }
-
-donate_bank_transfer:
-  url: /donate/transfer
-  param: { module: documents, action: donateTransfer }
-
-donate_credit_card:
-  url: /donate/cc
-  param: { module: documents, action: donateCreditCard }
-
 donate_cc_thanks:
   url: /donate/cc/thanks
   param: { module: documents, action: creditCardThanks }

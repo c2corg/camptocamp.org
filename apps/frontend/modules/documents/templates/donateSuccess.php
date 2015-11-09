@@ -20,7 +20,7 @@ echo start_content_tag();
 
 ?>
 <form action="/donate" method="POST">
-  <label>Anonyme <input name="anonymous" type="checkbox" /></label>
+  <label>Rester anonyme <input name="anonymous" type="checkbox" /></label>
   <label>Nom / pseudo <input name="name" ctype="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
   <label>email <input name="email" type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
   <label>montant <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?></label>
@@ -28,11 +28,10 @@ Texte qui explique les diff&eacute;rentes options de paiement, &eacute;ventuelle
 
 penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
 
-<input type="submit" class="donate-submit" value="Payer avec paypal TODO" name="paypal" />
 <input type="submit" class="donate-submit" value="Payer en ligne TODO" name="cc" />
-<input type="submit" class="donate-submit" value="Payer par chèque" name="check" />
 <input type="submit" class="donate-submit" value="Payer par virement bancaire" name="transfer" />
-
+<input type="submit" class="donate-submit" value="Payer par chèque" name="check" />
+<input type="submit" class="donate-submit" value="Payer avec Paypal" name="paypal" />
 </form>
 <?php
 echo end_content_tag();

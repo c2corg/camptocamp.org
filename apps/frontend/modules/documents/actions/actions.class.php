@@ -5187,6 +5187,11 @@ class documentsActions extends c2cActions
         // nothing special
     }
 
+    public function executeDonatePaypal()
+    {
+        $this->amount = $this->getRequestParameter('amount');
+    }
+
     public function executeDonateCreditCard()
     {
         $this->email = $this->getRequestParameter('email');
@@ -5239,20 +5244,16 @@ class documentsActions extends c2cActions
             // don't show message to user anymore
             $this->getResponse()->setCookie('donate', 'already', 1456786800000); // end of february 2016
 
-            switch(method)
+            switch($method)
             {
                 case 'check':
-                    $this->redirect('@donate_bank_check'); break;
+                    $this->forward('documents', 'donateCheck'); break;
                 case 'transfer':
-                    $this->redirect('@donate_bank_transfer'); break;
+                    $this->forward('documents', 'donateTransfer'); break;
                 case 'cc':
-                    $this->redirect('@donate_credit_card?email='.$this->getRequestParameter('email').
-                        '&amount='.$this->getRequestParameter('amount').
-                        '&name='.$this->getRequestParameter('name'));
-                    break;
+                    $this->forward('documents', 'donateCreditCard'); break;
                 case 'paypal':
-                    $this->redirect('@PAYPAL');
-                    break;
+                    $this->forward('documents', 'donatePaypal'); break;
             }
         }
         else

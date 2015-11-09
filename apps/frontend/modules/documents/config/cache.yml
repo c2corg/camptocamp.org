@@ -166,3 +166,15 @@ _elevation_profile_section:
 
 donate:
   enabled: off
+
+donatePaypal:
+  enabled: off
+
+donateCreditCard:
+  enabled: off
+
+donateTransfer:
+  enabled: off
+
+donateCheck:
+  enabled: off
