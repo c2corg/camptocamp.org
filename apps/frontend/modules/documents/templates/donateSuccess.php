@@ -20,11 +20,10 @@ echo start_content_tag();
 
 ?>
 <form action="/donate" method="POST">
-  <label>Anonyme <input type="checkbox" required /></label>
-  <label>Nom / pseudo <input type="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
-  <label>email <input type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
-  <label>montant <input type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?></label>
-</form>
+  <label>Anonyme <input name="anonymous" type="checkbox" /></label>
+  <label>Nom / pseudo <input name="name" ctype="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
+  <label>email <input name="email" type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
+  <label>montant <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?></label>
 Texte qui explique les diff&eacute;rentes options de paiement, &eacute;ventuellement qui rappelle &agrav; quoi &ccedil;a sert etc
 
 penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
@@ -34,6 +33,7 @@ penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou
 <input type="submit" class="donate-submit" value="Payer par chèque" name="check" />
 <input type="submit" class="donate-submit" value="Payer par virement bancaire" name="transfer" />
 
+</form>
 <?php
 echo end_content_tag();
 

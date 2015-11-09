@@ -32,7 +32,7 @@
 
   function loadBanner() {
     console.log('load banner');
-    var random = Math.floor(Math.random() * 9);
+    var random = Math.floor(Math.random() * 10);
     $.get('/donate/banner?id=' + random).then(function(data) {
       console.log(data);
       if (data.url) {

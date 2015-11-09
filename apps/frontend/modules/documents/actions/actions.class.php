@@ -5154,13 +5154,21 @@ class documentsActions extends c2cActions
                     'presentation' => '"Je soutiens de tout coeur cette très belle, utile et impressionnante Association Camptocamp. Impressionnante quand on voit le nombre de rubriques souvent très instructives, les contributions si nombreuses qui reflètent un bel esprit de partage et que l\'on sait que tout cela est l\'oeuvre de bénévoles!! Bravo, merci, et tous mes voeux de longue vie à cette magnifique initiative."'
                 );
                 break;
-            default:
+            case 9:
                 $data = array(
                     'people' => 'Patrick Vuilleumier',
                     'url' => '/users/11256/fr',
                     'image' => 'vuilleumier.jpg',
                     'role' => 'précurseur du ski de pente raide, contributeur Camptocamp.',
                     'presentation' => '"Les Christophe, Vincent, Manu, Alexandre, Thierry, Olivier, Thomas, Alex et j\'en oublie, sans c2c je ne vous aurais sans doute jamais connus... Partager la belle ligne dans la neige ou en rocher, la relater sur c2c permet de la vivre à double... Formidable site de rêves ! Longue vie à lui !"'
+                );
+                break;
+            default:
+                $data = array(
+                    'people' => 'Catherine Destivelle',
+                    'image' => 'destivelle.jpg',
+                    'role' => 'grimpeuse et alpiniste de l\'extrême, utilisatrice de Camptocamp.',
+                    'presentation' => '"Camptocamp est pour moi une source d\'inspiration pour choisir mes prochains projets en montagne. Je m\'en sers pour connaître les conditions ou prendre des nouvelles idées de courses. J\'ai été surprise d\'apprendre que ce projet formidable est entièrement porté par des bénévoles. Je lui apporte tout mon soutien."'
                 );
                 break;
         }
@@ -5191,27 +5199,60 @@ class documentsActions extends c2cActions
     {
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
+            $mail = new sfMail();
+            $mail->setCharset('utf-8');
+
             if ($this->getRequestParameter('check'))
             {
-               // TODO email
-               $this->redirect('@donate_bank_check');
+                $method = 'check';
             }
             else if ($this->getRequestParameter('transfer'))
             {
-                // TODO email
-                $this->redirect('@donate_bank_transfer');
+                $method = 'transfer';
             }
             else if ($this->getRequestParameter('cc'))
             {
-                // TODO email
-                $this->redirect('@donate_credit_card?email='.$this->getRequestParameter('email').
-                    '&amount='.$this->getRequestParameter('amount').
-                    '&name='.$this->getRequestParameter('name'));
+                $method = 'cc';
             }
             else if ($this->getRequestParameter('paypal'))
             {
-                // TODO email
-                $this->redirect('@PAYPAL');
+                $method = 'paypal';
+            }
+
+            // definition of the required parameters
+            $donation_mail = 'lionel.besson@gmail.com';
+            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+            $mail->addAddress($donation_mail);
+            $mail->setSubject('Promesse de don');
+            $mail->setContentType('text/html');
+            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;<br>'.
+                $method.';'.
+                $this->getRequestParameter('anonymous').';'.
+                $this->getRequestParameter('name').';'.
+                $this->getRequestParameter('email').';'.
+                $this->getRequestParameter('amount').';');
+            $mail->setAltBody(strip_tags($htmlBody));
+                                                                                                                                                             $mail->send();
+
+            // don't show message to user anymore
+            $this->getResponse()->setCookie('donate', 'already', 1456786800000); // end of february 2016
+
+            switch(method)
+            {
+                case 'check':
+                    $this->redirect('@donate_bank_check'); break;
+                case 'transfer':
+                    $this->redirect('@donate_bank_transfer'); break;
+                case 'cc':
+                    $this->redirect('@donate_credit_card?email='.$this->getRequestParameter('email').
+                        '&amount='.$this->getRequestParameter('amount').
+                        '&name='.$this->getRequestParameter('name'));
+                    break;
+                case 'paypal':
+                    $this->redirect('@PAYPAL');
+                    break;
             }
         }
         else
