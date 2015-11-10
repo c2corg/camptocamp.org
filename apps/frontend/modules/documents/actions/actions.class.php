@@ -5194,18 +5194,13 @@ class documentsActions extends c2cActions
 
     public function executeDonateCreditCard()
     {
-        $this->email = $this->getRequestParameter('email');
-        $this->amount = $this->getRequestParameter('amount');
-        $this->name = $this->getRequestParameter('name');
-        // Bruno
-
         date_default_timezone_set('UTC'); // set UTC time zone
         $params = array(
-            'vads_site_id' => sfConfig::get('app_donate_vads_site_id'), // identifiant boutique
+            'vads_site_id' => sfConfig::get('app_donate_vads_site_id'),
             'vads_ctx_mode' => 'TEST', // PRODUCTION
             'vads_trans_id' => '12345', // transaction ID TODO
-            'vads_trans_date' => date('YmdHis'), // date
-            'vads_amount' => '3000', // amount (in cents!)
+            'vads_trans_date' => date('YmdHis'),
+            'vads_amount' => $this->getRequestParameter('amount') . '00', // amount (in cents!)
             'vads_currency' => '978', // CHF = 756
             'vads_action_mode' => 'INTERACTIVE',
             'vads_page_action' => 'PAYMENT',
@@ -5213,10 +5208,14 @@ class documentsActions extends c2cActions
             'vads_payment_config' => 'SINGLE',
             'vads_capture_delay' => '0',
             'vads_validation_mode' => '0',
-            'vads_cust_id' => '113594', // can be user ID when identified TODO
-            'vads_cust_first_name' => 'Bruno',
-            'vads_cust_last_name' => 'Besson'
+
+            'vads_cust_email' => $this->getRequestParameter('email'),
+            'vads_cust_first_name' => $this->getRequestParameter('name')
         );
+        if ($this->getUser()->isConnected())
+        {
+          $params['vads_cust_id'] = $this->getUser()->getId();
+        }
 
         $sign = '';
         ksort($params);
