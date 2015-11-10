@@ -5078,8 +5078,127 @@ class documentsActions extends c2cActions
         }
     }
 
-    public function executeDonate()
+    public function executeDonateBanner()
     {
+        $bannerid = $this->getRequestParameter('id');
+
+        switch ($bannerid) {
+            case 1:
+                $data = array(
+                    'people' => 'Céline Stern',
+                    'url' => '/users/131/fr',
+                    'image' => 'stern.jpg',
+                    'role' => 'administrateur et contributeur de Campocamp.',
+                    'presentation' => '"Découverte d\'itinéraires classiques ou de parcours plus insolites, à côté de la maison ou à l\'autre bout du monde, tout cela est possible pour moi grâce à c2c. Le partage d\'informations, de coups de cœur ou de petits rien sera encore plus facile avec l\'évolution de c2c."'
+                );
+                break;
+            case 2:
+                $data = array(
+                    'people' => 'Charlotte Soty',
+                    'url' => '/users/249451/fr',
+                    'image' => 'sotty.jpg',
+                    'role' => 'modératrice et contributrice de Camptocamp.',
+                    'presentation' => '"c2c, mon petit coin de montagne... je venais juste chercher des conseils pour démarrer le ski de rando et j\'ai trouvé bien plus que cela.... J\'ai trouvé une communauté toujours prête à répondre aux questions, à donner des conseils j\'ai trouvé de l\'humour, de la poésie, du rêve, des belles photos j\'ai trouvé un lieu pour parler montagne j\'ai trouvé des amis j\'ai trouvé... tant d\'autres choses..."'
+                );
+                break;
+            case 3:
+                $data = array(
+                    'people' => 'Dani Bach',
+                    'url' => '/users/7897/fr',
+                    'image' => 'bach.jpg',
+                    'role' => 'président de Camptocamp-Association.',
+                    'presentation' => '"Je me suis senti redevable à la communauté Camptocamp dès que j\'ai commencé à profiter du site. Camptocamp, avec ses vertus et ses défauts, n\'est que le produit de notre effort collectif. Il ne revient qu\'à nous de l\'améliorer."'
+                );
+                break;
+            case 4:
+                $data = array(
+                    'people' => 'David Jonglez',
+                    'url' => '/users/768/fr',
+                    'image' => 'jonglez.jpg',
+                    'role' => 'guide de montagne et co-fondateur de Camptocamp.',
+                    'presentation' => '"Aider Camptocamp.org c\'est permettre de perpétuer, à l\'âge du numérique, la tradition de collecte et de partage d\'information sur la description des itinéraires et les conditions de la montagne. Aider Camptocamp.org c\'est prendre part à la vie de la communauté montagnarde et garantir l\'accessibilité (technologique, licence de données ouvertes) à la connaissance du milieu montagnard et par là même sécuriser la pratique de chacun. Merci à vous et longue vie à la communauté ! Be safe !!!"'
+                );
+                break;
+            case 5:
+                $data = array(
+                    'people' => 'Frédi Meignan',
+                    'url' => '/users/7003/fr',
+                    'image' => 'meignan.jpg',
+                    'role' => 'gardien du refuge du Promontoire, président de Mountain Wilderness France, contributeur Camptocamp.',
+                    'presentation' => '"Partage des conditions pour s\'engager en montagne et gagner en autonomie, partage des émotions et des rencontres dans ces territoires exceptionnels, partage et échanges sur la vie, les défis, l\'avenir de nos montagnes.... C2C est, juste, essentiel ! C2C est la montagne partagée, avec la communauté et au delà avec tous ceux qui ont aussi envie et peut être besoin de la montagne. Belle vie et bon développement à C2C, avec l\'aide de chacun, de tous."'
+                );
+                break;
+            case 6:
+                $data = array(
+                    'people' => 'Hugues Jaillet',
+                    'url' => '/users/11465/fr',
+                    'image' => 'jaillet.jpg',
+                    'role' => 'guide de montagne et contributeur de Camptocamp.',
+                    'presentation' => '"Informer les personnes qui me le demande sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneaux, il est incontournable ......"'
+                );
+                break;
+            case 7:
+                $data = array(
+                    'people' => 'Liv Sansoz',
+                    'url' => '/users/202893/fr',
+                    'image' => 'sansov.jpg',
+                    'role' => 'trois fois vainqueur de la coupe du monde d\'escalade, 2ème femme à avoir réussi un 8c+, contributrice Camptocamp.',
+                    'presentation' => '"Comme beaucoup de monde j\'utilise Camptocamp pour préparer mes sorties, trouver des idées pour des courses à venir ou encore obtenir de l\'information sur les conditions d\'une course. C\'est pour moi une mine d\'infos dont j\'ai pris l\'habitude de me servir pour chaque course. Avec les améliorations prévues le site sera encore plus efficace, les infos plus accessibles et les échanges simplifiés."'
+                );
+                break;
+            case 8:
+                $data = array(
+                    'people' => 'Patrick Gabarrou',
+                    'image' => 'gabarrou.jpg',
+                    'role' => 'guide de montagne, auteur de nombreuses premières et utilisateur de Camptocamp.',
+                    'presentation' => '"Je soutiens de tout coeur cette très belle, utile et impressionnante Association Camptocamp. Impressionnante quand on voit le nombre de rubriques souvent très instructives, les contributions si nombreuses qui reflètent un bel esprit de partage et que l\'on sait que tout cela est l\'oeuvre de bénévoles!! Bravo, merci, et tous mes voeux de longue vie à cette magnifique initiative."'
+                );
+                break;
+            case 9:
+                $data = array(
+                    'people' => 'Patrick Vuilleumier',
+                    'url' => '/users/11256/fr',
+                    'image' => 'vuilleumier.jpg',
+                    'role' => 'précurseur du ski de pente raide, contributeur Camptocamp.',
+                    'presentation' => '"Les Christophe, Vincent, Manu, Alexandre, Thierry, Olivier, Thomas, Alex et j\'en oublie, sans c2c je ne vous aurais sans doute jamais connus... Partager la belle ligne dans la neige ou en rocher, la relater sur c2c permet de la vivre à double... Formidable site de rêves ! Longue vie à lui !"'
+                );
+                break;
+            default:
+                $data = array(
+                    'people' => 'Catherine Destivelle',
+                    'image' => 'destivelle.jpg',
+                    'role' => 'grimpeuse et alpiniste de l\'extrême, utilisatrice de Camptocamp.',
+                    'presentation' => '"Camptocamp est pour moi une source d\'inspiration pour choisir mes prochains projets en montagne. Je m\'en sers pour connaître les conditions ou prendre des nouvelles idées de courses. J\'ai été surprise d\'apprendre que ce projet formidable est entièrement porté par des bénévoles. Je lui apporte tout mon soutien."'
+                );
+                break;
+        }
+
+        $this->getResponse()->setContentType('application/json');
+        return $this->renderText(json_encode($data));
+    }
+
+    public function executeDonateCheck()
+    {
+        // nothing special
+    }
+
+    public function executeDonateTransfer()
+    {
+        // nothing special
+    }
+
+    public function executeDonatePaypal()
+    {
+        $this->amount = $this->getRequestParameter('amount');
+    }
+
+    public function executeDonateCreditCard()
+    {
+        $this->email = $this->getRequestParameter('email');
+        $this->amount = $this->getRequestParameter('amount');
+        $this->name = $this->getRequestParameter('name');
+        // Bruno
+
         date_default_timezone_set('UTC'); // set UTC time zone
         $params = array(
             'vads_site_id' => sfConfig::get('app_donate_vads_site_id'), // identifiant boutique
@@ -5094,12 +5213,11 @@ class documentsActions extends c2cActions
             'vads_payment_config' => 'SINGLE',
             'vads_capture_delay' => '0',
             'vads_validation_mode' => '0',
-
             'vads_cust_id' => '113594', // can be user ID when identified TODO
             'vads_cust_first_name' => 'Bruno',
             'vads_cust_last_name' => 'Besson'
         );
-        
+
         $sign = '';
         ksort($params);
         foreach ($params as $key=>$value)
@@ -5111,13 +5229,16 @@ class documentsActions extends c2cActions
         }
         $sign .= sfConfig::get('app_donate_vads_certificate');
         $sha1 = sha1($sign);
-
         $params['signature'] = $sha1;
-
         $this->params = $params;
     }
 
-    public function executeConfirm()
+    public function executeCreditCardThanks()
+    {
+        // TODO check status
+    }
+
+    public function executeCreditCardReport()
     {
         if($this->getRequest()->getMethod() == sfRequest::POST)
         {
@@ -5159,6 +5280,82 @@ class documentsActions extends c2cActions
         else
         {
             return $this->renderText('');
+        }
+    }
+
+    public function executeDonate()
+    {
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $mail = new sfMail();
+            $mail->setCharset('utf-8');
+
+            if ($this->getRequestParameter('check'))
+            {
+                $method = 'check';
+            }
+            else if ($this->getRequestParameter('transfer'))
+            {
+                $method = 'transfer';
+            }
+            else if ($this->getRequestParameter('cc'))
+            {
+                $method = 'cc';
+            }
+            else if ($this->getRequestParameter('paypal'))
+            {
+                $method = 'paypal';
+            }
+
+            // definition of the required parameters
+            $donation_mail = 'lionel.besson@gmail.com';
+            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+            $mail->addAddress($donation_mail);
+            $mail->setSubject('Promesse de don');
+            $mail->setContentType('text/html');
+            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;<br>'.
+                $method.';'.
+                $this->getRequestParameter('anonymous').';'.
+                $this->getRequestParameter('name').';'.
+                $this->getRequestParameter('email').';'.
+                $this->getRequestParameter('amount').';');
+            $mail->setAltBody(strip_tags($htmlBody));
+                                                                                                                                                             $mail->send();
+
+            // don't show message to user anymore
+            $this->getResponse()->setCookie('donate', 'already', 1456786800000); // end of february 2016
+
+            switch($method)
+            {
+                case 'check':
+                    $this->forward('documents', 'donateCheck'); break;
+                case 'transfer':
+                    $this->forward('documents', 'donateTransfer'); break;
+                case 'cc':
+                    $this->forward('documents', 'donateCreditCard'); break;
+                case 'paypal':
+                    $this->forward('documents', 'donatePaypal'); break;
+            }
+        }
+        else
+        {
+            $connected = $this->getUser()->isConnected();
+
+            // how much?
+            $this->amount = $this->getRequestParameter('amount');
+
+            // user info
+            if ($connected)
+            {
+                $user_id = $this->getUser()->getId();
+                $this->name = $this->getUser()->getUsername();
+                $this->user_private_data = UserPrivateData::find($user_id);
+                $this->email = $this->user_private_data->get('email');
+            }
+
+            $this->setPageTitle($this->__('Financer le projet Camptocamp.org'));
         }
     }
 }
