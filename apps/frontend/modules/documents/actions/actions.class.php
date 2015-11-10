@@ -5077,4 +5077,88 @@ class documentsActions extends c2cActions
             $this->setErrorAndRedirect('Invalid request parameters', '@cdasearch');
         }
     }
+
+    public function executeDonate()
+    {
+        date_default_timezone_set('UTC'); // set UTC time zone
+        $params = array(
+            'vads_site_id' => sfConfig::get('app_donate_vads_site_id'), // identifiant boutique
+            'vads_ctx_mode' => 'TEST', // PRODUCTION
+            'vads_trans_id' => '12345', // transaction ID TODO
+            'vads_trans_date' => date('YmdHis'), // date
+            'vads_amount' => '3000', // amount (in cents!)
+            'vads_currency' => '978', // CHF = 756
+            'vads_action_mode' => 'INTERACTIVE',
+            'vads_page_action' => 'PAYMENT',
+            'vads_version' => 'V2',
+            'vads_payment_config' => 'SINGLE',
+            'vads_capture_delay' => '0',
+            'vads_validation_mode' => '0',
+
+            'vads_cust_id' => '113594', // can be user ID when identified TODO
+            'vads_cust_first_name' => 'Bruno',
+            'vads_cust_last_name' => 'Besson'
+        );
+        
+        $sign = '';
+        ksort($params);
+        foreach ($params as $key=>$value)
+        {
+            if (substr($key, 0, 5) == 'vads_')
+            {
+                $sign .= $value . '+';
+            }
+        }
+        $sign .= sfConfig::get('app_donate_vads_certificate');
+        $sha1 = sha1($sign);
+
+        $params['signature'] = $sha1;
+
+        $this->params = $params;
+    }
+
+    public function executeConfirm()
+    {
+        if($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $params = $this->getRequest()->getParameterHolder()->getAll();
+            $sign = '';
+            ksort($params);
+            foreach ($params as $key=>$value)
+            {
+                if (substr($key, 0, 5) == 'vads_')
+                {
+                    $sign .= $value . '+';
+                }
+            }
+            $sign .= sfConfig::get('app_donate_vads_certificate');
+            $sha1 = sha1($sign);
+
+
+            $email_recipient = 'bruno.besson@gmail.com';
+            $email_subject = $sign;
+            $htmlBody = 'signature match=' . ($sha1 == $params['signature']) . '<br/>';
+            foreach ($params as $key => $value)
+            {
+                $htmlBody .= $key . '=' . $value . '<br/>';
+            }
+            $mail = new sfMail();
+            $mail->setCharset('utf-8');
+            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+            $mail->addAddress($email_recipient);
+            $mail->setSubject($email_subject);
+            $mail->setContentType('text/html');
+            $mail->setBody($htmlBody);
+            $mail->setAltBody(strip_tags($htmlBody));
+            $mail->send();
+
+            return $this->renderText($comment);
+        }
+        else
+        {
+            return $this->renderText('');
+        }
+    }
 }

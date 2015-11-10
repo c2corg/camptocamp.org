@@ -2284,3 +2284,9 @@ all:
     timeout: @SOLR_TIMEOUT@
     maxrow: @SOLR_MAXROW@
     enable: @SOLR_ENABLE@
+
+  donate:
+    vads_certificate: @DONATE_VADS_CERTIFICATE@
+    vads_url: http://www.test-gottferdom.dev.camptocamp.org/documents/confirm
+    # vads_url: https://paiement.systempay.fr/vads-payment/
+    vads_site_id: @DONATE_VADS_SITE_ID@
