@@ -5228,7 +5228,7 @@ class documentsActions extends c2cActions
                 $sign .= $value . '+';
             }
         }
-        $sign .= sfConfig::get('app_donate_vads_PRODUCTION') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
+        $sign .= sfConfig::get('app_donate_vads_mode') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
         $sha1 = sha1($sign);
         $params['signature'] = $sha1;
         $this->params = $params;
@@ -5266,7 +5266,7 @@ class documentsActions extends c2cActions
                     $sign .= $value . '+';
                 }
             }
-            $sign .= sfConfig::get('app_donate_vads_certificate');
+            $sign .= sfConfig::get('app_donate_vads_mode') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
             $sha1 = sha1($sign);
 
 
