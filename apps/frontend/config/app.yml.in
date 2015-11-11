@@ -2286,8 +2286,9 @@ all:
     enable: @SOLR_ENABLE@
 
   donate:
-    vads_certificate: @DONATE_VADS_CERTIFICATE@
-    vads_url: http://www.test-gottferdom.dev.camptocamp.org/documents/confirm
-    # vads_url: https://paiement.systempay.fr/vads-payment/
+    vads_mode: @DONATE_VADS_MODE@
+    vads_test_certificate: @DONATE_VADS_TEST_CERTIFICATE@
+    vads_prod_certificate: @DONATE_VADS_PROD_CERTIFICATE@
+    vads_url: https://paiement.systempay.fr/vads-payment/
     vads_site_id: @DONATE_VADS_SITE_ID@
     email: donation@camptocamp.org

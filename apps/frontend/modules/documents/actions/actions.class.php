@@ -5197,8 +5197,8 @@ class documentsActions extends c2cActions
         date_default_timezone_set('UTC'); // set UTC time zone
         $params = array(
             'vads_site_id' => sfConfig::get('app_donate_vads_site_id'),
-            'vads_ctx_mode' => 'TEST', // PRODUCTION
-            'vads_trans_id' => '12345', // transaction ID TODO
+            'vads_ctx_mode' => sfConfig::get('app_donate_vads_mode'),
+            'vads_trans_id' => '12345', // transaction ID TODO $this->getRequestParameter('transaction_id');
             'vads_trans_date' => date('YmdHis'),
             'vads_amount' => $this->getRequestParameter('amount') . '00', // amount (in cents!)
             'vads_currency' => '978', // CHF = 756
@@ -5226,10 +5226,12 @@ class documentsActions extends c2cActions
                 $sign .= $value . '+';
             }
         }
-        $sign .= sfConfig::get('app_donate_vads_certificate');
+        $sign .= sfConfig::get('app_donate_vads_PRODUCTION') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
         $sha1 = sha1($sign);
         $params['signature'] = $sha1;
         $this->params = $params;
+
+        $this->amount = $this->getRequestParameter('amount');
     }
 
     public function executeCreditCardThanks()
