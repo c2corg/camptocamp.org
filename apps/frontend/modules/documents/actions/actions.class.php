@@ -5255,7 +5255,7 @@ class documentsActions extends c2cActions
             $sha1 = sha1($sign);
 
 
-            $email_recipient = 'bruno.besson@gmail.com';
+            $email_recipient = sfConfig::get('app_donate_email');
             $email_subject = $sign;
             $htmlBody = 'signature match=' . ($sha1 == $params['signature']) . '<br/>';
             foreach ($params as $key => $value)
@@ -5307,7 +5307,7 @@ class documentsActions extends c2cActions
             }
 
             // definition of the required parameters
-            $donation_mail = 'lionel.besson@gmail.com';
+            $donation_mail = sfConfig::get('app_donate_email');
             $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
             $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
             $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
