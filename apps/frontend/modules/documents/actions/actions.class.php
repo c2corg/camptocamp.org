@@ -5209,6 +5209,8 @@ class documentsActions extends c2cActions
             'vads_capture_delay' => '0',
             'vads_validation_mode' => '0',
 
+            'vads_return_mode' => 'POST',
+
             'vads_cust_email' => $this->getRequestParameter('email'),
             'vads_cust_first_name' => $this->getRequestParameter('name')
         );
@@ -5236,7 +5238,18 @@ class documentsActions extends c2cActions
 
     public function executeCreditCardThanks()
     {
-        // TODO check status
+        $this->status = 'unknown';
+        if($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $status = $this->getRequestParameter('vads_trans_status');
+            if ($status == 'AUTHORISED')
+            {
+                $this->status = 'success';
+            } else
+            {
+                $this->status = 'failed';
+            }
+        }    
     }
 
     public function executeCreditCardReport()
@@ -5276,7 +5289,7 @@ class documentsActions extends c2cActions
             $mail->setAltBody(strip_tags($htmlBody));
             $mail->send();
 
-            return $this->renderText($comment);
+            return $this->renderText('');
         }
         else
         {
