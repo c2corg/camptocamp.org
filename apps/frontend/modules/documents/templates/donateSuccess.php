@@ -23,7 +23,7 @@ echo start_content_tag();
   <label>Rester anonyme <input name="anonymous" type="checkbox" /></label>
   <label>Nom / pseudo <input name="name" ctype="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
   <label>email <input name="email" type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
-  <label>montant <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?></label>
+  <label>montant <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?> required /></label>
 Texte qui explique les diff&eacute;rentes options de paiement, &eacute;ventuellement qui rappelle &agrav; quoi &ccedil;a sert etc
 
 penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
