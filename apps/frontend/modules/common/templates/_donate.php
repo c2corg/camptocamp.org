@@ -15,11 +15,23 @@
 <button class="donate-never">Non merci</button>
 <button class="donate-change">Autre bannière</button>
 
-<button onclick="location.href='/donate?amount=10'">10€</button>
-<button onclick="location.href='/donate?amount=30'">30€</button>
-<button onclick="location.href='/donate?amount=50'">50€</button>
-<button onclick="location.href='/donate?amount=100'">100€</button>
-<button onclick="location.href='/donate?amount=500'">500€</button>
-<button onclick="location.href='/donate'">Autre montant</button>
+<?php
+use_helper('Link');
+if (sfConfig::get('app_production') != 1)
+{
+    $url = '/donate';
+}
+else
+{
+    // on prod, force https
+    $url = str_replace('http://', 'https://', url_for('@homepage', true)) . 'donate';
+}
+?>
+<button onclick="location.href='<?php echo $url ?>?amount=10'">10€</button>
+<button onclick="location.href='<?php echo $url ?>?amount=30'">30€</button>
+<button onclick="location.href='<?php echo $url ?>?amount=50'">50€</button>
+<button onclick="location.href='<?php echo $url ?>?amount=100'">100€</button>
+<button onclick="location.href='<?php echo $url ?>?amount=500'">500€</button>
+<button onclick="location.href='<?php echo $url ?>'">Autre montant</button>
 
 </aside>
