@@ -5301,6 +5301,8 @@ class documentsActions extends c2cActions
     {
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
+            $this->uid = uniqid();
+
             $mail = new sfMail();
             $mail->setCharset('utf-8');
 
@@ -5329,12 +5331,13 @@ class documentsActions extends c2cActions
             $mail->addAddress($donation_mail);
             $mail->setSubject('Promesse de don');
             $mail->setContentType('text/html');
-            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;<br>'.
+            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;uid;<br>'.
                 $method.';'.
                 $this->getRequestParameter('anonymous').';'.
                 $this->getRequestParameter('name').';'.
                 $this->getRequestParameter('email').';'.
-                $this->getRequestParameter('amount').';');
+                $this->getRequestParameter('amount').';'.
+                $this->uid.';');
             $mail->setAltBody(strip_tags($htmlBody));
                                                                                                                                                              $mail->send();
 
