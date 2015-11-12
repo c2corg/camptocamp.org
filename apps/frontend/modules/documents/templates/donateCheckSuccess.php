@@ -19,9 +19,14 @@ echo display_content_top('list_content');
 echo start_content_tag();
 
 ?>
-Texte qui explique comment envoyer un cheque (euro, chf accepté ??)
+Merci pour votre soutien !<br>
+Libellez votre chÃ¨que au nom de "Camptocamp-Association" et envoyez le Ã  l'adresse suivante :<br>
+Camptocamp-Association (c/o B. Besson)<br>
+9 rue Marguerite Gonnet<br>
+38000 GRENOBLE<br>
+FRANCE<br>
 
-penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
+penser Ã  changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
 
 <?php
 echo end_content_tag();
