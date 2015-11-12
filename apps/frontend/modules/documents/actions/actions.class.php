@@ -5198,7 +5198,7 @@ class documentsActions extends c2cActions
         $params = array(
             'vads_site_id' => sfConfig::get('app_donate_vads_site_id'),
             'vads_ctx_mode' => sfConfig::get('app_donate_vads_mode'),
-            'vads_trans_id' => $this->uid,
+            'vads_trans_id' => $this->getRequestParameter('uid'),
             'vads_trans_date' => date('YmdHis'),
             'vads_amount' => $this->getRequestParameter('amount') . '00', // amount (in cents!)
             'vads_currency' => '978', // CHF = 756
