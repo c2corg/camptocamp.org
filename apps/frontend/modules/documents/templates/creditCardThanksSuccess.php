@@ -30,7 +30,7 @@ penser &agrave; changer les boutons de gauche pour renvoyer vers de l'aide via e
 else:
 ?>
 <p>
-Le paiement n'a pas aboutit. Merci de nous contacter pour résoudre cet inconv&eacute;nient technique...
+Le paiement n'a pas aboutit. S'il ne s'agit pas d'une annulation intentionnelle de votre part, merci de nous contacter pour résoudre cet inconv&eacute;nient technique...
 </p>
 <p>
 penser &agrave; changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre

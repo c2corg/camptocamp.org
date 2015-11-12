@@ -5228,7 +5228,7 @@ class documentsActions extends c2cActions
                 $sign .= $value . '+';
             }
         }
-        $sign .= sfConfig::get('app_donate_vads_mode') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
+        $sign .= sfConfig::get('app_donate_vads_mode') == 'PRODUCTION' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
         $sha1 = sha1($sign);
         $params['signature'] = $sha1;
         $this->params = $params;
@@ -5266,16 +5266,27 @@ class documentsActions extends c2cActions
                     $sign .= $value . '+';
                 }
             }
-            $sign .= sfConfig::get('app_donate_vads_mode') == 'TEST' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
+            $sign .= sfConfig::get('app_donate_vads_mode') == 'PRODUCTION' ? sfConfig::get('app_donate_vads_prod_certificate') : sfConfig::get('app_donate_vads_test_certificate');
             $sha1 = sha1($sign);
 
 
             $email_recipient = sfConfig::get('app_donate_email');
-            $email_subject = $sign;
-            $htmlBody = 'signature match=' . ($sha1 == $params['signature']) . '<br/>';
-            foreach ($params as $key => $value)
+            $email_subject = 'Notification de paiement par carte bancaire [' . $params['vads_trans_status'] . ']';
+            if ($sha1 == $params['signature'])
             {
-                $htmlBody .= $key . '=' . $value . '<br/>';
+                $htmlBody = 'Paiement par CB pour la transaction ' . $params['vads_trans_id'] . '<br/>';
+                foreach ($params as $key => $value)
+                {
+                    $htmlBody .= $key . '=' . $value . '<br/>';
+                }
+            } else
+            {
+                $htmlBody = 'ERREUR: la signature ne correspond pas ! Tentative de piratage ?<br />';
+                foreach ($params as $key => $value)
+                {
+                    $htmlBody .= $key . '=' . $value . '<br/>';
+                }
+
             }
             $mail = new sfMail();
             $mail->setCharset('utf-8');
