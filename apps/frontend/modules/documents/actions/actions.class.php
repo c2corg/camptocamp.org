@@ -5301,7 +5301,7 @@ class documentsActions extends c2cActions
     {
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
-            $uid = uniqid();
+            $uid = mt_rand(100000,999999);
 
             $mail = new sfMail();
             $mail->setCharset('utf-8');
