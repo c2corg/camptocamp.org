@@ -5301,7 +5301,7 @@ class documentsActions extends c2cActions
     {
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
-            $this->uid = uniqid();
+            $uid = uniqid();
 
             $mail = new sfMail();
             $mail->setCharset('utf-8');
@@ -5337,9 +5337,9 @@ class documentsActions extends c2cActions
                 $this->getRequestParameter('name').';'.
                 $this->getRequestParameter('email').';'.
                 $this->getRequestParameter('amount').';'.
-                $this->uid.';');
+                $uid.';');
             $mail->setAltBody(strip_tags($htmlBody));
-                                                                                                                                                             $mail->send();
+            $mail->send();
 
             // don't show message to user anymore
             $this->getResponse()->setCookie('donate', 'already', 1456786800000); // end of february 2016
@@ -5351,6 +5351,7 @@ class documentsActions extends c2cActions
                 case 'transfer':
                     $this->forward('documents', 'donateTransfer'); break;
                 case 'cc':
+                    $this->getRequest()->setParameter('uid', $uid);
                     $this->forward('documents', 'donateCreditCard'); break;
                 case 'paypal':
                     $this->forward('documents', 'donatePaypal'); break;
