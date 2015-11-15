@@ -1,5 +1,5 @@
 <?php
-use_helper('Button', 'Form', 'Viewer', 'MyForm');
+use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 ?>
 
 <div id="nav_space">&nbsp;</div>
@@ -33,18 +33,22 @@ penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou
 <form action="/donate" class="donate-form" method="POST">
   <div class="donate-left">
     <label>Nom / pseudo&nbsp;: <input name="name" ctype="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
-    <br>
+    <br><br>
     <label>Email&nbsp;: <input name="email" type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
-    <br>
-    <label>Montant&nbsp;: <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?> required /></label>
-    <br>
+    <br><br>
+    <label>Montant&nbsp;: <input name="amount" type="number" min=1 <?php echo isset($amount) ? 'value="'.$amount.'"' : '' ?> required /> </label>
+    <select name="currency">
+      <option value="EUR" selected>&euro;</option>
+      <option value="CHF">CHF</option>
+    </select>
+    <br><br>
     <label>Je souhaite que mon don reste anonyme <input name="anonymous" type="checkbox" /></label>
   </div>
   <div class="donate-right">
-    <button type="submit" class="donate-submit" name="transfer"><span class="fa fa-sign-in" /> Payer par virement bancaire</button>
-    <button type="submit" class="donate-submit" name="check"><span class="fa fa-edit" /> Payer par ch&egrave;que</button>
-    <button type="submit" class="donate-submit" name="cc"><span class="fa fa-credit-card" /> Payer par carte bancaire</button>
-    <button type="submit" class="donate-submit" value="Payer avec Paypal" name="paypal"><span class="fa fa-paypal" />  Payer avec Paypal</button>
+    <button type="submit" class="donate-submit" value ="transfer" name="transfer"><span class="fa fa-sign-in" /> Payer par virement bancaire</button>
+    <button type="submit" class="donate-submit" value="check" name="check"><span class="fa fa-edit" /> Payer par ch&egrave;que</button>
+    <button type="submit" class="donate-submit" value="cc" name="cc"><span class="fa fa-credit-card" /> Payer par carte bancaire</button>
+    <button type="submit" class="donate-submit" value="paypal" name="paypal"><span class="fa fa-paypal" />  Payer avec Paypal</button>
   </div>
 </form>
 <?php

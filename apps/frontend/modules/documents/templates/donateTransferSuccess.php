@@ -1,5 +1,5 @@
 <?php
-use_helper('Button', 'Form', 'Viewer', 'MyForm');
+use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 ?>
 
 <div id="nav_space">&nbsp;</div>

@@ -1,5 +1,5 @@
 <?php
-use_helper('Button', 'Form', 'Viewer', 'MyForm');
+use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 ?>
 
 <div id="nav_space">&nbsp;</div>
@@ -27,7 +27,7 @@ Texte qui explique que ca va renvoyer vers paypal
 <form action="https://www.paypal.com/fr/cgi-bin/webscr" method="post">
 <input name="cmd" value="_xclick" type="hidden" />
 <input name="business" value="registration@camptocamp.org" type="hidden" />
-<input name="currency_code" value="EUR" type="hidden" />
+<input name="currency_code" value="<?php echo $currency ?>" type="hidden" />
 <input name="amount" value="<?php echo $amount ?>" type="hidden" />
 <input type="hidden" name="item_name" value="Soutenir Camptocamp Association" />
 <input type="hidden" name="return" value="http://camptocamp.org/" />

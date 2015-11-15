@@ -5190,6 +5190,7 @@ class documentsActions extends c2cActions
     public function executeDonatePaypal()
     {
         $this->amount = $this->getRequestParameter('amount');
+        $this->currency = $this->getRequestParameter('currency');
     }
 
     public function executeDonateCreditCard()
@@ -5201,7 +5202,7 @@ class documentsActions extends c2cActions
             'vads_trans_id' => $this->getRequestParameter('uid'),
             'vads_trans_date' => date('YmdHis'),
             'vads_amount' => $this->getRequestParameter('amount') . '00', // amount (in cents!)
-            'vads_currency' => '978', // CHF = 756
+            'vads_currency' => $this->getRequestParameter('currency') == 'CHF' ? 756 : 978,
             'vads_action_mode' => 'INTERACTIVE',
             'vads_page_action' => 'PAYMENT',
             'vads_version' => 'V2',
@@ -5234,6 +5235,7 @@ class documentsActions extends c2cActions
         $this->params = $params;
 
         $this->amount = $this->getRequestParameter('amount');
+        $this->currency = $this->getRequestParameter('currency');
     }
 
     public function executeCreditCardThanks()
@@ -5342,12 +5344,13 @@ class documentsActions extends c2cActions
             $mail->addAddress($donation_mail);
             $mail->setSubject('Promesse de don');
             $mail->setContentType('text/html');
-            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;uid;<br>'.
+            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;monnaie;uid<br>'.
                 $method.';'.
                 $this->getRequestParameter('anonymous').';'.
                 $this->getRequestParameter('name').';'.
                 $this->getRequestParameter('email').';'.
                 $this->getRequestParameter('amount').';'.
+                $this->getRequestParameter('currency').';'.
                 $uid.';');
             $mail->setAltBody(strip_tags($htmlBody));
             $mail->send();

@@ -1,5 +1,5 @@
 <?php
-use_helper('Button', 'Form', 'Viewer', 'MyForm');
+use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 ?>
 
 <div id="nav_space">&nbsp;</div>
@@ -26,7 +26,7 @@ echo start_content_tag();
 Merci de votre soutien pour camptocamp !
 </p>
 <p>
-Pour proc&eacute;der au paiement de <?php echo $amount; ?> &euro; par carte bancaire en faveur de l'association Camptocamp, cliquez sur le bouton qui s'affiche ci-dessous. Vous serez alors redirig&eacute; vers le site de paiement en ligne. 
+Pour proc&eacute;der au paiement de <?php echo $amount; ?> <?php echo ($currency == 'CHF' ? 'CHF' : '&euro;'); ?> par carte bancaire en faveur de l'association Camptocamp, cliquez sur le bouton qui s'affiche ci-dessous. Vous serez alors redirig&eacute; vers le site de paiement en ligne. 
 </p>
 <p>                                                     
 penser &agrave; changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
