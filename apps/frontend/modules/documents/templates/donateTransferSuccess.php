@@ -7,7 +7,10 @@ use_helper('Button', 'Form', 'Viewer', 'MyForm');
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
-            <li><?php echo button_report() ?></li>
+            <li><?php echo f_link_to(__('Report problem'),
+                                     'misc.php?email=' . sfConfig::get('app_donate_user') . '&doc=' . urlencode($_SERVER['REQUEST_URI']),
+                                     array('title' => __('Report problem'),
+                                           'class' => 'action_report nav_edit')); ?></li>
             <li><?php echo button_help('help') ?></li>
         </ul>
     </div>
