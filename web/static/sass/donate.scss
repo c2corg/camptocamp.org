@@ -1,3 +1,5 @@
+@import 'font-awesome-4.4.0/font-awesome.scss';
+
 #header {
   position: relative;
 }
@@ -284,3 +286,27 @@ background-color:white;
 }
 
 }
+
+.donate-form label {
+  display: block;
+}
+
+@media(min-width: 768px) {
+ .donate-left, .donate-right {
+   float: left;
+    width: 41.666%;
+  }
+}
+
+.donate-left, .donate-right {
+   position: relative;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+
+.donate-submit {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
