@@ -25,7 +25,10 @@ echo display_content_top('list_content');
 echo start_content_tag();
 
 ?>
-Texte qui explique que ca va renvoyer vers paypal
+<b>Merci pour votre soutien !</b>
+<p>
+    Le bouton ci-dessous va vous rediriger sur le site de paypal.
+</p>
 
 <form action="https://www.paypal.com/fr/cgi-bin/webscr" method="post">
 <input name="cmd" value="_xclick" type="hidden" />
@@ -36,8 +39,6 @@ Texte qui explique que ca va renvoyer vers paypal
 <input type="hidden" name="return" value="http://camptocamp.org/" />
 <input value="Payer avec Paypal" id="paypal-button" type="submit" />
 </form>
-
-penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
 
 <?php
 echo end_content_tag();
