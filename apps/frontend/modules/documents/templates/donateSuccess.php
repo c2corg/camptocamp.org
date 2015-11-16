@@ -27,11 +27,13 @@ echo start_content_tag();
 ?>
 
 <p>
-Texte qui explique les diff&eacute;rentes options de paiement, &eacute;ventuellement qui rappelle &agrave; quoi &ccedil;a sert etc
+Nous vous demandons de remplir un formulaire très simple. Il a pour objectif de pouvoir vous envoyer des informations régulières sur l'avancement de la campagne de dons et la réalisation des nouvelles fonctionalités de camptocamp. Si vous souhaitez rester anonyme, cochez la case prévue à cet effet, vous n'apparaîtrez pas dans la liste des donateurs.(*)
+<br>
+Enfin, nous vous proposons 4 modes de paiements: chèque (euro uniquement), virement bancaire, carte bancaire et paypal. Pour les paiements par chèque, paypal ou les virements pensez à indiquer la mention 'campagne de dons 2015' et votre nom/pseudo/identifiant afin qu'on identifie facilement l'origine de votre versement.
+<br>
+Merci encore pour votre soutien !
 </p>
-<p>
-penser � changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
-</p>
+<small>(*) Toutes les informations personnelles seront effacées à l'issue des développements de la nouvelle version du site. Si vous souhaitez connaître vos données personnelles en notre possession ou voulez les supprimer, contactez nous à l'adresse suivante : donation@camptocamp.org.</small>
 
 <form action="/donate" class="donate-form" method="POST">
   <div class="donate-left">
