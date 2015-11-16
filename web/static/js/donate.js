@@ -5,17 +5,14 @@
   var expiration = new Date(2016,2,1); // 01/02/2016
 
   $(function() {
-    console.log('plop');
     var cookie = readCookie();
 
     if (!cookie && location.pathname != '/donate') {
       // no cookie present, display the banner
       // only once per session
-      console.log("display banner");
       displayBanner();
     } else {
       // do not show something yet
-      console.log("not this session");
     }
 
     // donate buttons if present
@@ -23,7 +20,7 @@
   });
 
   function displayBanner() {
-    loadBanner()
+    loadBanner();
     donateDiv.show();
     $('.donate-never').click(never);
     $('.donate-notnow').click(notNow);
@@ -31,10 +28,8 @@
   }
 
   function loadBanner() {
-    console.log('load banner');
     var random = Math.floor(Math.random() * 10);
     $.get('/donate/banner?id=' + random).then(function(data) {
-      console.log(data);
       if (data.url) {
         donateDiv.find('.people').html('<a href="' + data.url + '">' + data.people + '</a>');
       } else {
