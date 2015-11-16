@@ -1,5 +1,7 @@
 <?php
 use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
+$mobile_version = c2cTools::mobileVersion();
+if (!$mobile_version):
 ?>
 
 <div id="nav_space">&nbsp;</div>
@@ -18,6 +20,7 @@ use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 </div>
 
 <?php
+endif;
 echo display_content_top('list_content');
 echo start_content_tag();
 
@@ -32,7 +35,7 @@ penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou
 
 <form action="/donate" class="donate-form" method="POST">
   <div class="donate-left">
-    <label>Nom / pseudo&nbsp;: <input name="name" ctype="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
+    <label>Nom / pseudo&nbsp;: <input name="name" type="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
     <br><br>
     <label>Email&nbsp;: <input name="email" type="email" <?php echo isset($email) ? 'value="'.$email.'"' : '' ?> required /></label>
     <br><br>

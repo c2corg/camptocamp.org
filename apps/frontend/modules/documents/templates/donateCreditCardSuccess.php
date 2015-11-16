@@ -1,5 +1,7 @@
 <?php
 use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
+$mobile_version = c2cTools::mobileVersion();
+if (!$mobile_version):
 ?>
 
 <div id="nav_space">&nbsp;</div>
@@ -18,6 +20,7 @@ use_helper('Button', 'Form', 'Viewer', 'MyForm', 'Forum');
 </div>
                                         
 <?php
+endif;
 echo display_content_top('list_content');
 echo start_content_tag();
                                                
