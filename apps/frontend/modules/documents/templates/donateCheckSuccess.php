@@ -32,8 +32,6 @@ Camptocamp-Association (c/o B. Besson)<br>
 38000 GRENOBLE<br>
 FRANCE<br>
 
-penser à changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
-
 <?php
 echo end_content_tag();
 
