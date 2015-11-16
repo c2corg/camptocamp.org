@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_c, millet_jorasses, adserver, adserver, adserver, adserver, adserver, camp_c, adserver, adserver ]
+    values: [ diamir_vipec12, adserver, camp_c, millet_jorasses, diamir_vipec12, adserver, adserver, diamir_vipec12, adserver, camp_c, diamir_vipec12, adserver ]
   banners:
     list:
       skalp:
@@ -274,3 +274,7 @@ all:
         id: 106
         image: millet_jorasses.gif
         alt: "Millet Artists on Jorasses"
+      diamir_vipec12:
+        id: 116
+        image: diamir-vipec2016.jpg
+        alt: "Diamir Vipec 12"
