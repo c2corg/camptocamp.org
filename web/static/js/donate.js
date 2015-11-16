@@ -47,7 +47,9 @@
   }
 
   function notNow() {
-    setCookie("notnow");
+    var date = new Date();
+    date.setTime(date.getTime()+(2*24*60*60*1000)); // + 2 days
+    setCookie("notnow", date);
     donateDiv.remove();
   }
 
