@@ -7,7 +7,27 @@
 
 #donate {
 
-  background-color: red;
+  background-color: #ffa146;
+  padding: 5px;
+
+  img {
+    width: 100px;
+    float: left;
+  }
+
+  .donate-notnow.cross {
+    float: right;
+  }
+
+  .donate-quote {
+    padding: 5px;
+  }
+
+  .donate-quote:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
   
 #barre_horizontale {
     width: 100%;
