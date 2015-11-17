@@ -24,19 +24,16 @@ echo start_content_tag();
 if ($status == 'success'):                         
 ?>      
 <p>
-Merci pour votre don !
+Merci pour votre don ! La transaction est enregistr&eacute;e sous le num&eacute;ro <?php echo $trans_id; ?>. Pour toute question suppl&eacute;mentaire, n'h&eacute;sitez pas &agrave; nous contacter &agrave; <a href="mailto:donation@camptocamp.org">donation@camptocamp.org</a>.
 </p>
 <p>
-penser &agrave; changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
+Vous pouvez reprendre une activité normale et revenir par exemple &agrave; la <a href="/">page d'accueil</a>.
 </p>
 <?php
 else:
 ?>
 <p>
-Le paiement n'a pas aboutit. S'il ne s'agit pas d'une annulation intentionnelle de votre part, merci de nous contacter pour résoudre cet inconv&eacute;nient technique...
-</p>
-<p>
-penser &agrave; changer les boutons de gauche pour renvoyer vers de l'aide via email ou autre
+Le paiement n'a pas aboutit. S'il ne s'agit pas d'une annulation intentionnelle de votre part, merci de nous contacter &agrave; <a href="mailto:donation@camptocamp.org">donation@camptocamp.org</a> pour résoudre cet inconv&eacute;nient technique...
 </p>
 <?php
 endif;

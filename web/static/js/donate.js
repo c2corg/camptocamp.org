@@ -68,4 +68,20 @@
 
     return match && unescape(match[1]);
   }
+
+  $(document).ready(function() {
+    $('.donate-form').on('submit', function() {
+      // ouh que c'est moche
+      var val = $('input[name="amount"]').val();
+      var i = val.indexOf('.');
+      if (i >= 0) {
+        val = val.substring(0, i);
+      }
+      i = val.indexOf(',');
+      if (i >= 0) {
+        val = val.substring(0, i);
+      }
+      $('input[name="amount"]').val(val);
+    });
+  });
 }(jQuery));

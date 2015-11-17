@@ -5244,6 +5244,7 @@ class documentsActions extends c2cActions
         if($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $status = $this->getRequestParameter('vads_trans_status');
+            $this->trans_id = $this->getRequestparameter('vads_trans_id');
             if ($status == 'AUTHORISED')
             {
                 $this->status = 'success';
