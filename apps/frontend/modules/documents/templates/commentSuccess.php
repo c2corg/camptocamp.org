@@ -185,7 +185,7 @@ foreach ($comments as $comment):
     }
     echo '</li>';
     // check if anonymous comments allowed
-    if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+    if ((sf_user->getId() > 1 || (in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')) && $module != 'xreports'))
     {
         echo '<li class="postquote">'.
              f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id, array('rel' => 'nofollow')).
@@ -206,7 +206,7 @@ endforeach;
   <div class="inbox">
     <?php
     // check if anonymous comments allowed
-    if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+    if ((sf_user->getId() > 1 || (in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')) && $module != 'xreports'))
     {
         $add_comment_link = f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
         echo '<p class="postlink conl">' , $add_comment_link , '</p>';
