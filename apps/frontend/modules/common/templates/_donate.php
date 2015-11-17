@@ -4,8 +4,11 @@
 
 <div class="donate-quote">
   <img class="donate-image" />
-  <span class="people"></span>, <span class="role"></span>
+  <br>
+  <i class="fa fa-quote-left"></i>
   <span class="presentation"></span>
+  <i class="fa fa-quote-right"></i><br><br>
+  <span class="signature"><span class="people"></span>, <span class="role"></span></span>
 </div>
 
 <span class="donate-buttons">
