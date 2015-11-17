@@ -49,9 +49,9 @@ Merci encore pour votre soutien !
     <label>Je souhaite que mon don reste anonyme <input name="anonymous" type="checkbox" /></label>
   </div>
   <div class="donate-right">
+    <button type="submit" class="donate-submit" value="cc" name="cc"><span class="fa fa-credit-card" /> Payer par carte bancaire</button>
     <button type="submit" class="donate-submit" value ="transfer" name="transfer"><span class="fa fa-sign-in" /> Payer par virement bancaire</button>
     <button type="submit" class="donate-submit" value="check" name="check"><span class="fa fa-edit" /> Payer par ch&egrave;que</button>
-    <button type="submit" class="donate-submit" value="cc" name="cc"><span class="fa fa-credit-card" /> Payer par carte bancaire</button>
     <button type="submit" class="donate-submit" value="paypal" name="paypal"><span class="fa fa-paypal" />  Payer avec Paypal</button>
   </div>
 </form>
