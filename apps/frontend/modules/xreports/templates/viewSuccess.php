@@ -106,7 +106,7 @@ if ($is_not_archive)
                                                 'users' => get_directly_linked_ids($associated_users));
         }
         
-        echo c2c_form_add_multi_module('xreports', $id, $modules_list, 7, $options);
+        echo c2c_form_add_multi_module('xreports', $id, $modules_list, 5, $options);
     }
     
     echo '</div>';
