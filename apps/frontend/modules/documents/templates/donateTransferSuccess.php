@@ -34,7 +34,8 @@ IBAN : FR76 4255 9000 1621 0292 5660 307<br>
 BIC : CCOPFRPPXXX<br>
 
 <br>
-
+Mentionnez le num&eacute;ro de transaction <?php echo $uid ?>
+<br>
 <?php
 echo end_content_tag();
 

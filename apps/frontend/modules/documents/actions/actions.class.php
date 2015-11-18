@@ -5179,12 +5179,12 @@ class documentsActions extends c2cActions
 
     public function executeDonateCheck()
     {
-        // nothing special
+        $this->uid = $this->getRequestParameter('uid');
     }
 
     public function executeDonateTransfer()
     {
-        // nothing special
+        $this->uid = $this->getRequestParameter('uid');
     }
 
     public function executeDonatePaypal()
@@ -5360,6 +5360,7 @@ class documentsActions extends c2cActions
             // don't show message to user anymore
             $this->getResponse()->setCookie('donate', 'already', 1456786800000); // end of february 2016
 
+            $this->getRequest()->setParameter('uid', $uid);
             switch($method)
             {
                 case 'check':
@@ -5367,7 +5368,6 @@ class documentsActions extends c2cActions
                 case 'transfer':
                     $this->forward('documents', 'donateTransfer'); break;
                 case 'cc':
-                    $this->getRequest()->setParameter('uid', $uid);
                     $this->forward('documents', 'donateCreditCard'); break;
                 case 'paypal':
                     $this->forward('documents', 'donatePaypal'); break;

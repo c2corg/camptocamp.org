@@ -32,6 +32,7 @@ Camptocamp-Association (c/o B. Besson)<br>
 38000 GRENOBLE<br>
 FRANCE<br>
 
+Mentionnez le num&eacute;ro de transaction <?php echo $uid ?><br>
 <?php
 echo end_content_tag();
 
