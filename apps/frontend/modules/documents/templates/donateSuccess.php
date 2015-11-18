@@ -47,6 +47,7 @@ Merci encore pour votre soutien !
     </select>
     <br><br>
     <label>Je souhaite que mon don reste anonyme <input name="anonymous" type="checkbox" /></label>
+    <label>Cotisation <input name="adhesion" type="checkbox" /></label>
   </div>
   <div class="donate-right">
     <button type="submit" class="donate-submit" value="cc" name="cc"><span class="fa fa-credit-card" /> Payer par carte bancaire</button>

@@ -5345,9 +5345,10 @@ class documentsActions extends c2cActions
             $mail->addAddress($donation_mail);
             $mail->setSubject('Promesse de don');
             $mail->setContentType('text/html');
-            $mail->setBody('Promesse de don<br>methode;anonymous;nom;email;montant;monnaie;uid<br>'.
+            $mail->setBody('Promesse de don<br>methode;anonymous;adhesion;nom;email;montant;monnaie;uid;<br>'.
                 $method.';'.
                 $this->getRequestParameter('anonymous').';'.
+                $this->getRequestParameter('adhesion').';'.
                 $this->getRequestParameter('name').';'.
                 $this->getRequestParameter('email').';'.
                 $this->getRequestParameter('amount').';'.
