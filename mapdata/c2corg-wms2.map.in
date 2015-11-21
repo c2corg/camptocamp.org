@@ -400,7 +400,7 @@ LAYER
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
-      SYMBOL ../web/static/images/modules/summits_mini.png
+      SYMBOL ../web/static/images/modules/xreports_mini.png
       COLOR 0 0 0
     END
   END
