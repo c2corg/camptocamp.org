@@ -13,7 +13,7 @@ $mobile_version = c2cTools::mobileVersion();
 echo '<div>';
 display_document_edit_hidden_tags($document);
 echo '</div>';
-echo mandatory_fields_warning();
+echo mandatory_fields_warning(array('xreport form warning'));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
