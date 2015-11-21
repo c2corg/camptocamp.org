@@ -31,12 +31,12 @@ class Hut extends BaseHut
 
     public static function filterSetStaffed_capacity($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
             
     public static function filterSetUnstaffed_capacity($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetShelter_type($value)

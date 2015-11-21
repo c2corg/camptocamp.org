@@ -18,9 +18,9 @@ function elevation_selector($fieldname, $unit = 'meters')
     $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "C2C.update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
-    $out .= input_tag($fieldname, NULL, array('class' => 'short_input'));
+    $out .= input_tag($fieldname, NULL, array('class' => 'short_input', 'type' => 'number', 'min' => 0));
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
-    $out .= input_tag($fieldname . '2', NULL, array('class' => 'short_input'));
+    $out .= input_tag($fieldname . '2', NULL, array('class' => 'short_input', 'type' => 'number', 'min' => 0));
     $out .= '</span> ' . __($unit) . '</span>'; 
     return '<span class="lineform">' . $out . '</span>';
 }
@@ -364,7 +364,7 @@ function around_selector($name, $coords = array(), $multiline = false)
         $out .= '<br />';
     }
     $out .= __('within km: ');
-    $out .= input_tag($name . '_range', 5, array('value' => '10', 'class' => 'short_input'));
+    $out .= input_tag($name . '_range', 5, array('value' => '10', 'type' => 'number', 'min' => 0, 'class' => 'short_input'));
     $out .= ' ' . __('kilometers');
     $out .= '</span>';
 

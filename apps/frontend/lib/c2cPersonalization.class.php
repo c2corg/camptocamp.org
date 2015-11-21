@@ -41,14 +41,21 @@ class c2cPersonalization
             {
                 // user has no language filter
 
-                if (!$context->getRequest()->getCookie('symfony') && $culture != 'en')
+                if (!$context->getRequest()->getCookie('symfony') && !in_array($culture, array('fr', 'en', 'de', 'eu')))
                 {
                     // TODO: get symfony cookie name from config (factories.yml)?
             
                     // apparently he comes on the site for the first time
-                    // => set his language filter to the interface language by default (except for EN
-                    // because a lot of browsers are configured in english)
-                    $langs[] = $culture;
+                    // => set his language filter to the interface language by default for IT, CA and ES
+                    if (in_array($culture, array('es', 'ca')))
+                    {
+                        $langs = array('es', 'ca', 'en');
+                    }
+                    else
+                    {
+                        $langs = array($culture);
+                    }
+                    
                     self::saveFilter($cookie_name, $langs);
                 }
             }

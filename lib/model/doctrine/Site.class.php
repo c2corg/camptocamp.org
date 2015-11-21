@@ -76,27 +76,27 @@ class Site extends BaseSite
 
     public static function filterSetRoutes_quantity($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnPosIntOrNull($value);
     }
 
     public static function filterSetMax_height($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetMin_height($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetMean_height($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetElevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetMax_rating($value)

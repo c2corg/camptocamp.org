@@ -46,17 +46,17 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 <div class="article_gauche_5050">
 <?php
 echo object_group_tag($document, 'partial_trip', array('callback' => 'object_checkbox_tag'));
-echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
+echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0'));
 ?>
 <div data-act-filter="1 6 7 height_diff_down">
 <?php
-echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0'));
 ?>
 </div>
 <div data-act-filter="1 6 7 length">
 <?php
-echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
+echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', step => '.1'));
 ?>
 </div>
 <?php
@@ -85,12 +85,12 @@ echo checkbox_tag('mw_contest_associate', 1, $mw_checked);
 <?php
 }
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
-echo object_group_tag($document, 'access_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'access_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
 ?>
 <div data-act-filter="1 2 5 7">
 <?php
-echo object_group_tag($document, 'up_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'up_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
+echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
 ?>
 </div>
 </div>

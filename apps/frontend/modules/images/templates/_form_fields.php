@@ -17,7 +17,7 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_tag($document, 'author', array('class' => 'long_input'));
 include_partial('documents/oam_coords', array('document' => $document));
-echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'max' => '8900'));
 echo object_datetime_tag($document, 'date_time');
 
 include_component('images', 'form_fields_image_type', array('document' => $document, 'moderator' => $sf_user->hasCredential('moderator')));

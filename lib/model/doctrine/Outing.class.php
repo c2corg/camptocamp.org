@@ -18,17 +18,22 @@ class Outing extends BaseOuting
 
     public static function filterSetMax_elevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
+    }
+
+    public static function filterSetMin_elevation($value)
+    {
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetHeight_diff_up($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetHeight_diff_down($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
     
     public static function filterSetOuting_length($value)
@@ -63,17 +68,17 @@ class Outing extends BaseOuting
 
     public static function filterSetAccess_elevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetUp_snow_elevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetDown_snow_elevation($value)
     {   
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetTrack_status($value)
