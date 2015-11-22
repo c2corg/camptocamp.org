@@ -839,7 +839,7 @@ class Route extends BaseRoute
         // join with xreport tables only if needed 
         if (isset($joins['join_xreport']))
         {
-            Xreport::buildXreportPagerConditions($q, $joins, false, false, 'm.associations', 'rx');
+            Xreport::buildXreportPagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'rx');
         }
 
         if (!empty($conditions))
