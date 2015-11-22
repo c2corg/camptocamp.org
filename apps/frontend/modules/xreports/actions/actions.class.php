@@ -193,7 +193,7 @@ class xreportsActions extends documentsActions
                     break;
                 
                 case 'outings':
-                    $linked_doc = Document::find('Outing', $this->getRequestParameter('link'), array('activities'));
+                    $linked_doc = Document::find('Outing', $this->getRequestParameter('link'), array('activities', 'date'));
 
                     $linked_doc->setBestCulture($prefered_cultures);
                     $this->linked_doc = $linked_doc;
@@ -204,6 +204,9 @@ class xreportsActions extends documentsActions
                     // cf filterGetActivities and filterSetActivities in Route.class.php ...
                     $activities = $linked_doc->get('activities');
                     $document->set('activities', $activities);
+                    
+                    $date = $linked_doc->get('date');
+                    $document->set('date', $date);
                     
                     break;
             
