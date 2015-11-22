@@ -18,7 +18,7 @@ class Summit extends BaseSummit
 
     public static function filterSetElevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetSummit_type($value)

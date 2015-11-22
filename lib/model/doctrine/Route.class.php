@@ -236,32 +236,32 @@ class Route extends BaseRoute
 
     public static function filterSetHeight_diff_up($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetHeight_diff_down($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetMin_elevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetMax_elevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetElevation($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetDifficulties_height($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNaturalIntOrNull($value);
     }
 
     public static function filterSetRoute_length($value)

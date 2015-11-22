@@ -1273,7 +1273,7 @@ function simple_data($name, $value, $suffix = '')
 function check_not_empty_doc($document, $name)
 {
     $value = $document->get($name);
-    return check_is_numeric($value);
+    return check_is_numeric_or_text($value);
 }
 
 function summarize_route($route, $show_activities = true, $add_tooltips = false, $avalaible_activities = null, $list_format = true)

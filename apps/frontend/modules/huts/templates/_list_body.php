@@ -8,13 +8,13 @@ $item_i18n = $item['HutI18n'][0];
 <td><?php echo displayWithSuffix($item['elevation'], 'meters') ?></td>
 <td><?php echo get_paginated_value($item['shelter_type'], 'mod_huts_shelter_types_list') ?></td>
 <td><?php $staffed_capacity = $item['staffed_capacity'];
-          if (is_scalar($staffed_capacity) && $staffed_capacity > 0)
+          if (is_scalar($staffed_capacity))
           {
               echo $staffed_capacity;
           }
  ?></td>
 <td><?php $unstaffed_capacity = $item['unstaffed_capacity'];
-          if (is_scalar($unstaffed_capacity) && $unstaffed_capacity > 0)
+          if (is_scalar($unstaffed_capacity))
           {
               echo $unstaffed_capacity;
           }

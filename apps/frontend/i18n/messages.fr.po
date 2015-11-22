@@ -1140,7 +1140,11 @@ msgstr "Aller à l'itinéraire suivant"
 msgid "Go to next summit"
 msgstr "Aller au sommet suivant"
 
+<<<<<<< HEAD
 msgid "Go to next xreport"
+=======
+msgid "Go to next xreports"
+>>>>>>> origin/master
 msgstr "Aller à l'incident/accident suivant"
 
 msgid "Go to preview"
@@ -1182,7 +1186,11 @@ msgstr "Aller à l'itinéraire précédent"
 msgid "Go to previous summit"
 msgstr "Aller au sommet précédent"
 
+<<<<<<< HEAD
 msgid "Go to previous xreport"
+=======
+msgid "Go to previous xreports"
+>>>>>>> origin/master
 msgstr "Aller à l'incident/accident précédent"
 
 msgid "Go to the homepage"
@@ -2582,7 +2590,11 @@ msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
 msgid "The following infos are visible only by the moderators"
+<<<<<<< HEAD
 msgstr "Les données ci-dessous ne seront visibles que par les modérateurs et les chercheurs."
+=======
+msgstr "Les données ci-dessous ne sont visibles que par les modérateurs."
+>>>>>>> origin/master
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
@@ -2643,6 +2655,7 @@ msgstr "Cette nouvelle sortie sera associée au site d'escalade '[[sites/%2%|%1%
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
 msgstr "Ce nouvel itinéraire sera associé au sommet '[[summits/%2%|%1%]]' (document %2%)"
 
+<<<<<<< HEAD
 msgid "This new xrepors will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
 msgstr "Ce nouveau compte rendu d'incident/accident sera associée au site d'escalade '[[sites/%2%|%1%]]' (document %2%)"
 
@@ -2652,6 +2665,8 @@ msgstr "Ce nouveau compte rendu d'incident/accident sera associée à la sortie 
 msgid "This new xreports will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Ce nouveau compte rendu d'incident/accident sera associée à l'itinéraire '[[routes/%2%|%1%]]' (document %2%)"
 
+=======
+>>>>>>> origin/master
 msgid "This nickname already exists. Please choose another one."
 msgstr "Ce pseudonyme existe déjà. Merci d'en choisir un autre."
 
@@ -6663,7 +6678,11 @@ msgstr "Site suivant"
 msgid "next summit"
 msgstr "Sommet suivant"
 
+<<<<<<< HEAD
 msgid "next xreport"
+=======
+msgid "next xreports"
+>>>>>>> origin/master
 msgstr "Incident/accident suivant"
 
 msgid "nickName_desc"
@@ -7257,7 +7276,11 @@ msgstr "Site précédent"
 msgid "previous summit"
 msgstr "Sommet précédent"
 
+<<<<<<< HEAD
 msgid "previous xreport"
+=======
+msgid "previous xreports"
+>>>>>>> origin/master
 msgstr "Incident/accident précédent"
 
 msgid "previous_injuries"
@@ -8361,10 +8384,13 @@ msgstr "Voir le profil en fonction de&nbsp;:"
 msgid "xreport"
 msgstr "incident / accident"
 
+<<<<<<< HEAD
 msgid "xreport form warning"
 msgstr "Ce compte rendu d'incident ou accident sera ajouté à la <a href=\"/articles/697210\">Base SERAC</a>.</li>\n"
 "<li>Si vous avez des remarques ou des critiques sur le formulaire, vous pouvez <a href=\"/articles/comment/697210/fr\">poster un commentaire</a> ou <a href=\"/forums/misc.php?email=271737\">envoyer un email</a>."
 
+=======
+>>>>>>> origin/master
 msgid "xreport_conditions"
 msgstr "Étude des conditions (informations à l'avance et évolution sur le terrain)&nbsp;:"
 
@@ -8433,10 +8459,18 @@ msgstr "Incidents et accidents"
 
 # [WARNING] needs_review
 msgid "xreports presentation"
+<<<<<<< HEAD
 msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.\n"
 "Cette base de donnée de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=fr\">Fondation Petzl</a>. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. <a href=\"/articles/697210\">Plus d'information...</a><br />\n"
 "<br />\n"
 "Pour saisir un compte rendu d'incident ou accident, cliquez sur le lien \"Ajouter...\" ci-dessous, ou celui présent dans votre sortie si vous en avez déjà saisi une."
+=======
+msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.<br />\n"
+"Cette base de donnée de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la fondation Petzl. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. Des champs facultatifs demandent des infos personnelles, visibles uniquement des modérateurs et des chercheurs.<br />\n"
+"<br />\n"
+"Pour saisir un compte rendu d'incident ou accident, cliquez sur le lien \"Ajouter...\" ci-dessous, ou celui présent dans votre sortie si vous en avez déjà saisi une.<br />\n"
+"Si vous souhaitez rester anonyme, ou ne pas associer ce récit à votre compte c2c, c'est possible. Envoyez le récit (et éventuellement des photos) par mail à la <a href=\"/articles/106727#content\">modération</a>, il sera saisi sous le compte <a href=\"/users/271737\">Base accidents</a>."
+>>>>>>> origin/master
 
 msgid "year"
 msgstr "an"
