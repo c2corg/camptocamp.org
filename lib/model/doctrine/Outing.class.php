@@ -578,7 +578,7 @@ class Outing extends BaseOuting
         // join with xreport tables only if needed 
         if (isset($joins['join_xreport']))
         {
-            Xreport::buildXreportPagerConditions($q, $joins, false, false, 'm.associations', 'ox');
+            Xreport::buildXreportPagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'ox');
         }
 
         if (!empty($conditions))
