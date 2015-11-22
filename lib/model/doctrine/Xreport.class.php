@@ -108,7 +108,7 @@ class Xreport extends BaseXreport
         if ($is_module)
         {
             $m = 'm';
-            $m2 = 'p';
+            $m2 = 'x';
             $midi18n = $mid;
             $join = null;
             $join_id = null;
@@ -117,7 +117,7 @@ class Xreport extends BaseXreport
         }
         else
         {
-            $m = 'f';
+            $m = 'x';
             $m2 = $m;
             $mid = array('l' . $m, $mid);
             $midi18n = implode('.', $mid);
