@@ -113,6 +113,11 @@ if ($is_not_archive)
 }
 echo end_section_tag();
 
+if ($show_link_tool && !$is_moderator)
+{
+    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('multi_1_form_association').style.display = 'none';");
+}
+
 // map
 if ($is_not_archive && $is_not_merged)
 {
