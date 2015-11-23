@@ -71,7 +71,7 @@ if ($is_not_archive && $is_not_merged)
                           'document' => $document,
                           'show_link_to_delete' => $show_link_to_delete,
                           'type' => 'to', // site-outing
-                          'strict' => false)); // no strict looking for main_id in column main of Association table
+                          'strict' => true));
 }
 else
 {
@@ -118,6 +118,19 @@ if ($is_not_archive)
 }
 
 include_partial('data', array('document' => $document, 'nb_comments' => $nb_comments));
+
+if ($is_not_archive && $is_not_merged)
+{
+    echo '<div class="all_associations col_left col_66">';
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_xreports, 
+                          'module' => 'xreports',  // this is the module of the documents displayed by this partial
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'ox', // outing-xreport
+                          'strict' => true));
+    echo '</div>';
+}
 
 if ($show_link_tool)
 {
@@ -193,6 +206,18 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
                           'dissociation' => 'moderator',
                           'author_specific' => !$is_moderator,
                           'is_protected' => $document->get('is_protected')));
+  
+    if ($is_connected)
+    {
+        echo    '<div class="add_content" id="add_xreport">'
+              , link_to(picto_tag('picto_add', __('Associate new xreports')) . __('Associate new xreports'), "xreports/edit?link=$id")
+              , '</div>';
+        
+        if (!$is_moderator)
+        {
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('add_xreport').style.display = 'none';");
+        }
+    }
 }
 
 if ($mobile_version)

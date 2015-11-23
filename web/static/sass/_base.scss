@@ -2,7 +2,8 @@ $orange: #f93;
 $title_black: #535354; // not completely black, used for some titles
 
 $modules: areas, articles, books, huts, images, maps, outings, parkings,
-          routes, sites, summits, users, products, portals, documents;
+          routes, sites, summits, users, products, portals, documents,
+          xreports;
 
 $languages: fr, it, de, en, es, ca, eu;
 
@@ -160,10 +161,11 @@ a[href^="http://escalade.camptocamp.com"]:after {
 }
 .tips, .edit-tips, .float-tips
 {
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 .tips, .edit-tips, .big_tips
 {
+  margin-top: 5px;
   margin-bottom: 1em;
 }
 .warning-tips
@@ -751,7 +753,7 @@ fieldset.separator
   margin-top: 0.5em;
 }
 
-#data_section_container .section_subtitle
+#data_section_container .section_subtitle, #profil_section_container .section_subtitle
 {
   display: -moz-inline-box;
   display: inline-block;
@@ -1541,6 +1543,9 @@ select option.picto
 .sbox select.picto_sites, .sbox select.picto_13,
 .sbox select.picto_summits, .sbox select.picto_3,
 .sbox select.picto_users, .sbox select.picto_2,
+.sbox select.picto_products, .sbox select.picto_14,
+.sbox select.picto_portals, .sbox select.picto_15,
+.sbox select.picto_xreports, .sbox select.picto_16,
 .sbox select.picto_documents, .sbox select.picto_1 {
   background-position: 2px !important;
 }
@@ -1956,6 +1961,10 @@ select.picto_forum, select.picto_forums
   @extend .picto_documents;
 }
 
+.picto_16 {
+  @extend .picto_xreports;
+}
+
 option.picto_act
 {
   padding-left: 20px;
@@ -2068,6 +2077,11 @@ fieldset .select_title
   float: left;
   margin: 0 0.3em 0 0;
   min-width: 8em;
+}
+
+#filterform .field_title
+{
+  margin: 0.3 0 0.2 0;
 }
 
 #filterform .picto

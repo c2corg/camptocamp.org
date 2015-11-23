@@ -1,0 +1,117 @@
+all:
+  severity:
+    list:
+      0:
+      1: 'no'
+      3: '1 to 3 days'
+      30: '4 days to 1 month'
+      90: '1 to 3 months'
+      100: 'more than 3 months'
+
+  event_type:
+    list:
+      0:
+      1: avalanche
+      2: stone_fall
+      3: falling_ice
+      4: lightning
+      5: wind
+      6: crevasse_fall
+      7: other_fall
+      8: roped_fall
+      9: physical_failure
+
+  avalanche_level:
+    list:
+      0:
+      10: '1'
+      20: '2'
+      30: '3'
+      40: '4'
+      50: '5'
+      100: 'avalanche_level_NA'
+
+  avalanche_slope:
+    list:
+      0:
+      29: '< 30°'
+      32: '30-32°'
+      35: '33-35°'
+      39: '37-39°'
+      42: '40-42°'
+      45: '43-45°'
+      50: '> 45°'
+
+  author_status:
+    list:
+      0:
+      1: primary_impacted
+      2: secondary_impacted
+      3: internal_witness
+      4: external_witness
+
+  activity_rate:
+    list:
+      0:
+      150: activity_rate_150
+      50: activity_rate_50
+      30: activity_rate_30
+      20: activity_rate_20
+      10: activity_rate_10
+      5: activity_rate_5
+      1: activity_rate_1
+
+  nb_outings:
+    list:
+      0:
+      4: nb_outings_4
+      9: nb_outings_9
+      14: nb_outings_14
+      15: nb_outings_15
+
+  autonomy:
+    list:
+      0:
+      10: 'non autonomous'
+      20: autonomous
+      30: initiator
+      40: expert
+
+  gender:
+    list:
+      0:
+      1: male
+      2: female
+
+  previous_injuries:
+    list:
+      0:
+      1: 'no'
+      2: previous_injuries_2
+      3: previous_injuries_3
+
+  sort:
+    criteria:
+      'id': ID
+      'xnam': name
+      'act': activities
+      'date': date short
+      'xtyp': event_type
+      'xpar': nb_participants
+      'ximp': nb_impacted
+      'xsev': severity
+      'xavlev': avalanche_level
+      'xavslo': avalanche_slope
+      'xalt': elevation
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
+    filled_criteria:
+      'xpar': ''
+      'ximp': ''
+      'xsev': ''
+      'xavlev': ''
+      'xavslo': ''
+      'xalt': ''

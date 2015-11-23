@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="320"
+   height="320"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   inkscape:export-filename="C:\Documents and Settings\Compaq_Propriétaire\Mes documents\GitHub\camptocamp.org\web\static\images\modules\xreports_mini@1.5x.png"
+   inkscape:export-xdpi="6.75"
+   inkscape:export-ydpi="6.75"
+   sodipodi:docname="xreports.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3777">
+      <stop
+         style="stop-color:#f2961f;stop-opacity:1"
+         offset="0"
+         id="stop3779" />
+      <stop
+         style="stop-color:#febd68;stop-opacity:1"
+         offset="1"
+         id="stop3781" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3777-7">
+      <stop
+         style="stop-color:#f2961f;stop-opacity:1"
+         offset="0"
+         id="stop3779-4" />
+      <stop
+         style="stop-color:#febd68;stop-opacity:1"
+         offset="1"
+         id="stop3781-0" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="translate(1.3214184,-738.63172)"
+       y2="889.18152"
+       x2="143.5462"
+       y1="1048.7755"
+       x1="138.61708"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3792"
+       xlink:href="#linearGradient3777-7"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3777"
+       id="linearGradient3818"
+       x1="-846.2793"
+       y1="-621.27521"
+       x2="-644.17371"
+       y2="-418.74612"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0928722,0,0,1.0928722,69.109165,48.080258)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="130.4508"
+     inkscape:cy="175.28691"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="968"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:snap-global="true"
+     inkscape:snap-midpoints="true"
+     inkscape:guide-bbox="true"
+     inkscape:object-paths="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3840" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-732.36218)">
+    <rect
+       style="color:#000000;fill:url(#linearGradient3818);fill-opacity:1;fill-rule:nonzero;stroke:#cd7708;stroke-width:9.60799980000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3775"
+       width="235.87344"
+       height="235.87344"
+       x="-862.06909"
+       y="-635.6405"
+       transform="matrix(-0.70710678,-0.70710678,0.70710678,-0.70710678,0,0)"
+       ry="31.599686"
+       inkscape:export-filename="C:\Documents and Settings\Compaq_Propriétaire\Mes documents\GitHub\camptocamp.org\web\static\images\modules\xreports_mini@2x.png"
+       inkscape:export-xdpi="9.0859489"
+       inkscape:export-ydpi="9.0859489" />
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:9.6079998;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3820"
+       width="46.625465"
+       height="139.90613"
+       x="136.79645"
+       y="781.06427"
+       ry="16.529762"
+       rx="16.529762" />
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:9.6079998;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3820-7"
+       width="46.625465"
+       height="44.191841"
+       x="136.79645"
+       y="953.16022"
+       ry="16.529762"
+       rx="16.529762" />
+  </g>
+</svg>

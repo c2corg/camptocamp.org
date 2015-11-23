@@ -41,7 +41,9 @@ if ($has_areas)
 $has_box = (isset($box) && $box);
 $has_weather = (isset($weather) && $weather);
 $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bulletin));
+$no_last_avalanche_bulletin = (isset($no_last_avalanche_bulletin) && $no_last_avalanche_bulletin);
 $has_date = (isset($date) && $date);
+
 if ($has_date)
 {
     $date_1 = strtotime($date);
@@ -108,13 +110,16 @@ if ($has_weather || $has_avalanche_bulletin)
                 }
             }
             
-            $current_month = date('n', time());
-            if ($current_month <= 5 || $current_month >= 10)
+            if (!$no_last_avalanche_bulletin)
             {
-                $link = avalanche_link($doc_id, $doc_name);
-                if (!empty($link))
+                $current_month = date('n', time());
+                if ($current_month <= 5 || $current_month >= 10)
                 {
-                    $avalanche_link_list[] = $link;
+                    $link = avalanche_link($doc_id, $doc_name);
+                    if (!empty($link))
+                    {
+                        $avalanche_link_list[] = $link;
+                    }
                 }
             }
         }

@@ -14,7 +14,7 @@ if ($nb_comments)
 else
 {
     // check if anonymous users can create comments
-    if (!sfContext::getInstance()->getUser()->isConnected() && !in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+    if (!sfContext::getInstance()->getUser()->isConnected() && (!in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')) || $module == 'xreports'))
     {
         $link = '';
     }

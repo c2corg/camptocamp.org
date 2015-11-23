@@ -646,7 +646,7 @@ class documentsActions extends c2cActions
                 $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);
                 $this->associated_areas = $associated_areas;
             }
-            if (!in_array($module, array('outings', 'articles', 'books', 'portals')))
+            if (!in_array($module, array('outings', 'articles', 'books', 'portals', 'xreports')))
             {
                 $associated_maps = GeoAssociation::findMapsWithBestName($id, $prefered_cultures);
                 $this->associated_maps = Map::getAssociatedMapsData($associated_maps);
@@ -1410,9 +1410,10 @@ class documentsActions extends c2cActions
             case 1 : $module = 'routes'; break;
             case 2 : $module = 'outings'; break;
             case 3 : $module = 'outings'; break;
+            case 4 : $module = 'outings'; break;
             default: $module = $this->getModuleName();
         }
-        if ($result_type == 3)
+        if (in_array($result_type, array(3, 4)))
         {
             $action = 'conditions';
         }
@@ -1425,6 +1426,10 @@ class documentsActions extends c2cActions
         {
             $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
                                     $this->filterSortParameters($module));
+            if ($result_type == 4)
+            {
+                $criteria[] = 'format=full';
+            }
             if ($criteria)
             {
                 $route .= '?' . implode('&', $criteria);
@@ -3932,14 +3937,15 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('The document is already linked to the current document');
         }
 
-        if ($linked_module_new == 'outings' && $main_module_new == 'users' && $linked_id != $user_id)
+        if (in_array($linked_module_new, array('outings', 'xreports')) && $main_module_new == 'users' && $linked_id != $user_id)
         {
             // send an email to warn the new user associated
+            $modul_sing = substr($linked_module_new, 0, -1);
             $email_recipient = UserPrivateData::find($linked_id)->getEmail();
-            $email_subject = $this->__('You have been associated to an outing');
+            $email_subject = $this->__('You have been associated to an ' . $modul_sing);
             $server = $_SERVER['SERVER_NAME'];
-            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/outings/$main_id";
-            $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
+            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/$linked_module_new/$main_id";
+            $htmlBody = $this->__('You have been associated to ' . $modul_sing . ' %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
 
             $mail = new sfMail();
             $mail->setCharset('utf-8');

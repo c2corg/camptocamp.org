@@ -324,6 +324,13 @@ class Site extends BaseSite
             return $has_name;
         }
 
+        // xreport criteria
+        $has_name = Xreport::buildXreportListCriteria($criteria, $params_list, false, 'linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
         $criteria[0] = array_merge($criteria[0], $conditions);
         $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
@@ -491,6 +498,12 @@ class Site extends BaseSite
             || isset($joins['join_itag_id']))
         {
             Image::buildImagePagerConditions($q, $joins, false, 'pi');
+        }
+
+        // join with xreport tables only if needed 
+        if (isset($joins['join_xreport']))
+        {
+            Xreport::buildXreportPagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'tx');
         }
         
         if (!empty($conditions))

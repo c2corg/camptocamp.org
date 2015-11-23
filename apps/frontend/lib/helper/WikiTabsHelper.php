@@ -65,7 +65,7 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
         if ($nb_comments == 0)
         {
             // check if anonymous users can create comments
-            if (!sfContext::getInstance()->getUser()->isConnected() && !in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+            if (!sfContext::getInstance()->getUser()->isConnected() && (!in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')) || $module == 'xreports'))
             {
                 $comment_tag = tab_tag('comments', 0, $active_tag, '', 'action_comment', $nb_comments);
             }

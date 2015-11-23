@@ -169,6 +169,16 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'summit_type': $conf = 'app_summits_summit_types'; break;
         case 'category': $conf = 'mod_users_category_list'; break;
         case 'image_type': $conf = 'mod_images_type_full_list'; break;
+        case 'product_type': $conf = 'mod_products_types_list'; break;
+        case 'event_type': $conf = 'mod_xreports_event_type_list'; break;
+        case 'severity': $conf = 'mod_xreports_severity_list'; break;
+        case 'avalanche_level': $conf = 'mod_xreports_avalanche_level_list'; break;
+        case 'avalanche_slope': $conf = 'mod_xreports_avalanche_slope_list'; break;
+        case 'activity_rate': $conf = 'mod_xreports_activity_rate_list'; break;
+        case 'nb_outings': $conf = 'mod_xreports_nb_outings_list'; break;
+        case 'autonomy': $conf = 'mod_xreports_autonomy_list'; break;
+        case 'gender': $conf = 'mod_xreports_gender_list'; break;
+        case 'previous_injuries': $conf = 'mod_xreports_previous_injuries_list'; break;
         default: return $abstract_value;
     }
 
