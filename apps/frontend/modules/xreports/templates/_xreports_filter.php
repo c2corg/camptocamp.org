@@ -3,7 +3,7 @@ use_helper('General');
 
 echo '<br />';
 echo picto_tag('picto_xreports') . __('name') . ' ' . (isset($autofocus) ? input_tag('xnam', null, array('autofocus' => 'autofocus')) : input_tag('xnam'));
-echo __('elevation') . ' ' . elevation_selector('falt');
+echo __('elevation') . ' ' . elevation_selector('xalt');
 echo '<br />';
 $activities_raw = $sf_data->getRaw('activities');
 echo    '<div class="field_title">' . __('activities') . '</div>'
