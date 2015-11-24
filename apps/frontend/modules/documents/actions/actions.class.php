@@ -745,7 +745,7 @@ class documentsActions extends c2cActions
         $id = $this->getRequestParameter('id');
         $model = $this->model_class;
 
-        if (!Document::find($model, $id))
+        if (!Document::find($model, $id, array('id')))
         {
             c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->setNotFoundAndRedirect();
@@ -1685,7 +1685,7 @@ class documentsActions extends c2cActions
         
         if (!empty($id)) // update an existing document
         {
-            if (!$document = Document::find($this->model_class, $id))
+            if (!$document = Document::find($this->model_class, $id, array('id')))
             {
                 $this->setNotFoundAndRedirect();
             }
@@ -4633,13 +4633,15 @@ class documentsActions extends c2cActions
         $user = $this->getUser();
         $prefered_cultures = $user->getCulturesForDocuments();
         $module = $this->getRequestParameter('mod');
+        $model = c2cTools::module2model($module);
+        $assoc_type = c2cTools::Model2Letter($model) . 'i';
         $id = $this->getRequestParameter('id');
-        $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+        $associated_docs = Association::findLinkedDocsWithBestName($id, $prefered_cultures, $assoc_type);
         $associated_images = Document::fetchAdditionalFieldsFor(
-                                        array_filter($associated_docs, array('c2cTools', 'is_image')),
+                                        $associated_docs,
                                         'Image',
                                         array('filename', 'image_type'));
-        $doc = Document::find(c2cTools::module2model($module), $id);
+        $doc = Document::find($model, $id, array('id'));
         if (empty($doc))
         {
             $this->setNotFoundAndRedirect();
