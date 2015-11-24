@@ -88,7 +88,7 @@ use_stylesheet('/static/css/forums.css');
     if ($add_comment_allowed)
     {
         $add_comment_link = f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
-        $add_comment_link = '<p class="postlink conl">' , $add_comment_link , '</p>';
+        $add_comment_link = '<p class="postlink conl">' . $add_comment_link . '</p>';
         echo $add_comment_link;
     }
     else
