@@ -1,6 +1,6 @@
 <aside id="donate" style="display:none">
 <button class="donate-notnow cross">X</button>
-<span>La mise en place de la nouvelle version de c2c nécessite un financement supplémentaire de 110.000&nbsp;€ (<a href="http://www.pre-prod.dev.camptocamp.org/articles/526958/fr/nouvelle-version-v6-de-camptocamp-financement-participatif">explications</a>). Nous faisons donc appel à vous, à votre générosité, pour boucler le projet. Si chacun de vous donne 2 €, la levée de fonds sera bouclée en 2 semaines ! Camptocamp.org, c'est votre site, une mine d'infos pour passionnés des cimes, entièrement gratuit, géré par des bénévoles (association). Vous trouvez Camptocamp utile ? Alors aidez nous à le faire vivre !</span>
+<span>La mise en place de la nouvelle version de c2c nécessite un financement supplémentaire de 110.000&nbsp;€ (<a href="http://www.camptocamp.org/articles/697461/fr">explications</a>). Nous faisons donc appel à vous, à votre générosité, pour boucler le projet. Si chacun de vous donne 2 €, la levée de fonds sera bouclée en 2 semaines ! Camptocamp.org, c'est votre site, une mine d'infos pour passionnés des cimes, entièrement gratuit, géré par des (<a href="http://www.camptocamp.org/articles/106726/fr">bénévoles</a>). Vous trouvez Camptocamp utile ? Alors aidez nous à le faire vivre !</span>
 
 <div class="donate-quote">
   <img class="donate-image" />
