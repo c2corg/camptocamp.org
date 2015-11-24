@@ -81,9 +81,8 @@ use_stylesheet('/static/css/forums.css');
   <div class="inbox">
     <?php if ($mobile_version): ?>
     <p class="postlink conl"><?php echo link_to(__('View comments document'), "@document_by_id_lang?module=$module&id=$id&lang=$lang"); ?></p>
-    <?php endif; ?>
-    <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
-    <?php
+    <?php endif;
+    
     // check if anonymous comments allowed
     if ($add_comment_allowed)
     {
