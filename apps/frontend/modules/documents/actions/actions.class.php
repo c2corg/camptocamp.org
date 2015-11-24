@@ -5088,7 +5088,7 @@ class documentsActions extends c2cActions
                     'people' => 'Céline Stern',
                     'url' => '/users/131/fr',
                     'image' => 'stern.jpg',
-                    'role' => 'administrateur et contributeur de Campocamp.',
+                    'role' => 'administratrice et contributrice de Campocamp.',
                     'presentation' => 'Découverte d\'itinéraires classiques ou de parcours plus insolites, à côté de la maison ou à l\'autre bout du monde, tout cela est possible pour moi grâce à c2c. Le partage d\'informations, de coups de cœur ou de petits rien sera encore plus facile avec l\'évolution de c2c.'
                 );
                 break;
@@ -5142,7 +5142,7 @@ class documentsActions extends c2cActions
                     'people' => 'Liv Sansoz',
                     'url' => '/users/202893/fr',
                     'image' => 'sansov.jpg',
-                    'role' => 'trois fois vainqueur de la coupe du monde d\'escalade, 2ème femme à avoir réussi un 8c+, contributrice Camptocamp.',
+                    'role' => 'trois fois vainqueure de la coupe du monde d\'escalade, 2ème femme à avoir réussi un 8c+, contributrice Camptocamp.',
                     'presentation' => 'Comme beaucoup de monde j\'utilise Camptocamp pour préparer mes sorties, trouver des idées pour des courses à venir ou encore obtenir de l\'information sur les conditions d\'une course. C\'est pour moi une mine d\'infos dont j\'ai pris l\'habitude de me servir pour chaque course. Avec les améliorations prévues le site sera encore plus efficace, les infos plus accessibles et les échanges simplifiés.'
                 );
                 break;
