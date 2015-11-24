@@ -1,5 +1,5 @@
 <?php
-use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
+use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General', 'ModalBox');
 
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/xreports_edit.js', 'last');
