@@ -21,10 +21,6 @@ echo    '<div' , $date_class , '>'
 echo    __('severity short') , ' '
       , get_paginated_value($item['severity'], 'mod_xreports_severity_list')
 ;
-if (isset($item['rescue']) && !is_null($item['rescue']) && (bool)($item['rescue']))
-{
-    echo ' - ' , __('rescue short');
-}
 ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>
 <div><?php echo picto_tag('picto_images', __('nb_linked_images')), ' ', (isset($item['nb_images'])) ?  $item['nb_images'] : '0', ' ',
