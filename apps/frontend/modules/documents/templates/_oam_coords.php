@@ -31,5 +31,11 @@ echo object_coord_tag($document, 'lat', '°N');
 </div>
 <?php
 $module = $document->get('module');
-echo show_georef_map($lon, $lat, $module === 'parkings' ? 'access' : $module);
+swith ($module)
+{
+  case 'parkings' : $layer = 'access'; break;
+  case 'xreports' : $layer = 'summits'; break;
+  default:          $layer = $module;
+}
+echo show_georef_map($lon, $lat, $layer);
 ?>
