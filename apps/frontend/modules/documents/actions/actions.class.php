@@ -4641,7 +4641,7 @@ class documentsActions extends c2cActions
                                         $associated_docs,
                                         'Image',
                                         array('filename', 'image_type'));
-        $doc = Document::find($model, $id, array('id'));
+        $doc = Document::find($model, $id, array('id', 'module'));
         if (empty($doc))
         {
             $this->setNotFoundAndRedirect();
