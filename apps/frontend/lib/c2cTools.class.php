@@ -381,6 +381,7 @@ class c2cTools
     {
         return !(c2cTools::is_user($a)
                   || c2cTools::is_outing($a)
+                  || c2cTools::is_xreport($a)
                   || (c2cTools::is_article($a) && $a['article_type'] == 2)
                   || (c2cTools::is_image($a) && $a['image_type'] == 2));
     }
