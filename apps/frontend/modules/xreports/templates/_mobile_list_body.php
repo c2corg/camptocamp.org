@@ -21,7 +21,7 @@ echo    '<div' , $date_class , '>'
 echo    __('severity short') , ' '
       , get_paginated_value($item['severity'], 'mod_xreports_severity_list')
 ;
-if (isset($item['rescue']) && !is_null($item['rescue']) && !empty($item['rescue']))
+if (isset($item['rescue']) && !is_null($item['rescue']) && (bool)($item['rescue']))
 {
     echo ' - ' , __('rescue short');
 }
