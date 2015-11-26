@@ -863,8 +863,8 @@ class sfPunBBCodeParser
             $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
-            $replace[] = '</p><p class="important_message">$2</p><p>';
-            $replace[] = '</p><p class="warning_message">$2</p><p>';
+            $replace[] = '</p><div class="important_message"><p>$2</p></div><p>';
+            $replace[] = '</p><div class="warning_message"><p>$2</p></div><p>';
             $replace[] = 'self::handle_col_tag(\'$3\', \'$2\')';
         }
         else
