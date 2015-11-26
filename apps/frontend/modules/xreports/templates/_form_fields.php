@@ -10,7 +10,9 @@ C2C.confirm_xreport_activities_message = '" . addslashes(__('Is really a multi-a
 $mobile_version = c2cTools::mobileVersion();
 
 // Here document = xreport
+$link_with = $linked_doc ? $linked_doc->get('id') : 0; 
 echo '<div>';
+echo input_hidden_tag('document_id', $link_with);
 display_document_edit_hidden_tags($document);
 echo '</div>';
 echo mandatory_fields_warning(array('xreport form warning'));
