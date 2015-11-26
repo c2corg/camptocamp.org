@@ -206,7 +206,7 @@ class xreportsActions extends documentsActions
                     $document->set('activities', $activities);
                     
                     $date = $linked_doc->get('date');
-                    $document->set('date', $date);
+                    //$document->set('date', $date);
                     
                     break;
             
