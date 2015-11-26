@@ -8067,7 +8067,8 @@ msgid "then by"
 msgstr "then by"
 
 msgid "there is no %1% to show"
-msgstr "There is no results in the list of %1%. Maybe your filters are too restrictive? Do not forget to check your spelling or to only type-in a characteristic part of the word."
+msgstr "<b>There is no results in the list of %1%.</b><br />\n"
+"Maybe your filters are too restrictive? Do not forget to check your spelling or to only type-in a characteristic part of the word."
 
 msgid "this data is too long (100 characters maximum)"
 msgstr "this text must be shorter than 100 characters"
