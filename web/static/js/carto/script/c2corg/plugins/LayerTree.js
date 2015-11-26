@@ -167,6 +167,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             "users": this.createVectorLayer({name: "users", featureType: "users"}),
             "images": this.createVectorLayer({name: "images", featureType: "images"}),
             "products": this.createVectorLayer({name: "products", featureType: "products"}),
+            "xreports": this.createVectorLayer({name: "xreports", featureType: "xreports"}),
             "routes": this.createVectorLayer({name: "routes", featureType: "routes", maxFeatures: 50}),
             "outings": this.createVectorLayer({name: "outings", featureType: "outings", maxFeatures: 50}),
             "maps": this.createVectorLayer({name: "maps", featureType: "maps"}),
@@ -258,6 +259,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 nodeType: "gx_layer",
                 layer: this.layers["products"],
                 iconCls: "picto_products",
+                leaf: true
+            }, {
+                text: OpenLayers.i18n("xreports"),
+                nodeType: "gx_layer",
+                layer: this.layers["xreports"],
+                iconCls: "picto_xreports",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("outings"),

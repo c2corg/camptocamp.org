@@ -370,6 +370,7 @@ all:
       1: routes linked to
       2: outings linked to
       3: conditions linked to
+      3: conditions and comments linked to
     linked_docs:
       1: whole list
       2: selected documents
@@ -2185,7 +2186,6 @@ all:
     accident:
       id: @ACCIDENT_ID@
       name: 'Incidents and accidents database'
-      menu: 1
     family:
       id: @FAMILY_ID@
       name: 'family portal'

@@ -51,6 +51,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   "camping area": "<?php echo __('camping area')?>",
   "gite": "<?php echo __('gite')?>",
   "products": "<?php echo __('products')?>",
+  "xreports": "<?php echo __('xreports')?>",
   "slopes": "<?php echo __('slopes')?>",
   "slopes_info": <?php echo json_encode(__('_slopes_info'), JSON_UNESCAPED_SLASHES)?>,
   //"Backgrounds": "<?php echo __('backgrounds')?>",

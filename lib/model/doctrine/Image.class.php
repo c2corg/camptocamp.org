@@ -584,10 +584,18 @@ class Image extends BaseImage
         {
             return $has_name;
         }
+
+        // xreport criteria
+        $has_name = Xreport::buildXreportListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // user criteria
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hm.user_id', 'users', 'user_id'); // TODO here we should restrict to initial uploader (ticket #333)
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', array('ouser_id', 'join_outing', 'post_outing'));
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lxu.main_id', 'xusers', array('xuser_id', 'join_xreport', 'post_xreport'));
 
         $criteria[0] = array_merge($criteria[0], $conditions);
         $criteria[1] = array_merge($criteria[1], $values);
@@ -745,6 +753,17 @@ class Image extends BaseImage
             {
                 $joins['join_route'] = true;
                 $joins['post_route'] = true;
+            }
+        }
+
+        // join with xreport tables only if needed 
+        if (isset($joins['join_xreport']))
+        {
+            Xreport::buildXreportPagerConditions($q, $joins, false, false, 'm.associations', 'xi');
+        
+            if (isset($joins['xuser_id']))
+            {
+                $q->leftJoin('lx.MainAssociation lxu');
             }
         }
 

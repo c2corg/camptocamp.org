@@ -381,6 +381,7 @@ class c2cTools
     {
         return !(c2cTools::is_user($a)
                   || c2cTools::is_outing($a)
+                  || c2cTools::is_xreport($a)
                   || (c2cTools::is_article($a) && $a['article_type'] == 2)
                   || (c2cTools::is_image($a) && $a['image_type'] == 2));
     }
@@ -617,7 +618,7 @@ class c2cTools
         $module = $result[0]['module'];
 
         // note: only personal articles are linked with users so it is ok to search users attached for each article
-        if (in_array($module, array('outings', 'users', 'articles', 'images')))
+        if (in_array($module, array('outings', 'users', 'articles', 'images', 'xreports')))
         {
             if ($module == 'users')
             {

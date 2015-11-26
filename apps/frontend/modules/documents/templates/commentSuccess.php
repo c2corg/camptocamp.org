@@ -71,6 +71,7 @@ if (count($uri_anchor) > 1)
     }
 }
 $is_new = ($post_id > 0) && isset($_GET['new']);
+$add_comment_allowed = ($sf_user->getId() > 1 || (in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')) && $module != 'xreports'));
 $bg_switch = true;	// Used for switching background color in posts
 $counter = 1;
 use_stylesheet('/static/css/forums.css');
@@ -80,8 +81,19 @@ use_stylesheet('/static/css/forums.css');
   <div class="inbox">
     <?php if ($mobile_version): ?>
     <p class="postlink conl"><?php echo link_to(__('View comments document'), "@document_by_id_lang?module=$module&id=$id&lang=$lang"); ?></p>
-    <?php endif; ?>
-    <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
+    <?php endif;
+    
+    // check if anonymous comments allowed
+    if ($add_comment_allowed)
+    {
+        $add_comment_link = f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
+        $add_comment_link = '<p class="postlink conl">' . $add_comment_link . '</p>';
+        echo $add_comment_link;
+    }
+    else
+    {
+        $add_comment_link = '';
+    } ?>
     <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
   </div>
 </div>
@@ -185,7 +197,7 @@ foreach ($comments as $comment):
     }
     echo '</li>';
     // check if anonymous comments allowed
-    if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+    if ($add_comment_allowed)
     {
         echo '<li class="postquote">'.
              f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id, array('rel' => 'nofollow')).
@@ -206,11 +218,7 @@ endforeach;
   <div class="inbox">
     <?php
     // check if anonymous comments allowed
-    if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
-    {
-        $add_comment_link = f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
-        echo '<p class="postlink conl">' , $add_comment_link , '</p>';
-    } ?>
+    echo $add_comment_link ?>
     <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
 <?php
 if ($sf_user->getId() > 1):
@@ -225,9 +233,18 @@ endif;
 </div>
 
 <?php else :
-          echo f_link_to(__('add a comment'), 'post.php?fid=1&subject=' . $id . '_' . $lang, array('class' => 'add_content', 'rel' => 'nofollow'));
-          echo '<br /><br /><br /><br /><br />';
-      endif;
+
+if ($add_comment_allowed)
+{
+    echo f_link_to(__('add a comment'), 'post.php?fid=1&subject=' . $id . '_' . $lang, array('class' => 'add_content', 'rel' => 'nofollow'));
+}
+else
+{
+    echo __('Reserved to logged users');
+}
+echo '<br /><br /><br /><br /><br />';
+
+endif;
 
 echo end_content_tag();
 

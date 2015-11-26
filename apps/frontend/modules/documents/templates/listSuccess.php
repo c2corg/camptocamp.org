@@ -20,12 +20,22 @@ if (!$mobile_version)
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
+if ($module == 'xreports')
+{
+    echo '<p class="list_header">' . __('xreports presentation').'</p>';
+    echo '<div class="add_content list_header">'
+         . link_to(picto_tag('picto_add', __('Create new xreports')) .
+                   __('Create new xreports'),
+                   "xreports/edit")
+         . '</div>';
+}
+
 if ($nb_results == 0):
     echo '<p class="list_header">' . __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     $pager_navigation = pager_navigation($pager);
     
-    if (!$mobile_version)
+    if (!$mobile_version && $module != 'xreports')
     {
         echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
     }
@@ -47,20 +57,22 @@ else:
     $order_list = c2cTools::getRequestParameterArray($order_params, '');
     
     if (!$mobile_version &&
-        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users', 'xreports')))
     {
         $result_types = sfConfig::get('app_list_result_types');
+        $result_type_default = 1;
         if ($module == 'outings')
         {
-            unset($result_types[1]);
             unset($result_types[2]);
+            $result_type_default = 3;
         }
         elseif (in_array($module, array('routes', 'sites', 'users')))
         {
             unset($result_types[1]);
+            $result_type_default = 2;
         }
 
-        $result_type_options = options_for_select(array_map('__', $result_types), 3);
+        $result_type_options = options_for_select(array_map('__', $result_types), $result_type_default);
         $result_type_select = select_tag('result_type', $result_type_options);
         $result_type_select_2 = select_tag('result_type_2', $result_type_options);
         
@@ -92,7 +104,10 @@ else:
         }
         echo '</div>';
         echo $pager_navigation;
-        echo $result_types_filter;
+        if ($module != 'xreports')
+        {
+            echo $result_types_filter;
+        }
         echo pager_nb_results($pager);
     }
     else
@@ -148,7 +163,7 @@ if (!$mobile_version): ?>
 
     echo $pager_navigation;
     if (!$mobile_version &&
-        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users', 'xreports')))
     {
         echo $result_types_filter_2;
         echo '</form>';
@@ -157,9 +172,16 @@ endif;
 
 if (!$mobile_version)
 {
-    echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
+    if ($module != 'xreports')
+    {
+        echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
+    }
+    else
+    {
+        echo '<p class="list_footer">' . __('to sort by one column, click once or twice in its title') . '</p>';
+    }
 }
-   
+
 echo end_content_tag();
  
 include_partial('common/content_bottom');

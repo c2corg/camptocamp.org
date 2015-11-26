@@ -116,6 +116,7 @@ switch ($module)
 {
     case 'outings':
     case 'users':
+    case 'xreports':
         $license = 'by-nc-nd';
         $template_root = 'documents';
         break;

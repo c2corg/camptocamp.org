@@ -17,7 +17,7 @@ latestassociations:
 latestassociations_doc:
   url: /:module/latestassociations/id/:id
   param: { action: latestassociations }
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+ }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+ }
 
 search:
   url: /search/:q/*
@@ -46,7 +46,7 @@ sf_captcha:
 map_nodes:
   url: /map/nodes/:layerNodes
   param: { module: documents, action: map }
-  requirements: { layerNodes: (?:areas|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users) }
+  requirements: { layerNodes: (?:areas|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports) }
 
 map:
   url: /map
@@ -64,7 +64,7 @@ trailing_forward:
 default_index:
   url: /:module
   param: { action: list }
-  requirements: { module: (?:areas|articles|books|documents|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users) }
+  requirements: { module: (?:areas|articles|books|documents|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports) }
   
 quick_activity:
   url: /switch/activity/to/:activity
@@ -97,32 +97,32 @@ goto_prev:
 export_gpx:
   url: /:module/:lang/:id.gpx
   param: { action: exportgpx}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_gpx_version:
   url: /:module/:lang/:version/:id.gpx
   param: { action: exportgpxversion}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_kml:
   url: /:module/:lang/:id.kml
   param: { action: exportkml}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|maps), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports|maps), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_kml_version:
   url: /:module/:lang/:version/:id.kml
   param: { action: exportkmlversion}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_json:
   url: /:module/:lang/:id.json
   param: { action: exportjson}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_json_version:
   url: /:module/:lang/:version/:id.json
   param: { action: exportjsonversion}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 creations_feed_lang:
   url: /:module/:lang/new.rss
@@ -150,7 +150,7 @@ document_feed:
 document_widget:
   url: /:module/widget
   param: {action: widget}
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users) }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports) }
 
 widget_generator:
   url: /widgetgenerator
@@ -212,7 +212,7 @@ document_by_id_lang_slug:
 document_edit:
   url: /:module/edit/:id/:lang
   param: { action: edit }
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 geom_delete:
   url: /:module/deletegeom/:id
@@ -222,12 +222,12 @@ geom_delete:
 image_upload:
   url: /images/upload/:mod/:document_id
   param: { module: images, action: upload }
-  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), document_id: \d+ }
+  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), document_id: \d+ }
 
 image_jsupload:
   url: /images/jsupload/:mod/:document_id
   param: { module: images, action: jsupload }
-  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), document_id: \d+ }
+  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), document_id: \d+ }
 
 image_forums_upload: # would be more logic to have this in web/forums, but symfony helpers are of great help
   url: /images/forums/wizard
@@ -236,7 +236,7 @@ image_forums_upload: # would be more logic to have this in web/forums, but symfo
 image_tag:
   url: /insertimagetag/:mod/:id/:div
   param: { module: documents, action: insertimagetag }
-  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, div: \w+ }
+  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, div: \w+ }
 
 hut_addroute:
   url: /huts/addroute/:document_id
@@ -275,6 +275,10 @@ myarticles:
   url: /articles/myarticles
   param: { module: articles, action: myArticles }
 
+myxreports:
+  url: /xreports/myxreports
+  param: { module: xreports, action: myXreports }
+
 document_edit_archive:
   url: /:module/edit/:id/:lang/:version
   param: { action: edit }
@@ -293,7 +297,7 @@ document_comment:
 document_diff:
   url: /:module/diff/:id/:lang/:new/:old
   param: { action: diff }
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu), new: \d+, old: \d+ }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users|xreports), id: \d+, lang: (?:ca|de|en|es|fr|it|eu), new: \d+, old: \d+ }
 
 document_diff_post:
   url: /:module/diff/:id/:lang
