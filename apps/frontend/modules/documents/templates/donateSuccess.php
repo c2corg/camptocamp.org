@@ -27,13 +27,18 @@ echo start_content_tag();
 ?>
 
 <p>
-Nous vous demandons de remplir un formulaire très simple. Il a pour objectif de pouvoir vous envoyer des informations régulières sur l'avancement de la campagne de dons et la réalisation des nouvelles fonctionalités de camptocamp. Si vous souhaitez rester anonyme, cochez la case prévue à cet effet, vous n'apparaîtrez pas dans la liste des donateurs.(*)
+Nous vous demandons de remplir un formulaire tr&egrave;s simple. Il a pour objectif de pouvoir vous envoyer des informations r&eacute;guli&egrave;res sur l'avancement de la campagne de dons et la r&eacute;alisation des nouvelles fonctionalit&eacute;s de camptocamp.
+</p><p> 
+Si vous souhaitez rester anonyme, cochez la case pr&eacute;vue  &agrave; cet effet, vous n'appara&icirc;trez pas dans la liste des donateur (*).
+</p><p>
+Vous avez aussi la possibilit&eacute; au travers de votre don d'adh&eacute;rer pour l'ann&eacute;e 2016 &agrave; Camptocamp-Association qui g&egrave;re le site (**). &Agrave; cet effet, cochez la case 'cotisation' dans le formulaire.
 </p><p>
 Enfin, nous vous proposons 4 modes de paiements: chèque (euro uniquement), virement bancaire, carte bancaire et paypal. Pour les paiements par chèque, paypal ou les virements pensez à indiquer la mention 'campagne de dons 2015' et votre nom/pseudo/identifiant afin qu'on identifie facilement l'origine de votre versement.
 </p><p>
 Merci encore pour votre soutien !
 </p>
-
+<br>
+<br>
 <form action="/donate" class="donate-form" method="POST">
   <div class="donate-left">
     <label>Nom / pseudo&nbsp;: <input name="name" type="text" <?php echo isset($name) ? 'value="'.$name.'"' : '' ?> required /></label>
@@ -59,6 +64,8 @@ Merci encore pour votre soutien !
 <br>
 <p>
     <small>(*) Toutes les informations personnelles seront effacées à l'issue des développements de la nouvelle version du site. Si vous souhaitez connaître vos données personnelles en notre possession ou voulez les supprimer, contactez nous à l'adresse suivante : donation@camptocamp.org.</small>
+</p><p>
+    <small>(**) Montant minimum de 10 &euro;. Pour en savoir plus sur l'association et les modalit&eacute;s d'adh&eacute;sion, consultez l'<a href="http://www.camptocamp.org/articles/106726">article correspondant</a>.</small>
 </p>
 <?php
 echo end_content_tag();

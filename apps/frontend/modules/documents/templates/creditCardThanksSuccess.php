@@ -33,7 +33,7 @@ Vous pouvez reprendre une activité normale et revenir par exemple &agrave; la <
 else:
 ?>
 <p>
-Le paiement n'a pas aboutit. S'il ne s'agit pas d'une annulation intentionnelle de votre part, merci de nous contacter &agrave; <a href="mailto:donation@camptocamp.org">donation@camptocamp.org</a> pour résoudre cet inconv&eacute;nient technique...
+Le paiement n'a pas abouti. S'il ne s'agit pas d'une annulation intentionnelle de votre part, merci de nous contacter &agrave; <a href="mailto:donation@camptocamp.org">donation@camptocamp.org</a> pour résoudre cet inconv&eacute;nient technique...
 </p>
 <?php
 endif;
