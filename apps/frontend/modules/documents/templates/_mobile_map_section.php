@@ -42,7 +42,7 @@ if ($has_geom || $show_map)
 
     $module = $document->module;
     if ($module == 'summits' || $module == 'parkings' || $module == 'sites' ||
-        $module == 'huts' || $module == 'products' || $module == 'users' || $module == 'images')
+        $module == 'huts' || $module == 'products' || $module == 'users' || $module == 'images' || $module == 'xreports')
     {
         $map_options[] = 'markers=shadow:false|icon:'._marker_url($module).'|'.$document['lat'].','.$document['lon'];
         $map_options[] = 'zoom=12';
