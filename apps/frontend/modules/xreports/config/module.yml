@@ -20,6 +20,17 @@ all:
       7: other_fall
       8: roped_fall
       9: physical_failure
+    list_form:
+      0:
+      1: avalanche
+      2: stone_fall
+      3: falling_ice
+      4: lightning
+      5: wind
+      6: crevasse_fall
+      7: other_fall_form
+      8: roped_fall_form
+      9: physical_failure
 
   avalanche_level:
     list:
