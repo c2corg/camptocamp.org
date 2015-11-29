@@ -3617,7 +3617,7 @@ msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Un
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir increase_impact_default
 # [WARNING] needs_review
 msgid "_increase_impact_info"
-msgstr "<h3>Éléments qui ont accentué les conséquences</h3>\n"
+msgstr "<h3>Éléments qui ont /h3>accentué les conséquences\n"
 "S'il y en a, décrivez les éléments qui ont accentué les conséquences de l’événement ou aggravé la situation :<br />\n"
 "- accessibilité<br />\n"
 "- engagement de la voie<br />\n"
@@ -3993,7 +3993,7 @@ msgid "_scale_info"
 msgstr "<h3>Échelle</h3>Échelle de la carte."
 
 msgid "_severity_info"
-msgstr "Pour les personnes touchées, l’événement a-t-il causé une interruption de la pratique de l'activité pour des raisons physiques (blessure) ?"
+msgstr "Pour les personnes touchées, l’événement a-t-il causé une interruption de l'activité pratiquée lors de la sortie pour des raisons physiques (blessure) ?"
 
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gîte</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture, répondant aux critères suivants :<br />- il est possible de réserver une ou plusieurs nuits au gîte (principe des gîtes d'étape, sont exclues les locations à la semaine)<br />- le gîte propose un hébergement en dortoirs, à prix raisonnable.<br />Les cas suivants sont tolérés : les hôtels à prix raisonnable dans les vallées où ce sont les seules possibilités d'hébergement. <br /><br />"
@@ -4197,8 +4197,8 @@ msgstr "<h3>Étude des conditions</h3>\n"
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_description_default
 # [WARNING] needs_review
 msgid "_xreport_description_info"
-msgstr "<h3>Déroulement de la sortie</h3>\n"
-"Décrivez le déroulement de la sortie.<br />\n"
+msgstr "<h3>Déroulement de la sortie et de l'évènement</h3>\n"
+"Décrivez le déroulement de la sortie et de l'incident/accident<br />\n"
 "Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
 
 # [general comment]
@@ -4211,12 +4211,13 @@ msgstr "<h3>Conséquences sur ses pratiques</h3>\n"
 "Si oui, dans quel sens ? (appréhension, préparation plus soutenue, arrêt de l'activité, changement de compagnon en montagne, etc)."
 
 # [general comment]
-# Aide contextuelle du champ texte "Autres commentaires" (ID : xreport_other_comments ).
+# Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
 # [WARNING] needs_review
 msgid "_xreport_other_comments_info"
-msgstr "<h3>Autres commentaires</h3>\n"
-"Commentaires libres."
+msgstr "<h3>Conséquences physiques et autres commentaires</h3>\n"
+"Décrivez brièvement les blessures éventuelles.<br />\n"
+"Les commentaires qui n'entrent dans aucun autre champ peuvent être saisis ici."
 
 # [general comment]
 # Aide contextuelle du champ texte "Niveau de l'attention et (ré)évaluation des risques" (ID : xreport_risk ).
@@ -6825,6 +6826,9 @@ msgid "other valley_area"
 msgstr "Autres vallées"
 
 msgid "other_fall"
+msgstr "chute d'une personne ou de la cordée"
+
+msgid "other_fall_form"
 msgstr "autre chute d'une personne ou de la cordée"
 
 # [general comment]
@@ -7525,10 +7529,13 @@ msgid "roof"
 msgstr "toit"
 
 msgid "roped_fall"
-msgstr "chute en étant encordé"
+msgstr "encordé"
 
 msgid "roped_fall can not be selected alone"
 msgstr "le type \"chute en étant encordé\" ne peut être sélectionné qu'en complément des types \"chute en crevasse\", \"autre chute\", \"avalanche\"."
+
+msgid "roped_fall_form"
+msgstr "chute en étant encordé"
 
 msgid "route"
 msgstr "itinéraire"
@@ -7714,7 +7721,7 @@ msgstr "service à la demande"
 
 # [WARNING] needs_review
 msgid "severity"
-msgstr "Durée d'interruption de l'activité&nbsp;:"
+msgstr "Durée d'interruption de l'activité de la sortie&nbsp;:"
 
 msgid "severity short"
 msgstr "Gravité"
@@ -7991,6 +7998,9 @@ msgstr "Conditions d'utilisation"
 
 msgid "thanks for new outing"
 msgstr "Merci pour votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
+
+msgid "thanks for new xreport"
+msgstr "Merci pour votre récit !"
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
@@ -8381,14 +8391,14 @@ msgid "xreport_conditions_default"
 msgstr "Décrivez les informations récoltées avant la sortie et le suivi de leur évolution sur le terrain : météo, bulletin d'évaluation du risque d'avalanche, qualité du regel, qualité de la neige/glace/rocher, compte rendu des jours précédents..."
 
 msgid "xreport_description"
-msgstr "Déroulement de la sortie&nbsp;:"
+msgstr "Déroulement de la sortie et de l'évènement&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Déroulement de la sortie" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
 msgid "xreport_description_default"
-msgstr "Décrivez le déroulement de la sortie. Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
+msgstr "Décrivez le déroulement de la sortie et de l'évènement. Si vous avez déjà saisi une sortie, vous pouvez décrire uniquement l'évènement, puis associez ce compte rendu à la sortie (après l'avoir enregistré)."
 
 msgid "xreport_modifications"
 msgstr "Conséquences sur ses pratiques&nbsp;:"
@@ -8401,8 +8411,9 @@ msgstr "Conséquences sur ses pratiques&nbsp;:"
 msgid "xreport_modifications_default"
 msgstr "Cet événement a-t-il eu un impact sur votre pratique ou modifié vos habitudes ? Dans quel sens ? (appréhension, préparation plus soutenue, arrêt de l'activité, changement de compagnon en montagne, etc)."
 
+# [WARNING] needs_review
 msgid "xreport_other_comments"
-msgstr "Autres commentaires&nbsp;:"
+msgstr "Conséquences physiques et autres commentaires&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -8411,7 +8422,7 @@ msgstr "Autres commentaires&nbsp;:"
 # /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_other_comments_default"
-msgstr " "
+msgstr "Décrivez brièvement les blessures éventuelles. Les commentaires qui n'entrent dans aucun autre champ peuvent être saisis ici."
 
 msgid "xreport_risk"
 msgstr "Niveau de l'attention et (ré)évaluation des risques&nbsp;:"

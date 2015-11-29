@@ -56,7 +56,7 @@ echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters',
 </div>
 <div data-act-filter="1 6 7 length">
 <?php
-echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', step => '.1'));
+echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'step' => '.1'));
 ?>
 </div>
 <?php

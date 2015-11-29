@@ -20,6 +20,17 @@ all:
       7: other_fall
       8: roped_fall
       9: physical_failure
+    list_form:
+      0:
+      1: avalanche
+      2: stone_fall
+      3: falling_ice
+      4: lightning
+      5: wind
+      6: crevasse_fall
+      7: other_fall_form
+      8: roped_fall_form
+      9: physical_failure
 
   avalanche_level:
     list:
@@ -37,10 +48,11 @@ all:
       29: '< 30°'
       32: '30-32°'
       35: '33-35°'
-      39: '37-39°'
-      42: '40-42°'
-      45: '43-45°'
-      50: '> 45°'
+      38: '36-38°'
+      41: '39-41°'
+      44: '42-44°'
+      47: '45-47°'
+      50: '> 47°'
 
   author_status:
     list:

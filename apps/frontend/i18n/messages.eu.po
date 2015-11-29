@@ -4076,7 +4076,7 @@ msgstr "<h3>Eskala</h3>Maparen eskala."
 
 # [WARNING] en translation used
 msgid "_severity_info"
-msgstr "Have the impacted persons been injured and forced to temporarily cease this activity?"
+msgstr "Have the impacted persons been injured and forced to temporarily cease the activity performed during this outing?"
 
 # [WARNING] es translation used
 msgid "_shelter_type_info"
@@ -4259,9 +4259,9 @@ msgstr "<h3>Study of the conditions</h3>\n"
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_description_default
 # [WARNING] en translation used
 msgid "_xreport_description_info"
-msgstr "<h3>Details of the actual outing</h3>\n"
+msgstr "<h3>Details of the actual outing and the incident</h3>\n"
 "Describe how the outing went.<br />\n"
-"If you have already written up your outing, you only need to describe the incident, then link it to your outing report, (after first uploading it.)"
+"If you have already written up your outing, you only need to describe the incident, then link it to your outing report (after first uploading it)."
 
 # [general comment]
 # Aide contextuelle du champ texte "Conséquences sur ses pratiques" (ID : xreport_modifications ).
@@ -4273,12 +4273,13 @@ msgstr "<h3>Practical consequences</h3>\n"
 "If yes, in what way?  For example: apprehension, better preparation, not doing the activity anymore, changing your partner(s).  "
 
 # [general comment]
-# Aide contextuelle du champ texte "Autres commentaires" (ID : xreport_other_comments ).
+# Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
 # [WARNING] en translation used
 msgid "_xreport_other_comments_info"
-msgstr "<h3>Other comments</h3>\n"
-"Free comment."
+msgstr "<h3>Physical consequences and other comments</h3>\n"
+"Briefly describe any injuries.<br />\n"
+"Comments that do not fit into any other fields can be entered here."
 
 # [general comment]
 # Aide contextuelle du champ texte "Niveau de l'attention et (ré)évaluation des risques" (ID : xreport_risk ).
@@ -5334,7 +5335,7 @@ msgstr "Eskerrak"
 
 # [WARNING] en translation used
 msgid "crevasse_fall"
-msgstr "Fall into crevasse"
+msgstr "fall into crevasse"
 
 msgid "culmen"
 msgstr "goreneko puntua"
@@ -7157,6 +7158,10 @@ msgstr "Other valleys"
 
 # [WARNING] en translation used
 msgid "other_fall"
+msgstr "fall of a person or roped party"
+
+# [WARNING] en translation used
+msgid "other_fall_form"
 msgstr "other fall of a person or roped party"
 
 # [general comment]
@@ -7909,11 +7914,15 @@ msgstr "teilatua"
 
 # [WARNING] en translation used
 msgid "roped_fall"
-msgstr "fall while roped"
+msgstr "roped"
 
 # [WARNING] en translation used
 msgid "roped_fall can not be selected alone"
 msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+
+# [WARNING] en translation used
+msgid "roped_fall_form"
+msgstr "fall while roped"
 
 msgid "route"
 msgstr "ibilbidea"
@@ -8125,7 +8134,7 @@ msgstr "a pedido"
 
 # [WARNING] en translation used
 msgid "severity"
-msgstr "Length of the stoppage&nbsp;:"
+msgstr "Length of the outing activity stoppage:"
 
 # [WARNING] en translation used
 msgid "severity short"
@@ -8444,6 +8453,10 @@ msgstr "Erabilera baldintzak"
 # [WARNING] en translation used
 msgid "thanks for new outing"
 msgstr "Thank you for your outing! Feel free to also improve the description of the associated route."
+
+# [WARNING] en translation used
+msgid "thanks for new xreport"
+msgstr "Thank you for your report!"
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
@@ -8879,7 +8892,7 @@ msgstr "Describe the information gathered before the outing and how these evolve
 
 # [WARNING] en translation used
 msgid "xreport_description"
-msgstr "Details of the actual outing&nbsp;:"
+msgstr "Details of the actual outing and the incident&nbsp;:"
 
 # [general comment]
 # Texte affichée dans le champ "Déroulement de la sortie" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -8887,7 +8900,7 @@ msgstr "Details of the actual outing&nbsp;:"
 # /!\ use &quot; for quotes (")
 # [WARNING] en translation used
 msgid "xreport_description_default"
-msgstr "Describe how the outing went. If you have already written up your outing, you only need to describe the incident, then link it to your outing report, (after first uploading it.)"
+msgstr "Describe how the outing and the incident went. If you have already written up your outing, you only need to describe the incident, then link it to your outing report (after first uploading it)."
 
 # [WARNING] en translation used
 msgid "xreport_modifications"
@@ -8903,7 +8916,7 @@ msgstr "Has this incident affected the way you will do things in the future?  If
 
 # [WARNING] en translation used
 msgid "xreport_other_comments"
-msgstr "Other comments&nbsp;:"
+msgstr "Physical consequences and other comments:"
 
 # [general comment]
 # Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -8912,7 +8925,7 @@ msgstr "Other comments&nbsp;:"
 # /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_other_comments_default"
-msgstr " "
+msgstr ""
 
 # [WARNING] en translation used
 msgid "xreport_risk"

@@ -365,6 +365,23 @@ cdasearch_by_type:
   url: /cda/search/type/:type
   param: { module: documents, action: cdasearch, type: (?:routes|outings) }
 
+## donation routing
+donate_banner:
+  url: /donate/banner
+  param: { module: documents, action: donateBanner }
+
+donate:
+  url: /donate
+  param: { module: documents, action: donate }
+
+donate_cc_thanks:
+  url: /donate/cc/thanks
+  param: { module: documents, action: creditCardThanks }
+
+donate_cc_report:
+  url: /donate/cc/report
+  param: { module: documents, action: creditCardReport }
+
 default:
   url:   /:module/:action/*
 

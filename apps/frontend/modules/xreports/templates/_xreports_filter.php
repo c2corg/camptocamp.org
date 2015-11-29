@@ -10,7 +10,7 @@ echo    '<div class="field_title">' . __('activities') . '</div>'
       . activities_selector(true, true, $activities_raw);
 echo    '<div class="col_left">'
       . '<div class="field_title">' . __('event_type') . '</div>'
-      . field_value_selector('xtyp', 'mod_xreports_event_type_list', array('keepfirst' => false, 'multiple' => true))
+      . field_value_selector('xtyp', 'mod_xreports_event_type_list_form', array('keepfirst' => false, 'multiple' => true))
       . '</div>';
 echo    '<div class="col">'
       . '<div class="field_title">' . __('severity') . '</div>'
