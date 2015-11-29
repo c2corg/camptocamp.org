@@ -37,7 +37,7 @@ echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class
 echo object_group_bbcode_tag($document, 'place', null, array('class' => 'smalltext', 'placeholder' => __('place_default')));
 
 echo    '<div class="col_left">'
-      , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list', array('multiple' => true, 'na' => array(0)))
+      , object_group_dropdown_tag($document, 'event_type', 'mod_xreports_event_type_list_form', array('multiple' => true, 'na' => array(0)))
       , '</div>'
       , '<div class="col col_50 tips">'
       , '<p>' , __('_event_type_info') , '</p>'
