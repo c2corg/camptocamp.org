@@ -67,11 +67,11 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     #RewriteCond %{REMOTE_ADDR} !10\.27.*
     #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
 
-    # static urls should only serve css, js, images, svg, xml
+    # static urls should only serve css, js, images, svg, xml, fonts
     # last condition is because of next rule :)
     # nb: also works if STATIC_HOST is empty
     RewriteCond %{HTTP_HOST} =@STATIC_HOST@
-    RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf|xap)$
+    RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf|xap|eot|ttf|otf|woff|woff2)$
     RewriteCond %{REQUEST_URI} !(sfMinifyPlugin|index).php$
     RewriteRule .* - [F,L]
 
@@ -131,6 +131,10 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     <Files "favicon.ico">
       Header set Access-Control-Allow-Origin "*"
     </Files>
+    # And for webfonts
+    <FilesMatch "\.(eot|ttf|otf|woff|woff2)$">
+      Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
   </Directory>
 
   <Directory /srv/www/camptocamp.org/web/forums>
@@ -143,9 +147,9 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
   </Directory>
 </IfModule>
 
-# make images, css and js expire one week later in client cache
+# make images, css and js expire one month later in client cache
 <IfModule mod_expires.c>
-  <FilesMatch "\.(ico|html|xml|txt|jpg|jpeg|png|gif|svg|js|css)$">
+  <FilesMatch "\.(ico|html|xml|txt|jpg|jpeg|png|gif|svg|js|css|eot|ttf|otf|woff|woff2)$">
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
   </FilesMatch>

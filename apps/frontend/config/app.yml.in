@@ -2286,3 +2286,12 @@ all:
     timeout: @SOLR_TIMEOUT@
     maxrow: @SOLR_MAXROW@
     enable: @SOLR_ENABLE@
+
+  donate:
+    vads_mode: @DONATE_VADS_MODE@
+    vads_test_certificate: @DONATE_VADS_TEST_CERTIFICATE@
+    vads_prod_certificate: @DONATE_VADS_PROD_CERTIFICATE@
+    vads_url: https://paiement.systempay.fr/vads-payment/
+    vads_site_id: @DONATE_VADS_SITE_ID@
+    email: donation@camptocamp.org
+    user: 695986
