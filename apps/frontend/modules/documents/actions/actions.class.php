@@ -5142,7 +5142,7 @@ class documentsActions extends c2cActions
                     'url' => '/users/11465/fr',
                     'image' => 'jaillet.jpg',
                     'role' => 'guide de montagne et contributeur de Camptocamp.',
-                    'presentation' => 'Informer les personnes qui me le demande sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneaux, il est incontournable ..'
+                    'presentation' => 'Informer les personnes qui me le demandent sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneaux, il est incontournable ..'
                 );
                 break;
             case 7:
