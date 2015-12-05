@@ -112,7 +112,7 @@ class Portal extends BasePortal
         // join with image tables only if needed 
         if (isset($joins['join_image']))
         {
-            Image::buildImagePagerConditions($q, $joins, false, 'fi');
+            Image::buildImagePagerConditions($q, $joins, false, 'wi');
         }
 
         if (!empty($conditions))
