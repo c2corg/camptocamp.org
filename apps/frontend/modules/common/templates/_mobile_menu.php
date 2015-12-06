@@ -22,6 +22,7 @@ $menu_see = array(
     url_for('@default_index?module=outings&orderby=date&order=desc') => __('outings'),
     url_for('@default?module=outings&action=conditions&orderby=date&order=desc') => lcfirst(__('cond short')),
     url_for('@default_index?module=routes') => __('routes'),
+    url_for('@default_index?module=portals&orderby=wnam&order=asc') => __('portals'),
     url_for('@default_index?module=images') => __('images'),
     url_for('@default_index?module=summits') => __('summits'),
     url_for('@default_index?module=sites') => __('sites'),
