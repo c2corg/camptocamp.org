@@ -107,12 +107,21 @@ class Portal extends BasePortal
         $values = $criteria[1];
         $joins = $criteria[2];
         
+        $join = 'portal';
+        $m = 'm';
+        $linked = '';
+        
         self::buildAreaIdPagerConditions($q, $joins);
+
+        if (isset($joins[$join . '_i18n']))
+        {
+            $q->leftJoin($m . '.' . $linked . 'PortalI18n wi');
+        }
         
         // join with image tables only if needed 
         if (isset($joins['join_image']))
         {
-            Image::buildImagePagerConditions($q, $joins, false, 'fi');
+            Image::buildImagePagerConditions($q, $joins, false, 'wi');
         }
 
         if (!empty($conditions))

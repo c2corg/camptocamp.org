@@ -106,7 +106,7 @@ class xreportsActions extends documentsActions
                     elseif ($associated_module == 'outings')
                     {
                         $a->doSaveWithValues($associated_id, $id, 'ox', $user_id); // main, linked, type
-                        // clear cache of associated site ...
+                        // clear cache of associated outing ...
                         $this->clearCache('outings', $associated_id, false, 'view');
                     }
                     
@@ -133,18 +133,6 @@ class xreportsActions extends documentsActions
                 $uo = new Association();
                 $uo->doSaveWithValues($user_id, $id, 'ux', $user_id); // main, linked, type
             }    
-            
-            // create association with MW contest article, if requested
-            if ($this->new_document)
-            {
-                $mw_contest_associate = $this->getRequestParameter('mw_contest_associate');
-                if ($mw_contest_associate)
-                {
-                    $mw_article_id = sfConfig::get('app_mw_contest_id');
-                    $oc = new Association();
-                    $oc->doSaveWithValues($id, $mw_article_id, 'oc', $user_id);
-                }
-            }
             
             parent::endEdit(); // redirect to document view
         }
