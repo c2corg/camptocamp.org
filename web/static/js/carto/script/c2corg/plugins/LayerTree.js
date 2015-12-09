@@ -292,7 +292,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 leaf: true,
                 tooltipHtml: OpenLayers.i18n("slopes_info"),
                 tooltipTitle: OpenLayers.i18n("slopes"),
-                uiProvider: c2corg.tree.TreeNodeUIWithTooltip
+                uiProvider: c2corg.tree.LayerNodeUIWithTooltip
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,
