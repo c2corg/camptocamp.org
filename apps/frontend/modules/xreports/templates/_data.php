@@ -23,9 +23,8 @@ if (isset($nb_comments) && $nb_comments)
     {
         echo '<li><ul itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">';
         li(field_data_if_set($document, 'elevation', array('suffix' => 'meters', 'microdata' => 'elevation')));
-        li(field_coord_data_if_set($document, 'lon', array('microdata' => 'longitude')));
-        li(field_coord_data_if_set($document, 'lat', array('microdata' => 'latitude')));
-        li(field_swiss_coords($document));
+        li(field_coord_data_if_set($document, 'lon', array('microdata' => 'longitude')), array('style' => 'display:none'));
+        li(field_coord_data_if_set($document, 'lat', array('microdata' => 'latitude')), array('style' => 'display:none'));
         echo '</ul></li>';
     }
 
