@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_vipec12, adserver, camp_e, millet_jorasses, diamir_vipec12, adserver, adserver, diamir_vipec12, adserver, camp_e, diamir_vipec12, adserver ]
+    values: [ diamir_vipec12, adserver, camp_c, millet_jorasses, diamir_vipec12, adserver, adserver, diamir_vipec12, adserver, camp_c, diamir_vipec12, adserver ]
   banners:
     list:
       skalp:
@@ -225,16 +225,16 @@ all:
         height: 60
         file: ortovox-safety.swf
       camp_a:
-        id: 111
-        image: camp2015_A.gif
+        id: 117
+        image: camp2016_A.gif
         alt: "Camp"
       camp_b:
-        id: 112
-        image: camp2015_B.gif
+        id: 118
+        image: camp2016_B.gif
         alt: "Camp"
       camp_c:
-        id: 113
-        image: camp2015_C.gif
+        id: 119
+        image: camp2016_C.gif
         alt: "Camp"
       camp_d:
         id: 114
