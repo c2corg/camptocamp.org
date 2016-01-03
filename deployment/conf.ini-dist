@@ -29,7 +29,7 @@ SERVER_NAME = <server_name>
 SERVER_PORT =
 
 ; enable or disable ads in mobile version
-MOBILE_VERSION_ADS = true
+MOBILE_VERSION_ADS = false
 
 ; Static host (eg s.camptocamp.org)
 ; this has to be the same hostname than for STATIC_BASE_URL (FIXME: factorize)
