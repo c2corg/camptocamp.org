@@ -362,13 +362,20 @@ div.blockform form, div.fakeform
   margin-left: 5px;
   margin-bottom: 5px;
 }
-#punmessage_list .blocktable {
+#punmessage_list .blocktable, #punmessage_list .blockpost {
   width: auto !important;
   margin-left: 0 !important;
 }
 #punmessage_list .tc2, #punmessage_list .tcr {
   white-space: normal !important;
 }
+.conl {
+  white-space: normal !important;
+}
+div.linkst, div.linksb, div.postlinkst, div.postlinksb {
+    margin-top: 0px !important;
+}
+
 
 // forum compose box
 a.smiley {
