@@ -71,13 +71,11 @@ msgstr "(sentit horari)"
 msgid "). It is thus write-protected."
 msgstr "). Està doncs protegit contra escriptura."
 
-# [WARNING] en translation used
 msgid "1 to 3 days"
-msgstr "1 to 3 days"
+msgstr "1 a 3 dies"
 
-# [WARNING] en translation used
 msgid "1 to 3 months"
-msgstr "1 to 3 months"
+msgstr "1 a 3 mesos"
 
 msgid "1/100000"
 msgstr "1/100000"
@@ -88,9 +86,8 @@ msgstr "1/25000"
 msgid "1/50000"
 msgstr "1/50000"
 
-# [WARNING] en translation used
 msgid "4 days to 1 month"
-msgstr "4 to 29 days"
+msgstr "4 a 29 dies"
 
 msgid "404_error"
 msgstr "Document no trobat"
@@ -146,27 +143,26 @@ msgstr "AD-"
 msgid "Access point:"
 msgstr "Accés:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Accident description"
-msgstr "Descripcion de los hechos"
+msgstr "Descripció dels fets"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Accident factors"
-msgstr "Factors"
+msgstr "Factors i influències"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Accident factors intro"
-msgstr "Si ya no lo habeis escrito en la descripcion de los hechos, precisar la posible influencia de los elementos siguientos sobre su situacion. No es necesario aportar una respuesta por cada elementos, limitarse a los que tienen una influencia sobre los eventos"
+msgstr "Si no els heu esmentat a la descripció dels fets, preciseu l'eventual influència dels elements següents en la vostra situació. No heu de donar resposta a cadascú dels elements, limiteu-vos a aquells que han tingut segons vosaltres una repercussió en l'esdeveniment descrit."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Accident infos"
-msgstr "Caracterizacion de l'evento "
+msgstr "Caracterització de l'esdeveniment"
 
 # [general comment]
 # Profil de l'auteur d'un compte rendu d'incident/accident
-# [WARNING] en translation used
 msgid "Accident profil"
-msgstr "Profile"
+msgstr "Perfil"
 
 msgid "Activate map search"
 msgstr "Limita la cerca als límits del mapa."
@@ -312,9 +308,9 @@ msgstr "Afegeix una sortida en aquest itinerari"
 msgid "Associate new route"
 msgstr "Crear un nou itinerari associat"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Associate new xreports"
-msgstr "Add an incident/accident report to this outing"
+msgstr "Afegir un informe d'incident/accident a aquesta sortida."
 
 msgid "Association"
 msgstr "Associació"
@@ -427,9 +423,9 @@ msgstr "Torna a la llista de cims"
 msgid "Back to users list"
 msgstr "Torna a la llista d'usuaris"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Back to xreports list"
-msgstr "Volver a la lista de los incidentes/accidentes"
+msgstr "Tornar a la llista dels incidents i accidents."
 
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
@@ -660,9 +656,9 @@ msgstr "Afegeix un cim"
 # Infobulle pour le lien vers la page de création d'un compte rendu d'incident en mode non connecté
 # /!\ no linebreaks allowed
 # /!\ no markup (<.>...<./>)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Create new xreport unconnected"
-msgstr "Please login in order to create an incident/accident report. If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contribution."
+msgstr "Connecteu-vos per afegir un informe d'incident/accident. Si no esteu inscrit, feu clic a \"Inscriure's\", la inscripció és ràpida i gratuïta. Gràcies per la vostra futura contribució."
 
 # [WARNING] en translation used
 msgid "Create new xreports"
@@ -2212,9 +2208,8 @@ msgstr "Cerca un cim, un coll, un llac, una paret"
 msgid "Search a users"
 msgstr "Cerca un usuari"
 
-# [WARNING] en translation used
 msgid "Search a xreports"
-msgstr "Search for an incident/accident"
+msgstr "Cerca un inicident o accident"
 
 msgid "Search criteria"
 msgstr "Criteris de cerca"
@@ -8023,6 +8018,9 @@ msgstr "Aquest ISBN o ISSN és massa curt (almenys 7 caràcters per a un ISSN i 
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "aquest nom és massa llarg (150 caràcters màxim)"
+
+msgid "this name is too short (2 characters minimum)"
+msgstr "aquest nom és massa curt (2 caràcters mínim)"
 
 msgid "this name is too short (3 characters minimum)"
 msgstr "aquest nom és massa curt (3 caràcters mínim)"

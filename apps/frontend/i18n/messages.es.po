@@ -8122,6 +8122,9 @@ msgstr "Este ISBN o ISSN es demasiado corto (mínimo 7 caracteres para un ISSN, 
 msgid "this name is too long (150 characters maximum)"
 msgstr "este nombre es demasiado largo (150 letras como máximo)"
 
+msgid "this name is too short (2 characters minimum)"
+msgstr "este nombre es demasiado corto (4 letras por lo menos)"
+
 msgid "this name is too short (3 characters minimum)"
 msgstr "este nombre es demasiado corto (3 letras por lo menos)"
 

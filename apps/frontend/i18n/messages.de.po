@@ -86,7 +86,6 @@ msgstr "1/25000"
 msgid "1/50000"
 msgstr "1/50000"
 
-# [WARNING] needs_review
 msgid "4 days to 1 month"
 msgstr "4 bis 29 Tagen"
 
@@ -144,20 +143,17 @@ msgstr "ZS-"
 msgid "Access point:"
 msgstr "Zugang:"
 
-# [WARNING] needs_review
 msgid "Accident description"
-msgstr "Beschreibung des Ereignis"
+msgstr "Beschreibung des Ereignisses"
 
-# [WARNING] needs_review
 msgid "Accident factors"
 msgstr "Faktoren und Einflüsse"
 
 msgid "Accident factors intro"
-msgstr "Falls Sie es noch nicht bei der Beschreibung des Ereignisses gemacht haben, detaillieren Sie bitte den eventuellen Einfluss der folgenden Elemente auf Ihre Situation. Sie brauchen nicht für jedes Element eine Antwort zu geben, sondern können sich auf den Aspekten begrenzen, die Ihrer Meinung nach das beschriebene Ereignis beeinflusst haben."
+msgstr "Falls Sie es noch nicht bei der Beschreibung des Ereignisses gemacht haben, detaillieren Sie bitte den eventuellen Einfluss der folgenden Elemente auf Ihre Situation. Sie müssen nicht für jedes Element eine Antwort geben, sondern können sich auf den Aspekten begrenzen, die Ihrer Meinung nach das beschriebene Ereignis beeinflusst haben."
 
-# [WARNING] needs_review
 msgid "Accident infos"
-msgstr "Eigenschaften des Ereignis"
+msgstr "Eigenschaften des Ereignisses"
 
 # [general comment]
 # Profil de l'auteur d'un compte rendu d'incident/accident
@@ -194,7 +190,7 @@ msgstr "Erweiterte Suche"
 # [comment]
 # %1% bezieht sich auf eine Variable, welche wohl mehr als 1 ist --> Plural
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "<b>Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit ihrem Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren.</b><br/>\n"
+msgstr "<b>Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie ein Email mit ihrem Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren.</b><br/>\n"
 "<br/>\n"
 "Es ist wichtig zu wissen, dass sowohl der Inhalt ihrer Beiträge, als auch ihr Pseudonym (im Forum und im Tourenführer) sichtbar und von Suchmaschinen archiviert werden. Wenn sie also ihren Vor- und Nachnamen als Pseudonym verwenden, werden sie durch die Suchmaschinen referenziert.<br/>\n"
 "<br/>Die zur Registrierung verwendete Email-Adresse ist ausschliesslich den Moderatoren zugänglich.<br/>\n"
@@ -239,7 +235,7 @@ msgstr "Sind sie sicher die baskische Fassung dieses Dokuments löschen zu wolle
 # [general comment]
 # Msg used in js -> no &nbsp;
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Sind sie sicher dieses Dokument in allen Sprachen löschen zu wollen? Falls es verbundene Dokumente gibt, stellen sie sicher, dass das Dokument zuerst mit einem anderen Dokument zusammengefügt wurde."
+msgstr "Sind sie sicher, dieses Dokument in allen Sprachen löschen zu wollen? Falls es verbundene Dokumente gibt, stellen sie sicher, dass das Dokument zuerst mit einem anderen Dokument zusammengefügt wurde."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Sind sie sicher die französische Fassung dieses Dokuments löschen zu wollen?"
@@ -363,7 +359,7 @@ msgid "Available lists"
 msgstr "Verfügbare Lawinenlageberichte"
 
 msgid "Avalanche bulletin"
-msgstr "Lawinenlagebericht"
+msgstr "Lawinenbulletin"
 
 msgid "Back to areas list"
 msgstr "Zurück zur Regionenliste"
@@ -494,7 +490,7 @@ msgstr "Der Untergifel ist jetzt das Dokument "
 # [comment]
 # ??
 msgid "Choose maps service..."
-msgstr "Wählen sie einen Routinganbieter..."
+msgstr "Wählen sie einen Online-Kartenanbieter..."
 
 msgid "Choose..."
 msgstr "Wählen Sie..."
@@ -830,7 +826,7 @@ msgid "Document %1% has been merged into document %2%"
 msgstr "Das Dokument %1% wurde mit dem Dokument %2% zusammengeschlossen."
 
 msgid "Document cache has been cleared"
-msgstr "Den Cache des Dokuments wurde gelöscht"
+msgstr "Der Cache des Dokuments wurde gelöscht"
 
 msgid "Document could not be deleted"
 msgstr "Das Dokument konnte nicht gelöscht werden"
@@ -948,7 +944,7 @@ msgid "Edit private data"
 msgstr "Ihre persönlichen Daten ändern "
 
 msgid "Edit your mailing lists settings"
-msgstr "Sich an den Sendelisten der Lawinenbulletin anmelden"
+msgstr "Die Mailingliste der Lawinenbulletins abonnieren"
 
 msgid "Editing preview"
 msgstr "Vorschau:"
@@ -1001,7 +997,7 @@ msgid "Export:"
 msgstr "Exportieren:"
 
 msgid "Extract"
-msgstr "Exzerpt"
+msgstr "Ausschnitt"
 
 # [general comment]
 # facile (cotation globale)
@@ -1038,7 +1034,6 @@ msgstr "Nur Daten"
 msgid "File:"
 msgstr "Datei:"
 
-# [WARNING] needs_review
 msgid "Filter presentation"
 msgstr "Fortgeschrittene Suche:<br />- Die Suchkriterien sind alle optional, d.h. sie können, müssen aber nicht ausgefüllt werden.<br />- Die genaue Textfolge, welche eingegeben wurde, wird gesucht, ohne gewisse Wörter und Zeichen (de, du, la, '-', ';',etc.). Verwenden sie also nur die charakteristischen Textteile: <em>aup pont</em> oder <em>pointe aup</em> führt zu <em>Pointe de l'Aup du Pont</em> aber <em>pointe pont</em> wird kein Ergebnis liefern."
 
@@ -1173,7 +1168,7 @@ msgid "Go to previous summit"
 msgstr "Zum vorangehenden Gipfel gehen"
 
 msgid "Go to previous xreport"
-msgstr "Zum vorigen Ereignis/Unfall"
+msgstr "Zum vorherigen Ereignis/Unfall"
 
 msgid "Go to the homepage"
 msgstr "Zur Startseite gehen"
@@ -1245,7 +1240,7 @@ msgid "IGN orthos"
 msgstr "Orthofotos IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
-msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benutzen. Sie können es anschließend in Ihrem persönlichen Profil verändern. Wenn Sie kein neues Passwort angefordert haben, können Sie diese Nachricht einfach ignorieren."
+msgstr "Dieses neue Passwort wird erst gültig, wenn Sie es das erste Mal benutzen. Sie können es anschließend in Ihrem persönlichen Profil verändern. Wenn Sie kein neues Passwort angefordert haben, können Sie diese Nachricht einfach ignorieren."
 
 msgid "Image"
 msgstr "Bild"
@@ -1295,7 +1290,7 @@ msgstr "Drehung des Bildes"
 # [general comment]
 # Currently, copyright pictures are only of book covers
 msgid "Image under copyright license"
-msgstr "Dieses Bild gibt einen Buchumschlag wieder und alle Bildrechte sind dem/r Buchautor/in und/oder dem/r Buchherausgeber/in vorgehalten. Der Buchumschlag wird hier lediglich zu Illustrationszwecken präsentiert."
+msgstr "Dieses Bild gibt einen Buchumschlag wieder und alle Bildrechte sind dem/r Buchautor/in und/oder dem/r Buchherausgeber/in vorbehalten. Der Buchumschlag wird hier lediglich zu Illustrationszwecken präsentiert."
 
 msgid "Image uploaded"
 msgstr "Bild wurde hochgeladen"
@@ -1511,7 +1506,7 @@ msgid "Linked outings"
 msgstr "Verbundene Touren "
 
 msgid "Linked products"
-msgstr ""
+msgstr "Verbundene lokale Produkte"
 
 msgid "Linked routes"
 msgstr "Verbundene Routen "
@@ -1758,7 +1753,7 @@ msgid "New route"
 msgstr "Eine neue Route hinzufügen"
 
 msgid "New routes article"
-msgstr "Geschichte der Eröffnungen"
+msgstr "Geschichte der Erschliessungen"
 
 msgid "No GPX track, please edit this document to add some"
 msgstr "Kein GPS-Track: Bearbeiten sie dieses Dokument, um welche hinzuzufügen."
@@ -2286,7 +2281,7 @@ msgid "Send a private message to this user"
 msgstr "Eine Privatnachricht an diesen Benutzer senden"
 
 msgid "Send mail"
-msgstr "Eine Email senden"
+msgstr "Ein Email senden"
 
 msgid "Session is over. Please login again."
 msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
@@ -2355,9 +2350,8 @@ msgstr "Bei camptocamp.org als Benutzer registrieren"
 msgid "Site not found"
 msgstr "Dieser Klettersektor existiert nicht."
 
-# [WARNING] needs_review
 msgid "Snow elevation is correct?"
-msgstr "Sind die Höhenmeter für den Zustieg, für den Beginn des Skiaufstiegs sowie dem Ende der Skiabfahrt korrekt angegeben ?"
+msgstr "Sind die Höhenangaben für den Zustieg, für den Beginn des Skiaufstiegs (Ski anlegen) sowie das Ende der Skiabfahrt (Ski abziehen) korrekt eingetragen ?"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -3217,15 +3211,33 @@ msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region de
 
 # [general comment]
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_update
 msgid "_avalanche_date_info"
 msgstr "<h3>Art der Beobachtungen betreffend Lawinen</h3>\n"
 "Art der Lawinenbeobachtung oder der Warnzeichen (Mehrfachauswahl möglich).<br />\n"
-"Detaillieren der Beobachtungen im zugehörigen Textfeld."
+"Detaillieren Sie bitte Ihre Beobachtungen im zugehörigen Textfeld.\n"
+"\n"
+"Keine Beobachtung\n"
+"Diese Option kann man man nur als Einzelauswahl ankreuzen\n"
+"\n"
+"Warnzeichen\n"
+"- frische Wächte\n"
+"- mit dem Skistock fühlbares Schneebrett\n"
+"- Setzungsgeräusch (wumm)\n"
+"- fortschreitende Rissbildung beim Betreten des Hanges\n"
+"\n"
+"Frische Lawine\n"
+"Spuren einer spontanen oder ausgelösten Lawine, welche nach dem letzten Schneefall, Regen, Windsturm oder Erwärmung, jedoch vom dem Tourentag abgegangen ist.\n"
+"\n"
+"Lawinenspur kann bedeuten : Schneebrettanriss, Lawinenschnee, Lawinenkegel\n"
+"\n"
+"Spontane Lawine am Tourentag\n"
+"Spontane Lawine, entweder live beobachtet oder am Tourentag abgegangen (Lawinenspur beim Abfahren vorhanden, welche beim Austieg noch nicht da war)\n"
+"\n"
+"Ausgelöste Lawine am Tourentag\n"
+"Durch eine Person (oder ein Tier) augelöste Lawine, entweder live beobachtet oder am Tourentag abgegangen (Lawinenspur beim Abfahren vorhanden, welche beim Austieg noch nicht da war)"
 
 # [general comment]
 # aide contextuelle du champ texte de description des observations d'avalanche, à l'édition d'une sortie
-# [WARNING] needs_review
 msgid "_avalanche_desc_info"
 msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
 "Details betreffend der Schneedeckenstabilität:\n"
@@ -3243,10 +3255,30 @@ msgstr "<h3>Details zur Lawinenbeobachtung</h3>\n"
 
 # [general comment]
 # aide contextuelle du champ "observations relatives aux avalanches", à la consultation d'une sortie
-# [WARNING] needs_update
 msgid "_avalanche_infos_info"
 msgstr "<h3>Beobachtungen zur Lawinensituation</h3>\n"
-"Beobachtungen von Warnzeichen, kürzlichen Lawinenabgängen, von spontanen oder durch Personen ausgelösten Lawinen am Tag der Tour."
+"Lawinenbeobachtungen werden durch Ankreuzen von definierten Begriffen und durch eine zusätzliche Beschreibung des detaillierten Ablaufs ausgefüllt.\n"
+"\n"
+"Keine Beobachtung\n"
+"Weder Warnzeichen noch frische Lawinenspur oder \n"
+"Lawinenabgang wurden beobachtet\n"
+"\n"
+"Warnzeichen\n"
+"- frische Wächte\n"
+"- mit dem Skistock fühlbares Schneebrett\n"
+"- Setzungsgeräusch (wumm)\n"
+"- fortschreitende Rissbildung beim Betreten des Hanges\n"
+"\n"
+"Frische Lawine\n"
+"Spuren einer spontanen oder ausgelösten Lawine, welche nach dem letzten Schneefall, Regen, Windsturm oder Erwärmung, jedoch vom dem Tourentag abgegangen ist.\n"
+"\n"
+"Lawinenspur kann bedeuten : Schneebrettanriss, Lawinenschnee, Lawinenkegel\n"
+"\n"
+"Spontane Lawine am Tourentag\n"
+"Spontane Lawine, entweder live beobachtet oder am Tourentag abgegangen (Lawinenspur beim Abfahren vorhanden, welche beim Austieg noch nicht da war)\n"
+"\n"
+"Ausgelöste Lawine am Tourentag\n"
+"Durch eine Person (oder ein Tier) augelöste Lawine, entweder live beobachtet oder am Tourentag abgegangen (Lawinenspur beim Abfahren vorhanden, welche beim Austieg noch nicht da war) "
 
 msgid "_avalanche_level_info"
 msgstr "Lawinengefahrenstufe im Lawinenbulletin am Ereignisort und zur Ereigniszeit (Lawinenbulletins können verschiedene Gefahrenstufen je nach Höhe, Orientierung und Tageszeit erwähnen).<br />\n"
@@ -3324,28 +3356,26 @@ msgstr "<h3>Verhältnisse des Gelände, Ausstattung und Felsqualität</h3> \n"
 "<br />Bei einer verschneiten Route geben sie bitte ihre Beobachtungen über Lawinenaktivitäten oder Spuren älterer Lawinen ein.<br />\n"
 "<br />Die <em>angetroffenen Verhältnisse</em> und die <em> Schneeverhältnisse pro Gebiet </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
-# [WARNING] needs_update
 msgid "_conditions_info"
 msgstr "<h3>Verhältnisse</h3>\n"
-"Informationen über die vorgefundenen Verhältnisse auf einer Route, sowie der visuellen Verhältnisse der benachbarten Routen.<br />\n"
-"Diese Informationen sind schnelllebig und verlieren schnell ihre Aktualität. Beachten sie deshalb das Datum der Tour bevor sie solche Informationen benutzen.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br />\n"
+"Informationen über den vorgefundenen Verhältnissen auf einer Route (inkl. Zustieg), sowie den visuellen Verhältnissen der benachbarten Routen.<br />\n"
+"Diese Informationen sind schnelllebig und verlieren rasch ihre Aktualität. Beachten sie deshalb das Datum der Tour bevor sie solche Informationen benutzen.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br />\n"
 "Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
 
-# [WARNING] needs_review
 msgid "_conditions_status_info"
 msgstr "<h3>Verhältnisse des Gelände</h3>\n"
 "Generelle Einschätzung der während der Tour vorgefundenen Geländeverhältnisse. Kann zum Filtern von Touren verwendet werden.<br />\n"
 "Die Verhältnisse des Geländes sollten nicht mit den Wetterverhältnisse verwechselt werden. \n"
-"Die Verhältnisse des Geländes werden mit Bezug zu den durchschnittlichen Verhältnisse angegeben, die man auf der Route während der normalen Begehungsperiode vorfinden würde.\n"
-"Dadurch können die realen Schwierigkeiten mit Bezug zu den angegebenen Schwierigkeiten, besser eingeschätzt werden.<br />\n"
+"Die Verhältnisse des Geländes werden in Bezug auf den durchschnittlichen Verhältnissen angegeben, die man auf der Route während der normalen Begehungsperiode vorfinden würde.\n"
+"Dadurch können die realen Schwierigkeiten in Bezug auf den angegebenen Schwierigkeiten, besser eingeschätzt werden.<br />\n"
 "\n"
 "Die Verhältnisse des Geländes sollten keine Vorhersage für den nächsten Tag sein, sondern die tatsächlich während der Tour vorgefundenen Verhältnisse widerspiegeln.\n"
 "Jeder ist hier frei, das Wechselspiel zwischen Spaß und dem eingegangenen Risiko auf seine Weise einzuschätzen. \n"
 "Zur Hilfe, kann man sich jedoch folgende Frage stellen: Hätte man auf dieser Route noch mehr Spaß gehabt, wären die Verhältnisse weniger gefährlich gewesen ?<br />\n"
-"Im Feld <i>Verhältnisse</i> können zusätzliche Informationen angegeben werden."
+"Im Feld <i>Verhältnisse</i> können zusätzliche Informationen erfasst werden."
 
 # [comment]
 # oder etwas psychologistischer: "Routengestalt"?
@@ -3354,7 +3384,7 @@ msgstr "<h3>Verhältnisse des Gelände</h3>\n"
 # 
 # [WARNING] needs_review
 msgid "_configuration_info"
-msgstr "<h3>Routenmorphologie</h3> Die Routenmorphologie beschreibt das Hauptrelief entlang einer Route oder ihrer Schwierigkeiten.<br /><br /> <strong>Grat:</strong> Ein Grat ist charakterisiert durch eine Hauptachse und zwei Flanken. Der Zugang erfolgt üblicherweise über eine der Flanken.<br /> <br /> <strong>Couloir</strong>: Ein Couloir entspricht der der Verbindungslinien tiefsten Punkte der Querprofile in einem Tal (sog. Talweg). Üblicherweise ist das Coulour auf der Seite durch Felsen begrenzt.<br /> <strong><br /> Wand</strong>: Die Bezeichnung bezieht sich auf eine sehr steile durchgehende Bergflanke, wobei diese dorch Sporne, Pfeiler, Couloirs etc. versetzt sein kann. <br /><br /> <strong>Rinne</strong>: Eine Rinne ist ein sehr steiles (ab 70°) und enges (einige Meter Breite) Couloir. Eine Rinne eignet sich oft für Eis- oder Mixedklettereien.<br /><br /> <strong>Pfeiler / Sporn</strong>: Ein Sporn oder ein Pfeiler ragt klar aus einer Wand heraus. Typischerweise finden sich daran Felsklettereien, aber auch Eis- oder Mixedklettereien sind möglich. Der Begriff Pfeiler bezieht sich auf Felsen.<br /> <br /> <strong>Hochtour - Gletscherroute</strong>: Eine Berg und Gletscherroute, welche haupsächlich über Gletscher verläuft und deren Morphologie keine bestimmten Charakteristiken annimmt. Typischerweise handelt es sich um klassische Gletscherrouten und -wanderungen oder einige Bergrouten welche keine charakteristische Morphologie haben (z.B. Mont Blanc Überschreitung). Das Feld <em>benötigt Gletscherausrüstung</em> muss aktiviert werden, falls der Gletscher verspaltet ist."
+msgstr "<h3>Routenmorphologie</h3> Die Routenmorphologie beschreibt das Hauptrelief entlang einer Route oder ihrer Schwierigkeiten.<br /><br /> <strong>Grat:</strong> Ein Grat wird durch eine Hauptachse und zwei Flanken gekennzeichnet. Der Zugang erfolgt üblicherweise über eine der Flanken.<br /> <br /> <strong>Couloir</strong>: Ein Couloir entspricht der der Verbindungslinien tiefsten Punkte der Querprofile in einem Tal (sog. Talweg). Üblicherweise ist das Couloir auf der Seite durch Felsen begrenzt.<br /> <strong><br /> Wand</strong>: Die Bezeichnung bezieht sich auf eine sehr steile durchgehende Bergflanke, wobei diese durch Sporne, Pfeiler, Couloirs etc. versetzt sein kann. <br /><br /> <strong>Rinne</strong>: Eine Rinne ist ein sehr steiles (ab 70°) und enges (einige Meter Breite) Couloir. Eine Rinne eignet sich oft für Eis- oder Mixedklettereien.<br /><br /> <strong>Pfeiler / Sporn</strong>: Ein Sporn oder ein Pfeiler ragt klar aus einer Wand heraus. Typischerweise finden sich daran Felsklettereien, aber auch Eis- oder Mixedklettereien sind möglich. Der Begriff Pfeiler bezieht sich auf Felsen.<br /> <br /> <strong>Hochtour - Gletscherroute</strong>: Eine Berg und Gletscherroute, welche haupsächlich über Gletscher verläuft und deren Morphologie keine bestimmten Charakteristiken annimmt. Typischerweise handelt es sich um klassische Gletscherrouten und -wanderungen oder einige Bergrouten welche keine charakteristische Morphologie haben (z.B. Mont Blanc Überschreitung). Das Feld <em>benötigt Gletscherausrüstung</em> muss aktiviert werden, falls der Gletscher spaltenreich ist."
 
 msgid "_culture_info"
 msgstr "<h3>Sprache</h3>Sprache, in welcher das Dokument verfasst ist.<br />Falls sie nicht die angezeigte Sprache verwenden möchten, klicken sie auf den Link  <i>eine andere Sprache auswählen</i>."
@@ -3410,7 +3440,6 @@ msgstr "<h3>Ernsthaftigkeitsgrad</h3>\n"
 "<br />\n"
 "<strong>VI</strong>: Die Route ist sehr lang und kann mehrere Tage in Anspruch nehmen. Der Zustieg ist lang und heikel, die Route ist vollkommen isoliert. Nach dem Einstieg, ist ein Rückzug nicht mehr möglich. Eventuell vorhandene Notausstiege sind selbst anspruchsvolle Klettereien. Ein vollständige Unabhängigkeit der Seilschaft ist notwendig."
 
-# [WARNING] needs_update
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualität des vorhandenen Sicherungsmaterials</h3>\n"
 "Dieses Feld beschreibt das Vorhandensein und die Qualität des Sicherungsmaterial beim Fels- oder Eisklettern.<br />\n"
@@ -3481,7 +3510,6 @@ msgstr "<h3>Schwierigkeitsskala für Berg- und Hochtouren </h3>\n"
 "<br />\n"
 "Mehr Informationen zur Schwierigkeitsskala finden sie zur unter <a href=\"/articles/188413\">Bewertung von Hochtouren</a>."
 
-# [WARNING] needs_review
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Laden sie einfach einen GPS-track im GPX-Format hoch um ihre Tour zu illustrieren.<br />Damit können sie anschliessend den Track als KML-Datei (Google Earth) herunterladen um zu Orientierungszwecken verwenden.<br /><br />Falls ihr GPS Tracks im NMEA-Format erstellt können sie diese mittels dem Programm <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> ins GPX-Format umwandeln."
 
@@ -3524,7 +3552,7 @@ msgstr "<h3>Höhendifferenz</h3>Kummulierte positive und negative Höhenuntersch
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Höhenunterschied (Aufstieg) während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Für eine Route, bei welcher sich der Zustieg klar von der eigentlichen Route unterscheidet, wird die positive Höhendifferenz wie folgt berechnet: Zustieg + Route + Abstieg (falls Gegenanstiege enthalten sind).<br />Falls die Route üblicherweise von einer Hütte aus begangen wird, berechnet sich der positive Höhenunterschied wie folgt: Zustieg ab der Hütte + Route + Abstieg (falls Gegenanstieg enthalten sind)."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_hiking_rating_info"
 msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung von Wanderrouten wird die SAC-Wanderskala verwendet.\n"
 "Diese besteht aus folgenden Schwierigkeitsbewertungen:<br/><br/><strong>T1-Wandern</strong>\n"
@@ -3538,7 +3566,7 @@ msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung 
 "Durchschnittliches Orientierungsvermögen. Elementare alpine Erfahrung.<br/><br/><strong>T4 - Alpinwandern</strong>: Weg/Gelände: Wegspur nicht zwingend\n"
 "vorhanden. An gewissen Stellen braucht es die Hände zum Vorwärtskommen. Falls markiert: weiss-blau-weiss. Gelände bereits recht exponiert, heikle Grashalden, Schrofen, einfache Firnfelder und apere Gletscherpassagen.<br/><b>Anforderungen</b>: Vertrautheit mit exponiertem Gelände. Stabile Trekkingschuhe. Gewisse Geländebeurteilung und gutes Orientierungsvermögen. Alpine Erfahrung. Bei Wettersturz kann ein\n"
 "Rückzug schwierig werden.<br /><br /><strong>T5 - anspruchsvolles Alpinwandern</strong>: Oft weglos.\n"
-"Einzelne einfache Kletterstellen. Falls Route markiert: weiss-blau-weiss. Exponiert, anspruchsvolles Gelände, steile Schrofen. Gletscher und Firnfelder mit Ausrutschgefahr.<br /><b>Anforderungen</b>: Bergschuhe. Sichere Geländebeurteilung und sehr\n"
+"Einzelne einfache Kletterstellen (IIer Grad, bis III+ falls die Stelle kurz und nicht ausgesetzt ist). Falls Route markiert: weiss-blau-weiss. Exponiertes, anspruchsvolles Gelände, steile Schrofen. Kleine, spaltenarme Gletscher und Firnfelder mit Ausrutschgefahr.<br /><b>Anforderungen</b>: Bergschuhe. Sichere Geländebeurteilung und sehr\n"
 "gutesOrientierungsvermögen. Gute Alpinerfahrung und im hochalpinen Gelände. Elementare Kenntnisse im Umgang mit Pickel und Seil.<br />\n"
 "<br />\n"
 "Mehr Informationen finden sie in der Hilfe unter <a href=\"/articles/106859/de\">Bewertung von Wanderungen</a>."
@@ -3578,9 +3606,9 @@ msgstr "<h3>Schwierigkeitsskala Eisklettern</h3>\n"
 "<br />\n"
 "Siehe auch in die Hilfe unter <a href=\"/articles/106871#ice\">Schwierigkeitsskala Schnee, Eis- und Mixedklettern</a>."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_image_categories_info"
-msgstr "<h3>Bildkategorien</h3>Mehrere Kategorien können für ein Bild ausgewählt werden.<br /><span style=\"color: red\">Bilder, welche mindestens eine mit einem Stern (*) bezeichnete Kategorie zugeordnet haben, werden auf der Einstiegsseite von camptocamp.org angezeigt.</span><br /><br /><strong>Landschaftsaufnahme</strong>: Photo, welches mindestens einen Teil eines Berges oder mehrere Berge enthält, oder eine Panoramaaufnahme<br /><strong>Detailaufname</strong>: Ein Bild, welches einen Teil einer Route, eines Gipfels oder eines Orts zeigt(im Gegensatz zur <em>Landschaftsaufnahme</em><br /><strong>Topo / Routenlinie</strong>: Foto eines Gipfels mit der Routenlinie, oder ein Schema der Route<br /><strong>Aktionsbild</strong>: Bild von einer Person in Aktion</br><strong>Wegbild</strong>:Bild, welches eindeutig den Weg, oder Auf- oder Abstiegsspuren im Schnee (oder im losen Untergrund) zeigt.<br /><strong>Aufstiegs-</strong> oder <strong>Abstiegsbild</strong>: Bild, welches während dem Aufstieg oder während dem Abstieg aufgenommen wurde. Diese Kategorie ist nützlich um die Bildkategorien <em>Detailaufnahme, Aktions-, und Wegbild</em> zu präzisieren.<br /><strong>Personen</strong>: Aufnahme, bei welcher das Hauptmotiv ein oder mehrere Exemplare der Spezies <i>Homo sapiens sapiens</i> ist.<br /><strong>Fauna</strong> und <Flora>: Foto oder Zeichnung von Fauna und/oder Flora<br /><strong>Schnee und Lawinen</strong>: Foto, Zeichnung oder Graphik, welche für die Schnee- und Lawinenforschung relevant ist: Schneedeckenaufbau, Lawinenanriss, etc.<br /><strong>Geologie</strong>: Bilder oder Zeichnungen, welche geologische oder geomorphologische Phänomene zeigen oder illustrieren, z.B. Fotos von Mineralien und Kristallen, Schichtabfolgen, Gletschervorstösse, etc.<br /><strong>Unterkunftsbild</strong>: Foto, welches eine Hütte, ein Biwak oder einen Biwakplatz von aussen oder innen zeigt<br /><strong>Ausrüstung</strong>: Bild oder Zeichnung von Alpinausrüstungsgegenständen, Detailaufnahme oder während des Gebrauchs<br /><strong>Buchumschlag</strong>: Aufnahme des Umschlags eines Buchs oder einer anderen Publikation<br /><strong>Anderes oder unklassifizierbares Bild</>: Bild, welches nicht mit den anderen Bildkategorien klassifiziert werden kann, z.B. abstraktes Bild, Flyer, etc."
+msgstr "<h3>Bildkategorien</h3>Mehrere Kategorien können für ein Bild ausgewählt werden.<br /><span style=\"color: red\">Bilder, welche mindestens einer mit einem Stern (*) bezeichneten Kategorie zugeordnet sind, werden auf der Einstiegsseite von camptocamp.org angezeigt.</span><br /><br /><strong>Landschaftsaufnahme</strong>: Photo, welches mindestens einen Teil eines Berges oder mehrere Berge enthält, oder eine Panoramaaufnahme<br /><strong>Detailaufname</strong>: Ein Bild, welches einen Teil einer Route, eines Gipfels oder eines Orts zeigt(im Gegensatz zur <em>Landschaftsaufnahme</em><br /><strong>Topo / Routenlinie</strong>: Foto eines Gipfels mit der Routenlinie, oder ein Schema der Route<br /><strong>Aktionsbild</strong>: Bild von einer Person in Aktion</br><strong>Wegbild</strong>:Bild, welches eindeutig den Weg, oder Auf- oder Abstiegsspuren im Schnee (oder im losen Untergrund) zeigt.<br /><strong>Aufstiegs-</strong> oder <strong>Abstiegsbild</strong>: Bild, welches während dem Aufstieg oder während dem Abstieg aufgenommen wurde. Diese Kategorie ist nützlich um die Bildkategorien <em>Detailaufnahme, Aktions-, und Wegbild</em> zu präzisieren.<br /><strong>Personen</strong>: Aufnahme, bei welcher das Hauptmotiv ein oder mehrere Exemplare der Spezies <i>Homo sapiens sapiens</i> ist.<br /><strong>Fauna</strong> und <Flora>: Foto oder Zeichnung von Fauna und/oder Flora<br /><strong>Schnee und Lawinen</strong>: Foto, Zeichnung oder Graphik, welche für die Schnee- und Lawinenforschung relevant ist: Schneedeckenaufbau, Lawinenanriss, etc.<br /><strong>Geologie</strong>: Bilder oder Zeichnungen, welche geologische oder geomorphologische Phänomene zeigen oder illustrieren, z.B. Fotos von Mineralien und Kristallen, Schichtabfolgen, Gletschervorstösse, etc.<br /><strong>Unterkunftsbild</strong>: Foto, welches eine Hütte, ein Biwak oder einen Biwakplatz von aussen oder innen zeigt<br /><strong>Ausrüstung</strong>: Bild oder Zeichnung von Alpinausrüstungsgegenständen, Detailaufnahme oder während des Gebrauchs<br /><strong>Buchumschlag</strong>: Aufnahme des Umschlags eines Buchs oder einer anderen Publikation<br /><strong>Anderes oder unklassifizierbares Bild</>: Bild, welches nicht mit den anderen Bildkategorien klassifiziert werden kann, z.B. abstraktes Bild, Flyer, etc."
 
 msgid "_image_details_info"
 msgstr "<h3>Bildeigenschaften</h3>Dimensionen und Grösse des Bilds"
@@ -3797,9 +3825,17 @@ msgstr "<h3>Objektive Gefahren</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_outing_route_desc_info"
-msgstr "Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde."
+msgstr "Begangene Route\n"
+"\n"
+"Die gegangene Route muss in den folgenden Fällen beschrieben werden : \n"
+"\n"
+"- Abweichungen vom Topo \n"
+"- Varianten \n"
+"- Schlaufe (bitte dann Orts- und Höhenangaben der jeweiligen Höchst- bzw Tiefpünkte detaillieren)\n"
+"- aneinanderreihen von verschiedenen Routen (die Routen sollten dann nach dem Toureneintrag verbunden werden)\n"
+"- Gipfel nicht erreicht (höchsterreichter Punkt erwähnen und entsprechende maximale Höhe im relevanten Feld korrigieren)"
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"hhttp://www.camptocamp.org/portals/219879\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
@@ -3823,10 +3859,10 @@ msgstr "<h3>Telefon</h3>Die Telefonnummer einer Hütte."
 # Aide contextuelle du champ texte "Lieu de l'évènement" (ID : place ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir place_default
 msgid "_place_info"
-msgstr "<h3>Ort des Ereignisses</h3>\n"
-"Details betreffend Ort des Ereignisses.<br />\n"
+msgstr "<h3>Ereignisort</h3>\n"
+"Details betreffend Ereignisort.<br />\n"
 "Georeferenzieren Sie das Ereignis auf der Karte unten, auch nur grob (dann allerdings mit Hinweis hier).<br />\n"
-"Nach dessen Speichern können Sie diesen Bericht mit einer Route, einem Klettergebiet und/oder eine Tour verbinden. "
+"Nach dessen Speichern können Sie diesen Bericht mit einer Route, einem Klettergebiet und/oder einer Tour verbinden. "
 
 msgid "_previous_injuries_info"
 msgstr "Haben Sie sich in den letzten 12 Monaten beim Bergsteigen oder beim Klettern verletzt (unabhängig davon, ob Sie vom Ereignis betroffen wurden oder nicht) ?"
@@ -3862,7 +3898,7 @@ msgstr "Faktoren, die die Auswirkungen gemildert haben.\n"
 "\n"
 "- Fähigkeit, Probleme auszuweichen\n"
 "- Kenntnis der Rettungstechniken\n"
-"- Genügend Zeitpolster\n"
+"- Genügend Zeitpolster eingeplant\n"
 "- Verfügbare Ausrüstung\n"
 "- Usw"
 
@@ -3982,7 +4018,7 @@ msgstr "<h3>Kartenmassstab</h3>Massstab der Landeskarte"
 msgid "_severity_info"
 msgstr "Führte das Ereignis bei den betroffenen Personen zu einem verletzungsbedingten Tourabbruch ?"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_shelter_type_info"
 msgstr "<h3>Typ der Unterkunft</h3> Es werden folgende Arten von Unterkünften unterschieden:<br /><br /><strong>Hütte: </strong>Gebäude mit permanenter Struktur, welche vollständig vor Wind und Niederschlag schützt. Eine Hütte kann bewartet, unbewartet oder typischerweise nur während gewisser Zeiträume bewartet sein.<br /><br /><strong>Herberge</strong>: Einfache Unterkunft im Dorf, am Tourenanfang, oder ein Etappenort. Eine Herberge ist ein einfaches Hotel, welches von Personal geführt wird, Zimmer und zumeist Mahlzeiten anbietet. Zumeist sind Herbergen verkehrstechnisch gut erschlossen.<br /><br /><strong>Biwak oder Schutzhütte</strong>: Entweder ein Gebäude mit permanenter Struktur oder ein eingerichteter Ort unter Felsen, wenig komfortabel für einen längeren Aufenthalt<br /><br /><strong>Biwakplatz</strong>: Dauerhaft eingerichteter Platz, welcher sich zum biwakieren (ohne Zelt) oder campieren (mit Zelt) eignet. Ein Biwakplatz ist flach (natürlicherweise oder terrassiert) und etvl. durch Mauern vom Wind etwas geschützt.<br /><br /><strong>Basislager</strong>: Platz, welcher üblicherweise regelmäsig als Ausgangspunkt für längere Touren mit Nachschublogistik (Basislager) verwendet wird. Kann Gebäude oder Einrichtungen enthalten, welche nicht zum Übernachten dienen (z.B. Toiletten, etc.)<br /><br />Eine sogenannte “Biwakschachtel” oder “italienisches Biwak” (Metallcontainer) ist entweder als “Hütte” oder als “Biwak oder Schutzhütte” zu klassifizieren."
 
@@ -4001,13 +4037,8 @@ msgstr "<h3>Neigung</h3>Maximale Neigung und Länge des Hangs."
 
 # [general comment]
 # pentes >30°, légende (html)
-# [WARNING] en translation used
 msgid "_slopes_info"
-msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
-"<br><span style=\"background-color:#F7EF6C;display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
-"<br><span style=\"background-color:#F8A97C;display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
-"<br><span style=\"background-color:#E8669A;display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
-"<br><span style=\"background-color:#DEB8D6;display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+msgstr "Hinweis : diese Kategorisierung basiert auf Satelliten-Höhenangaben, welche nicht frei von Artefakten sind, insbesondere bei den steileren Hängen. Dazu kann die Auflösung die detaillierten Unebenheiten des Geländes nicht voll wiederspiegeln. Somit sollte dieses Werkzeug nur als globale Unterstützung bei der Routenauswahl verstanden werden, jedoch ohne Anspruch auf Genauigkeit."
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumung der Zugangsstrasse im Winter. Ort der mechanischen Schneeräumung. Ungefährer Zeitpunkt der Schneeräumung oder Schneeschmelze der Zugangsstrasse falls im Winter keine Räumung stattfindet.\n"
@@ -4107,7 +4138,7 @@ msgstr "<h3>Tourenführerpseudonym</h3>Sichtbarer Name im Tourenführer der Webs
 msgid "_topoguide_code_info"
 msgstr "<h3>Code um ein Bild in den Tourenführer einzufügen<br /></h3>Um dieses Bild in den Text eines Dokuments des Tourenführers einzufügen(in verkleinerter Grösse), kopieren und fügen sie den folgenden Codeein (Strg+C um zu kopieren, Strc+V um einzufügen).<br /><br />Die folgenden Bedingungen müssen erfüllt sein um ein Bild einzufügen:<br />- Das Bild muss bereits mit dem Dokument verbunden sein.<br />- Falls sie das Bild in ein gemeinschaftliches Dokument einfügenwollen, muss es sich um ein gemeinschaftliches Bild handeln. Um denBildtyp zu wechseln, verwenden sie das&nbsp;<em> <ahref=\"/users/manageimages\">Tool zum Bearbeiten der persönlichen Bilder</a>.</em><br /><br />Sie können in der Bearbeitungseite des Dokuments auch direkt den Codedes Bilds einfügen indem sie den <input value=\"img\" type=\"button\">Knopf von der Werkzeugleiste benutzen. Nur Bilder welche sie obigenBedingungen erfüllen sind verfügbar.<br /><br />Standartmässig wird Bild rechtsbündig angeordnet und mit einem Rahmenund seiner Legende ausgestattet. Mit den untenstehende Attributen imEröffnungstag können sie die Formatierung des Bilds anpassen:<br /><br />- <strong>right</strong>: Das Bild wir rechts plaziert, der Text links<br />- <strong>left</strong>: Das bild wird links plaziert, der Text rechts<br />- <strong>center</strong>: Das Bild wird in der Mitte zentriert, keinText weder links noch rechts<br />- <strong>inline</strong>: Bild ist innerhalb des Textflusses (sog.in-line Position)<br />- <strong>inline_right</strong>: Bild ist innerhalb des Textflusses,rechts (erlaubt die Stapelung von Bilder rechts auf derselben Linie)<br />- <strong>inline_left</strong>: Bild ist innerhalb des Textflusses,links (erlaubt die Stapelung von Bilder links auf derselben Linie)<br />- <strong>no_border</strong>: Bild ohne Rahmen, aber mit unterhalb desBilds plazierter Legende<br />- <strong>no_legend</strong>: Die Legende des Bilds wird nur alsTooltip dargestellt, kein Rahmen<br /><br />Wenn sie das Attribut <strong>right</strong> oder <strong>left </strong>verwendenund einen neuen Abschnitt unterhalb des Bildes beginnen möchten, fügensie ein <strong>[p]</strong> Tag am Ende des vorangehenden Abschnitts ein."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Ausgesetztheit der Skiabfahrt</h3> Bewertung der Ausgesetztheit einer Skiabfahrt (toponeige).<br /> Die Ausgesetztheit beschreibt das Verletzungsrisiko bei einem Sturz und nimmt dabei die objektiven Gefahren (Steinschlag, Eisabruch, etc.) nicht in Betracht.<br /> <br /> <strong>E1</strong>: Die Ausgesetztheit basiert ausschließlich auf der Hangneigung. Das Verletzungsrisiko ist demnach vor allem bei Hartschnee und/oder grosser Steilheit gegeben.<br /> <br /> <strong>E2</strong>&nbsp; Zur Hangneigung kommen Hindernisse, welche das Verletzungsrisiko erhöhen, z.B. kleine Felsbarierren.<br /> <br /> <strong>E3</strong>: Bei einem Sturz, Absturz über eine grosse Felsbarierre, durch ein gefährliches Couloir. Der Tod ist wahrscheinlich.<br /> <br /> <strong>E4</strong>: Bei einem Sturz, Absturz über eine grosse Wand oder ein enges Couloir. Der Tod ist quasi sicher.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten.</a>"
 
@@ -4121,7 +4152,7 @@ msgstr "<h3>Weg</h3>Qualität oder Zustand des Wegs. Im Feld <i>Verhältnisse<i>
 # Aide contextuelle du champ texte "Préparation physique et entraînement" (ID : training ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir training_default
 msgid "_training_info"
-msgstr "Körperliche Vorbereitung und Training in Beziehung zur Zielvorgabe\n"
+msgstr "Körperliche Vorbereitung und Training in Beziehung aud das Ziel\n"
 "Wie beurteilen Sie zur Zeit des Ereignisses Ihr technisches Können, Ihre konditionnelle Verfassung, die vor dem Ereignis aufgestaute Müdigkeit, die Akklimatisierung für eine Hochtour, usw..."
 
 msgid "_unstaffed_capacity_info"
@@ -4180,24 +4211,20 @@ msgstr "Ablauf der Tour und des Ereignisses\n"
 msgid "_xreport_modifications_info"
 msgstr "Auswirkung auf die Betätigung\n"
 "\n"
-"Hat sich das Ereignis auf Ihre Betätigung ausgewirkt ? Falls ja, in welchem Sinne ? (Angst/Besorgnis, bessere Vorbereitung, Tätigkeitsunterbruch, Wechsel der Bergkolleguen, usw...)"
+"Hat sich das Ereignis auf Ihre Betätigung ausgewirkt ? Falls ja, in welchem Sinne ? (Angst/Besorgnis, bessere Vorbereitung, Tätigkeitsunterbruch, Wechsel der Bergkollegen, usw...)"
 
 # [general comment]
 # Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
-# [WARNING] needs_update
 msgid "_xreport_other_comments_info"
-msgstr "<h3>Andere Kommentare</h3>\n"
-"Freie Kommentare."
+msgstr "<h3>Körperliche Auswirkungen und andere Kommentare</h3>\n"
+"Beschreiben Sie hier zB allfällige Verletzungen. Freie Kommentare, welche in anderen Feldern nicht passen, können hier erfasst werden."
 
 # [general comment]
 # Aide contextuelle du champ texte "Niveau de l'attention et (ré)évaluation des risques" (ID : xreport_risk ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_risk_default
-# [WARNING] en translation used
 msgid "_xreport_risk_info"
-msgstr "<h3>Level of awareness and (re) evaluation of the risks</h3>\n"
-"Have you (re) evaluated the risks at each change in the situation?<br />\n"
-"What factors might have affected your awareness, such as tiredness, stress, relaxing having passed the main difficulties or on the descent, on a section reputed to be easy, presence of footprints or other people, complete confidence in the group, etc."
+msgstr "Haben Sie bei jeder Änderung der Lage die Risiken neu beurteilt ? Bitte Faktoren berücksichtigen, welche Ihre Aufmerksamkeit beeinflussen konnten : Ermüdung, Stress, Abnahme der Konzentration nach Ende der Schwierigkeiten oder bei der Abfahrt/Abstieg, vertrautes oder als einfach geltendes Gebiet, Anwesenheit von anderen Spuren oder Personen, blindes Vertrauen im Tourenleiter, usw..."
 
 msgid "abruzzes"
 msgstr "Abruzzen"
@@ -4835,7 +4862,7 @@ msgstr "Benutzerkategorie:"
 
 # [general comment]
 # [cda]
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "cda More"
 msgstr "Mehr..."
 
@@ -5070,9 +5097,8 @@ msgstr "Gib die folgenden Beobachtungen an: Geländeverhältnisse auf der Route 
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie cascade ou alpi neige inskiable, lorsque le champ est vide
-# [WARNING] en translation used
 msgid "conditions_ice_default"
-msgstr "Please give supplementary information on the snow conditions, by zone : conditions of the sectors normally ice or mixed, quantity and quality of the in situ protection, ability to see the neighbouring routes and popularity.  Observations concerning avalanches should be written up in the dedicated field below."
+msgstr "Bitte Zusatzinformationen betreffend Schneedecke für jeden Sektor erfassen : Verhältnisse der üblicherweise aus Eis oder kombiniertem Gelände bestehenden Abschnitte, Anzahl und Qualität des Absicherungen, beobachtete Verhältnisse sowie Besucherzahl in den Nachbarrouten. Lawinenbeobachtungen müssen in den dafür vorgesehenen Feldern unten eingetragen werden."
 
 msgid "conditions_levels"
 msgstr "Schneelage:"
@@ -5081,15 +5107,14 @@ msgstr "Schneelage:"
 # texte affichée dans le champ "conditions" à l'édition d'une sortie escalade ou alpi rocher, lorsque le champ est vide
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "conditions_rock_default"
-msgstr "Record here the following observations: ground conditions on the approach, the route and the return (dry, damp, snowed up,….)  quantity and quality of the in situ equipment, quality of the rock, ability to see the neighbouring routes, popularity."
+msgstr "Hier folgende Beobachtungen erfassen : Zustiegs-, Routen- und Abstiegsverhältnisse (trocken, nass, schneebedeckt...), Anzahl und Qualität der Absicherungen, Felsqualität, beobachtete Verhältnisse der Nachbarrouten, Besucherandrang."
 
 # [general comment]
 # texte affichée dans le champ "conditions" à l'édition d'une sortie ski ou raquette, lorsque le champs est vide
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "conditions_ski_default"
-msgstr "Record the complementary information on snow conditions by zone: ability to see the neighbouring routes and popularity.  Observations concerning avalanches should be written up in the dedicated field below."
+msgstr "Zusatzinformationen betreffend Schneelage in jedem Abschnitt : beobachtete Verhältnisse in den Nachbarrouten, Besucherandrang. Lawinenbeobachtungen bitte in den dafür vorgesehenen Feldern unten eintragen."
 
 msgid "conditions_status"
 msgstr "Bedingungen:"
@@ -5474,9 +5499,9 @@ msgstr "Literatur (auch Web):"
 # Texte affichée dans le champ "Bibliographie et webographie" lorsqu'il est vide, à l'édition d'un itinéraire ou d'un site de couenne.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "external_resources_default"
-msgstr "The relevant guidebooks should be linked to the route or crag/bouldering area after uploading. It is not normally necessary to record them in this field. "
+msgstr "Die Topo-Führer müssen mit der Route oder mit dem Boulder/Klettergebiet nach der Eintragung verbunden werden. Somit ist es normalerweise nicht nützlich, sie in diesem Feld zu erwähnen."
 
 msgid "external_witness"
 msgstr "Zeuge ausserhalb der Gruppe"
@@ -5768,9 +5793,9 @@ msgstr "Gruppendynamik"
 # Texte affichée dans le champ "Dynamique de groupe" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "group_management_default"
-msgstr "Communication of the individual objectives and expectations, the thoughts and observations during the outing, discussions on new strategies, the way the group conducted itself and divided responsibilities, was the group used to working together, core aspirations, etc."
+msgstr "Kommunikation betreffend Ziele und Erwartungen der Teilnehmer sowie Bedenken und Beobachtungen im Laufe der Tour, Rücksprache um neue Strategien zu bestimmen, Gruppenführung und Verantwortung, Gruppenteilnehmer sind daran gewöhnt oder nicht, zusammen Touren zu unternehmen, Emulation, usw..."
 
 msgid "h2 button title"
 msgstr "Untertitel zweiten Niveaus"
@@ -5861,9 +5886,9 @@ msgstr "Höhle"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [comment]
 # etwas freiere Übersetzung um die Attraktivität der Einstiegsseite zu erhöhen.
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "home_description"
-msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern Sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren Sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren Sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen Sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern Sie nicht und machen Sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
+msgstr "c2c ist ein mehrsprachiger Austauschort Für aller Spielarten des Bergsports, wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern Sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren Sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren Sie im <a href=\"/forums/?lang=de\">Forum</a> mit, bestaunen Sie Bilder eines <a href=\"/images\">Fotoalbums</a>. oder lesen Sie einschlägige <a href=\"/articles\">Fachartikel</a><br />c2c wird von einem nicht-gewinnorientiertem Verein verwaltet, und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern Sie nicht und machen Sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
 
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"
@@ -5974,15 +5999,14 @@ msgid "impossible crossing"
 msgstr "kein Gletscherübergang möglich (zu spaltig) "
 
 msgid "increase_impact"
-msgstr "Elemente, welche die Lage verschärft haben"
+msgstr "Elemente, welche die Auswirkungen verschlimmert haben"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont accentué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "increase_impact_default"
-msgstr "Were there factors which accentuated the consequences?  (remoteness, level of commitment of the route, not being prepared for an incident, lack of experience of what to do in an incident/accident, lack of equipment, etc"
+msgstr "Sind Faktoren vorhanden, welche die Auswirkungen des Ereignisses verschlimmert haben, bzw die Lage verschärft haben ? (Erreichbarkeit, Rückzugsmöglichkeit, keine Vorbereitung auf einen eventuellen Unfall, zu wenig Erfahrung im Umgang mit einem Ereignis/Unfall, fehlende Ausrüstung, usw..."
 
 msgid "informations"
 msgstr "Informationen"
@@ -6521,9 +6545,8 @@ msgstr "Motivationen : "
 # Texte affichée dans le champ "Motivations" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "motivations_default"
-msgstr "Why did you choose this outing? When did you decide to commit to it.  What influenced your decision, (holiday time, long journey, hotel/hut bookings, time spent already in preparation, limited possibilities, etc.)"
+msgstr "Erklären Sie bitte, warum Sie gerade diese Tour ausgewählt haben und wie wichtig das Erreichen des Zieles für Sie war. Berücksichtigen Sie dabei den Einfluss der verschiedenen Optionen vorher (Urlaubstage, lange Anreise, Unterkunftsbuchungen...), der bisher dazu nötigen Bemühungen, der Seltenheit der Opportunität, usw... "
 
 msgid "mountain"
 msgstr "Berg"
@@ -6848,13 +6871,11 @@ msgstr "Andere Gebirgsmassive"
 msgid "other valley_area"
 msgstr "Andere Täler"
 
-# [WARNING] en translation used
 msgid "other_fall"
-msgstr "fall of a person or roped party"
+msgstr "Personen- oder Seilschaftssturz"
 
-# [WARNING] en translation used
 msgid "other_fall_form"
-msgstr "other fall of a person or roped party"
+msgstr "Anderer Personen- oder Seilschaftssturz"
 
 # [general comment]
 # [cda] title of second box on home
@@ -7035,9 +7056,8 @@ msgstr "Tel."
 msgid "photos-art"
 msgstr "Photos/Kunst"
 
-# [WARNING] en translation used
 msgid "physical_failure"
-msgstr "Physical weakness"
+msgstr "körperliche Schwäche"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -7056,17 +7076,16 @@ msgstr "Bilder"
 msgid "piemont"
 msgstr "Piemont"
 
-# [WARNING] en translation used
 msgid "place"
-msgstr "Location of the event:"
+msgstr "Ereignisort : "
 
 # [general comment]
 # Texte affichée dans le champ "Lieu de l'événement" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "place_default"
-msgstr "Information on the location of the incident.  Mark the location on the map above, even if you cannot do very accurately, (in which case give more details here).  After completing the report, you can associate it to a route, a climbing site or an outing."
+msgstr "Details betreffend Ereignisort. Georeferenzieren Sie das Ereignis auf der Karte unten, auch nur grob (dann allerdings mit Hinweis hier).\n"
+"Nach dessen Speichern können Sie diesen Bericht mit einer Route, einem Klettergebiet und/oder einer Tour verbinden. "
 
 msgid "places_to_display"
 msgstr "Angezeigte Regionen"
@@ -7247,25 +7266,20 @@ msgstr "Voriger Klettersektor"
 msgid "previous summit"
 msgstr "Voriger Gipfel"
 
-# [WARNING] en translation used
 msgid "previous xreport"
-msgstr "Previous incident/accident"
+msgstr "Vorhergehendes Ereignis/Unfall"
 
-# [WARNING] en translation used
 msgid "previous_injuries"
-msgstr "Previous injuries:"
+msgstr "Frühere Verletzungen:"
 
-# [WARNING] en translation used
 msgid "previous_injuries_2"
-msgstr "Once or twice"
+msgstr "Ein- bis zweimal"
 
-# [WARNING] en translation used
 msgid "previous_injuries_3"
-msgstr "Three or more times"
+msgstr "Dreimal oder mehr"
 
-# [WARNING] en translation used
 msgid "primary_impacted"
-msgstr "Main affected person"
+msgstr "am stärksten betroffene Person "
 
 msgid "pro"
 msgstr "Berufsberggänger"
@@ -7401,17 +7415,15 @@ msgstr "Spuren von frischen Lawinen (seit dem letzten Schneefall, Regen, Wind od
 msgid "recenter"
 msgstr "Zentrieren"
 
-# [WARNING] en translation used
 msgid "reduce_impact"
-msgstr "Attenuating factors:"
+msgstr "Elemente, welche die Auswirkungen gemildert haben:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont atténué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "reduce_impact_default"
-msgstr "Were there factors which limited the consequences of the incident?  (ability to avoid problems, competence in rescue techniques, left plenty of time in reserve, had the necessary equipment, etc"
+msgstr "Gibt es Faktoren, welche die Auswirkungen des Ereignisses gemildert haben, oder welche es verhindert haben, dass die Lage zum ernsteren Unfall eskalierte (Fähigkeit, Probleme auszuweichen, Kenntnis der Rettungstechniken, genügend Zeitpolster eingeplant, verfügbare Ausrüstung, usw...)"
 
 msgid "region_name"
 msgstr "Regionen"
@@ -7428,13 +7440,11 @@ msgstr "Bemerkungen: "
 msgid "report_type"
 msgstr "Art des Berichtes:"
 
-# [WARNING] en translation used
 msgid "rescue"
-msgstr "Rescue services"
+msgstr "Eingreifen der Rettungsdienste"
 
-# [WARNING] en translation used
 msgid "rescue short"
-msgstr "Rescue"
+msgstr "Rettung"
 
 msgid "restaurant"
 msgstr "Restaurant"
@@ -7530,17 +7540,16 @@ msgstr "Gestein"
 msgid "roof"
 msgstr "Dach"
 
-# [WARNING] en translation used
 msgid "roped_fall"
-msgstr "roped"
+msgstr "angeseilt"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "roped_fall can not be selected alone"
-msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+msgstr "\"Sturz mit Seil\" kann nur als Zusatz zu \"Spaltensturz\", \"anderer Sturz\" oder \"Lawine\" angekreuzt werden"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "roped_fall_form"
-msgstr "fall while roped"
+msgstr "Sturz mit Seil"
 
 msgid "route"
 msgstr "Route"
@@ -7578,18 +7587,18 @@ msgstr "Länge:"
 msgid "route_line_prefix"
 msgstr "SL"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "route_study"
-msgstr "Route preparation:"
+msgstr "Vorbereitung der Route"
 
 # [general comment]
 # Texte affichée dans le champ "Étude de l’itinéraire" lorsqu'il est vide, à l'édition d'un incident/accident.
 # Voir aussi l'aide contextuelle : _route_study_info
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "route_study_default"
-msgstr "Maps, guidebooks and outings reports consulted. Evaluation of the route during the outing."
+msgstr "Studierte Karten, Routenbeschreibungen und Tourenberichte. Neue Beurteilung der Route während der Tour."
 
 msgid "route_type"
 msgstr "Art der Route:"
@@ -7640,17 +7649,16 @@ msgstr "Durchstreichen des ausgewählten Textabschnitts"
 msgid "safe"
 msgstr "sicher"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "safety"
-msgstr "Safety precautions taken&nbsp;:"
+msgstr "Eingesetzte Massnahmen und Sicherheitstechniken:"
 
 # [general comment]
 # Texte affichée dans le champ "Mesures et techniques de sécurité mises en oeuvres" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "safety_default"
-msgstr "Types of belay and protection used, verifications between climbers, snowpack stability tests, testing of avalanche transceivers, etc.  "
+msgstr "Absicherungsmodus, gegenseitige Überprüfungen zwischen den Kletterern, Schneeprofile, Überprüfung der LVS-geräte, usw..."
 
 msgid "sardaigne"
 msgstr "Sardinien"
@@ -7679,9 +7687,9 @@ msgstr "Klettergarten"
 msgid "seasonal service"
 msgstr "saisonaler Betrieb"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "secondary_impacted"
-msgstr "secondary person affected"
+msgstr "weitere betroffene Person"
 
 msgid "section close"
 msgstr "Rahmen schließen"
@@ -7725,13 +7733,12 @@ msgstr "Vorausgewählte Täler"
 msgid "service_on_demand"
 msgstr "auf Anfrage"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "severity"
-msgstr "Length of the outing activity stoppage:"
+msgstr "Dauer des Tätigkeitsunterbruchs für diese Aktivität"
 
-# [WARNING] en translation used
 msgid "severity short"
-msgstr "Severity"
+msgstr "Schwere"
 
 msgid "shelter"
 msgstr "Notunterkunft"
@@ -7912,9 +7919,8 @@ msgstr "Bewartungszeitraum:"
 msgid "steep skiing portal"
 msgstr "Steilwandskifahren"
 
-# [WARNING] en translation used
 msgid "stone_fall"
-msgstr "Falling rocks"
+msgstr "Steinschlag"
 
 msgid "stories"
 msgstr "Erlebnisberichte, Erzählungen"
@@ -8013,9 +8019,8 @@ msgstr "Benutzungsbedingungen"
 msgid "thanks for new outing"
 msgstr "Besten Dank für deine Tour! Fühl dich frei die dazugehörige Routenbeschreibung zu verbessern."
 
-# [WARNING] en translation used
 msgid "thanks for new xreport"
-msgstr "Thank you for your report!"
+msgstr "Danke für Ihren Bericht !"
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
@@ -8051,6 +8056,9 @@ msgstr "Die eingebene ISBN oder ISSN ist zu kurz (mindestens sieben Zeichen bei 
 msgid "this name is too long (150 characters maximum)"
 msgstr "dieser Name ist zu lang (Maximum: 150 Zeichen)"
 
+msgid "this name is too short (2 characters minimum)"
+msgstr "Dieser Name ist zu kurz (mindestens 2 Zeichen)"
+
 msgid "this name is too short (3 characters minimum)"
 msgstr "Dieser Name ist zu kurz (mindestens drei Zeichen)"
 
@@ -8066,17 +8074,17 @@ msgstr "Diese Telefonnummer ist zu lang (maximal 50 Zeichen)"
 msgid "this phonenumber is too short (8 characters minimum)"
 msgstr "Diese Telefonnummer ist zu kurz (minimal 8 Zeichen)"
 
-# [WARNING] en translation used
 msgid "time_management"
-msgstr "Time management&nbsp;:"
+msgstr "Zeitmanagement:"
 
 # [general comment]
 # Texte affichée dans le champ "Gestion du temps" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "time_management_default"
-msgstr "Had a timetable for the route been foreseen?  Was it kept to?  Was time a factor in causing the incident?"
+msgstr "War ein Zeitplan vorhanden ?\n"
+"Wurde er eingehalten ?\n"
+"Hatte das Zeitmanagement einen Einfluss auf die Auslösung des Ereignisses ?"
 
 msgid "timing"
 msgstr "Zeiten (Abmarsch, Gesamtdauer, etc.):"
@@ -8158,17 +8166,15 @@ msgstr "Alpinklettern"
 msgid "train"
 msgstr "Zug"
 
-# [WARNING] en translation used
 msgid "training"
-msgstr "Prior training for the objective&nbsp;: "
+msgstr "Körperliche Vorbereitung und Training in Beziehung auf das Ziel "
 
 # [general comment]
 # Texte affichée dans le champ "Préparation physique et entraînement" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "training_default"
-msgstr "Technical ability, physical fitness, level of tiredness, acclimatization, etc"
+msgstr "Technisches Können, Kondition und Müdigkeit, Akklimatisierung, usw..."
 
 msgid "translate"
 msgstr "Mit Google übersetzen"
@@ -8359,9 +8365,8 @@ msgstr "Camptocamp.org bietet die Möglichkeit auf ihrer Website oder auf ihrem 
 msgid "width"
 msgstr "Bildbreite:"
 
-# [WARNING] en translation used
 msgid "wind"
-msgstr "wind"
+msgstr "Wind"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"
@@ -8392,58 +8397,57 @@ msgstr "Web"
 msgid "x axis:"
 msgstr "Die Abszisse ändern:"
 
-# [WARNING] en translation used
 msgid "xreport"
-msgstr "incident / accident"
+msgstr "Ereignis / Unfall"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport form warning"
-msgstr "This incident/accident report will be added to <a href=\"/articles/697210\">SERAC Database</a>.</li>\n"
-"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>."
+msgstr "Dieser Ereignis-/Unfallsbericht wird zur \"SERAC\" Datenbank hinzugefügt. Falls Sie zum Formular Bemerkungen oder Kritik mitteilen wollen können Sie einen Kommentar eingeben oder ein Email schicken."
 
-# [WARNING] en translation used
 msgid "xreport_conditions"
-msgstr "Study of the conditions, (both before the start and during the outing)&nbsp;:"
+msgstr "Untersuchung der Verhältnisse (vor und während der Tour) : "
 
-# [WARNING] en translation used
 msgid "xreport_conditions short"
-msgstr "Study of the conditions&nbsp;:"
+msgstr "Untersuchung der Verhältnisse:"
 
 # [general comment]
 # Texte affichée dans le champ "Etude des conditions" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport_conditions_default"
-msgstr "Describe the information gathered before the outing and how these evolved once on route:  weather forecast, avalanche risk reports, amount of refreezing, condition of the snow/ice/rock, reports from the previous days, etc. "
+msgstr "Beschreiben Sie hier die vor der Tour gesammelten Informationen und deren Nachprüfung im Gelände.\n"
+"Hier sind gemeint : Wetterprognose, Lawinenbulletin, Gefrieren der Schneedecke, Schnee-/Eis-/Felsbeschaffenheit, Tourenberichte der vorangegangenen Tage, usw... "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport_description"
-msgstr "Details of the actual outing and the incident&nbsp;:"
+msgstr "Ablauf der Tour und des Ereignisses"
 
 # [general comment]
 # Texte affichée dans le champ "Déroulement de la sortie" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport_description_default"
-msgstr "Describe how the outing and the incident went. If you have already written up your outing, you only need to describe the incident, then link it to your outing report (after first uploading it)."
+msgstr "Beschreiben Sie hier den Ablauf der Tour und des Ereignisses. Wenn Sie schon eine Tour eingetragen haben können Sie lediglich das Ereignis beschreiben, um es dann später (nach dessen Speicherung) mit der Tour zu verbinden."
 
-# [WARNING] en translation used
+# [comment]
+# Anglais et Français incohérents : parle-t-on de conséquences pratiques ou de conséquences sur la pratique (de l'activité) ???
+# [WARNING] needs_review
 msgid "xreport_modifications"
-msgstr "Practical consequences&nbsp;:"
+msgstr ""
 
 # [general comment]
 # Texte affichée dans le champ "Conséquences sur ses pratiques" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport_modifications_default"
-msgstr "Has this incident affected the way you will do things in the future?  If yes, in what way?  For  example: apprehension, better preparation, not doing the activity any more, changing your partner(s).  "
+msgstr "Hat sich das Ereignis auf Ihre Betätigung ausgewirkt oder Ihre Gewohnheiten verändert ? Falls ja, in welchem Sinne ? (Angst/Besorgnis, bessere Vorbereitung, Tätigkeitsunterbruch, Wechsel der Bergkollegen, usw...)"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "xreport_other_comments"
-msgstr "Physical consequences and other comments:"
+msgstr "Körperliche Auswirkungen und andere Kommentare:"
 
 # [general comment]
 # Texte affichée dans le champ "Autres commentaires" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -8454,32 +8458,28 @@ msgstr "Physical consequences and other comments:"
 msgid "xreport_other_comments_default"
 msgstr ""
 
-# [WARNING] en translation used
 msgid "xreport_risk"
-msgstr "Level of awareness and (re) evaluation of the risks&nbsp;:"
+msgstr "Grad an Aufmerksamkeit und Risikobewertung:"
 
 # [general comment]
 # Texte affichée dans le champ "Niveau de l'attention et (ré)évaluation des risques" lorsqu'il est vide, à l'édition d'un incident/accident.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "xreport_risk_default"
-msgstr "Have you (re) evaluated the risks at each change in the situation? What factors might have affected your awareness, such as tiredness, stress, relaxing having passed the main difficulties or on the descent, on a section reputed to be easy, presence of footprints or other people, complete confidence in the leader of the group, etc."
+msgstr "Haben Sie bei jeder Änderung der Lage die Risiken neu beurteilt ? Bitte Faktoren berücksichtigen, welche Ihre Aufmerksamkeit beeinflussen konnten : Ermüdung, Stress, Abnahme der Konzentration nach Ende der Schwierigkeiten oder bei der Abfahrt/Abstieg, vertrautes oder als einfach geltendes Gebiet, Anwesenheit von anderen Spuren oder Personen, blindes Vertrauen im Tourenleiter, usw..."
 
-# [WARNING] en translation used
 msgid "xreports"
-msgstr "incidents and accidents"
+msgstr "Ereignisse und Unfälle"
 
-# [WARNING] en translation used
 msgid "xreports list"
-msgstr "Incidents and accidents"
+msgstr "Ereignisse und Unfälle"
 
-# [WARNING] en translation used
 msgid "xreports presentation"
-msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching. <br />\n"
-"This database of incidents and accidents reports was designed in collaboration with researchers and <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
-"<br />\n"
-"To enter a report of an incident or accident event, click the link \"Add ...\" below, or the one present in your outing if you have already created one."
+msgstr "Autonom in den Bergen und in der wilden Natur wird man durch eigene Erfahrung und durch die Erfahrungen, die von anderen Tourengängern geteilt werden. Von Ereignissen und Unfällen, welche bei unseren Touren passiert sind, können oft alle lernen. \n"
+"\n"
+"Diese Datenbank beinhaltet Berichte von Ereignissen und Unfällen, sie wurde in Zusammenarbeit mit Forschern und mit der Fondation Petzl entwickelt. Das Formular sieht zwar sehr detailliert aus, es sind aber nur die ersten Felder Pflichtfelder. <Weitere Infos>.\n"
+"\n"
+"Um einen Ereignis-/Unfallsbericht zu erfassen, klicken Sie bitte den \"...Hinzufügen\"-Link unten, oder den entsprechenden Link in Ihrem Tourenbericht, falls es einen solchen gibt."
 
 msgid "year"
 msgstr "Jahr"
