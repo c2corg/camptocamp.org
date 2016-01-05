@@ -337,66 +337,71 @@ if ($is_admmod_2)
     $tpl_temp .= '<a href="admin_users.php">Admin</a>'.$forum_modo.'</li>';
 }
 
-$tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
+$tpl_temp .= "\n\t\t\t".'</ul></div>';
 
-if ($lang == 'fr')
+if (!$mobile_version || $footer_style != 'post')
 {
-    $all_lang_text = $lang_common['multilanguage'];
-}
-else
-{
-    $all_lang_text = $lang_common['all'];
-}
-
-if (!$pun_user['is_guest'])
-{
-    $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
-    $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a></li>';
-    $tpl_filters = '';
+    $tpl_temp .= "\n\t\t\t".'<ul class="conr">';
+    
     if ($lang == 'fr')
     {
-        $tpl_filters .= '<a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
-                      . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
+        $all_lang_text = $lang_common['multilanguage'];
     }
-    if ($is_v6)
+    else
     {
-        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
+        $all_lang_text = $lang_common['all'];
     }
-    if ($is_assoc)
+    
+    if (!$pun_user['is_guest'])
     {
-        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;assoc">[assoc]</a>';
+        $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
+        $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a></li>';
+        $tpl_filters = '';
+        if ($lang == 'fr')
+        {
+            $tpl_filters .= '<a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
+                          . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
+        }
+        if ($is_v6)
+        {
+            $tpl_filters .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
+        }
+        if ($is_assoc)
+        {
+            $tpl_filters .= ' - <a href="search.php?action=show_new&amp;assoc">[assoc]</a>';
+        }
+        if ($is_v6)
+        {
+            $tpl_filters .= ' - <a href="search.php?action=show_new&amp;v6">[V6]</a>';
+        }
+        if (!empty($tpl_filters))
+        {
+        	$tpl_temp .= '<li>' . $tpl_filters . '</li>';
+        }
+        $tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
+        if ($footer_style == 'index' || $footer_style == 'search')
+        {
+            $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
+        }
+        else if ($footer_style == 'viewforum')
+        {
+            $tpl_temp .= '<li><a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a></li>';
+        }
     }
-    if ($is_v6)
+    else
     {
-        $tpl_filters .= ' - <a href="search.php?action=show_new&amp;v6">[V6]</a>';
+        $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a></li>';
+        if ($lang == 'fr')
+        {
+            $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
+                       . ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;light">[light]</a></li>';
+        }
+    	$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
     }
-    if (!empty($tpl_filters))
-    {
-    	$tpl_temp .= '<li>' . $tpl_filters . '</li>';
-    }
-    $tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
-    if ($footer_style == 'index' || $footer_style == 'search')
-    {
-        $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
-    }
-    else if ($footer_style == 'viewforum')
-    {
-        $tpl_temp .= '<li><a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a></li>';
-    }
+    
+    $tpl_temp .= "\n\t\t\t".'</ul>';
 }
-else
-{
-    $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a></li>';
-    if ($lang == 'fr')
-    {
-        $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
-                   . ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;light">[light]</a></li>';
-    }
-	$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>';
-}
-
-$tpl_temp .= "\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
-
+$tpl_temp .= "\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
 $tpl_main = str_replace('<pun_status>', $tpl_temp, $tpl_main);
 // END SUBST - <pun_status>
 
