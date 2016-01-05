@@ -355,10 +355,11 @@ div.blockform form, div.fakeform
 #punmessage_list .blockmenu {
   width: auto !important;
   float: none !important;
+  padding: 0px !important;
   margin-bottom: 12px; /* compensate the -12px margin-top from linkst */
 }
 #punmessage_list .inbox li {
-  display: inline;
+  display: inline-block;
   margin-left: 5px;
   margin-bottom: 5px;
 }
