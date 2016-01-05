@@ -265,7 +265,7 @@ if ($is_admmod_2)
 
 $tpl_temp = '<div id="brdwelcome" class="block">'."\n\t".'<div class="box">'."\n\t\t".'<div class="inbox">'."\n\t\t\t".'<div class="conl">';
 
-if ($footer_style != NULL && $footer_style != 'index')
+if ($footer_style != NULL && (!$mobile_version || $footer_style != 'message_send'))
 {
 	// Display the "Jump to" drop list
 	if ($pun_config['o_quickjump'] == '1')
@@ -339,7 +339,7 @@ if ($is_admmod_2)
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>';
 
-if (!$mobile_version || $footer_style != 'post')
+if (!$mobile_version || $footer_style != 'post' || $footer_style != 'message_send')
 {
     $tpl_temp .= "\n\t\t\t".'<ul class="conr">';
     
