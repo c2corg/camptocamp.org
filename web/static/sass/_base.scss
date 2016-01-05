@@ -271,6 +271,11 @@ hr
   margin-top: 10px;
 }
 
+.important_message
+{
+  border: 2px solid #ff9933;
+}
+
 .front_message // yellow edit in place on homepage
 {
   background-color: #ffc;
@@ -310,6 +315,9 @@ hr
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
   @include -c2c-hashurl-background('/static/images/picto/important.png', no-repeat 15px);
+}
+.global_form_error, .preview_warning, .mandatory_fields_warning
+{
   color: gray;
 }
 
