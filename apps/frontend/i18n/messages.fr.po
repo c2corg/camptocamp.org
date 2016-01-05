@@ -8448,7 +8448,7 @@ msgstr "Incidents et accidents"
 
 # [WARNING] needs_review
 msgid "xreports presentation"
-msgstr ".L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.\n"
+msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.\n"
 "Cette base de donnée de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=fr\">Fondation Petzl</a>. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. <a href=\"/articles/697210\">Plus d'information...</a><br />\n"
 "<br />\n"
 "Pour saisir un compte rendu d'incident ou accident, cliquez sur le lien \"Ajouter...\" ci-dessous, ou celui présent dans votre sortie si vous en avez déjà saisi une."
