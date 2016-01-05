@@ -132,7 +132,7 @@ $footer_style = 'message_list';
 require PUN_ROOT.'header.php';
 ?>
 <div class="block2col">
-	<div class="blockmenu" style="padding: 0px 10px 0px 0px; margin-top: 10px;">
+	<div class="blockmenu">
 		<h2><span><?php echo $lang_pms['Private Messages'] ?></span></h2>
 		<div class="box">
 			<div class="inbox">
@@ -261,7 +261,7 @@ if(isset($_GET['id'])){
 	
 ?>
 
-	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost"<?php echo $mobile_version ? '' : 'style="padding-left: 13em;"' ?>>
+	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost">
 		<h2><span><?php echo format_time($cur_post['posted']) ?></span></h2>
 		<div class="box">
 			<div class="inbox">
@@ -291,7 +291,7 @@ if(isset($_GET['id'])){
 
 ?>
 <form method="post" action="message_list.php<?php echo $param_user_id ?>">
-<div class="blocktable" style="margin-left: 13em;">
+<div class="blocktable">
 	<h2><span><?php echo $name ?></span></h2>
 	<div class="box">
 		<div class="inbox">
