@@ -229,6 +229,7 @@ else
 		$subject = '';
 	if (!isset($message))
 		$message = '';
+	$footer_style = 'message_send';
 	
 	require PUN_ROOT.'header.php';
 
