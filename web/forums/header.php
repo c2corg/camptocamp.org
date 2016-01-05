@@ -339,7 +339,7 @@ if ($is_admmod_2)
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>';
 
-if (!$mobile_version || $footer_style != 'post' || $footer_style != 'message_send')
+if (!$mobile_version || !in_array($footer_style, array('post', 'message_list', 'message_send')))
 {
     $tpl_temp .= "\n\t\t\t".'<ul class="conr">';
     
