@@ -424,10 +424,13 @@ em.mandatory_asterisk
   white-space: nowrap;
 }
 
+.img_box.legend_top
+{
+  font-size: 1em;
+}
 .legend_top figcaption
 {
   margin-bottom: 0.5em;
-  font-size: 1em;
 }
 
 .img_box img
