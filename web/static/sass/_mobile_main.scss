@@ -128,11 +128,18 @@ h1 .article_title
   width: auto !important;
 }
 
-.important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
+.global_form_error, .preview_warning, .mandatory_fields_warning
 {
   padding-left: 30px;
   padding-right: 0;
   background-position: 0 50%;
+}
+
+.important_message
+{
+  padding-left: 40px;
+  padding-right: 0;
+  background-position: 5px 50%;
 }
 
 .warning_message
