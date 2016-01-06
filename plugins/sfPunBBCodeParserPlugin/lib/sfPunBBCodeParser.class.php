@@ -715,6 +715,10 @@ class sfPunBBCodeParser
             }
             $image_box .= '</figure>';
         }
+        else
+        {
+            $image_box = $image_tag;
+        }
 
         if ($centered)
         {
