@@ -254,7 +254,7 @@ hr
   margin: 0 0 5px 0;
 }
 
-.warning_message, .important_message, .global_form_error, .preview_warning, .front_message
+.global_form_error, .preview_warning, .front_message
 {
   width:80% !important;
 }
@@ -269,11 +269,12 @@ hr
 {
   clear: both;
   margin-top: 10px;
+  display: inline-block;
 }
 
 .important_message
 {
-  border: 2px solid #ff9933;
+  border: 2px solid $orange;
 }
 
 .front_message // yellow edit in place on homepage
@@ -418,6 +419,17 @@ em.mandatory_asterisk
   border: 0;
 }
 
+.img_box.no_wrap
+{
+  white-space: nowrap;
+}
+
+.legend_top figcaption
+{
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
 .img_box img
 {
   margin: 0 auto 3px auto;
@@ -444,28 +456,28 @@ em.mandatory_asterisk
 {
   float:left;
   clear: left;
-  margin: 5px 15px 10px 0;
+  margin: 5px 25px 10px 0;
 }
 
 .embedded_right, img.embedded_right
 {
   float:right;
   clear: right;
-  margin: 5px 0 10px 15px;
+  margin: 5px 0 10px 25px;
 }
 
 .embedded_center, img.embedded_center
 {
   float: none;
   clear: none;
-  margin: 0 15px 10px 15px;
+  margin: 0 25px 10px 25px;
   text-align: center;
 }
 
 img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
 .embedded_inline, .embedded_inline_left, .embedded_inline_right
 {
-  margin: 5px 10px 10px 10px;
+  margin: 5px 25px 10px 10px;
   clear: none;
 }
 
