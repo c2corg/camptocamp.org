@@ -39,6 +39,18 @@ body {
   left: 0;
 }
 
+#holder.max_width
+{
+  position: relative;
+  margin: auto;
+  max-width: 1500px;
+}
+
+.full_screen #page_header
+{
+  display: none;
+}
+
 #wrapper_context
 {
   overflow: hidden;
