@@ -32,7 +32,7 @@ else
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
 }
 
-if (in_array($action, array('list', 'home')) || $module == 'portals')
+if ((in_array($action, array('list', 'home')) || $module == 'portals') && $module != 'summits')
 {
     $holder_class = '';
 }
