@@ -933,6 +933,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 break;
             }
+            
             $sort_orderby_param[] = $orderby;
             
             $order = $order_list[$key];
@@ -983,11 +984,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         
-        if (count($sort_orderby_field) == 1 && in_array($orderby_list[0], array('range', 'admin', 'country', 'valley')))
-        {
-            $extra_orderby_field[] = 'm.id';
-            $extra_order[] = 'desc';
-        }
+        $extra_orderby_field[] = 'm.id';
+        $extra_order[] = 'desc';
         
         foreach($extra_orderby_field as $key2 => $orderby2)
         {
