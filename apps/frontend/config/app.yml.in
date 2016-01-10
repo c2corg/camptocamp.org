@@ -1670,7 +1670,7 @@ all:
       14267: 'www.aemet.es/es/eltiempo/prediccion/montana'
       14270: 'www.nimbus.it/italiameteo/italiameteo.htm'
       14295: [ 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
-      14328: [ 'mto38.free.fr/frog.html' ]
+      14328: [ 'mto38.free.fr' ]
       14366: [ 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord', 'chamonix-meteo.com/chamonix-mont-blanc/meteo/prevision/soir/previ_meteo_6_jours.php' ]
       14384: [ 'www.meteo-valais.ch', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
       14397: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'

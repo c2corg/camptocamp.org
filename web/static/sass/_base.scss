@@ -28,6 +28,7 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #000;
+  background-color: rgb(230, 230, 230);
 }
 
 @import "forms";
@@ -37,6 +38,28 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: white;
+}
+
+#holder.max_width
+{
+  position: relative;
+  margin: -10px auto 0px auto;
+  max-width: 1500px;
+  box-shadow: 0px 0px 25px 25px rgb(255, 255, 255);
+}
+
+@media screen and (min-width:2500px)
+{
+  #holder.max_width
+  {
+    max-width: 2600px;
+  }
+}
+
+.full_screen #page_header
+{
+  display: none;
 }
 
 #wrapper_context
@@ -153,6 +176,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   position: absolute;
   left: 20px;
   margin-top: -13px;
+  z-index: 1;
 }
 
 .tips, .edit-tips, .big_tips, .float-tips
@@ -254,7 +278,7 @@ hr
   margin: 0 0 5px 0;
 }
 
-.warning_message, .important_message, .global_form_error, .preview_warning, .front_message
+.global_form_error, .preview_warning, .front_message
 {
   width:80% !important;
 }
@@ -269,6 +293,12 @@ hr
 {
   clear: both;
   margin-top: 10px;
+  display: inline-block;
+}
+
+.important_message
+{
+  border: 2px solid $orange;
 }
 
 .front_message // yellow edit in place on homepage
@@ -310,6 +340,9 @@ hr
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
   @include -c2c-hashurl-background('/static/images/picto/important.png', no-repeat 15px);
+}
+.global_form_error, .preview_warning, .mandatory_fields_warning
+{
   color: gray;
 }
 
@@ -410,6 +443,20 @@ em.mandatory_asterisk
   border: 0;
 }
 
+.img_box.no_wrap
+{
+  white-space: nowrap;
+}
+
+.img_box.legend_top
+{
+  font-size: 1em;
+}
+.legend_top figcaption
+{
+  margin-bottom: 0.5em;
+}
+
 .img_box img
 {
   margin: 0 auto 3px auto;
@@ -436,28 +483,28 @@ em.mandatory_asterisk
 {
   float:left;
   clear: left;
-  margin: 5px 15px 10px 0;
+  margin: 5px 25px 10px 0;
 }
 
 .embedded_right, img.embedded_right
 {
   float:right;
   clear: right;
-  margin: 5px 0 10px 15px;
+  margin: 5px 0 10px 25px;
 }
 
 .embedded_center, img.embedded_center
 {
   float: none;
   clear: none;
-  margin: 0 15px 10px 15px;
+  margin: 0 25px 10px 25px;
   text-align: center;
 }
 
 img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
 .embedded_inline, .embedded_inline_left, .embedded_inline_right
 {
-  margin: 5px 10px 10px 10px;
+  margin: 5px 25px 10px 10px;
   clear: none;
 }
 
@@ -1220,7 +1267,7 @@ a.close_btn {
 {
   @include -c2c-datauri-background('/static/images/footer.gif');
   clear: both;
-  height: 110px;
+  height: 180px;
   position: relative;
   bottom: 0; left: 0;
   border: none;

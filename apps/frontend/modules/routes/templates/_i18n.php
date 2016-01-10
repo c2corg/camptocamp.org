@@ -33,6 +33,10 @@ if (in_array(4, $activities))
     {
         $backpack_content_list[] = 'pack_rock_climbing_bolted';
     }
+    elseif ($equipment_rating > 6 && $global_rating <= 12 && !in_array(3, $activities))
+    {
+        $backpack_content_list[] = 'pack_mountain_climbing_easy';
+    }
 }
 if (in_array(5, $activities))
 {

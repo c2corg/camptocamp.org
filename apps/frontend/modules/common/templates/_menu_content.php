@@ -359,6 +359,9 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                         echo picto_tag('picto_images')
                            . link_to(__('My images'), 'images/myimages') ?></li>
                     <li><?php
+                        echo picto_tag('action_contact')
+                           . f_link_to(__('mailbox'), 'message_list.php') ?></li>
+                    <li><?php
                         echo picto_tag('picto_outings')
                            . link_to(__('My statistics'), 'outings/mystats') ?></li>
                     <?php endif ?>

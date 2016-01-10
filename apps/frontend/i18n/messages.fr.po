@@ -7177,7 +7177,7 @@ msgstr "<p><a href=\"/articles/107228/fr#meteo\">Météo</a></p>\n"
 "<li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li>\n"
 "<li><a href=\"http://www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord\">Alpes du N</a></li>\n"
 "<li><a href=\"http://chamonix-meteo.com/chamonix-mont-blanc/meteo/prevision/matin/previ_meteo_5_jours.php\">Chamonix</a></li>\n"
-"<li><a href=\"http://geo.hmg.inpg.fr/mto/mto38.shtml\">Caplain</a></li>\n"
+"<li><a href=\"http://mto38.free.fr\">Caplain</a></li>\n"
 "</ul>\n"
 "<p><a href=\"/articles/107228/fr#bera\">Avalanches</a></p>\n"
 "<ul>\n"
@@ -8035,6 +8035,9 @@ msgstr "Cet ISBN ou ISSN est trop court (au moins 7 caractères pour un ISSN, 10
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "ce nom est trop long (150 caractères maximum)"
+
+msgid "this name is too short (2 characters minimum)"
+msgstr "ce nom est trop court (2 caractères minimum)"
 
 msgid "this name is too short (3 characters minimum)"
 msgstr "ce nom est trop court (3 caractères minimum)"

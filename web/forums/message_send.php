@@ -229,6 +229,7 @@ else
 		$subject = '';
 	if (!isset($message))
 		$message = '';
+	$footer_style = 'message_send';
 	
 	require PUN_ROOT.'header.php';
 
@@ -312,12 +313,12 @@ else
 					echo $_POST['from_profile'];
 				} ?>" />
 				<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" />
-				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="50" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
+				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input class="longinput" type="text" name="req_username" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
 				<div class="clearer"></div>
-				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="100" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
+				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' maxlength="100" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
 				<?php require PUN_ROOT.'mod_easy_bbcode.php'; ?>
 				<label><strong><?php echo $lang_common['Message'] ?></strong><br />
-				<textarea id="req_message" name="req_message" rows="15" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo $message ?></textarea><br /></label>
+				<textarea id="req_message" name="req_message" rows="15" tabindex="<?php echo $cur_index++ ?>"><?php echo $message ?></textarea><br /></label>
 				<ul class="bblinks">
 					<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;"><?php echo $lang_common['BBCode'] ?></a>: <?php echo ($pun_config['p_message_bbcode'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>
 					<li><a href="help.php#img" onclick="window.open(this.href); return false;"><?php echo $lang_common['img tag'] ?></a>: <?php echo ($pun_config['p_message_img_tag'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>

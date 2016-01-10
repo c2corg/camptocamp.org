@@ -6,8 +6,8 @@ if (!isset($preview))
     $preview = false;
 }
 
-echo field_text_data_if_set($document, 'place', null, array('needs_translation' => $needs_translation, 'images' => $images));
-echo field_text_data_if_set($document, 'description', 'xreport_description', array('needs_translation' => $needs_translation, 'images' => $images, 'label_id' => 'xreport_description'));
+echo field_text_data_if_set($document, 'place', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'description', 'xreport_description', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false, 'label_id' => 'xreport_description'));
 
 ?></div><?php
 if ($preview)
@@ -22,8 +22,8 @@ else
 }
 ?><div class="article_contenu"><?php
 
-echo field_text_data_if_set($document, 'route_study', null, array('needs_translation' => $needs_translation, 'images' => $images));
-echo field_text_data_if_set($document, 'conditions', 'xreport_conditions short', array('needs_translation' => $needs_translation, 'images' => $images, 'label_id' => 'xreport_conditions'));
+echo field_text_data_if_set($document, 'route_study', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'conditions', 'xreport_conditions short', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false, 'label_id' => 'xreport_conditions'));
 echo field_text_data_if_set($document, 'training', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo field_text_data_if_set($document, 'motivations', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo field_text_data_if_set($document, 'group_management', null, array('needs_translation' => $needs_translation, 'show_images' => false));

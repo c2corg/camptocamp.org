@@ -555,6 +555,7 @@ class sfPunBBCodeParser
         }
         
         $show_legend = true;
+        $legend_top = false;
         if (in_array('no_legend', $options))
         {
             $show_legend = false;
@@ -563,12 +564,25 @@ class sfPunBBCodeParser
         else
         {
             $img_class[] = 'img_box';
+            
+            if (in_array('no_border', $options))
+            {
+                $img_class[] = 'no_border';
+            }
+            
+            if (in_array('no_wrap', $options))
+            {
+                $img_class[] = 'no_wrap';
+            }
+            
+            $legend_top = in_array('legend_top', $options);
+            if ($legend_top)
+            {
+                $img_class[] = 'legend_top';
+            }
         }
-        
-        if ($show_legend && in_array('no_border', $options))
-        {
-            $img_class[] = 'no_border';
-        }
+            
+        $no_picto = in_array('no_picto', $options);
         
         // big images are not used in mobile version (replaced by medium version)
         if (in_array('big', $options) && !c2cTools::mobileVersion())
@@ -603,6 +617,7 @@ class sfPunBBCodeParser
                 $img_class[] = 'img_box';
             }
             $img_class[] = 'img_error';
+            $no_picto = true;
             
             $path = '/static/images/picto';
             $filename = 'warning';
@@ -638,6 +653,7 @@ class sfPunBBCodeParser
                 }
                 $img_class[] = 'img_error';
                 $img_class[] = 'img_warning';
+                $no_picto = true;
                 
                 $legend = __('Wrong image type');
             }
@@ -675,37 +691,50 @@ class sfPunBBCodeParser
         
         if ($show_legend)
         {
-              $image_tag = '<figure' . $img_class . '>' . $image_tag;
-              if (strpos($img_class, 'img_error') === false)
-              {
-                  $image_tag = $image_tag
-                      .link_to(__('View image details'),
-                              '@document_by_id_lang_slug?module=images&id=' . $image['id'] . '&lang=' . $image['culture'] . '&slug=' . formate_slug($image['search_name']),
-                              array('class' => 'picto_images view_details',
-                                    'title'   => __('View image details')));
-              }
-              // note: it is safe (at least should be :)) to translate \" to " here
-              // since we only get them because of e modifier for img pre_replace
-              // (elsewhere it is translated to html special chars)
-              // FIXME preg_replace with e delimiter is kinda deprecated,we should rather use preg_replace_callback
-              $image_tag = $image_tag . '<figcaption>' . stripslashes($legend) . '</figcaption></figure>';
+            $image_box = '<figure' . $img_class . '>';
+            $legend = '<figcaption>' . stripslashes($legend) . '</figcaption>';
+            if ($legend_top)
+            {
+                $image_box .= $legend;
+            }
+            $image_box .= $image_tag;
+            if (!$no_picto)
+            {
+                $image_box .= link_to(__('View image details'),
+                            '@document_by_id_lang_slug?module=images&id=' . $image['id'] . '&lang=' . $image['culture'] . '&slug=' . formate_slug($image['search_name']),
+                            array('class' => 'picto_images view_details',
+                                  'title'   => __('View image details')));
+            }
+            // note: it is safe (at least should be :)) to translate \" to " here
+            // since we only get them because of e modifier for img pre_replace
+            // (elsewhere it is translated to html special chars)
+            // FIXME preg_replace with e delimiter is kinda deprecated,we should rather use preg_replace_callback
+            if (!$legend_top)
+            {
+                $image_box .= $legend;
+            }
+            $image_box .= '</figure>';
+        }
+        else
+        {
+            $image_box = $image_tag;
         }
 
         if ($centered)
         {
-            $image_tag = '<div class="center">'.$image_tag.'</div>';
+            $image_box = '<div class="center">'.$image_box.'</div>';
         }
         else if (c2cTools::mobileVersion()) /* needed in order to center images for smartphones in portrait mode */
         {
-            $image_tag = '<div class="img_mobile">'.$image_tag.'</div>';
+            $image_box = '<div class="img_mobile">'.$image_box.'</div>';
         }
 
         if (!$inline)
         {
-            $image_tag = '</p>'.$image_tag.'<p>';
+            $image_box = '</p>'.$image_box.'<p>';
         }
         
-        return $image_tag;
+        return $image_box;
     }
 
     /**
@@ -832,8 +861,8 @@ class sfPunBBCodeParser
                          '#\[left\]\s*(.*?)\s*\[/left\]\s?#s',
                          '#\[justify\]\s*(.*?)\s*\[/justify\]\s?#s',
                          '#\[abs(tract)?\]\s*(.*?)\s*\[/abs(tract)?\]\s{0,2}#s',
-                         '#\[imp(ortant)?\]\s*(.*?)\s*\[/imp(ortant)?\]\s?#s',
-                         '#\[warn(ing)?\]\s*(.*?)\s*\[/warn(ing)?\]\s?#s',
+                         '#\[imp(ortant)?(\s+[\w\s]+)?\]\s*(.*?)\s*\[/imp(ortant)?\]\s?#s',
+                         '#\[warn(ing)?(\s+[\w\s]+)?\]\s*(.*?)\s*\[/warn(ing)?\]\s?#s',
                          '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\s*\[/col\]\s?#se'
         );
 
@@ -863,8 +892,8 @@ class sfPunBBCodeParser
             $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
-            $replace[] = '</p><div class="important_message"><p>$2</p></div><p>';
-            $replace[] = '</p><div class="warning_message"><p>$2</p></div><p>';
+            $replace[] = '</p><div class="important_message$2"><p>$3</p></div><p>';
+            $replace[] = '</p><div class="warning_message$2"><p>$3</p></div><p>';
             $replace[] = 'self::handle_col_tag(\'$3\', \'$2\')';
         }
         else
@@ -875,8 +904,8 @@ class sfPunBBCodeParser
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$2';
-            $replace[] = '$2';
-            $replace[] = '$2';
+            $replace[] = '$3';
+            $replace[] = '$3';
             $replace[] = '$3';
         }
     

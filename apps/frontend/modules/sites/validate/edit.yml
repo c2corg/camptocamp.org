@@ -35,8 +35,8 @@ fields:
     required:
       msg:          field cannot be left blank
     sfStringValidator:
-      min:          4
-      min_error:    this name is too short (4 characters minimum)
+      min:          2
+      min_error:    this name is too short (2 characters minimum)
       max:          150
       max_error:    this name is too long (150 characters maximum)
   max_height:

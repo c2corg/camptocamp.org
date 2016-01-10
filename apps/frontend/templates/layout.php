@@ -22,7 +22,7 @@ else
     if ($lang === 'en') use_stylesheet('/static/css/ac');
 }
 
-if ($sf_context->getActionName() == 'list')
+if ($action == 'list')
 {
     use_helper('Button');
     $rss = get_rsslist_path($module);
@@ -30,6 +30,19 @@ if ($sf_context->getActionName() == 'list')
 else
 {
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
+}
+
+if ((in_array($action, array('list', 'home')) || $module == 'portals') && $module != 'summits')
+{
+    $holder_class = '';
+}
+elseif ($action == 'map')
+{
+    $holder_class = ' class="full_screen"';
+}
+else
+{
+    $holder_class = ' class="max_width"';
 }
 
 if ($sf_user->getCulture() == 'fr')
@@ -70,7 +83,7 @@ $static_base_url = sfConfig::get('app_static_url');
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
     <?php include_partial('common/section_close'); ?>
-    <div id="holder">
+    <div id="holder"<?php echo $holder_class ?>>
         <header id="page_header">
         <?php
         if ($sf_user->getCulture() == 'fr')

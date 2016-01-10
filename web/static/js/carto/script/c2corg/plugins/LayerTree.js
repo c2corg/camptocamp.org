@@ -240,6 +240,15 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             iconCls: "picto_routes",
             leaf: true
         }, {
+            text: OpenLayers.i18n("slopes"),
+            nodeType: "gx_layer",
+            layer: this.layers["slopes"],
+            iconCls: "picto_blank",
+            leaf: true,
+            tooltipHtml: OpenLayers.i18n("slopes_info"),
+            tooltipTitle: OpenLayers.i18n("slopes"),
+            uiProvider: c2corg.tree.LayerNodeUIWithTooltip
+        }, {
             text: OpenLayers.i18n("More..."),
             expanded: false,
             children: [{
@@ -284,15 +293,6 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 layer: this.layers["maps"],
                 iconCls: "picto_maps",
                 leaf: true
-            }, {
-                text: OpenLayers.i18n("slopes"),
-                nodeType: "gx_layer",
-                layer: this.layers["slopes"],
-                iconCls: "picto_blank",
-                leaf: true,
-                tooltipHtml: OpenLayers.i18n("slopes_info"),
-                tooltipTitle: OpenLayers.i18n("slopes"),
-                uiProvider: c2corg.tree.TreeNodeUIWithTooltip
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,
