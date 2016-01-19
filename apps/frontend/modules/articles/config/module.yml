@@ -7,7 +7,8 @@ all:
   categories:
     list:
       1: mountain environment
-      2: gear and technique
+      2: gear
+      11: technique
       4: topoguide supplements
       7: soft mobility
       8: expeditions
