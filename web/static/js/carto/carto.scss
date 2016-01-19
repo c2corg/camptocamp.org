@@ -22,9 +22,10 @@ textarea {
 
 // max width
 #center {
+  position: relative;
+  left: auto !important;
   margin: auto;
   max-width: 2500px;
-  position: relative;
 }
 
 // c2c layers icons
