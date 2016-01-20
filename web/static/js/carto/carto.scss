@@ -20,14 +20,6 @@ textarea {
   @include opacity(.8);
 }
 
-// max width
-#center {
-  position: relative;
-  left: auto !important;
-  margin: auto;
-  max-width: 2500px;
-}
-
 // c2c layers icons
 .x-tree-node-el .x-tree-node-icon {
   height: 16px;
