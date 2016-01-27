@@ -554,6 +554,11 @@ class sfPunBBCodeParser
             $centered = true;
         }
         
+        if (in_array('no_border', $options))
+        {
+            $img_class[] = 'no_border';
+        }
+        
         $show_legend = true;
         $legend_top = false;
         if (in_array('no_legend', $options))
@@ -565,14 +570,14 @@ class sfPunBBCodeParser
         {
             $img_class[] = 'img_box';
             
-            if (in_array('no_border', $options))
-            {
-                $img_class[] = 'no_border';
-            }
-            
             if (in_array('no_wrap', $options))
             {
                 $img_class[] = 'no_wrap';
+            }
+            
+            if (in_array('font_1', $options))
+            {
+                $img_class[] = 'font_1';
             }
             
             $legend_top = in_array('legend_top', $options);
@@ -584,14 +589,17 @@ class sfPunBBCodeParser
             
         $no_picto = in_array('no_picto', $options);
         
-        // big images are not used in mobile version (replaced by medium version)
-        if (in_array('big', $options) && !c2cTools::mobileVersion())
+        if (in_array('big', $options))
         {
             $size = 'BI.';
         }
         elseif (in_array('small', $options))
         {
             $size = 'SI.';
+        }
+        elseif (in_array('orig', $options))
+        {
+            $size = '.';
         }
         else
         {
@@ -818,6 +826,18 @@ class sfPunBBCodeParser
         if (in_array('top', $options))
         {
             $class .= ' top';
+        }
+        if (in_array('text_left', $options))
+        {
+            $class .= ' text_left';
+        }
+        if (in_array('text_right', $options))
+        {
+            $class .= ' text_right';
+        }
+        if (in_array('text_center', $options))
+        {
+            $class .= ' text_center';
         }
 
         $result = '<div class="' . $class . '"><p>' . stripslashes($text) . '</p></div>';
