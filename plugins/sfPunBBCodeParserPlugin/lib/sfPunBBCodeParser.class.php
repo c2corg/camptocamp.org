@@ -554,6 +554,19 @@ class sfPunBBCodeParser
             $centered = true;
         }
         
+        if (in_array('align_left', $options))
+        {
+            $img_class .= ' box_align_left';
+        }
+        elseif (in_array('align_right', $options))
+        {
+            $img_class .= ' box_align_right';
+        }
+        elseif (in_array('align_center', $options))
+        {
+            $img_class .= ' box_align_center';
+        }
+        
         if (in_array('no_border', $options))
         {
             $img_class[] = 'no_border';
@@ -584,6 +597,19 @@ class sfPunBBCodeParser
             if ($legend_top)
             {
                 $img_class[] = 'legend_top';
+            }
+            
+            if (in_array('text_left', $options))
+            {
+                $img_class .= ' text_left';
+            }
+            elseif (in_array('text_right', $options))
+            {
+                $img_class .= ' text_right';
+            }
+            elseif (in_array('text_center', $options))
+            {
+                $img_class .= ' text_center';
             }
         }
             
@@ -827,15 +853,16 @@ class sfPunBBCodeParser
         {
             $class .= ' top';
         }
+        
         if (in_array('text_left', $options))
         {
             $class .= ' text_left';
         }
-        if (in_array('text_right', $options))
+        elseif (in_array('text_right', $options))
         {
             $class .= ' text_right';
         }
-        if (in_array('text_center', $options))
+        elseif (in_array('text_center', $options))
         {
             $class .= ' text_center';
         }
