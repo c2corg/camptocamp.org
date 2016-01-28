@@ -433,19 +433,28 @@ em.mandatory_asterisk
   display: inline-table !important;
   width: 150px;
   padding: 3px;
-  border: 1px solid #CCCCCC;
   font-size: 0.9em;
   text-align: left;
 }
 
-.img_box.no_border
+.img_box, .no_legend
 {
-  border: 0;
+  border: 1px solid #CCCCCC;
+}
+
+.no_border
+{
+  border: 0 !important;
 }
 
 .img_box.no_wrap
 {
   white-space: nowrap;
+}
+
+.img_box.font_1
+{
+  font-size: 1em;
 }
 
 .img_box.legend_top
@@ -536,6 +545,22 @@ img.embedded_inline_0, .embedded_inline_0
   float: none;
   clear: none;
   margin: 0;
+}
+
+.box_align_left
+{
+  margin-left: 0 !important;
+}
+
+.box_align_right
+{
+  margin-right: 0 !important;
+}
+
+.box_align_center
+{
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .center
@@ -1004,6 +1029,19 @@ span.default_text, p.default_text
 .article .col, .article .col_right
 {
   margin-left: 0;
+}
+
+.text_left
+{
+  text-align:left !important;
+}
+.text_right
+{
+  text-align:right !important;
+}
+.text_center
+{
+  text-align:center !important;
 }
 
 .col_20
