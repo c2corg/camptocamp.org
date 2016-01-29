@@ -935,10 +935,10 @@ class sfPunBBCodeParser
         if ($extended)
         {
             $replace[] = '</p><div class="clearer"></div><p>';
-            $replace[] = '</p><div class="text_center;"><p>$1</p></div><p>';
-            $replace[] = '</p><div class="text_right;"><p>$1</p></div><p>';
-            $replace[] = '</p><div class="text_left;"><p>$1</p></div><p>';
-            $replace[] = '</p><div class="text_justify;"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_center"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_right"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_left"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_justify"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
             $replace[] = '</p><div class="important_message$2"><p>$3</p></div><p>';
             $replace[] = '</p><div class="warning_message$2"><p>$3</p></div><p>';
