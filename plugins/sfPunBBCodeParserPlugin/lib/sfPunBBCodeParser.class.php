@@ -576,6 +576,7 @@ class sfPunBBCodeParser
         $legend_top = false;
         if (in_array('no_legend', $options))
         {
+            $img_class[] = 'no_legend';
             $show_legend = false;
             $legend = self::do_spaces($legend, false);
         }
