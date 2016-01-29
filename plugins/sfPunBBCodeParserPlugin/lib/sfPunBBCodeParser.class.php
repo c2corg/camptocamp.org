@@ -601,15 +601,15 @@ class sfPunBBCodeParser
             
             if (in_array('text_left', $options))
             {
-                $img_class .= ' text_left';
+                $img_class[] = 'text_left';
             }
             elseif (in_array('text_right', $options))
             {
-                $img_class .= ' text_right';
+                $img_class[] = 'text_right';
             }
             elseif (in_array('text_center', $options))
             {
-                $img_class .= ' text_center';
+                $img_class[] = 'text_center';
             }
         }
             
