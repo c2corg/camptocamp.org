@@ -26,3 +26,4 @@ all:
       2: pro
       3: club
       4: institution
+      5: other_users
