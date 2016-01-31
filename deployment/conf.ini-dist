@@ -149,9 +149,3 @@ SOLR_ENABLE = 0
 USE_CAMO = false
 CAMO_URL = https://camo.camptocamp.org/
 CAMO_KEY = <camo_key>
-
-; Donation configuration
-DONATE_VADS_MODE= PRODUCTION
-DONATE_VADS_PROD_CERTIFICATE = <certificate>
-DONATE_VADS_SITE_ID = 90035730
-
