@@ -71,13 +71,11 @@ msgstr "(sin horario)"
 msgid "). It is thus write-protected."
 msgstr "). Así está protegido contra escritura."
 
-# [WARNING] en translation used
 msgid "1 to 3 days"
-msgstr "1 to 3 days"
+msgstr "1 a 3 dias"
 
-# [WARNING] en translation used
 msgid "1 to 3 months"
-msgstr "1 to 3 months"
+msgstr "1 a 3 meses"
 
 msgid "1/100000"
 msgstr "1/100000"
@@ -88,9 +86,8 @@ msgstr "1/25000"
 msgid "1/50000"
 msgstr "1/50000"
 
-# [WARNING] en translation used
 msgid "4 days to 1 month"
-msgstr "4 to 29 days"
+msgstr "4 a 29 días"
 
 msgid "404_error"
 msgstr "Documento no encontrado"
@@ -129,9 +126,9 @@ msgstr "Una cumbre-raid no puede ser asociada a una etapa de un raid"
 msgid "A site can not be linked to more than one summit"
 msgstr "Uno sitio de escalada no puede ser asociado a mas de una cumbre"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A sub parking can not be linked to more than one main parking"
-msgstr "A sub access point can not be linked to more than one main access point"
+msgstr "Un sub-acceso no puede ser asociado a más de un sobre-acceso "
 
 # [WARNING] needs_review
 msgid "A sub site can not be linked to more than one main site"
@@ -161,9 +158,8 @@ msgstr "Acceso:"
 msgid "Accident description"
 msgstr "Descripcion de los hechos"
 
-# [WARNING] en translation used
 msgid "Accident factors"
-msgstr "Factors"
+msgstr "Factores y influencias"
 
 # [WARNING] needs_review
 msgid "Accident factors intro"
@@ -175,9 +171,8 @@ msgstr "Caracterizacion de l'evento "
 
 # [general comment]
 # Profil de l'auteur d'un compte rendu d'incident/accident
-# [WARNING] en translation used
 msgid "Accident profil"
-msgstr "Profile"
+msgstr "Perfil"
 
 msgid "Activate map search"
 msgstr "Limitar la búsqueda a los límites del mapa"
@@ -270,9 +265,8 @@ msgstr "¿Está seguro de que quiere suprimir la geometría de este documento?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] en translation used
 msgid "Are you sure you want to rotate the image?"
-msgstr "Are you sure you want to rotate the image?"
+msgstr "Está usted seguro de querer girar la imagen ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
@@ -326,9 +320,8 @@ msgstr "Añadir su salida sobre este itinerario"
 msgid "Associate new route"
 msgstr "Crear un nuevo itinerario vinculado"
 
-# [WARNING] en translation used
 msgid "Associate new xreports"
-msgstr "Add an incident/accident report to this outing"
+msgstr "Añadir un informe de incidente/accidente a esta salida"
 
 msgid "Association"
 msgstr "Asociación"
@@ -531,9 +524,8 @@ msgstr "Actualizar el caché"
 
 # [general comment]
 # Infobulle du bouton "Georef Tool"
-# [WARNING] en translation used
 msgid "Click on the map to locate item"
-msgstr "Click on the map to locate the document"
+msgstr "Pulsar en el mapa para georeferenciar el documento"
 
 msgid "Click to display original image"
 msgstr "Pulse en la imagen para verla en su tamaño original"
@@ -599,9 +591,8 @@ msgstr "Concurso"
 msgid "Context:"
 msgstr "Contexto:"
 
-# [WARNING] en translation used
 msgid "Coordinates"
-msgstr "Coordinates"
+msgstr "Coordenadas"
 
 msgid "Copy following string:"
 msgstr "Copia la siguiente secuencia anti-spam:"
@@ -681,13 +672,11 @@ msgstr "Añadir una cima"
 # Infobulle pour le lien vers la page de création d'un compte rendu d'incident en mode non connecté
 # /!\ no linebreaks allowed
 # /!\ no markup (<.>...<./>)
-# [WARNING] en translation used
 msgid "Create new xreport unconnected"
-msgstr "Please login in order to create an incident/accident report. If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contribution."
+msgstr "Registre-se para añadir un informe de incidente/accidente. Si no tiene cuenta, hacer click en el enlace \"Registrarse\", es fácil y gratis. Gracias por su futura contribución."
 
-# [WARNING] en translation used
 msgid "Create new xreports"
-msgstr "Create a new incident/accident report"
+msgstr "Añadir un nuevo informe de incidente/accidente"
 
 # [general comment]
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
@@ -736,9 +725,8 @@ msgstr "Creación de un nuevo sitio o sector de escalada"
 msgid "Creating new summits"
 msgstr "Creación de una nueva cima"
 
-# [WARNING] en translation used
 msgid "Creating new xreports"
-msgstr "Creation of a new incident or accident report"
+msgstr "Creación de un nuevo informe de incidente/accidente"
 
 msgid "Culture is missing"
 msgstr "Falta el parámetro lingüístico en esta cuenta."
@@ -749,9 +737,8 @@ msgstr "Este documento ha sido fusionado, y no puede ser desprotegido."
 msgid "Current document has been merged into document %1%"
 msgstr "Este documento ha sido fusionado con el documento %1%."
 
-# [WARNING] en translation used
 msgid "Current password"
-msgstr "Current password"
+msgstr "Contraseña actual"
 
 msgid "Current version"
 msgstr "Versión actual"
@@ -915,13 +902,11 @@ msgstr "Haz un don a Camptocamp Association"
 # Pour indiquer la durée écoulée
 # 
 # "Durée 2:13:45"
-# [WARNING] en translation used
 msgid "Duration"
-msgstr "Duration"
+msgstr "Duración"
 
-# [WARNING] en translation used
 msgid "Duration (hrs)"
-msgstr "Duration (h)"
+msgstr "Duración (h)"
 
 msgid "E"
 msgstr "E"
@@ -1107,9 +1092,8 @@ msgstr "La geometría de este documento ha sido suprimida"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] en translation used
 msgid "Georef Tool"
-msgstr "Georef Tool"
+msgstr "Georeferenciar"
 
 msgid "Get Help"
 msgstr "Obtener ayuda"
@@ -1168,9 +1152,8 @@ msgstr "Ir al siguiente itinerario"
 msgid "Go to next summit"
 msgstr "Ir a la cima siguiente"
 
-# [WARNING] en translation used
 msgid "Go to next xreport"
-msgstr "Go to next incident/accident"
+msgstr "Ir al próximo incidente/accidente"
 
 msgid "Go to preview"
 msgstr "Ir a la previsualización"
@@ -1211,9 +1194,8 @@ msgstr "Ir al itinerario anterior"
 msgid "Go to previous summit"
 msgstr "Ir a la cima anterior"
 
-# [WARNING] en translation used
 msgid "Go to previous xreport"
-msgstr "Go to previous incident/accident"
+msgstr "Ir al incidente/accidente anterior"
 
 msgid "Go to the homepage"
 msgstr "Ir a la página de inicio"
@@ -1244,9 +1226,9 @@ msgstr "Manual de ayuda"
 msgid "Has this outing really been done today?"
 msgstr "¿Su salida realmente fue realizada hoy?"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Has this xreport really been done today?"
-msgstr "Did this event really happened today?"
+msgstr "Ha tenido lugar hoy realmente este acontecimiento ?"
 
 msgid "Hello %1%"
 msgstr "Hola %1%"
@@ -1257,9 +1239,8 @@ msgstr "Ayuda"
 msgid "History"
 msgstr "Versiones"
 
-# [WARNING] en translation used
 msgid "History of associations to this document"
-msgstr "History of associations to this document"
+msgstr "Histórico de las asociaciones a este documento"
 
 msgid "Home"
 msgstr "Inicio"
@@ -1294,9 +1275,8 @@ msgstr "Imagen"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] en translation used
 msgid "Image cannot be rotated anymore"
-msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+msgstr "No se puede girar esta imagen (Ya no está directamente accesible)"
 
 msgid "Image could not be loaded"
 msgstr "No se puede mostrar la imagen"
@@ -1316,26 +1296,22 @@ msgstr "Esta imagen está protegida"
 msgid "Image license"
 msgstr "Licencia de la imagen:"
 
-# [WARNING] en translation used
 msgid "Image name missing"
-msgstr "Image name missing"
+msgstr "No tiene nombre la imagen"
 
 msgid "Image not found"
 msgstr "La imagen no existe."
 
 # [general comment]
 # assistant image forum
-# [WARNING] en translation used
 msgid "Image on the internet"
-msgstr "Image on the internet"
+msgstr "Imagen de Internet"
 
-# [WARNING] en translation used
 msgid "Image rotated successfully"
-msgstr "Image rotated successfully"
+msgstr "La imagen ha sido correctamente girada"
 
-# [WARNING] en translation used
 msgid "Image rotation"
-msgstr "Image rotation"
+msgstr "Rotación de la imagen"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
@@ -1370,9 +1346,8 @@ msgstr "Informaciones"
 # link to the informations on an image (image document page)
 # 
 # check if the meaning is correct in your language
-# [WARNING] en translation used
 msgid "Informations"
-msgstr "Informations"
+msgstr "Informaciones"
 
 # [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
@@ -1415,9 +1390,8 @@ msgstr "Esta asociado a las sub-cimas siguientes:"
 msgid "Is really a multi-activity outing?"
 msgstr "¿Su salida realmente incluye varias actividades?"
 
-# [WARNING] en translation used
 msgid "Is really a multi-activity xreport?"
-msgstr "Is this outings really multi-activities?"
+msgstr "Es este acontecimiento realmente multi-actividad ?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Parece que olvidó completar un nombre o un fichero."
@@ -1427,9 +1401,8 @@ msgstr "Parece que olvidó completar un nombre o un fichero."
 msgid "Kesako?"
 msgstr "Quienes somos"
 
-# [WARNING] en translation used
 msgid "Keyword or ID"
-msgstr "Keyword or ID"
+msgstr "Palabra clave o ID"
 
 msgid "Know more"
 msgstr "sepa más"
@@ -1570,9 +1543,8 @@ msgstr "Sector de escalada asociado"
 msgid "Linked summits"
 msgstr "Cimas asociadas"
 
-# [WARNING] en translation used
 msgid "Linked xreports"
-msgstr "Linked incidents/accidents"
+msgstr "Incidentes/Accidentes relacionados"
 
 msgid "List all images of associated outings"
 msgstr "Ver la lista de imágenes de las salidas asociadas"
@@ -1766,16 +1738,14 @@ msgstr "Mi posición"
 msgid "My preferences"
 msgstr "Preferencias personales"
 
-# [WARNING] en translation used
 msgid "My statistics"
-msgstr "My statistics"
+msgstr "Mis estadísticas"
 
 msgid "My topics"
 msgstr "Mis temas"
 
-# [WARNING] en translation used
 msgid "My xreports"
-msgstr "My incidents"
+msgstr "Mis incidentes"
 
 msgid "N"
 msgstr "N"
@@ -1866,9 +1836,8 @@ msgstr "Ningún sector de escalada está asociado a este documento."
 msgid "No linked summit"
 msgstr "Ninguna cima está asociado a este documento."
 
-# [WARNING] en translation used
 msgid "No linked xreports"
-msgstr "No incident/accident is associated to this document."
+msgstr "Ningún incidente/accidente esta relacionado con este documento"
 
 msgid "No message defined. Click to edit"
 msgstr "<i>No hay mensaje definido. Pulsa aquí para editarlo.</i>"
@@ -1919,9 +1888,8 @@ msgstr "Operación no autorizada."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] en translation used
 msgid "Original image"
-msgstr "Original image"
+msgstr "Imagen original"
 
 msgid "Oups!"
 msgstr "¡Oups! Se detectan los problemas siguientes:"
@@ -1948,9 +1916,8 @@ msgstr "Salidas asociadas a estas imágenes"
 msgid "Outings linked to this route"
 msgstr "Salidas asociadas a la ruta descrita en esta pagina"
 
-# [WARNING] en translation used
 msgid "Outings with video"
-msgstr "Outings with video"
+msgstr "Salidas con vídeo"
 
 msgid "PD"
 msgstr "PD"
@@ -2151,9 +2118,8 @@ msgstr "Reservado para miembros conectados"
 
 # [general comment]
 # Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
-# [WARNING] en translation used
 msgid "Reset georef"
-msgstr "Reset georef"
+msgstr "Reiniciar"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Resultados <b>%1%</b> - <b>%2%</b> de <b>%3%</b>"
@@ -2182,23 +2148,19 @@ msgstr "Informaciones (opcionales) sobre les modificaciones"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate -90"
-msgstr "Rotate left"
+msgstr "Girar a la izquierda"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate 90"
-msgstr "Rotate right"
+msgstr "Girar a la derecha"
 
-# [WARNING] en translation used
 msgid "Rotate the image by -90"
-msgstr "Rotate the image by 90° counter-clockwise"
+msgstr "Girar la imagen de 90° en el sentido antihorario"
 
-# [WARNING] en translation used
 msgid "Rotate the image by 90"
-msgstr "Rotate the image by 90° clockwise"
+msgstr "Girar la imagen de 90° en el sentido horario"
 
 msgid "Route not found"
 msgstr "El itinerario no existe."
@@ -2274,16 +2236,14 @@ msgstr "Buscar una cima, un paso, un lago, un acantilado"
 msgid "Search a users"
 msgstr "Buscar un usuario"
 
-# [WARNING] en translation used
 msgid "Search a xreports"
-msgstr "Search for an incident/accident"
+msgstr "Buscar un incidente o un accidente"
 
 msgid "Search criteria"
 msgstr "Criterios de búsqueda"
 
-# [WARNING] en translation used
 msgid "Search in my images"
-msgstr "Search in my images"
+msgstr "Buscar en mis imágenes"
 
 # [WARNING] needs_review
 msgid "Search in my outings"
@@ -2292,9 +2252,8 @@ msgstr "Buscar entre mis salidas"
 # [general comment]
 # Titre du critère du filtre d'itinéraire, avec une liste de choix :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "Search in my routes"
-msgstr "Search routes"
+msgstr "Buscar rutas"
 
 # [general comment]
 # [cda]
@@ -2413,9 +2372,8 @@ msgstr "Formulario de inscripción"
 msgid "Site not found"
 msgstr "El sitio o sector de escalada no existe"
 
-# [WARNING] en translation used
 msgid "Snow elevation is correct?"
-msgstr "Access and up/down snowline elevations are correct?"
+msgstr "Son correctas las altitudes de acceso y de calzamiento/descalzamiento ?"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2574,9 +2532,8 @@ msgstr "Está desconectado."
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] en translation used
 msgid "Suggestions: "
-msgstr "Suggestions: "
+msgstr "Sugerencias"
 
 msgid "Summary"
 msgstr "Resumen"
@@ -2649,9 +2606,8 @@ msgstr "El documento ya es asociado al documento corriente"
 msgid "The field is %1% characters max"
 msgstr "Este campo es demasiado largo (%1% caracteres máximo)"
 
-# [WARNING] en translation used
 msgid "The following infos are visible only by the moderators"
-msgstr "The information below will be visible only to the moderators and the researchers."
+msgstr "Los datos siguientes serán visibles unicamente por los moderadores y los científicos. "
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
@@ -2713,13 +2669,11 @@ msgstr "Esta nueva salida estará asociada con el sitio de escalada '[[sites/%2%
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
 msgstr "Este nuevo itinerario se asociará con la cima '[[summits/%2%|%1%]]' (documento %2%)"
 
-# [WARNING] en translation used
 msgid "This new xrepors will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "This new incident/accident report will be linked with the site '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Este nuevo informe de incidente/accidente estará relacionado al sitio de escalada '[[sites/%2%|%1%]]' (document %2%)"
 
-# [WARNING] en translation used
 msgid "This new xreports will be linked with outings '[[outings/%2%|%1%]]' (document %2%)"
-msgstr "This new incident/accident report will be linked with outing '[[outings/%2%|%1%]]' (document %2%)"
+msgstr "Este nuevo informe de incidente/accidente estará relacionado con la salida '[[outings/%2%|%1%]]' (document %2%)"
 
 # [WARNING] en translation used
 msgid "This new xreports will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
@@ -2889,9 +2843,8 @@ msgstr "Ver la imagen en su tamaño original"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] en translation used
 msgid "View the associations history of the document"
-msgstr "History of associations and dissociations to the document"
+msgstr "Histórico de asociaciones y disociaciones del documento"
 
 msgid "View user profile"
 msgstr "Ver el perfil de este usuario"
@@ -2944,22 +2897,19 @@ msgstr "Con traza GPS:"
 msgid "Wrong association type"
 msgstr "Tipo de asociación no autorizada."
 
-# [WARNING] en translation used
 msgid "Wrong current password!"
-msgstr "You typed a wrong password"
+msgstr "Contraseña incorrecta"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
 msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
 
-# [WARNING] en translation used
 msgid "Xreport"
-msgstr "Incident/accident:"
+msgstr "Incidente/accidente:"
 
-# [WARNING] en translation used
 msgid "Xreport not found"
-msgstr "This incident/accident report does not exist."
+msgstr "Este informe de incidente/accidente no existe"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas"
@@ -3029,16 +2979,14 @@ msgstr "No tiene los derechos necesarios para asociar un documento a un artícul
 msgid "You do not have the right to link a route to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un itinerario a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link a route to another user xreport"
-msgstr "You do not have the right to link a route to an incident/accident report that you are not associated with"
+msgstr "No tiene usted los derechos necesarios para asociar un itinerario a un informe de incidente/accidente en el que usted no esta asociado."
 
 msgid "You do not have the right to link a site to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un sitio de escalada a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link a site to another user xreport"
-msgstr "You do not have the right to link a crag/boulder site to an incident/accident report that you are not associated with"
+msgstr "No tiene usted los derechos necesarios para asociar un sitio de pared/bloque a un informe de incidente/accidente en el que usted no está relacionado."
 
 msgid "You do not have the right to link an article to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un artículo a una salida a la cual no es asociado"
@@ -3055,20 +3003,17 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a una sali
 msgid "You do not have the right to link an image to another user profile"
 msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfil de usuario"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link an image to another user xreport"
-msgstr "You do not have the right to link an image to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar una imagen a un informe de incidente/accidente en el que usted no está relacionado."
 
-# [WARNING] en translation used
 msgid "You do not have the right to link an outing to another user xreport"
-msgstr "You do not have the right to link an outing to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar una salida a un informe de incidente/accidente en el que usted no está relacionado."
 
 msgid "You do not have the right to link an user to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un usuario a una salida a la cual Usted no es asociado"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link an user to another user xreport"
-msgstr "You do not have the right to link a user to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar un contribuidor a un informe de incidente/accidente en el que usted no está relacionado."
 
 msgid "You do not have the rights to edit this article"
 msgstr "No tiene los derechos necesarios para modificar este artículo"
@@ -3094,9 +3039,8 @@ msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org"
 
 # [general comment]
 # Title of email sent when a user is associated to a xreport
-# [WARNING] en translation used
 msgid "You have been associated to an xreport"
-msgstr "You were added as a participant to a incident/accident report published on Camptocamp.org"
+msgstr "Usted ha sido asociado a un informe de incidente/accidente de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
@@ -3107,13 +3051,13 @@ msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org.
 # [general comment]
 # Details of email sent when a user is associated to a xreport
 # As model, you can use the text for outing (ID : You have been associated to outing %1% details)
-# [WARNING] en translation used
 msgid "You have been associated to xreport %1% details"
-msgstr "You have been added as a participant to an incident or accident report published on Camptocamp.org.<br />\n"
+msgstr "Usted ha sido asociado como contribuidor a un informe de incidente o accidente en Camptocamp.org.<br />\n"
 "<br />\n"
-"The description of the report is available here: %1%. Just as the author of the report you have the necessary rights to edit its contents and associations to other documents.<br />\n"
+"Este informe está situado en %1%. Como autor, tiene usted los derechos necesarios para la modificación y la asociación sobre él. <br />\n"
 "<br />\n"
-"--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not reply to it."
+"--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Email automático<br />(No responda a este mensaje)"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -3157,9 +3101,8 @@ msgstr "La cadena anti-spam que indicó no es correcta."
 msgid "Your are connected as "
 msgstr "Está conectado como "
 
-# [WARNING] en translation used
 msgid "Your current password is needed before modifying these properties"
-msgstr "Your current password is needed before modifying following properties"
+msgstr "Vuestra contraseña actual es necesaria para poder modificar los elementos aquí bajo"
 
 # [WARNING] en translation used
 msgid "Your current password is required before applying changes"
@@ -3217,9 +3160,8 @@ msgstr "<h3>Alojamiento y comida en las cercanías </h3>Información sobre las p
 msgid "_activities_info"
 msgstr "<h3>Actividades</h3>Tipo de actividades: pasar el ratón por los pictogramas para conocer su significado.<br />Un documento puede estar asociado a una o más actividades:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>esquí, snowboard, raqueta</strong>: esquí de montaña, snowboard y/o raquetas<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo en nieve, hielo, mixto</strong>: alpinismo en nieve, hielo y mixto (en alta montaña)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roca alta montaña</strong>: alpinismo sobre roca, grandes vías en montaña (equipadas o no)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>escalada</strong>: bloque, vías de uno o varios largos en escuelas o paredes fuera de las montañas (equipadas o no)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>escalada en hielo</strong>: cascada de hielo fuera de la alta montaña, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp; <strong>caminata pedestre</strong>: excursiones y trekking en terreno montañoso (no en llanuras), en sendero balizado o no, o fuera de todo sendero.<br /><br />La diferencia entre <strong>escalada</strong> y <strong>alpinismo en roca</strong> se hace principalmente en base a la altitud del objetivo, y no en base al equipamiento de la vía. En los Alpes, se aplican las siguientes reglas:<br />- altitud < 2000m: escalada en roca<br />- altitud entre 2100m y 2400m: escalada o alpinismo en roca pero en general escalada<br />- altitud entre 2400m y 2700m: escalada o alpinismo en roca pero en general alpinismo<br />- altitud > 2700m: alpinismo en roca<br />En caso de duda para rutas entre 2100m y 2700m, se pueden seleccionar ambas actividades."
 
-# [WARNING] en translation used
 msgid "_activity_rate_info"
-msgstr "What was your practice frequency at the time of the event?"
+msgstr "A que frecuencia mas o menos, practicabais esta actividad en la época del acontecimiento ?"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste en utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6.<br /><br />Véase también la ayuda sobre <a href=\"/articles/131454/es\">grados en artificial</a>."
@@ -3327,10 +3269,27 @@ msgstr "<h3>Prueba anti-spam</h3>Por favor copiar los caracteres visibles en la 
 # Aide contextuelle du champ : Catégories d'un article
 # [WARNING] needs_update
 msgid "_categories_info"
-msgstr "<h3>Categorías de los artículos</h3><br /><strong>enciclopedia</strong>: artículos de datos generales y permanentes en relación con la montaña<br /><br /><strong>historias</strong>: historias reales o ficticias<br /><br /><strong>vida de camptocamp</strong>: artículos en relación con la web<i>camptocamp.org</i><br /><br /><strong>asociación</strong>: artículos en relación con la asociación Camptocamp</em>"
+msgstr "<h3>Categorías de los artículos</h3>\n"
+"<br />\n"
+"<strong>enciclopedia</strong>: artículos de datos generales y permanentes en relación con la montaña<br />\n"
+"<strong>historias</strong>: historias reales o ficticias<br />\n"
+"<strong>vida de camptocamp</strong>: artículos en relación con la web<i>camptocamp.org</i><br />\n"
+"<strong>asociación</strong>: artículos en relación con la asociación Camptocamp</em>"
 
+# [WARNING] needs_update
 msgid "_category_info"
-msgstr "<h3>Categoría de usuario</h3>Este campo facultativo permite encontrar más fácilmente al usuario deseado filtrándolos por categoría. Es practico para encontrar a los clubs o profesionales de una región.<br /><br /><strong>No profesional</strong>: Persona que sale a la montana por su cuenta, sin ser profesional. Corresponde a la mayoría de los usuarios.<br /><br /><strong>Profesional </strong>: guía de alta montana o trekking, instructor de escalada habilitado, profesor de esquí, entrenador. El campo <em>actividades</em> permite fijar las actividades que corresponden a la profesión.<br /><br /><strong>Club o agrupación que organiza salidas a la montaña </strong>: Club o asociación de practicantes de montaña o de escalada. El campo <em>actividades</em> indica cuales son las actividades propuestas.<br /><br /><strong>Institución o asociación que no organiza salidas a la montaña</strong>: Organismo público o privado que no propone los servicios de un club: socorro, parque nacional, pronósticos meteorológicos, refugio, oficina de turismo, municipio, asociación de defensa del medio ambiente, etc."
+msgstr "<h3>Categoría de usuario</h3>\n"
+"Este campo facultativo permite encontrar más fácilmente al usuario deseado filtrándolos por categoría. Es practico para encontrar a los clubs o profesionales de una región.<br />\n"
+"<br />\n"
+"<strong>No profesional</strong>: Persona que sale a la montana por su cuenta, sin ser profesional. Corresponde a la mayoría de los usuarios.<br />\n"
+"<br />\n"
+"<strong>Profesional</strong>: guía de alta montana o trekking, instructor de escalada habilitado, profesor de esquí, entrenador. El campo <em>actividades</em> permite fijar las actividades que corresponden a la profesión.<br />\n"
+"<br />\n"
+"<strong>Club o agrupación que organiza salidas a la montaña</strong>: Club o asociación de practicantes de montaña o de escalada. El campo <em>actividades</em> indica cuales son las actividades propuestas.<br />\n"
+"<br />\n"
+"<strong>Institución</strong>: Organismo público o privado que no propone los servicios de un club: socorro, parque nacional, pronósticos meteorológicos, oficina de turismo, municipio, asociación de defensa del medio ambiente, etc.<br />\n"
+"<br />\n"
+"<strong>otro</strong>: Otro organismo o otro profesional."
 
 msgid "_children_proof_info"
 msgstr "<h3>Niños</h3>Indica si la base de las vías conviene a los niños.<br />Segun la configuración del terreno y varios peligros (caídas de piedras ...), el campo puede tomar los valores <strong>Bien adaptado</strong>, <strong>Adaptado</strong>, <strong>Poco adaptado</strong> o <strong>Peligroso</strong>."
@@ -5663,6 +5622,11 @@ msgid "gear and technique"
 msgstr "material y técnicas"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "material"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "gear_default"
@@ -6009,7 +5973,7 @@ msgid "insert image tag help"
 msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."
 
 msgid "institution"
-msgstr "institución o asociación que no organiza salidas a la montaña"
+msgstr "institución"
 
 # [WARNING] en translation used
 msgid "internal_witness"
@@ -6880,6 +6844,10 @@ msgstr "fall of a person or roped party"
 # [WARNING] en translation used
 msgid "other_fall_form"
 msgstr "other fall of a person or roped party"
+
+# [WARNING] needs_review
+msgid "other_users"
+msgstr "otro"
 
 # [general comment]
 # [cda] title of second box on home
@@ -8073,6 +8041,12 @@ msgstr "tags"
 
 msgid "technics"
 msgstr "técnica"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+# [WARNING] needs_review
+msgid "technique article"
+msgstr "enciclopedia técnica"
 
 msgid "terms of use"
 msgstr "Condiciones de utilización"

@@ -3323,7 +3323,8 @@ msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "Mehrere Kategorien können ausgewählt werden.<br />\n"
 "<br />\n"
 "<strong>Gebirgsumwelt</strong>: Allgemeine, dauerhafte Informationen über das Gebirgsmassiv (Geologie, Ökologie, Schnee, Lawinen etc.)<br />\n"
-"<strong>Material und Technik</strong>: Beiträge über ein Material (Beschreibung, Verwendung, Wartung, etc.) oder über eine Technik (Beschreibung, Training, etc.)<br>\n"
+"<strong>Material</strong>: Beiträge über ein Material (Beschreibung, Verwendung, Wartung, etc.)<br>\n"
+"<strong>Technische Enzyklopädie</strong>: Beiträge über eine Technik (Beschreibung, Training, etc.)<br>\n"
 "<strong>Ergänzungen des Tourenführers</strong>: Beitrag über einen Teil des Tourenführers (Geschichte der Route oder der Hütte, Geologie des Massivs oder eines Gipfels, etc.)<br />\n"
 "<strong>Nachhaltige Mobilität und nachhaltiger Tourismus</strong>: Beiträge zum nachhaltigen Verkehrsverhalten und Tourismus<br>\n"
 "<strong>Expeditionen und Fernreisen</strong>: Informationen oder Berichte über eine Expedition oder Fernreise<br>\n"
@@ -3334,8 +3335,20 @@ msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "<strong>Verein</strong>: Beiträge über den <em>camptocamp-Verein</em> <br />\n"
 "<strong>In Bearbeitung</strong>: Beiträge, die in Bearbeitung sind (keine Veröffentlichung auf der Begrüßungsseite)"
 
+# [WARNING] needs_update
 msgid "_category_info"
-msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br /><br /><strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
+msgstr "<h3>Benutzerkategorie</h3>\n"
+"Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br />\n"
+"<br />\n"
+"<strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br />\n"
+"<br />\n"
+"<strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br />\n"
+"<br />\n"
+"<strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br />\n"
+"<br />\n"
+"<strong>Institution</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc.<br />\n"
+"<br />\n"
+"<strong>Andere</strong>: Andere Organisation oder andere Profi."
 
 msgid "_children_proof_info"
 msgstr "<h3>Kinder</h3>Bezeichnet ob das Gelände um den Einstieg für Kinder sicher ist.<br />Abhängig vom Gelände und möglichen Gefahren (Steinschlag, etc.) kann das Feld mit folgenden Werten bewertet werden:<strong>Gut geeignet</strong>, <strong>Geeignet</strong>, <strong>Ungeeignet</strong> or <strong>Gefährlich</strong>."
@@ -5705,6 +5718,11 @@ msgid "gear and technique"
 msgstr "Ausrüstung und Technik"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "Ausrüstung"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
 msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung fuer die Route benötigt wird. Nur das zusätzliche, außergewöhnliche Material (Qualität und Menge) sollten hier angegeben werden. Beispiele von unnötigen Aufzählungen sind: LVS, Felle, Lawinensonde bei Skitouren (diese sind diese in der üblichen Skitourenausrüstung enthalten); Steigeisen, Pickel, Gletscherausrüstung (Bei Gletschertouren - genügt es das Feld &quot;benötigt Gletscherausrüstung&quot; anzukreuzen), Friends, Keile und Schlingen falls keine genauen Angaben über Anzahl und Typus geliefert werden. "
@@ -6029,7 +6047,7 @@ msgid "insert image tag help"
 msgstr "Mit diesem Werkzeug können sie dem Text ein Bild beifügen, welches <b>bereits mit dem Dokument verbunden ist</b>.<br /><br />Wählen sie das einzufügende Bild aus und stellen sie die Bildeigenschaften ein.<br />Nur Dokumente, welche mit einem Dokument verbunden sind, sind verfügbar. Falls es sich um einen gemeinschaftlichen Beitrag handelt, sind nur gemeinschaftliche Bilder zulässig. Falls ein Bild nicht auf der Liste erscheint, stellen sie sicher, dass diese Kriterien erfüllt sind."
 
 msgid "institution"
-msgstr "Institution oder sonstige Organisation"
+msgstr "Institution"
 
 msgid "internal_witness"
 msgstr "Zeuge innerhalb der Gruppe"
@@ -6876,6 +6894,10 @@ msgstr "Personen- oder Seilschaftssturz"
 
 msgid "other_fall_form"
 msgstr "Anderer Personen- oder Seilschaftssturz"
+
+# [WARNING] needs_review
+msgid "other_users"
+msgstr "andere"
 
 # [general comment]
 # [cda] title of second box on home
@@ -8012,6 +8034,12 @@ msgstr "Tags"
 
 msgid "technics"
 msgstr "Technik"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+# [WARNING] needs_review
+msgid "technique article"
+msgstr "Technische Enzyklopädie"
 
 msgid "terms of use"
 msgstr "Benutzungsbedingungen"

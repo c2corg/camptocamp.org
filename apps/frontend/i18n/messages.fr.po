@@ -3010,7 +3010,7 @@ msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 # [general comment]
 # Title of email sent when a user is associated to a xreport
 msgid "You have been associated to an xreport"
-msgstr "Vous avez été associé à un compte rendu d'incident:accident de Camptocamp.org"
+msgstr "Vous avez été associé à un compte rendu d'incident/accident de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
@@ -3291,10 +3291,12 @@ msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le
 # [general comment]
 # Aide contextuelle du champ : Catégories d'un article
 msgid "_categories_info"
-msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sélectionnées.<br />\n"
+msgstr "<h3>Catégories d'un article</h3>\n"
+"Plusieurs catégories peuvent être sélectionnées.<br />\n"
 "<br />\n"
 "<strong>environnement montagnard</strong>&nbsp;: informations générales et pérennes sur la montagne (géologie, biotope, neige et avalanche, ...)<br />\n"
-"<strong>matériel et technique</strong>&nbsp;: article sur un matériel (description, utilisation, entretien) ou une technique (geste, entrainement)<br />\n"
+"<strong>matériel</strong>&nbsp;: article sur un matériel (description, utilisation, entretien)<br />\n"
+"<strong>encyclopédie technique</strong>&nbsp;: article sur une technique (utilisation d'un matériel, bon geste, entrainement)<br />\n"
 "<strong>compléments au topoguide</strong>&nbsp;: article détaillant une partie d'un document du topoguide (historique d'un itinéraire ou d'un refuge, géologie d'un massif ou d'un sommet, ...)<br />\n"
 "<strong>mobilité douce et écotourisme</strong>&nbsp;: article concernant la mobilité douce et l'écotourisme<br />\n"
 "<strong>expéditions et voyages lointains</strong>&nbsp;: récit ou information concernant une expédition ou un voyage lointain<br />\n"
@@ -3305,8 +3307,20 @@ msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sé
 "<strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br />\n"
 "<strong>brouillon</strong>&nbsp;: article en cours de rédaction (pas de publication sur la page d'accueil)"
 
+# [WARNING] needs_review
 msgid "_category_info"
-msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
+msgstr "<h3>Catégorie du contributeur</h3>\n"
+"Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br />\n"
+"<br />\n"
+"<strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br />\n"
+"<br />\n"
+"<strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br />\n"
+"<br />\n"
+"<strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br />\n"
+"<br />\n"
+"<strong>institution</strong>&nbsp;: Institution publique ou privé ne proposant pas les services d'un club : service de secours, parc national, service de météo, office du tourisme, commune, association de défense de l'environnement, etc.<br />\n"
+"<br />\n"
+"<strong>autre</strong>&nbsp;: Autre organisme ou autre professionnel : gardien de refuge, gérant de gite, commerçant, gérant de salle d'escalade, webmaster, association de pratiquants ne proposant pas de sortie (comme les groupes espoir des fédération), etc."
 
 msgid "_children_proof_info"
 msgstr "<h3>Enfants</h3>Indique si le pied des voies peut convenir aux enfants.<br />En fonction de la configuration du terrain et d'éventuels dangers (chutes de pierre...), le champ peut prendre les valeurs <strong>Bien adapté</strong>, <strong>Adapté</strong>, <strong>Peu adapté</strong> ou <strong>Dangereux</strong>."
@@ -5687,6 +5701,11 @@ msgid "gear and technique"
 msgstr "matériel et techniques"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "matériel"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
 msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
@@ -6009,7 +6028,7 @@ msgid "insert image tag help"
 msgstr "Cet outil permet d'insérer dans le texte une image <b>préalablement associée au document</b>.<br /><br />Sélectionnez l'image que vous souhaitez insérer, ainsi que les options associées.<br />Seules les images associées au document sont disponibles. Pour un document collaboratif, seules les images collaboratives sont autorisées. Si une image n'apparait pas dans la liste, vérifiez que ces critères sont bien respectés."
 
 msgid "institution"
-msgstr "institution ou organisme divers"
+msgstr "institution"
 
 msgid "internal_witness"
 msgstr "témoin membre du groupe"
@@ -6830,6 +6849,10 @@ msgstr "chute d'une personne ou de la cordée"
 
 msgid "other_fall_form"
 msgstr "autre chute d'une personne ou de la cordée"
+
+# [WARNING] needs_review
+msgid "other_users"
+msgstr "autre"
 
 # [general comment]
 # [cda] title of second box on home
@@ -7992,6 +8015,11 @@ msgstr "tags"
 
 msgid "technics"
 msgstr "technique"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+msgid "technique article"
+msgstr "encyclopédie technique"
 
 msgid "terms of use"
 msgstr "Conditions d'utilisation"
