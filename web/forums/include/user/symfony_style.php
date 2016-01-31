@@ -15,11 +15,6 @@ if ($sf_user->getCulture() == 'en')
     $sf_response->addStylesheet('/static/css/ac.css');
 }
 
-if ($sf_user->getCulture() == 'fr')
-{
-    $sf_response->addStylesheet('/static/css/donate.css', 'last');
-}
-
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
 
