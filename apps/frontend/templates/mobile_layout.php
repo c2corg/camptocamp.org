@@ -19,12 +19,6 @@ $response = sfContext::getInstance()->getResponse();
 
 // alpine club logo is included by css, but only in en
 if ($lang === 'en') use_stylesheet('/static/css/ac');
-
-if ($sf_user->getCulture() == 'fr')
-{
-    $response->addJavascript('/static/js/donate.js', 'last');
-    use_stylesheet('/static/css/donate');
-}
 ?>
 <!doctype html>
 <html lang="<?php echo $lang_code ?>" class="mobile">
@@ -61,11 +55,6 @@ if ($sf_user->getCulture() == 'fr')
     <div id="holder">
         <header id="page_header">
         <?php
-        if ($sf_user->getCulture() == 'fr')
-        {
-            include_partial('common/donate');
-        }
-
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
         include_partial($header_partial, array('lang_code' => $lang_code,
                                                'footer_type' => $footer_type));

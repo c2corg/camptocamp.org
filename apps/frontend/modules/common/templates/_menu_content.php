@@ -194,7 +194,9 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('mountain environment')), 'articles/list?ccat=1') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('gear and technique')), 'articles/list?ccat=2') ?></li>
+                                 . link_to(ucfirst(__('technique article')), 'articles/list?ccat=11') ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(ucfirst(__('gear article')), 'articles/list?ccat=2') ?></li>
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('topoguide supplements')), 'articles/list?ccat=4') ?></li>
                     <li><?php echo picto_tag('picto_articles')

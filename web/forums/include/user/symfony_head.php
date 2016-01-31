@@ -1,9 +1,4 @@
 <?php
-if ($sf_user->getCulture() == 'fr' && !c2cTools::mobileVersion())
-{
-      include_partial('common/donate');
-}
-
 include_partial(c2cTools::mobileVersion() ? 'common/mobile_header' : 'common/header');
 
 if (sfConfig::get('app_production') != 1)

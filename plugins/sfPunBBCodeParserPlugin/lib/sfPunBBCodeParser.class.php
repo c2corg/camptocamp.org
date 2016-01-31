@@ -554,10 +554,29 @@ class sfPunBBCodeParser
             $centered = true;
         }
         
+        if (in_array('align_left', $options))
+        {
+            $img_class .= ' box_align_left';
+        }
+        elseif (in_array('align_right', $options))
+        {
+            $img_class .= ' box_align_right';
+        }
+        elseif (in_array('align_center', $options))
+        {
+            $img_class .= ' box_align_center';
+        }
+        
+        if (in_array('no_border', $options))
+        {
+            $img_class[] = 'no_border';
+        }
+        
         $show_legend = true;
         $legend_top = false;
         if (in_array('no_legend', $options))
         {
+            $img_class[] = 'no_legend';
             $show_legend = false;
             $legend = self::do_spaces($legend, false);
         }
@@ -565,14 +584,14 @@ class sfPunBBCodeParser
         {
             $img_class[] = 'img_box';
             
-            if (in_array('no_border', $options))
-            {
-                $img_class[] = 'no_border';
-            }
-            
             if (in_array('no_wrap', $options))
             {
                 $img_class[] = 'no_wrap';
+            }
+            
+            if (in_array('font_1', $options))
+            {
+                $img_class[] = 'font_1';
             }
             
             $legend_top = in_array('legend_top', $options);
@@ -580,18 +599,34 @@ class sfPunBBCodeParser
             {
                 $img_class[] = 'legend_top';
             }
+            
+            if (in_array('text_left', $options))
+            {
+                $img_class[] = 'text_left';
+            }
+            elseif (in_array('text_right', $options))
+            {
+                $img_class[] = 'text_right';
+            }
+            elseif (in_array('text_center', $options))
+            {
+                $img_class[] = 'text_center';
+            }
         }
             
         $no_picto = in_array('no_picto', $options);
         
-        // big images are not used in mobile version (replaced by medium version)
-        if (in_array('big', $options) && !c2cTools::mobileVersion())
+        if (in_array('big', $options))
         {
             $size = 'BI.';
         }
         elseif (in_array('small', $options))
         {
             $size = 'SI.';
+        }
+        elseif (in_array('orig', $options))
+        {
+            $size = '.';
         }
         else
         {
@@ -819,6 +854,19 @@ class sfPunBBCodeParser
         {
             $class .= ' top';
         }
+        
+        if (in_array('text_left', $options))
+        {
+            $class .= ' text_left';
+        }
+        elseif (in_array('text_right', $options))
+        {
+            $class .= ' text_right';
+        }
+        elseif (in_array('text_center', $options))
+        {
+            $class .= ' text_center';
+        }
 
         $result = '<div class="' . $class . '"><p>' . stripslashes($text) . '</p></div>';
         if (!$alone)
@@ -887,10 +935,10 @@ class sfPunBBCodeParser
         if ($extended)
         {
             $replace[] = '</p><div class="clearer"></div><p>';
-            $replace[] = '</p><div style="text-align: center;"><p>$1</p></div><p>';
-            $replace[] = '</p><div style="text-align: right;"><p>$1</p></div><p>';
-            $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
-            $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_center"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_right"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_left"><p>$1</p></div><p>';
+            $replace[] = '</p><div class="text_justify"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
             $replace[] = '</p><div class="important_message$2"><p>$3</p></div><p>';
             $replace[] = '</p><div class="warning_message$2"><p>$3</p></div><p>';
