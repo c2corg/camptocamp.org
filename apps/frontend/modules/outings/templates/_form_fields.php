@@ -56,7 +56,7 @@ echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters',
 </div>
 <div data-act-filter="1 6 7 length">
 <?php
-echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', step => '.1'));
+echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input', 'type' => 'number', 'min' => '0', 'step' => '.1'));
 ?>
 </div>
 <?php
@@ -215,7 +215,7 @@ else
     $conditions_default = 'conditions_hike_default';
 }
 
-echo object_group_bbcode_tag($document, 'conditions', $conditions_title, array('class' => 'mediumtext', 'placeholder' => __($conditions_default)), true, $conditions_title);
+echo object_group_bbcode_tag($document, 'conditions', $conditions_title, array('class' => 'mediumtext', 'route_line' => true, 'placeholder' => __($conditions_default)), true, $conditions_title);
 ?>
 <div data-act-filter="1 2 5 7">
 <?php
@@ -234,7 +234,7 @@ echo object_group_bbcode_tag($document, 'participants', null, array('class' => '
 <p class="edit-tips"><?php echo __('link contributors in view page') ?></p>
 <?php
 echo object_group_bbcode_tag($document, 'timing', null, array('class' => 'smalltext', 'no_img' => true));
-echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext', 'placeholder' => __('outings_description_default')));
+echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext', 'route_line' => true, 'placeholder' => __('outings_description_default')));
 echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');
 

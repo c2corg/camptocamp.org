@@ -100,6 +100,29 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                         </ul>
                     </li>
                     <li><?php
+                        echo picto_tag('picto_xreports')
+                           . link_to(ucfirst(__('xreports')), '@default_index?module=xreports') ?>
+                        <ul>
+                            <li><?php
+                                echo picto_tag('action_create');
+                                if ($is_connected)
+                                {
+                                    echo link_to(__('Add'), '@document_edit?module=xreports&id=&lang=');
+                                }
+                                else
+                                {
+                                    echo m_link_to(__('Add'), '@login',
+                                                   array('title' => __('Create new xreport unconnected'),
+                                                         'query_string' => 'redirect=xreports/edit'),
+                                                   array('width' => 600));
+                                }
+                            ?></li>
+                            <li><?php
+                                echo picto_tag('action_query')
+                                   . link_to(__('Search'), '@filter?module=xreports') ?></li>
+                        </ul>
+                    </li>
+                    <li><?php
                         echo picto_tag('picto_parkings')
                            . link_to(ucfirst(__('parkings')), '@default_index?module=parkings') ?>
                         <ul>
@@ -171,7 +194,9 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('mountain environment')), 'articles/list?ccat=1') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('gear and technique')), 'articles/list?ccat=2') ?></li>
+                                 . link_to(ucfirst(__('technique article')), 'articles/list?ccat=11') ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(ucfirst(__('gear article')), 'articles/list?ccat=2') ?></li>
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('topoguide supplements')), 'articles/list?ccat=4') ?></li>
                     <li><?php echo picto_tag('picto_articles')
@@ -330,8 +355,14 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                         echo picto_tag('picto_outings')
                            . link_to(__('My outings'), 'outings/myoutings') ?></li>
                     <li><?php
+                        echo picto_tag('picto_xreports')
+                           . link_to(__('My xreports'), 'xreports/myxreports') ?></li>
+                    <li><?php
                         echo picto_tag('picto_images')
                            . link_to(__('My images'), 'images/myimages') ?></li>
+                    <li><?php
+                        echo picto_tag('action_contact')
+                           . f_link_to(__('mailbox'), 'message_list.php') ?></li>
                     <li><?php
                         echo picto_tag('picto_outings')
                            . link_to(__('My statistics'), 'outings/mystats') ?></li>

@@ -1,6 +1,6 @@
 Subject: Nouveau commentaire
 
-<replier> a commenté un document parmi vos sorties, images ou articles personnels. Vous avez été automatiquement abonné à la discussion.
+<replier> a commenté un document parmi vos sorties, images, articles personnels ou compte rendu d'incident/accident. Vous avez été automatiquement abonné à la discussion.
 
 Le message est situé ici <post_url>
 

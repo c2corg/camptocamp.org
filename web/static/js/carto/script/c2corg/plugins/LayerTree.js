@@ -167,6 +167,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             "users": this.createVectorLayer({name: "users", featureType: "users"}),
             "images": this.createVectorLayer({name: "images", featureType: "images"}),
             "products": this.createVectorLayer({name: "products", featureType: "products"}),
+            "xreports": this.createVectorLayer({name: "xreports", featureType: "xreports"}),
             "routes": this.createVectorLayer({name: "routes", featureType: "routes", maxFeatures: 50}),
             "outings": this.createVectorLayer({name: "outings", featureType: "outings", maxFeatures: 50}),
             "maps": this.createVectorLayer({name: "maps", featureType: "maps"}),
@@ -239,6 +240,15 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             iconCls: "picto_routes",
             leaf: true
         }, {
+            text: OpenLayers.i18n("slopes"),
+            nodeType: "gx_layer",
+            layer: this.layers["slopes"],
+            iconCls: "picto_blank",
+            leaf: true,
+            tooltipHtml: OpenLayers.i18n("slopes_info"),
+            tooltipTitle: OpenLayers.i18n("slopes"),
+            uiProvider: c2corg.tree.LayerNodeUIWithTooltip
+        }, {
             text: OpenLayers.i18n("More..."),
             expanded: false,
             children: [{
@@ -260,6 +270,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 iconCls: "picto_products",
                 leaf: true
             }, {
+                text: OpenLayers.i18n("xreports"),
+                nodeType: "gx_layer",
+                layer: this.layers["xreports"],
+                iconCls: "picto_xreports",
+                leaf: true
+            }, {
                 text: OpenLayers.i18n("outings"),
                 nodeType: "gx_layer",
                 layer: this.layers["outings"],
@@ -277,15 +293,6 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 layer: this.layers["maps"],
                 iconCls: "picto_maps",
                 leaf: true
-            }, {
-                text: OpenLayers.i18n("slopes"),
-                nodeType: "gx_layer",
-                layer: this.layers["slopes"],
-                iconCls: "picto_blank",
-                leaf: true,
-                tooltipHtml: OpenLayers.i18n("slopes_info"),
-                tooltipTitle: OpenLayers.i18n("slopes"),
-                uiProvider: c2corg.tree.TreeNodeUIWithTooltip
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,

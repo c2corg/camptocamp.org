@@ -74,7 +74,7 @@ if ($is_not_archive && $is_not_merged)
     <div class="col_right col_50">
     <ul class="children_lists">
         <?php
-        $module_list = array('outings', 'recent conditions', 'soft mobility outings', 'images', 'amateurs', 'pros', 'clubs');
+        $module_list = array('outings', 'recent conditions', 'soft mobility outings', 'xreports', 'images', 'amateurs', 'pros', 'clubs');
         foreach ($module_list as $key => $module): ?><?php
             $criteria = "/$module/list?areas=$id";
             $picto = $module;

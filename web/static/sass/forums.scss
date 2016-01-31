@@ -225,6 +225,11 @@ div.block2col div.blockform
     text-align: left;
 }
 
+#punmessage_list .blocktable, #punmessage_list .blockpost
+{
+    margin-left: 13em;
+}
+
 #punmessage_list .tc2
 {
     white-space: nowrap;
@@ -424,6 +429,7 @@ div.txtarea {
 
 div.txtarea textarea, input.longinput {
     width: 100%;
+    max-width: 1000px;
     @include box-sizing(border-box);
 }
 
@@ -465,6 +471,8 @@ div.txtarea textarea, input.longinput {
 {
     clear: both;
     display: block;
+    padding: 0px 10px 0px 0px;
+    margin: 10px 0px 5px 0px;
 }
 
 .pagelink
@@ -487,10 +495,6 @@ div.txtarea textarea, input.longinput {
 /****************************************************************/
 
 /* 1.1 Default background colour and text colour */
-
-body {
-    background-color: #fff;
-}
 
 .pun {
     color: #333;
@@ -689,7 +693,7 @@ without interferring with IE's rather nice default */
     color: #aaa;
 }
 
-.postquote a, .postquote a:visited, #punindex .blocktable .tcl a:visited
+.postquote a, .postquote a:visited, .postedit a, .postedit a:visited, #punindex .blocktable .tcl a:visited
 {
     color: #3f935f;
 }

@@ -229,8 +229,13 @@ class Article extends BaseArticle
         }
         
         // user criteria
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('u', 'main_id'), 'users', 'user_id');
-
+        $has_name = User::buildUserListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', array('ouser_id', 'join_outing', 'post_outing'));
+         
         $criteria[0] = array_merge($criteria[0], $conditions);
         $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
@@ -359,6 +364,11 @@ class Article extends BaseArticle
             $site_join = 'lo.MainAssociation';
             $site_ltype = 'to';
             
+            if (isset($joins['ouser_id']))
+            {
+                $q->leftJoin($route_join . ' lou');
+            }
+            
             if (   isset($joins['join_summit'])
                 || isset($joins['join_hut'])
                 || isset($joins['join_parking'])
@@ -410,6 +420,12 @@ class Article extends BaseArticle
         if (isset($joins['join_image']))
         {
             Image::buildImagePagerConditions($q, $joins, false, 'ci');
+        }
+        
+        // join with user tables only if needed
+        if (isset($joins['join_user']))
+        {
+            User::buildUserPagerConditions($q, $joins, false, false, 'm.associations', 'uc');
         }
         
         if (!empty($conditions))

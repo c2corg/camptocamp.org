@@ -9,7 +9,7 @@ $item_i18n = $item['HutI18n'][0];
                 get_paginated_value($item['shelter_type'], 'mod_huts_shelter_types_list') ?></div>
 <div><?php
 $staffed_capacity = $item['staffed_capacity'];
-if (is_scalar($staffed_capacity) && $staffed_capacity > 0)
+if (is_scalar($staffed_capacity))
 {
     $staffed_capacity = __('staffed_capacity short') . __('&nbsp;:') . ' ' . $staffed_capacity;
 }
@@ -18,7 +18,7 @@ else
     $staffed_capacity = '';
 }
 $unstaffed_capacity = $item['unstaffed_capacity'];
-if (is_scalar($unstaffed_capacity) && $unstaffed_capacity > 0)
+if (is_scalar($unstaffed_capacity))
 {
     $unstaffed_capacity = __('unstaffed_capacity short') . __('&nbsp;:') . ' ' . $unstaffed_capacity;
 }

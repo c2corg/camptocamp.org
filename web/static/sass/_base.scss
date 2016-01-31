@@ -2,7 +2,8 @@ $orange: #f93;
 $title_black: #535354; // not completely black, used for some titles
 
 $modules: areas, articles, books, huts, images, maps, outings, parkings,
-          routes, sites, summits, users, products, portals, documents;
+          routes, sites, summits, users, products, portals, documents,
+          xreports;
 
 $languages: fr, it, de, en, es, ca, eu;
 
@@ -27,6 +28,7 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #000;
+  background-color: rgb(230, 230, 230);
 }
 
 @import "forms";
@@ -36,6 +38,28 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: white;
+}
+
+#holder.max_width
+{
+  position: relative;
+  margin: -10px auto 0px auto;
+  max-width: 1500px;
+  box-shadow: 0px 0px 25px 25px rgb(255, 255, 255);
+}
+
+@media screen and (min-width:2500px)
+{
+  #holder.max_width
+  {
+    max-width: 2600px;
+  }
+}
+
+.full_screen #page_header
+{
+  display: none;
 }
 
 #wrapper_context
@@ -152,6 +176,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   position: absolute;
   left: 20px;
   margin-top: -13px;
+  z-index: 1;
 }
 
 .tips, .edit-tips, .big_tips, .float-tips
@@ -160,10 +185,11 @@ a[href^="http://escalade.camptocamp.com"]:after {
 }
 .tips, .edit-tips, .float-tips
 {
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 .tips, .edit-tips, .big_tips
 {
+  margin-top: 5px;
   margin-bottom: 1em;
 }
 .warning-tips
@@ -252,7 +278,7 @@ hr
   margin: 0 0 5px 0;
 }
 
-.warning_message, .important_message, .global_form_error, .preview_warning, .front_message
+.global_form_error, .preview_warning, .front_message
 {
   width:80% !important;
 }
@@ -267,6 +293,12 @@ hr
 {
   clear: both;
   margin-top: 10px;
+  display: inline-block;
+}
+
+.important_message
+{
+  border: 2px solid $orange;
 }
 
 .front_message // yellow edit in place on homepage
@@ -308,6 +340,9 @@ hr
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
   @include -c2c-hashurl-background('/static/images/picto/important.png', no-repeat 15px);
+}
+.global_form_error, .preview_warning, .mandatory_fields_warning
+{
   color: gray;
 }
 
@@ -398,14 +433,38 @@ em.mandatory_asterisk
   display: inline-table !important;
   width: 150px;
   padding: 3px;
-  border: 1px solid #CCCCCC;
   font-size: 0.9em;
   text-align: left;
+  margin-bottom: 2em;
 }
 
-.img_box.no_border
+.img_box, .no_legend
 {
-  border: 0;
+  border: 1px solid #CCCCCC;
+}
+
+.no_border
+{
+  border: 0 !important;
+}
+
+.img_box.no_wrap
+{
+  white-space: nowrap;
+}
+
+.img_box.font_1
+{
+  font-size: 1em;
+}
+
+.img_box.legend_top
+{
+  font-size: 1em;
+}
+.legend_top figcaption
+{
+  margin-bottom: 0.5em;
 }
 
 .img_box img
@@ -434,28 +493,28 @@ em.mandatory_asterisk
 {
   float:left;
   clear: left;
-  margin: 5px 15px 10px 0;
+  margin: 5px 25px 10px 0;
 }
 
 .embedded_right, img.embedded_right
 {
   float:right;
   clear: right;
-  margin: 5px 0 10px 15px;
+  margin: 5px 0 10px 25px;
 }
 
 .embedded_center, img.embedded_center
 {
   float: none;
   clear: none;
-  margin: 0 15px 10px 15px;
+  margin: 0 25px 10px 25px;
   text-align: center;
 }
 
 img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
 .embedded_inline, .embedded_inline_left, .embedded_inline_right
 {
-  margin: 5px 10px 10px 10px;
+  margin: 5px 25px 10px 10px;
   clear: none;
 }
 
@@ -487,6 +546,22 @@ img.embedded_inline_0, .embedded_inline_0
   float: none;
   clear: none;
   margin: 0;
+}
+
+.box_align_left
+{
+  margin-left: 0 !important;
+}
+
+.box_align_right
+{
+  margin-right: 0 !important;
+}
+
+.box_align_center
+{
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .center
@@ -751,7 +826,7 @@ fieldset.separator
   margin-top: 0.5em;
 }
 
-#data_section_container .section_subtitle
+#data_section_container .section_subtitle, #profil_section_container .section_subtitle
 {
   display: -moz-inline-box;
   display: inline-block;
@@ -931,6 +1006,7 @@ span.default_text, p.default_text
 {
   height:auto;
   float:left;
+  margin-bottom: 2em;
 }
 
 .article .col
@@ -957,6 +1033,23 @@ span.default_text, p.default_text
   margin-left: 0;
 }
 
+.text_left
+{
+  text-align:left !important;
+}
+.text_right
+{
+  text-align:right !important;
+}
+.text_center
+{
+  text-align:center !important;
+}
+.text_justify
+{
+  text-align:justify !important;
+}
+
 .col_20
 {
   width: 19.2%;
@@ -969,9 +1062,13 @@ span.default_text, p.default_text
 {
   width: 24.2%;
 }
-.article_contenu .col_25, .article_contenu .col_26
+.article_contenu .col_25
 {
   width: 23.5%;
+}
+.article_contenu .col_26
+{
+  width: 22.7%;
 }
 .col_33
 {
@@ -1218,7 +1315,7 @@ a.close_btn {
 {
   @include -c2c-datauri-background('/static/images/footer.gif');
   clear: both;
-  height: 110px;
+  height: 180px;
   position: relative;
   bottom: 0; left: 0;
   border: none;
@@ -1541,6 +1638,9 @@ select option.picto
 .sbox select.picto_sites, .sbox select.picto_13,
 .sbox select.picto_summits, .sbox select.picto_3,
 .sbox select.picto_users, .sbox select.picto_2,
+.sbox select.picto_products, .sbox select.picto_14,
+.sbox select.picto_portals, .sbox select.picto_15,
+.sbox select.picto_xreports, .sbox select.picto_16,
 .sbox select.picto_documents, .sbox select.picto_1 {
   background-position: 2px !important;
 }
@@ -1956,6 +2056,10 @@ select.picto_forum, select.picto_forums
   @extend .picto_documents;
 }
 
+.picto_16 {
+  @extend .picto_xreports;
+}
+
 option.picto_act
 {
   padding-left: 20px;
@@ -2068,6 +2172,11 @@ fieldset .select_title
   float: left;
   margin: 0 0.3em 0 0;
   min-width: 8em;
+}
+
+#filterform .field_title
+{
+  margin: 0.3 0 0.2 0;
 }
 
 #filterform .picto

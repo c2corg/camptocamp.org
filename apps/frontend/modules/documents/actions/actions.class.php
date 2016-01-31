@@ -646,7 +646,7 @@ class documentsActions extends c2cActions
                 $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);
                 $this->associated_areas = $associated_areas;
             }
-            if (!in_array($module, array('outings', 'articles', 'books', 'portals')))
+            if (!in_array($module, array('outings', 'articles', 'books', 'portals', 'xreports')))
             {
                 $associated_maps = GeoAssociation::findMapsWithBestName($id, $prefered_cultures);
                 $this->associated_maps = Map::getAssociatedMapsData($associated_maps);
@@ -745,7 +745,7 @@ class documentsActions extends c2cActions
         $id = $this->getRequestParameter('id');
         $model = $this->model_class;
 
-        if (!Document::find($model, $id))
+        if (!Document::find($model, $id, array('id')))
         {
             c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->setNotFoundAndRedirect();
@@ -1410,9 +1410,10 @@ class documentsActions extends c2cActions
             case 1 : $module = 'routes'; break;
             case 2 : $module = 'outings'; break;
             case 3 : $module = 'outings'; break;
+            case 4 : $module = 'outings'; break;
             default: $module = $this->getModuleName();
         }
-        if ($result_type == 3)
+        if (in_array($result_type, array(3, 4)))
         {
             $action = 'conditions';
         }
@@ -1425,6 +1426,10 @@ class documentsActions extends c2cActions
         {
             $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
                                     $this->filterSortParameters($module));
+            if ($result_type == 4)
+            {
+                $criteria[] = 'format=full';
+            }
             if ($criteria)
             {
                 $route .= '?' . implode('&', $criteria);
@@ -1680,7 +1685,7 @@ class documentsActions extends c2cActions
         
         if (!empty($id)) // update an existing document
         {
-            if (!$document = Document::find($this->model_class, $id))
+            if (!$document = Document::find($this->model_class, $id, array('id')))
             {
                 $this->setNotFoundAndRedirect();
             }
@@ -3932,14 +3937,15 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('The document is already linked to the current document');
         }
 
-        if ($linked_module_new == 'outings' && $main_module_new == 'users' && $linked_id != $user_id)
+        if (in_array($linked_module_new, array('outings', 'xreports')) && $main_module_new == 'users' && $linked_id != $user_id)
         {
             // send an email to warn the new user associated
+            $modul_sing = substr($linked_module_new, 0, -1);
             $email_recipient = UserPrivateData::find($linked_id)->getEmail();
-            $email_subject = $this->__('You have been associated to an outing');
+            $email_subject = $this->__('You have been associated to an ' . $modul_sing);
             $server = $_SERVER['SERVER_NAME'];
-            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/outings/$main_id";
-            $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
+            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/$linked_module_new/$main_id";
+            $htmlBody = $this->__('You have been associated to ' . $modul_sing . ' %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
 
             $mail = new sfMail();
             $mail->setCharset('utf-8');
@@ -4627,13 +4633,15 @@ class documentsActions extends c2cActions
         $user = $this->getUser();
         $prefered_cultures = $user->getCulturesForDocuments();
         $module = $this->getRequestParameter('mod');
+        $model = c2cTools::module2model($module);
+        $assoc_type = c2cTools::Model2Letter($model) . 'i';
         $id = $this->getRequestParameter('id');
-        $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+        $associated_docs = Association::findLinkedDocsWithBestName($id, $prefered_cultures, $assoc_type);
         $associated_images = Document::fetchAdditionalFieldsFor(
-                                        array_filter($associated_docs, array('c2cTools', 'is_image')),
+                                        $associated_docs,
                                         'Image',
                                         array('filename', 'image_type'));
-        $doc = Document::find(c2cTools::module2model($module), $id);
+        $doc = Document::find($model, $id, array('id', 'module'));
         if (empty($doc))
         {
             $this->setNotFoundAndRedirect();
@@ -5134,7 +5142,7 @@ class documentsActions extends c2cActions
                     'url' => '/users/11465/fr',
                     'image' => 'jaillet.jpg',
                     'role' => 'guide de montagne et contributeur de Camptocamp.',
-                    'presentation' => 'Informer les personnes qui me le demande sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneaux, il est incontournable ..'
+                    'presentation' => 'Informer les personnes qui me le demandent sur les conditions, pour moi cela fait partie intégrante de mon travail de pro de la montagne, et comme je suis content de trouver des informations sur un coin que je ne connais pas, je renvoie l\'ascenseur, logique, comme Camptocamp est quasiment le seul sur ce créneau, il est incontournable ..'
                 );
                 break;
             case 7:

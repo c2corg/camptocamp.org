@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div id="holder">
+<div id="holder" class="max_width">
 <header id="page_header">
 <pun_include "symfony_head.php">
 </header>
