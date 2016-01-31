@@ -74,13 +74,13 @@ msgstr "(ordulariaren zentzuan)"
 msgid "). It is thus write-protected."
 msgstr "). Ondorioz, idazteko babesturik daude."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "1 to 3 days"
-msgstr "1 to 3 days"
+msgstr "1 a 3 dias"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "1 to 3 months"
-msgstr "1 to 3 months"
+msgstr "1 a 3 meses"
 
 msgid "1/100000"
 msgstr "1/100000"
@@ -91,9 +91,9 @@ msgstr "1/25000"
 msgid "1/50000"
 msgstr "1/50000"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "4 days to 1 month"
-msgstr "4 to 29 days"
+msgstr "4 a 29 días"
 
 msgid "404_error"
 msgstr "Dokumentua ez da aurkitu"
@@ -132,9 +132,9 @@ msgstr "Una cumbre-raid no puede ser asociada a una etapa de un raid"
 msgid "A site can not be linked to more than one summit"
 msgstr "Uno sitio de escalada no puede ser asociado a mas de una cumbre"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "A sub parking can not be linked to more than one main parking"
-msgstr "A sub access point can not be linked to more than one main access point"
+msgstr "Un sub-acceso no puede ser asociado a más de un sobre-acceso "
 
 # [WARNING] es translation used
 msgid "A sub site can not be linked to more than one main site"
@@ -164,9 +164,9 @@ msgstr "Abiagunea:"
 msgid "Accident description"
 msgstr "Descripcion de los hechos"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Accident factors"
-msgstr "Factors"
+msgstr "Factores y influencias"
 
 # [WARNING] es translation used
 msgid "Accident factors intro"
@@ -178,9 +178,9 @@ msgstr "Caracterizacion de l'evento "
 
 # [general comment]
 # Profil de l'auteur d'un compte rendu d'incident/accident
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Accident profil"
-msgstr "Profile"
+msgstr "Perfil"
 
 msgid "Activate map search"
 msgstr "Maparen ertzera murriztu bilaketa"
@@ -271,9 +271,9 @@ msgstr "Zihur al zaude dokumentu honen geometria ezabatzea nahi duzula?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Are you sure you want to rotate the image?"
-msgstr "Are you sure you want to rotate the image?"
+msgstr "Está usted seguro de querer girar la imagen ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Ziur al zaude \"%2%\" izeneko %1% irudia banandu nahi duzula?"
@@ -328,9 +328,9 @@ msgstr "Irteera bat gehitu"
 msgid "Associate new route"
 msgstr "Loturiko ibilbide berria sortu"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Associate new xreports"
-msgstr "Add an incident/accident report to this outing"
+msgstr "Añadir un informe de incidente/accidente a esta salida"
 
 msgid "Association"
 msgstr "Elkartea"
@@ -533,9 +533,9 @@ msgstr "Katxe-a eguneratu"
 
 # [general comment]
 # Infobulle du bouton "Georef Tool"
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Click on the map to locate item"
-msgstr "Click on the map to locate the document"
+msgstr "Pulsar en el mapa para georeferenciar el documento"
 
 msgid "Click to display original image"
 msgstr "Irudian klikatu bere berezko neurrian ikusteko "
@@ -602,9 +602,9 @@ msgstr "Concurso"
 msgid "Context:"
 msgstr "Kontestua:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Coordinates"
-msgstr "Coordinates"
+msgstr "Coordenadas"
 
 msgid "Copy following string:"
 msgstr "Ondorengo anti-spam katea idatzi:"
@@ -684,13 +684,13 @@ msgstr "Gailur bat gehitu"
 # Infobulle pour le lien vers la page de création d'un compte rendu d'incident en mode non connecté
 # /!\ no linebreaks allowed
 # /!\ no markup (<.>...<./>)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Create new xreport unconnected"
-msgstr "Please login in order to create an incident/accident report. If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contribution."
+msgstr "Registre-se para añadir un informe de incidente/accidente. Si no tiene cuenta, hacer click en el enlace \"Registrarse\", es fácil y gratis. Gracias por su futura contribución."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Create new xreports"
-msgstr "Create a new incident/accident report"
+msgstr "Añadir un nuevo informe de incidente/accidente"
 
 # [general comment]
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
@@ -739,9 +739,9 @@ msgstr "Eskalada gune berri bat sortu"
 msgid "Creating new summits"
 msgstr "Gailur berri bat sortu"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Creating new xreports"
-msgstr "Creation of a new incident or accident report"
+msgstr "Creación de un nuevo informe de incidente/accidente"
 
 msgid "Culture is missing"
 msgstr "Dokumentu honen hizkuntza parametrorik ez dago."
@@ -752,9 +752,9 @@ msgstr "Dokumentua bateratua izan da, ondorioz ezin da babes gabe utzi."
 msgid "Current document has been merged into document %1%"
 msgstr "Dokumentu hau %1% rekin bateratua izan da."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Current password"
-msgstr "Current password"
+msgstr "Contraseña actual"
 
 msgid "Current version"
 msgstr "Oraingo bertsioa"
@@ -918,13 +918,13 @@ msgstr "CamptoCamp elkarteari donazioa bat egin"
 # Pour indiquer la durée écoulée
 # 
 # "Durée 2:13:45"
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Duration"
-msgstr "Duration"
+msgstr "Duración"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Duration (hrs)"
-msgstr "Duration (h)"
+msgstr "Duración (h)"
 
 msgid "E"
 msgstr "E"
@@ -1117,9 +1117,9 @@ msgstr "Dokumentu honen geometria ezabatua izan da"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Georef Tool"
-msgstr "Georef Tool"
+msgstr "Georeferenciar"
 
 msgid "Get Help"
 msgstr "Laguntza lortu"
@@ -1178,9 +1178,9 @@ msgstr "Hurrengo ibilbidera joan"
 msgid "Go to next summit"
 msgstr "Hurrengo gailurrera joan"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Go to next xreport"
-msgstr "Go to next incident/accident"
+msgstr "Ir al próximo incidente/accidente"
 
 # [WARNING] needs_review
 msgid "Go to preview"
@@ -1222,9 +1222,9 @@ msgstr "Aurreko ibilbidera joan"
 msgid "Go to previous summit"
 msgstr "Aurreko gailurrera joan"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Go to previous xreport"
-msgstr "Go to previous incident/accident"
+msgstr "Ir al incidente/accidente anterior"
 
 msgid "Go to the homepage"
 msgstr "Sarrera orrira itzuli"
@@ -1256,9 +1256,9 @@ msgstr "Topo-gida laguntza"
 msgid "Has this outing really been done today?"
 msgstr "Irteera hau benetan gaur egina izan da?"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Has this xreport really been done today?"
-msgstr "Did this event really happened today?"
+msgstr "Ha tenido lugar hoy realmente este acontecimiento ?"
 
 msgid "Hello %1%"
 msgstr "Kaixo %1%"
@@ -1269,9 +1269,9 @@ msgstr "Laguntza"
 msgid "History"
 msgstr "Bertsioak"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "History of associations to this document"
-msgstr "History of associations to this document"
+msgstr "Histórico de las asociaciones a este documento"
 
 msgid "Home"
 msgstr "Sarrera orria"
@@ -1307,9 +1307,9 @@ msgstr "Irudia"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image cannot be rotated anymore"
-msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+msgstr "No se puede girar esta imagen (Ya no está directamente accesible)"
 
 msgid "Image could not be loaded"
 msgstr "Ezin da irudia erakutsi"
@@ -1329,26 +1329,26 @@ msgstr "Irudi hau babestua dago"
 msgid "Image license"
 msgstr "Irudiaren lizentzia:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image name missing"
-msgstr "Image name missing"
+msgstr "No tiene nombre la imagen"
 
 msgid "Image not found"
 msgstr "Ez dago halako irudirik."
 
 # [general comment]
 # assistant image forum
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image on the internet"
-msgstr "Image on the internet"
+msgstr "Imagen de Internet"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image rotated successfully"
-msgstr "Image rotated successfully"
+msgstr "La imagen ha sido correctamente girada"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image rotation"
-msgstr "Image rotation"
+msgstr "Rotación de la imagen"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
@@ -1434,9 +1434,9 @@ msgstr "Ondorengo gaillurren aurre-gailurra da:"
 msgid "Is really a multi-activity outing?"
 msgstr "¿Su salida realmente incluye varias actividades?"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Is really a multi-activity xreport?"
-msgstr "Is this outings really multi-activities?"
+msgstr "Es este acontecimiento realmente multi-actividad ?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Itxura denez, izen edo fitxero bat ematea ahaztu zaizu."
@@ -1447,9 +1447,9 @@ msgstr "Itxura denez, izen edo fitxero bat ematea ahaztu zaizu."
 msgid "Kesako?"
 msgstr "Quienes somos"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Keyword or ID"
-msgstr "Keyword or ID"
+msgstr "Palabra clave o ID"
 
 msgid "Know more"
 msgstr "Gehiago"
@@ -1607,9 +1607,9 @@ msgstr "Loturiko eskalatzeko tokiak"
 msgid "Linked summits"
 msgstr "Loturiko gailurra"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Linked xreports"
-msgstr "Linked incidents/accidents"
+msgstr "Incidentes/Accidentes relacionados"
 
 # [WARNING] es translation used
 msgid "List all images of associated outings"
@@ -1827,17 +1827,17 @@ msgstr "Mi posición"
 msgid "My preferences"
 msgstr "Preferentzia pertsonalak"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My statistics"
-msgstr "My statistics"
+msgstr "Mis estadísticas"
 
 # [WARNING] es translation used
 msgid "My topics"
 msgstr "Mis temas"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My xreports"
-msgstr "My incidents"
+msgstr "Mis incidentes"
 
 msgid "N"
 msgstr "N"
@@ -1935,9 +1935,9 @@ msgstr "Ez dago eskalatzeko tokirik dokumentu honi loturik."
 msgid "No linked summit"
 msgstr "Ez dago gailurrik dokumentu honi loturik."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "No linked xreports"
-msgstr "No incident/accident is associated to this document."
+msgstr "Ningún incidente/accidente esta relacionado con este documento"
 
 # [WARNING] es translation used
 msgid "No message defined. Click to edit"
@@ -1991,9 +1991,9 @@ msgstr "Onartu gabeko eragiketa."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Original image"
-msgstr "Original image"
+msgstr "Imagen original"
 
 msgid "Oups!"
 msgstr "Oups! Ondorengo okerrak aurkitu dira:"
@@ -2020,9 +2020,9 @@ msgstr "Salidas asociadas a estas imágenes"
 msgid "Outings linked to this route"
 msgstr "Salidas asociadas a la ruta descrita en esta pagina"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Outings with video"
-msgstr "Outings with video"
+msgstr "Salidas con vídeo"
 
 msgid "PD"
 msgstr "PD"
@@ -2240,9 +2240,9 @@ msgstr "Konektatuko kideei erreserbatua"
 
 # [general comment]
 # Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Reset georef"
-msgstr "Reset georef"
+msgstr "Reiniciar"
 
 # [WARNING] es translation used
 msgid "Results %1% - %2% of %3%"
@@ -2273,23 +2273,23 @@ msgstr "Aldaketei buruzko (aukerako) informazioak "
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Rotate -90"
-msgstr "Rotate left"
+msgstr "Girar a la izquierda"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Rotate 90"
-msgstr "Rotate right"
+msgstr "Girar a la derecha"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Rotate the image by -90"
-msgstr "Rotate the image by 90° counter-clockwise"
+msgstr "Girar la imagen de 90° en el sentido antihorario"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Rotate the image by 90"
-msgstr "Rotate the image by 90° clockwise"
+msgstr "Girar la imagen de 90° en el sentido horario"
 
 msgid "Route not found"
 msgstr "Ez dago halako ibilbiderik."
@@ -2369,16 +2369,16 @@ msgstr "Gailur, laku, lepo edo pareta bat bilatu"
 msgid "Search a users"
 msgstr "Erabiltzaile bat aurkitu"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Search a xreports"
-msgstr "Search for an incident/accident"
+msgstr "Buscar un incidente o un accidente"
 
 msgid "Search criteria"
 msgstr "Bilaketa irizpideak"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Search in my images"
-msgstr "Search in my images"
+msgstr "Buscar en mis imágenes"
 
 # [WARNING] es translation used
 msgid "Search in my outings"
@@ -2387,9 +2387,9 @@ msgstr "Buscar entre mis salidas"
 # [general comment]
 # Titre du critère du filtre d'itinéraire, avec une liste de choix :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Search in my routes"
-msgstr "Search routes"
+msgstr "Buscar rutas"
 
 # [general comment]
 # [cda]
@@ -2522,9 +2522,9 @@ msgstr "Izen emate orria"
 msgid "Site not found"
 msgstr "Ez dago halako eskalada eskolarik."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Snow elevation is correct?"
-msgstr "Access and up/down snowline elevations are correct?"
+msgstr "Son correctas las altitudes de acceso y de calzamiento/descalzamiento ?"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2696,9 +2696,9 @@ msgstr "Orain zure kontutik deskonektaturik zaude."
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Suggestions: "
-msgstr "Suggestions: "
+msgstr "Sugerencias"
 
 msgid "Summary"
 msgstr "Zerrenda"
@@ -2775,9 +2775,9 @@ msgstr "El documento ya es asociado al documento corriente"
 msgid "The field is %1% characters max"
 msgstr "Eremu hau luzeegia da (%1% karakter gehienez)"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "The following infos are visible only by the moderators"
-msgstr "The information below will be visible only to the moderators and the researchers."
+msgstr "Los datos siguientes serán visibles unicamente por los moderadores y los científicos. "
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
@@ -2844,13 +2844,13 @@ msgstr "Irteera berri hau '[[sites/%2%|%1%]]' eskalada guneari lotua izango da (
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
 msgstr "Ibilbide berri honi loturik egongo den gailurra '[[summits/%2%|%1%]]' (document %2%) izango da"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "This new xrepors will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "This new incident/accident report will be linked with the site '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Este nuevo informe de incidente/accidente estará relacionado al sitio de escalada '[[sites/%2%|%1%]]' (document %2%)"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "This new xreports will be linked with outings '[[outings/%2%|%1%]]' (document %2%)"
-msgstr "This new incident/accident report will be linked with outing '[[outings/%2%|%1%]]' (document %2%)"
+msgstr "Este nuevo informe de incidente/accidente estará relacionado con la salida '[[outings/%2%|%1%]]' (document %2%)"
 
 # [WARNING] en translation used
 msgid "This new xreports will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
@@ -3029,9 +3029,9 @@ msgstr "Irudia bere tamainu originalean ikusi"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "View the associations history of the document"
-msgstr "History of associations and dissociations to the document"
+msgstr "Histórico de asociaciones y disociaciones del documento"
 
 msgid "View user profile"
 msgstr "Erabiltzaile honen profila ikusi"
@@ -3088,9 +3088,9 @@ msgstr "Con traza GPS:"
 msgid "Wrong association type"
 msgstr "Lotura mota ez dago onartua."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Wrong current password!"
-msgstr "You typed a wrong password"
+msgstr "Contraseña incorrecta"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -3098,13 +3098,13 @@ msgstr "You typed a wrong password"
 msgid "Wrong image type"
 msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Xreport"
-msgstr "Incident/accident:"
+msgstr "Incidente/accidente:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Xreport not found"
-msgstr "This incident/accident report does not exist."
+msgstr "Este informe de incidente/accidente no existe"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -3182,17 +3182,17 @@ msgstr "No tiene los derechos necesarios para asociar un documento a un artícul
 msgid "You do not have the right to link a route to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un itinerario a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link a route to another user xreport"
-msgstr "You do not have the right to link a route to an incident/accident report that you are not associated with"
+msgstr "No tiene usted los derechos necesarios para asociar un itinerario a un informe de incidente/accidente en el que usted no esta asociado."
 
 # [WARNING] es translation used
 msgid "You do not have the right to link a site to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un sitio de escalada a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link a site to another user xreport"
-msgstr "You do not have the right to link a crag/boulder site to an incident/accident report that you are not associated with"
+msgstr "No tiene usted los derechos necesarios para asociar un sitio de pared/bloque a un informe de incidente/accidente en el que usted no está relacionado."
 
 # [WARNING] es translation used
 msgid "You do not have the right to link an article to another user outing"
@@ -3214,21 +3214,21 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a una sali
 msgid "You do not have the right to link an image to another user profile"
 msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfil de usuario"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link an image to another user xreport"
-msgstr "You do not have the right to link an image to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar una imagen a un informe de incidente/accidente en el que usted no está relacionado."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link an outing to another user xreport"
-msgstr "You do not have the right to link an outing to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar una salida a un informe de incidente/accidente en el que usted no está relacionado."
 
 # [WARNING] es translation used
 msgid "You do not have the right to link an user to another user outing"
 msgstr "No tiene los derechos necesarios para asociar un usuario a una salida a la cual Usted no es asociado"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link an user to another user xreport"
-msgstr "You do not have the right to link a user to an incident/accident report you are not linked to"
+msgstr "No tiene usted los derechos necesarios para asociar un contribuidor a un informe de incidente/accidente en el que usted no está relacionado."
 
 msgid "You do not have the rights to edit this article"
 msgstr "Artikulu hau aldatzeko ez daukazu beharrezko eskubiderik"
@@ -3255,9 +3255,9 @@ msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org"
 
 # [general comment]
 # Title of email sent when a user is associated to a xreport
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You have been associated to an xreport"
-msgstr "You were added as a participant to a incident/accident report published on Camptocamp.org"
+msgstr "Usted ha sido asociado a un informe de incidente/accidente de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
@@ -3268,13 +3268,14 @@ msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org.
 # [general comment]
 # Details of email sent when a user is associated to a xreport
 # As model, you can use the text for outing (ID : You have been associated to outing %1% details)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You have been associated to xreport %1% details"
-msgstr "You have been added as a participant to an incident or accident report published on Camptocamp.org.<br />\n"
+msgstr "Usted ha sido asociado como contribuidor a un informe de incidente o accidente en Camptocamp.org.<br />\n"
 "<br />\n"
-"The description of the report is available here: %1%. Just as the author of the report you have the necessary rights to edit its contents and associations to other documents.<br />\n"
+"Este informe está situado en %1%. Como autor, tiene usted los derechos necesarios para la modificación y la asociación sobre él. <br />\n"
 "<br />\n"
-"--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not reply to it."
+"--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Email automático<br />(No responda a este mensaje)"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -3321,9 +3322,9 @@ msgstr "Idatziriko kate anti-spam a ez da zuzena."
 msgid "Your are connected as "
 msgstr "Zu zara "
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Your current password is needed before modifying these properties"
-msgstr "Your current password is needed before modifying following properties"
+msgstr "Vuestra contraseña actual es necesaria para poder modificar los elementos aquí bajo"
 
 # [WARNING] en translation used
 msgid "Your current password is required before applying changes"
@@ -3386,9 +3387,9 @@ msgstr "<h3>Inguruetako lo eta jateko tokiak</h3>Abiapuntu inguruko lo egiteko e
 msgid "_activities_info"
 msgstr "<h3>Jarduerak</h3> Jarduera moetak:.pasa arratoia irudien gainetik hauen esanahia jakiteko.<br /> Dokumentu bat hainbat jarduerari lotu daiteke:<br /><br /><strong>eski, erraketa</strong>: trabesia eskia, /eta/edo erraketa<br /><br /><strong> alpinismoa elur, izotz, mixto</strong>: alpinismoa elurretan, izotzetan edo mixtoan (goi mendian)<br /><br /><strong>harkaitza goi mendian</strong>: alpinismoa harkaitzean, bide luzeak goi mendian (ekipaturik edo ez)<br /><br /><strong>eskalada</strong>: bulderra, luze bat edo gehiagoko bideak eskalada eskolan (ekipaturik edo ez)<br /><br /><strong>izotz ur-jauzia</strong>: izotz ur-jauzia goi menditik at, <br /><br /><strong> oinezko txangoa</strong>: oinezko txangoa mendialdean (baina ez lautadan), bidezidor baten zehar edo ez."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "_activity_rate_info"
-msgstr "What was your practice frequency at the time of the event?"
+msgstr "A que frecuencia mas o menos, practicabais esta actividad en la época del acontecimiento ?"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Eskalada artifizialaren zailtasuna</h3> Eskalada artifizialaren zailtasunen akotazioa.<br />Artif zailtasunak, bidean zehar aurkitutako eskalada artifizialaren zailtasun maximoa adierazten du. Hau da, eskalatzean harkaitzean finkatutako laguntza puntuak erabiltzen dira.<br />Eskala A0-tik A6-ra doa."
@@ -3499,7 +3500,18 @@ msgstr "<h3>Artikuluen kategori zerrenda</h3><br /><strong>enziklopedia</strong>
 
 # [WARNING] es translation used
 msgid "_category_info"
-msgstr "<h3>Categoría de usuario</h3>Este campo facultativo permite encontrar más fácilmente al usuario deseado filtrándolos por categoría. Es practico para encontrar a los clubs o profesionales de una región.<br /><br /><strong>No profesional</strong>: Persona que sale a la montana por su cuenta, sin ser profesional. Corresponde a la mayoría de los usuarios.<br /><br /><strong>Profesional </strong>: guía de alta montana o trekking, instructor de escalada habilitado, profesor de esquí, entrenador. El campo <em>actividades</em> permite fijar las actividades que corresponden a la profesión.<br /><br /><strong>Club o agrupación que organiza salidas a la montaña </strong>: Club o asociación de practicantes de montaña o de escalada. El campo <em>actividades</em> indica cuales son las actividades propuestas.<br /><br /><strong>Institución o asociación que no organiza salidas a la montaña</strong>: Organismo público o privado que no propone los servicios de un club: socorro, parque nacional, pronósticos meteorológicos, refugio, oficina de turismo, municipio, asociación de defensa del medio ambiente, etc."
+msgstr "<h3>Categoría de usuario</h3>\n"
+"Este campo facultativo permite encontrar más fácilmente al usuario deseado filtrándolos por categoría. Es practico para encontrar a los clubs o profesionales de una región.<br />\n"
+"<br />\n"
+"<strong>No profesional</strong>: Persona que sale a la montana por su cuenta, sin ser profesional. Corresponde a la mayoría de los usuarios.<br />\n"
+"<br />\n"
+"<strong>Profesional</strong>: guía de alta montana o trekking, instructor de escalada habilitado, profesor de esquí, entrenador. El campo <em>actividades</em> permite fijar las actividades que corresponden a la profesión.<br />\n"
+"<br />\n"
+"<strong>Club o agrupación que organiza salidas a la montaña</strong>: Club o asociación de practicantes de montaña o de escalada. El campo <em>actividades</em> indica cuales son las actividades propuestas.<br />\n"
+"<br />\n"
+"<strong>Institución</strong>: Organismo público o privado que no propone los servicios de un club: socorro, parque nacional, pronósticos meteorológicos, oficina de turismo, municipio, asociación de defensa del medio ambiente, etc.<br />\n"
+"<br />\n"
+"<strong>otro</strong>: Otro organismo o otro profesional."
 
 msgid "_children_proof_info"
 msgstr "<h3>Umeak</h3>Eskalda bidearen hasiera umeentzako egokia den adierazten du.<br />Terrenoaren arabera eta aurkitu daitezkeen arriskuen arabera (harri erorketa …), ondorengo neurriak hartu ditzake <strong>Ongi egokitua</strong>, <strong>Egokitua</strong>, <strong>Gutxi egokitua</strong> edo <strong>Arriskutsua</strong>."
@@ -5878,6 +5890,11 @@ msgid "gear and technique"
 msgstr "material y técnicas"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "material"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] es translation used
 msgid "gear_default"
@@ -6243,7 +6260,7 @@ msgid "insert image tag help"
 msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."
 
 msgid "institution"
-msgstr "instituzio edo organismo desberdinak"
+msgstr "instituzio"
 
 # [WARNING] en translation used
 msgid "internal_witness"
@@ -7163,6 +7180,10 @@ msgstr "fall of a person or roped party"
 # [WARNING] en translation used
 msgid "other_fall_form"
 msgstr "other fall of a person or roped party"
+
+# [WARNING] es translation used
+msgid "other_users"
+msgstr "otro"
 
 # [general comment]
 # [cda] title of second box on home
@@ -8446,6 +8467,12 @@ msgstr "tags"
 
 msgid "technics"
 msgstr "teknika"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+# [WARNING] es translation used
+msgid "technique article"
+msgstr "enciclopedia técnica"
 
 msgid "terms of use"
 msgstr "Erabilera baldintzak"

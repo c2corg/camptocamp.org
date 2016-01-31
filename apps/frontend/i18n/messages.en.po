@@ -3321,12 +3321,38 @@ msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test 
 
 # [general comment]
 # Aide contextuelle du champ : Catégories d'un article
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_categories_info"
-msgstr "<h3>Article categories</h3>More than one category may be selected.<br /><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>stories</strong>: Real or fiction stories and reports<br /><br /><strong>website info</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em>"
+msgstr "<h3>Article categories</h3>\n"
+"More than one category may be selected.<br />\n"
+"<br />\n"
+"<strong>mountain environment</strong>: general and perennial information on the mountain (geology, habitat, snow and avalanche ...)<br />\n"
+"<strong>gear</strong>: article about a gear (description, use, maintenance)<br />\n"
+"<strong>technical encyclopedia</strong>: article about a technique (gesture, training)<br />\n"
+"<strong>additions to the guidebook</strong>: article detailing a portion of a page of the guidebook (history of a route or a refuge, area geology...)<br />\n"
+"<strong>ecotourism</strong>: article about soft mobility and ecotourism<br />\n"
+"<strong>expeditions and far-away travels</strong>: story or information about an expedition or a far-away travel<br />\n"
+"<strong>stories</strong>: real or fiction stories and reports<br />\n"
+"<strong>c2c meetings</strong>: article about the preparation or the report of a meeting organized on camptocamp<br />\n"
+"<strong>tags</strong>: article used to \"tag\" documents by associating them with the article, for easy retrieval and perform complex searches in the guidebook<br />\n"
+"<strong>help, website info</strong>: article on the <em>camptocamp.org</em> website (help, information)<br />\n"
+"<strong>association</strong>: article about the <em>Camptocamp Association</em>\n"
+"<strong>draft</strong>: article in preparation (not published on the home page)<br />"
 
+# [WARNING] needs_update
 msgid "_category_info"
-msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as amateurs. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow down the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
+msgstr "<h3>User category</h3>\n"
+"This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br />\n"
+"<br />\n"
+"<strong>Amateur</strong>: Those who go to the mountains as amateurs. Most users belong to this category.<br />\n"
+"<br />\n"
+"<strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br />\n"
+"<br />\n"
+"<strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow down the activities offered.<br />\n"
+"<br />\n"
+"<strong>Institution</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Tourist offices or Environmental NGOs, etc.<br />\n"
+"<br />\n"
+"<strong>other</strong>: Other organization or other professional."
 
 msgid "_children_proof_info"
 msgstr "<h3>Children</h3>Indicates if the base of the routes is safe for children.<br />Depending on terrain and possible hazards (rockfall...), the field can be <strong>well suited</strong>, <strong>suitable</strong>, <strong>unsuitable</strong> or <strong>Dangerous</strong>."
@@ -5677,6 +5703,11 @@ msgid "gear and technique"
 msgstr "gear and techniques"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "gear"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
 msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only &quot;exotic&quot; gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned: ARVA beeper, shovel, probe, crampons, ice axe or tools, crevasse rescue gear (ticking the box &quot;requires glacier gear&quot; is enough), friends, stoppers and slings with no detail on number and sizes."
@@ -6016,7 +6047,7 @@ msgid "insert image tag help"
 msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
 
 msgid "institution"
-msgstr "miscellaneous institution or organization"
+msgstr "institution"
 
 # [WARNING] needs_review
 msgid "internal_witness"
@@ -6865,6 +6896,10 @@ msgstr "fall of a person or roped party"
 # [WARNING] needs_review
 msgid "other_fall_form"
 msgstr "other fall of a person or roped party"
+
+# [WARNING] needs_review
+msgid "other_users"
+msgstr "other"
 
 # [general comment]
 # [cda] title of second box on home
@@ -8052,6 +8087,12 @@ msgstr "tags"
 
 msgid "technics"
 msgstr "techniques"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+# [WARNING] needs_review
+msgid "technique article"
+msgstr "technical encyclopedia"
 
 msgid "terms of use"
 msgstr "Terms of use"

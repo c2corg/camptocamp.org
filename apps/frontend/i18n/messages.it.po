@@ -3292,7 +3292,8 @@ msgid "_categories_info"
 msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br />\n"
 "<br />\n"
 "<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br />\n"
-"<strong>materiale e tecnica</strong>: articolo sul materiale (descrizioni, uso...) o una tecnica (pratica, allenamento, )<br />\n"
+"<strong>materiale</strong>: articolo sul materiale (descrizioni, uso...)<br />\n"
+"<strong>enciclopedia tecnica</strong>: articolo sul una tecnica (pratica, allenamento, )<br />\n"
 "<strong>complementi alla guida</strong>: articoli per dettagliare un parte di un documento della guida (ceni storici per un itinerario, una cima, un rifugio, geologia di un massiccio...)<br />\n"
 "<strong>ecomobilità e ecoturismo</strong>: articoli sull'ecomobilità e l'ecotourisma<br />\n"
 "<strong>spedizioni e viaggi</strong>: racconti o informazioni su una spedizione o un viaggio<br />\n"
@@ -3303,8 +3304,20 @@ msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere seleziona
 "<strong>associazione</strong>: articoli su <em>Camptocamp Association</em> che gestisce il sito\n"
 "<strong>bozza</strong>: articoli in corso di redazione (non vengono pubblicati sulla home)"
 
+# [WARNING] needs_update
 msgid "_category_info"
-msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br /><br /><strong>amatore</strong>: Persona fisica che pratica come amatore.<br /><br /><strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br /><br /><strong>istituzione o associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, rifugio, ufficio del turismo, comune, associazione di difesa del ambiente, etc."
+msgstr "<h3>Categoria utente</h3>\n"
+"Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br />\n"
+"<br />\n"
+"<strong>amatore</strong>: Persona fisica che pratica come amatore.<br />\n"
+"<br />\n"
+"<strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br />\n"
+"<br />\n"
+"<strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br />\n"
+"<br />\n"
+"<strong>istituzione</strong>: Ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, ufficio del turismo, comune, associazione di difesa del ambiente, etc.<br />\n"
+"<br />\n"
+"<strong>altro</strong>: Altro ente o altro professionale."
 
 msgid "_children_proof_info"
 msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e degli eventuali pericoli (caduta massi...), il campo può prendere i valori <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
@@ -5667,6 +5680,11 @@ msgid "gear and technique"
 msgstr "materiale e tecnica"
 
 # [general comment]
+# nom de la catégorie d'article : matériel
+msgid "gear article"
+msgstr "materiale"
+
+# [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
 msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE: ARVA, pala, sonda per lo sci, ramponi, piccozza (alpinismo neve, ghiaccio, misto), materiale di sicurezza su ghiaccio (itinerari su ghiacciai)"
@@ -5994,7 +6012,7 @@ msgid "insert image tag help"
 msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagini associate al documento sono disponibili. Per un documento collaborativo, solo le immagini collaborative possono essere inserite."
 
 msgid "institution"
-msgstr "istituzione o associazione"
+msgstr "istituzione"
 
 # [WARNING] needs_review
 msgid "internal_witness"
@@ -6841,6 +6859,10 @@ msgstr "caduta di una persona o della cordata"
 # [WARNING] needs_review
 msgid "other_fall_form"
 msgstr "altra caduta di una persona o della cordata"
+
+# [WARNING] needs_review
+msgid "other_users"
+msgstr "altro"
 
 # [general comment]
 # [cda] title of second box on home
@@ -8005,6 +8027,12 @@ msgstr "tag "
 
 msgid "technics"
 msgstr "tecnica"
+
+# [general comment]
+# nom de la catégorie d'article : encyclopédie technique
+# [WARNING] needs_review
+msgid "technique article"
+msgstr "enciclopedia tecnica"
 
 msgid "terms of use"
 msgstr "Condizioni di uso"
