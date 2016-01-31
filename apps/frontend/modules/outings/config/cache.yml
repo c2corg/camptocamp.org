@@ -1,5 +1,8 @@
 # we do not cache partials (not worth) :
 
+view:
+ lifetime: 700000
+
 _conditions_level:
   enabled:  off
 
