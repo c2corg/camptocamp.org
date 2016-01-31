@@ -69,17 +69,20 @@ c2corg.tree.LayerNodeUIWithTooltip = Ext.extend(GeoExt.tree.LayerNodeUI, {
         var n = this.node, a = n.attributes;
 
         c2corg.tree.LayerNodeUIWithTooltip.superclass.render.apply(this, arguments);
-        
+
         // add tooltip button
-        Ext.DomHelper.insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
-            .on("click", function() {
-                new Ext.Window({
-                    title: a.tooltipTitle,
-                    html: a.tooltipHtml,
-                    width: 400,
-                    modal: true
-                }).show();
-            });
+        if (!this.tooltipAdded) {
+            Ext.DomHelper.insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
+                .on("click", function() {
+                    new Ext.Window({
+                        title: a.tooltipTitle,
+                        html: a.tooltipHtml,
+                        width: 400,
+                        modal: true
+                    }).show();
+                });
+           this.tooltipAdded = true;
+        }
     }
 });
 

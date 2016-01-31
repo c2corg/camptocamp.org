@@ -443,6 +443,11 @@ em.mandatory_asterisk
   border: 1px solid #CCCCCC;
 }
 
+.img_box img, img.no_legend
+{
+  max-width: 100%;
+}
+
 .no_border
 {
   border: 0 !important;
