@@ -1,3 +1,6 @@
+view:
+  lifetime: 700000
+
 # we do not cache partials (not worth) :
 _inline_form:
   enabled: off
