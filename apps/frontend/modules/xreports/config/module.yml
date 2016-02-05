@@ -25,7 +25,7 @@ all:
       1: avalanche
       2: stone_fall
       3: falling_ice
-      7: other_fall_form
+      7: other_fall
       6: crevasse_fall
       8: roped_fall_form
       9: physical_failure
