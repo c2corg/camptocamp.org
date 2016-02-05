@@ -19,7 +19,6 @@ all:
       8: roped_fall
       9: physical_failure
       4: lightning
-      5: wind
       100: other
     list_form:
       0:
@@ -31,7 +30,6 @@ all:
       8: roped_fall_form
       9: physical_failure
       4: lightning
-      5: wind
       100: other
 
   avalanche_level:
