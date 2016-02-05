@@ -15,7 +15,7 @@ echo '<div>';
 echo input_hidden_tag('document_id', $link_with);
 display_document_edit_hidden_tags($document);
 echo '</div>';
-echo mandatory_fields_warning(array('xreport form warning'));
+echo mandatory_fields_warning(array('xreport form warning'), false);
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
