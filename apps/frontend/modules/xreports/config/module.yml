@@ -14,12 +14,13 @@ all:
       1: avalanche
       2: stone_fall
       3: falling_ice
-      4: lightning
-      5: wind
-      6: crevasse_fall
       7: other_fall
+      6: crevasse_fall
       8: roped_fall
       9: physical_failure
+      4: lightning
+      5: wind
+      100: other
     list_form:
       0:
       1: avalanche
