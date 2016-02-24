@@ -2948,13 +2948,23 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildLstringCondition(&$conditions, &$values, $field, $param)
     {
+        if (is_array($field))
+        {
+            $field_1 = $field[0] . '.' . $field[2];
+            $field_2 = $field[1] . '.' . $field[2];
+        }
+        else
+        {
+            $field_1 = $field_2 = $field;
+        }
+
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "$field_1 IS NULL";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "$field_1 IS NOT NULL";
         }
         elseif (preg_match('/^(>|<)([0-9]+)$/', $param, $regs))
         {
@@ -2979,12 +2989,12 @@ class BaseDocument extends sfDoctrineRecordI18n
             switch ($compare)
             {   
                 case '>':
-                    $conditions[] = "char_length($field) >= ?";
+                    $conditions[] = "(char_length($field_2) >= ?)";
                     $values[] = $value1;
                     break;
 
                 case '<':
-                    $conditions[] = "($field IS NULL OR char_length($field) <= ?)";
+                    $conditions[] = "($field_1 IS NULL OR (char_length($field_2) <= ?))";
                     $values[] = $value1;
                     break;
             }
