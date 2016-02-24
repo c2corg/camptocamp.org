@@ -88,7 +88,7 @@ class Summit extends BaseSummit
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Istring', 'maps_info', 'mapinfo', $join);
-                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', 'si.description', 'descl', $join_i18n);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', 'array('si', 's2', 'description'), 'descl', $join_i18n);
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'sarnd', $join);
             
