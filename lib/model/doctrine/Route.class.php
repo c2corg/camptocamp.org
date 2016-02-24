@@ -440,6 +440,10 @@ class Route extends BaseRoute
                     $joins['route_i18n'] = true;
                 }
                 
+                // string length criteria
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', 'ri.description', 'descl', $join_i18n);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', 'ri.route_history', 'histl', $join_i18n);
+                
                 // nousers
                 $user_groups = c2cTools::getArrayElement($params_list, 'nousers');
                 if (!is_null($user_groups))
