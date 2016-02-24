@@ -256,7 +256,8 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $join_ids = null;
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
-                    //$nb_join = 0;
+                    break;
+                case 'Lstring': self::buildLstringCondition($conditions, $values, $field, $value);
                     break;
                 case 'Mstring':
                     $infos = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
@@ -2944,6 +2945,56 @@ class BaseDocument extends sfDoctrineRecordI18n
             $values[] = '%' . urldecode($param) . '%';
         }
     }
+
+    public static function buildLstringCondition(&$conditions, &$values, $field, $param)
+    {
+        if ($param == '-')
+        {
+            $conditions[] = "$field IS NULL";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "$field IS NOT NULL";
+        }
+        elseif (preg_match('/^(>|<)([0-9]+)$/', $param, $regs))
+        {
+            if (!empty($regs[1]))
+            {
+                $compare = $regs[1];
+            }
+            else
+            {
+                return;
+            }
+
+            if (is_numeric($regs[2]))
+            {
+                $value1 = $regs[2];
+            }
+            else
+            {
+                return;
+            }
+
+            switch ($compare)
+            {   
+                case '>':
+                    $conditions[] = "char_length($field) >= ?";
+                    $values[] = $value1;
+                    break;
+
+                case '<':
+                    $conditions[] = "($field IS NULL OR char_length($field) <= ?)";
+                    $values[] = $value1;
+                    break;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+    
     /*
      * This function is used to search in 2 fields. If we got a :, first part is for first field,
      * second part for second field (and thus use AND)
