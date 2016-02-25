@@ -278,3 +278,7 @@ all:
         id: 116
         image: diamir-vipec2016.jpg
         alt: "Diamir Vipec 12"
+      tagnepal:
+        id: 120
+        image: tagnepal.jpg
+        alt: "TAGnepal, trekking et exp√dition en Himalaya"
