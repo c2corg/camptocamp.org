@@ -2966,11 +2966,19 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field_1 IS NOT NULL";
         }
-        elseif (preg_match('/^(>|<)([0-9]+)$/', $param, $regs))
+        elseif (preg_match('/^(>|<)?([0-9]+)(~)?([0-9]*)$/', $param, $regs))
         {
             if (!empty($regs[1]))
             {
                 $compare = $regs[1];
+            }
+            elseif (empty($regs[3]))
+            {
+                $compare = '=';
+            }
+            elseif (!empty($regs[3]))
+            {
+                $compare = '~';
             }
             else
             {
@@ -2985,17 +2993,29 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 return;
             }
+            $value2 = is_numeric($regs[4]) ? $regs[4] : 0;
 
             switch ($compare)
             {   
                 case '>':
-                    $conditions[] = "(char_length($field_2) >= ?)";
+                    $conditions[] = "(length($field_2) >= ?)";
                     $values[] = $value1;
                     break;
 
                 case '<':
-                    $conditions[] = "($field_1 IS NULL OR (char_length($field_2) <= ?))";
+                    $conditions[] = "($field_1 IS NULL OR (length($field_2) <= ?))";
                     $values[] = $value1;
+                    break;
+
+                case '=':
+                    $conditions[] = "length($field_2) = ?";
+                    $values[] = $value1;
+                    break;
+
+                case '~':
+                    $conditions[] = "length($field_2) BETWEEN ? AND ?";
+                    $values[] = min($value1, $value2);
+                    $values[] = max($value1, $value2);
                     break;
             }
         }
