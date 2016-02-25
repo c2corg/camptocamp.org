@@ -180,6 +180,10 @@ class Site extends BaseSite
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('ti', 't2', 'site_history'), 'histl', $join_i18n);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('ti', 't2', 'remarks'), 'remkl', $join_i18n);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('ti', 't2', 'way_back'), 'backl', $join_i18n);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('ti', 't2', 'external_resources'), 'eresl', $join_i18n);
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'tarnd', $join);
             
