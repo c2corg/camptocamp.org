@@ -101,6 +101,7 @@ class Parking extends BaseParking
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('pi', 'p2', 'accommodation'), 'accoml', $join_i18n);
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'parnd', $join);
             
