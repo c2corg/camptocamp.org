@@ -104,6 +104,7 @@ class Hut extends BaseHut
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'h', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Lstring', array('hi', 'h2', 'pedestrian_access'), 'accessl', $join_i18n);
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'harnd', $join);
             
