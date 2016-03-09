@@ -256,7 +256,8 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $join_ids = null;
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
-                    //$nb_join = 0;
+                    break;
+                case 'Lstring': self::buildLstringCondition($conditions, $values, $field, $value);
                     break;
                 case 'Mstring':
                     $infos = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
@@ -2944,6 +2945,86 @@ class BaseDocument extends sfDoctrineRecordI18n
             $values[] = '%' . urldecode($param) . '%';
         }
     }
+
+    public static function buildLstringCondition(&$conditions, &$values, $field, $param)
+    {
+        if (is_array($field))
+        {
+            $field_1 = $field[0] . '.' . $field[2];
+            $field_2 = $field[1] . '.' . $field[2];
+        }
+        else
+        {
+            $field_1 = $field_2 = $field;
+        }
+
+        if ($param == '-')
+        {
+            $conditions[] = "$field_1 IS NULL";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "$field_1 IS NOT NULL";
+        }
+        elseif (preg_match('/^(>|<)?([0-9]+)(~)?([0-9]*)$/', $param, $regs))
+        {
+            if (!empty($regs[1]))
+            {
+                $compare = $regs[1];
+            }
+            elseif (empty($regs[3]))
+            {
+                $compare = '=';
+            }
+            elseif (!empty($regs[3]))
+            {
+                $compare = '~';
+            }
+            else
+            {
+                return;
+            }
+
+            if (is_numeric($regs[2]))
+            {
+                $value1 = $regs[2];
+            }
+            else
+            {
+                return;
+            }
+            $value2 = is_numeric($regs[4]) ? $regs[4] : 0;
+
+            switch ($compare)
+            {   
+                case '>':
+                    $conditions[] = "(length($field_2) >= ?)";
+                    $values[] = $value1;
+                    break;
+
+                case '<':
+                    $conditions[] = "($field_1 IS NULL OR (length($field_2) <= ?))";
+                    $values[] = $value1;
+                    break;
+
+                case '=':
+                    $conditions[] = "length($field_2) = ?";
+                    $values[] = $value1;
+                    break;
+
+                case '~':
+                    $conditions[] = "length($field_2) BETWEEN ? AND ?";
+                    $values[] = min($value1, $value2);
+                    $values[] = max($value1, $value2);
+                    break;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+    
     /*
      * This function is used to search in 2 fields. If we got a :, first part is for first field,
      * second part for second field (and thus use AND)

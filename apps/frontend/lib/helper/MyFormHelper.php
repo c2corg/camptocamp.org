@@ -692,14 +692,18 @@ function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $lab
     return checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after, $i18n, $list_class, true);
 }
 
-function mandatory_fields_warning($warnings = array())
+function mandatory_fields_warning($warnings = array(), $show_common = true)
 {
     $out =  '<ul class="mandatory_fields_warning">';
     foreach ($warnings as $warning)
     {
         $out .= '<li>' . __($warning) . '</li>';
     }
-    return $out . '<li>' . __('mandatory_fields') . '</li></ul>';
+    if ($show_common)
+    {
+        $out .= '<li>' . __('mandatory_fields') . '</li>';
+    }
+    return $out . '</ul>';
 }
 
 function object_months_list_tag($document, $fieldname, $multiple = true)

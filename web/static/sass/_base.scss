@@ -443,7 +443,7 @@ em.mandatory_asterisk
   border: 1px solid #CCCCCC;
 }
 
-.img_box img, img.no_legend
+img.no_legend
 {
   max-width: 100%;
 }
@@ -1011,6 +1011,10 @@ span.default_text, p.default_text
 {
   height:auto;
   float:left;
+}
+
+.articles_content .col, .articles_content .col_left, .articles_content .col_right
+{
   margin-bottom: 2em;
 }
 
