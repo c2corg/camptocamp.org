@@ -12,6 +12,8 @@ fields:
     sfEmailValidator:
       strict:       true
       email_error:  This email address is invalid
+    myTempEmailValidator:
+      temp_email_error:  This email address is invalid
     myUniqueValidator:
       class:        UserPrivateData
       column:       email
