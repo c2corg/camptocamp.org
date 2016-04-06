@@ -641,10 +641,12 @@ class sfPunBBCodeParser
                 $image = $image_temp;
             }
         }
-        $error_image = is_null($image);
+        $error_image_id = is_null($image);
+        $error_image_licence = !$error_image_id && $filter_image_type && $image['image_type'] == 2;
+        $error_image = $error_image_id || $error_image_licence;
         
         // Error image
-        if ($error_image)
+        if ($error_image_id)
         {
             if (!$show_legend)
             {
@@ -661,6 +663,23 @@ class sfPunBBCodeParser
             $short_title = __('Image could not be loaded');
             $legend = __('Image could not be loaded long') . '<br />' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
         }
+        elseif ($error_image_licence)
+        {
+            if (!$show_legend)
+            {
+                $show_legend = true;
+                $img_class[] = 'img_box';
+            }
+            $img_class[] = 'img_error';
+            $no_picto = true;
+            
+            $path = '/static/images/picto';
+            $filename = 'warning';
+            $extension = 'png';
+            
+            $short_title = __('Wrong image type');
+            $legend = __('Wrong image type long') . '<br />' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
+        }
         else
         {
             if (empty($legend))
@@ -676,21 +695,6 @@ class sfPunBBCodeParser
             if (!empty($title))
             {
                 $title = ' title="' . $title . '"';
-            }
-            
-            // Warning image - TODO to be removed after transition period, use error img instead
-            if ($filter_image_type && $image['image_type'] == 2)
-            {
-                if (!$show_legend)
-                {
-                    $show_legend = true;
-                    $img_class[] = 'img_box';
-                }
-                $img_class[] = 'img_error';
-                $img_class[] = 'img_warning';
-                $no_picto = true;
-                
-                $legend = __('Wrong image type');
             }
         }
         
