@@ -1,6 +1,6 @@
 <?php
 
-/* check that email adress is not from a temp domain */
+/* check that email address is not from a temp domain */
 class myTempEmailValidator extends sfValidator
 {
     public function execute(&$value, &$error)
