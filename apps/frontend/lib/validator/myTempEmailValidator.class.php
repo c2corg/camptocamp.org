@@ -5,7 +5,7 @@ class myTempEmailValidator extends sfValidator
 {
     public function execute(&$value, &$error)
     {
-        $regex = '/@((([^.]+)\.)+)([a-zA-Z]{3,}|[a-zA-Z.]{5,})/';
+        $regex = '/@((([^.]+)\.)+)([a-zA-Z]{2,}|[a-zA-Z.]{5,})/';
 
         if (!preg_match($regex, $value, $matches) || in_array(ltrim($matches[0], '@'), array(
             "0815.ru0clickemail.com", "0-mail.com", "0wnd.net", "0wnd.org", "10minutemail.com", "20minutemail.com",
