@@ -176,7 +176,6 @@ a[href^="http://escalade.camptocamp.com"]:after {
   position: absolute;
   left: 20px;
   margin-top: -13px;
-  z-index: 1;
 }
 
 .tips, .edit-tips, .big_tips, .float-tips
@@ -387,7 +386,6 @@ em.mandatory_asterisk
     clear: right;
     left: 10px;
     top: 5px;
-    z-index: 2;
   }
 }
 
@@ -402,7 +400,6 @@ em.mandatory_asterisk
   height:88px;
   margin-left: 200px;
   margin-right:490px;
-  z-index: 3;
   background: white;
   margin-top:10px;
 }
@@ -781,11 +778,6 @@ h1 .logo_mini
   float: left;
   overflow:hidden;
   background-color: white;
-  z-index: 10;
-}
-.wide .content_article
-{
-  z-index: 12;
 }
 
 .content_article .section_subtitle
@@ -3178,7 +3170,6 @@ ul.list404 li
     padding: 8px 0 0 8px;
     width: 194px;
     border-right: 1px solid white;
-    z-index: 11;
     position: relative;
   }
 
@@ -3197,14 +3188,12 @@ ul.list404 li
   {
     width: 200px;
     border-right: 1px solid white;
-    z-index: 11; /* 999 */
     position: relative;
   }
 
   .wide #nav_edit li.active_tab
   {
     width: 400px;
-    z-index: 9;
   }
 
   #nav_edit li a:hover, #nav_edit li div:hover, #nav_edit li.active_tab a {

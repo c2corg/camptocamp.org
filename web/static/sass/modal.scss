@@ -48,6 +48,7 @@ $default-width: 500px;
 }
 
 .modal-content {
+  z-index: 10001;
   background-color: white;
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.3);
