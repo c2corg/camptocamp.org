@@ -199,7 +199,11 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.equipment_rating', 'tprat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.routes_quantity', 'rqua', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.mean_height', 'tmhei', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.min_height', 'tminh', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.max_height', 'tmaxh', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.mean_rating', 'tmrat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.min_rating', 'tminr', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.max_rating', 'tmaxr', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'facings'), 'tfac', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'rock_types'), 'trock', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.children_proof', 'chil', $join);
