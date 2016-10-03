@@ -132,7 +132,7 @@ HTTPS_LOGIN = false
 
 ; Concours changer d'approche
 MW_CONTEST_ID = 700597
-MW_CONTEST_ENABLED = true
+MW_CONTEST_ENABLED = false
 
 STATISTICS_URL = stats.camptocamp.org
 
