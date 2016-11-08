@@ -767,6 +767,7 @@ all:
       2: country
     range:
       alpes_s:
+        820370: 54 # Calanques
         14463: 54 # Provence
         14464: 52 # Préalpes Dignoises
         14465: 50 # Pelat - Préalpes de Castellane
