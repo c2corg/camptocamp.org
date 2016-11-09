@@ -113,6 +113,19 @@ class Images
     }
 
     /**
+     * Duplicate bug: different image docs may have the same file..
+     */
+    public static function isDuplicateFile($file)
+    {
+        return Doctrine_Query::create()
+                   ->select('COUNT(i.id) num')
+                   ->from('Image i')
+                   ->where('i.filename = ?', $file)
+                   ->execute()
+                   ->getFirst()->num > 1;
+    }
+
+    /**
      * Remove given image and its resized versions.
      */
     public static function removeAll($file, $path)

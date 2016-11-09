@@ -829,8 +829,16 @@ class imagesActions extends documentsActions
             $filenames = Image::getLinkedFiles($id);
             foreach ($filenames as $filename)
             {
-                $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images';
-                Images::removeAll($filename, $path);
+                // check that image file is used only by this document (image duplicates bug)
+                if (!Images::isDuplicateFile($filename))
+                {
+                    $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images';
+                    Images::removeAll($filename, $path);
+                }
+                else
+                {
+                     c2cTools::log("images::deleteLinkedFile skip duplicate image");
+                }
             }
         }
         else

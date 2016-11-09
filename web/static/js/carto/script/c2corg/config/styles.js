@@ -83,7 +83,7 @@ c2corg.styleMap = function (layertype, config) {
                 if (typeof attr.summit_type != "undefined") {
                     if (attr.summit_type == 2) attr.icon = "picto/pass.png";
                     if (attr.summit_type == 3) attr.icon = "picto/lake.png";
-                    if (attr.summit_type == 4) attr.icon = "picto/crag.png";
+                    if (attr.summit_type == 4 || attr.summit_type == 12) attr.icon = "picto/crag.png";
                     // FIXME: other types?
                 }
             } else if (attr.module == "parkings" || attr.module == "public_transportations") {
