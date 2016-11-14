@@ -37,7 +37,7 @@ $id = $sf_params->get('id');
     <?php if (isset($lines[0][0]['ele'])): ?>
     <ele><?php echo $lines[0][0]['ele'] ?></ele>
     <?php endif ?>
-    <name><?php echo $sf_data->getRaw('name') ?></name>
+    <name><?php echo htmlspecialchars($sf_data->getRaw('name'), ENT_XML1) ?></name>
   </wpt>
   <?php else: /////// use track or route, depending on module ////////
   switch ($sf_context->getModuleName())
