@@ -55,7 +55,7 @@ $id = $sf_params->get('id');
   }
   foreach ($lines as $points): ?>
   <<?php echo $line_tag ?>>
-    <name><?php echo <?php echo htmlspecialchars($sf_data->getRaw('name'), ENT_XML1) ?></name>
+    <name><?php echo htmlspecialchars($sf_data->getRaw('name'), ENT_XML1) ?></name>
     <?php if (isset($inner_tag)) echo "<$inner_tag>\n"; ?>
       <?php foreach ($points as $point): ?>
       <<?php echo $point_tag ?> lat="<?php echo $point['lat'] ?>" lon="<?php echo $point['lon'] ?>"> 
