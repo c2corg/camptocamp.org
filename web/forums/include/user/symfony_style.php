@@ -15,6 +15,11 @@ if ($sf_user->getCulture() == 'en')
     $sf_response->addStylesheet('/static/css/ac.css');
 }
 
+if (sfConfig::get('app_readonly') == 1)
+{
+    $sf_response->addStylesheet('/static/css/readonly.css', 'last');
+}
+
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
 

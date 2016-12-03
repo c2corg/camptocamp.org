@@ -586,6 +586,11 @@ msgstr "L'associació ha fallat"
 msgid "Could not perform association with itself"
 msgstr "No es pot fer una auto-associació"
 
+msgid "Could not perform merge with itself"
+msgstr "No es pot fusionar un document amb si mateix"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
 msgstr "El sistema no ha entès la teva demanda"
 
@@ -714,6 +719,9 @@ msgstr "Aquest document ha estat fusionat i, per tant, no pot ser desprotegit."
 
 msgid "Current document has been merged into document %1%"
 msgstr "Aquest document ha estat fusionat amb el document %1%."
+
+msgid "Current document is write-protected"
+msgstr "Aquest document està protegit contra escriptura"
 
 msgid "Current password"
 msgstr "Contrasenya actual"
@@ -2532,6 +2540,9 @@ msgstr "TD+"
 msgid "TD-"
 msgstr "TD-"
 
+msgid "Target document is write-protected"
+msgstr "El document diana està protegit contra escriptura"
+
 msgid "Text only"
 msgstr "Només texts"
 
@@ -2859,9 +2870,17 @@ msgid "Wrong current password!"
 msgstr "Contrasenya incorrecta"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
 msgid "Wrong image type"
-msgstr "Aviat les imatges personals no es podran inserir als documents col·laboratius.<br /><a href=\"/articles/151910#image\">Més informació</a>"
+msgstr "Una imatge personal no es pot inserir en un document col·laboratiu."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
+msgid "Wrong image type long"
+msgstr "Una imatge personal no es pot inserir en un document col·laboratiu.<br />\n"
+"<a href=\"/articles/151910#image\">Més informació</a>"
 
 msgid "Xreport"
 msgstr "Incident/accident:"
@@ -3113,6 +3132,7 @@ msgstr "<h3>Allotjament, restauració i patrimoni cultural proper</h3>Informaci�
 
 # [comment]
 # insert snowshoeing in the activities list
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activitats</h3>\n"
 "Tipus d'activitats: passeu el ratolí per damunt dels pictogrames per conèixer-ne el significat.<br />\n"
@@ -3439,7 +3459,7 @@ msgstr "<h3>Qualitat de l'equipament present</h3>\n"
 msgid "_event_type_info"
 msgstr "Tipus d'esdeveniment que ha tingut lloc o que hagués pogut derivar-se de la situació.<br />\n"
 "Se'n poden seleccionar diversos tipus.<br />\n"
-"El tipus \"caiguda estant encordat\" permet precisar \"caiguda a esquerda\", \"altra caiguda\" i \"allau\", però no es pot seleccionar sol."
+"El tipus \"caiguda estant encordat\" permet precisar \"allau\", \"caiguda\" i \"caiguda a esquerda\", però no es pot seleccionar sol."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposició</h3>Durada de l'exposició utilitzada.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
@@ -3517,6 +3537,7 @@ msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Calefacció</h3>Presència de calefacció en funcionament\n"
 "quan el refugi no està guardat: elèctrica, solar o de llenya. Com a indicació general, pot ser que al final de l'hivern falti combustible."
 
+# [WARNING] needs_update
 msgid "_height_diff_down_info"
 msgstr "<h3>Desnivell negatiu</h3><em><u>Sortida</u>:</em><br />Desnivell negatiu acumulat en una sortida.<br />Si s'associa una traça GPX a la sortida i el camp no s'omple, el desnivell negatiu se'n calcula automàticament.<br /><br /><em><u>Itinerari</u>:</em><br />Si un refugi s'utilitza freqüentment per recórrer un itinerari, el desnivell negatiu es calcularà segons: (la pujada si implica baixades no negligibles) + la baixada fins a l'accés/aparcament de tornada.<br /><br />Útil essencialment en esquí i excursionisme, no és necessari omplir aquest camp en les altres activitats, tret de si és diferent al desnivell positiu (cas d'una travessa que no permet passar pel refugi a la baixada).<br />Si s'associa una traça GPX a l'itinerari i el camp no s'omple, el desnivell negatiu se'n calcula automàticament."
 
@@ -3526,6 +3547,7 @@ msgstr "<h3>Desnivell</h3>Desnivells positiu i/o negatiu acumulats.<br /><br /><
 msgid "_height_diff_up_info"
 msgstr "<h3>Desnivell positiu</h3><em><u>Sortida</u>&nbsp;:</em><br />Desnivell positiu acumulat en una sortida.<br />Si s'afegeix una traça GPX i el camp no s'omple, el desnivell positiu se'n calcula automàticament.<br /><br /><em><u>Itinerari</u>:</em><br />En el cas d'un itinerari en què es distingeix l'itinerari de la via pròpiament dita, el desnivell positiu es calcularà segons: l'aproximació + la via (+ el retorn si implica pujades no negligibles).<br />Si un refugi s'utilitza freqüentment per recórrer l'itinerari, el desnivell positiu es calcularà segons: l'aproximació des del refugi + la via (+ el retorn).<br />Si s'afegeix una traça GPX i el camp no s'omple, el desnivell positiu se'n calcula automàticament."
 
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
 msgstr "<h3>Escala de dificultats en excursionisme</h3>Grau de dificultats d'un itinerari d'excursionisme. L'escala s'inspira en la proposada pel Club Alpí Suís.<br />\n"
 "<br />\n"
@@ -3969,6 +3991,7 @@ msgstr "<h3>Tipus de roca</h3>Natura geològica de la roca en la que s'efectua l
 msgid "_route_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de l'itinerari.<br />En una via d'escalada, mencionarem la data i el nom dels aperturistes, o de l'equipament, o dels re-equipaments.<br />En un nou itinerari d'alpinisme o de esquí, les ascensions o els descensos que han fet història: la primera, en solo, en hivernal, primeres repeticions... <br /><i>L'històric general del cim no ha de figurar en aquest camp, sinó a la pàgina del cim, com a part de la descripció.</i>"
 
+# [WARNING] needs_update
 msgid "_route_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traça GPS associada a l'itinerari.<br />Aquesta informació es calcula a partir del fitxer GPX associat i no està disponible en els documents sense traça GPS.<br />La longitud serà substituïda si una nova traça GPS és associada al document."
 
@@ -4205,7 +4228,7 @@ msgstr "<h3>Conseqüències sobre les vostres pràctiques</h3>\n"
 # [general comment]
 # Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_xreport_other_comments_info"
 msgstr "<h3>Conseqüències físiques i altres comentaris</h3>\n"
 "Descrigueu breument les eventuals ferides.<br />\n"
@@ -4722,6 +4745,7 @@ msgstr "Reconeixement - Compartir amb la mateixa llicència"
 msgid "c button title"
 msgstr "Utilitza un tipus de lletra monoespaiat en el text seleccionat"
 
+# [WARNING] needs_update
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org... pur excursionisme!"
 
@@ -5447,13 +5471,11 @@ msgstr "Bibliografia i webgrafia:"
 # Texte affichée dans le champ "Bibliographie et webographie" lorsqu'il est vide, à l'édition d'un itinéraire ou d'un site de couenne.
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] en translation used
 msgid "external_resources_default"
-msgstr "The relevant guidebooks should be linked to the route or crag/bouldering area after uploading. It is not normally necessary to record them in this field. "
+msgstr "Els llibres de ressenyes s'han d'associar als itineraris o sectors d'escalada o de bloc un cop enregistrats. En general no és necessari indicar-los a aquest camp."
 
-# [WARNING] en translation used
 msgid "external_witness"
-msgstr "Witness outside the group"
+msgstr "testimoni extern al grup"
 
 msgid "facing"
 msgstr "Orientació principal:"
@@ -5464,9 +5486,8 @@ msgstr "Ori."
 msgid "facings"
 msgstr "Orientacions:"
 
-# [WARNING] en translation used
 msgid "falling_ice"
-msgstr "Ice or serac fall"
+msgstr "caiguda de glaç o de serac"
 
 msgid "family portal"
 msgstr "Família"
@@ -5669,9 +5690,8 @@ msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipamen
 msgid "gear_shop"
 msgstr "botiga d'esports, de lloguer de material, de reparació"
 
-# [WARNING] en translation used
 msgid "gender"
-msgstr "Gender:"
+msgstr "Sexe:"
 
 msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"
@@ -5743,9 +5763,8 @@ msgstr "&gt; o ="
 msgid "gres"
 msgstr "gres"
 
-# [WARNING] en translation used
 msgid "group_management"
-msgstr "Group dynamics&nbsp;:"
+msgstr "Dinàmica del grup:"
 
 # [general comment]
 # Texte affichée dans le champ "Dynamique de groupe" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -5822,9 +5841,11 @@ msgstr "Amagar les modificacions menors"
 msgid "hideborderlegend"
 msgstr "Amaga el marc i la llegenda:"
 
+# [WARNING] needs_update
 msgid "hiking"
 msgstr "excursionisme"
 
+# [WARNING] needs_update
 msgid "hiking_rating"
 msgstr "Cotació excursionisme:"
 
@@ -5951,9 +5972,9 @@ msgstr "Importat des de la versió 4 del web"
 msgid "impossible crossing"
 msgstr "infranquejable - passatge impossible"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "increase_impact"
-msgstr "Aggravating factors:"
+msgstr "Elements que han agreujat les conseqüències:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont accentué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -5987,9 +6008,8 @@ msgstr "Aquesta eina permet inserir al text una imatge <b>, que quedarà associa
 msgid "institution"
 msgstr "institucion"
 
-# [WARNING] en translation used
 msgid "internal_witness"
-msgstr "witness group member"
+msgstr "testimoni del propi grup"
 
 msgid "invalid URL"
 msgstr "aquesta URL no és vàlida"
@@ -6118,9 +6138,8 @@ msgstr "aproximació amb remuntadors mecànics possible"
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
 
-# [WARNING] en translation used
 msgid "lightning"
-msgstr "lightning"
+msgstr "llamp"
 
 msgid "ligurie"
 msgstr "Ligúria"
@@ -6206,15 +6225,19 @@ msgstr "Si us inscriviu aquí, rebreu el correu enviat a aquestes llistes de dif
 msgid "mailing lists"
 msgstr "Llistes de difusió per email des butlletins nivològics"
 
-# [WARNING] en translation used
 msgid "male"
-msgstr "male"
+msgstr "home"
 
 msgid "manage images presentation"
 msgstr "Aquesta pàgina us permetrà canviar fàcilment la llicència de les imatges que hagueu penjat a camptocamp.org.<br /><br />Les imatges que apareixien aquí sota són de tipus personal, sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Podeu escollir de fer-les disponibles com a contingut col·laboratiu, sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, de tal manera que permetreu a la comunitat d'utilitzar-les més lliurement per a la guia de ressenyes.<br />En efecte, només les imatges col·laboratives poden inserir-se al text d'un document col·laboratiu (una foto que il·lustri un itinerari, per exemple), per tal que el text i les imatges quedin sotmeses a la mateixa llicència.<br />Ara per ara no hi ha limitació tècnica (el temps que cal per passar una proporció important de les fotos sota llicència col·laborativa, o bé per suprimir-les del text).<br /><em>Per a més informació, <a href=\"/forums/viewtopic.php?id=155692\">vegeu la discussió al respecte al fòrum</a>.</em><br /><br />Seleccioneu les imatges que desitgeu passar a col·laboratives i després valideu els canvis amb l'ajuda del botó <em>Canviar la llicència</em>.<br /><span style=\"color: red\">Atenció: aquest canvi és irreversible i no es pot canviar la llicència d'una imatge col·laborativa a llicència personal.</span><br /><br />Per facilitar la recerca de les imatges, hi ha diverses llistes disponibles:<br />- <a href=\"/users/manageimages/dtyp/1\">Imatges personals associades a un document col·laboratiu</a> (fora de l'article) - <em>La major part de les imatges inserides a un document col·laboratiu són a aquesta llista, a modificar segons prioritat.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Imatges personals associades a un article col·laboratiu</a><br />- <a href=\"/users/manageimages/dtyp/2\">Imatges personals associades a un document personal</a> (fora de l'article)<br />- <a href=\"/users/manageimages/ctyp/2\">Imatges personals associades a un article personal</a>"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagi:</strong> No copieu del text d'un altre lloc web o d'un llibre, excepte si la seva <a href=\"/articles/106728/ca\">llicència</a> ho permet.</li><li><strong>Punts cardinals:</strong> Feu servir les inicials internacionals en majúscules: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Ajuda contextual:</strong> Hi ha una ajuda disponible per a cada camp: cliqueu el títol del camp per veure-la.</li><li><strong>Paginació:</strong> Es pot donar forma al text i organitzar-lo amb subtítols. S'hi poden inserir imatges de l'àlbum. <a href=\"/articles/151910/ca\">Consulteu l'ajuda</a>.</li><li><strong>Els camps marcats amb un asterisc (*) són obligatoris.</strong></li><li><strong>Modificació:</strong> Després de crear un document, podeu modificar-lo clicant a la pestanya \"Modifica\" (a l'esquerra). No feu servir el botó \"Enrere\" del vostre navegador.</li><li><strong>Supressió:</strong> Per eliminar un document, demaneu-ho als moderadors fent servir el botó \"Alerta d'un problema\" del menú de l'esquerra.</li><li><strong>Fotos i esquemes:</strong> Les fotos i esquemes s'adjunten després de la creació del document, mitjançant l'enllaç de la part baixa de la pàgina <em>Afegeix imatges a aquesta pàgina</em>. Per afegir una imatge reduïda dins del cos del text, feu servir el botó <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barra d'edició del camp. També podeu copiar-ne el codi, disponible a la pàgina de la imatge. Les imatges s'han d'associar prèviament al document per poder-les inserir al text. En el cas de documents col·laboratius només es poden inserir imatges col·laboratives."
+msgstr "<strong>Plagi:</strong> No copieu del text d'un altre lloc web o d'un llibre, excepte si la seva <a href=\"/articles/106728/ca\">llicència</a> ho permet.</li>\n"
+"<li><strong>Modificació:</strong> Després de crear un document, podeu modificar-lo clicant a la pestanya \"Modifica\" (a l'esquerra). No feu servir el botó \"Enrere\" del vostre navegador.</li>\n"
+"<li><strong>Supressió:</strong> Per eliminar un document, demaneu-ho als moderadors fent servir el botó \"Alerta d'un problema\" del menú de l'esquerra.</li>\n"
+"<li><strong>Fotos i esquemes:</strong> Les fotos i esquemes s'adjunten després de la creació del document, mitjançant l'enllaç de la part baixa de la pàgina <em>Afegeix imatges a aquesta pàgina</em>. Per afegir una imatge reduïda dins del cos del text, feu servir el botó <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barra d'edició del camp. També podeu copiar-ne el codi, disponible a la pàgina de la imatge. Les imatges s'han d'associar prèviament al document per poder-les inserir al text. En el cas de documents col·laboratius només es poden inserir imatges col·laboratives.</li>\n"
+"<li><strong>Els camps marcats amb un asterisc (*) són obligatoris.</strong></li>\n"
+"<li><strong>Ajuda contextual:</strong> Hi ha una ajuda disponible per a cada camp: cliqueu el títol del camp per veure-la."
 
 msgid "map"
 msgstr "mapa"
@@ -6336,6 +6359,7 @@ msgstr "menú"
 msgid "meta_description"
 msgstr "Camptocamp.org, la comunitat de muntanya. És un lloc d'intercanvi multilingüe dedicat a l'alpinisme, l'escalada, les cascades de glaç, l'esquí de muntanya, les raquetes i l'excursionisme. Hi trobareu una guia de ressenyes que descriu milers d'itineraris, cims, refugis, així com les condicions de les sortides recents, articles, fòrums, un àlbum de fotos..."
 
+# [WARNING] needs_update
 msgid "meta_keywords"
 msgstr "muntanya, esquí de muntanya, surf de muntanya, alpinisme, raquetes, alpinisme, neu, glaç, mixt, corredors, canals, cascades, dry-tooling, roca, escalada, parets, grimpades, excursions a peu"
 
@@ -6474,13 +6498,11 @@ msgstr "mes"
 msgid "months"
 msgstr "meses"
 
-# [WARNING] en translation used
 msgid "more than 3 months"
-msgstr "more than 3 months"
+msgstr "més de tres mesos"
 
-# [WARNING] en translation used
 msgid "motivations"
-msgstr "Motivations&nbsp;:"
+msgstr "Motivacions:"
 
 # [general comment]
 # Texte affichée dans le champ "Motivations" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -6541,9 +6563,8 @@ msgstr "Nombre de comentaris associats "
 msgid "nb_images"
 msgstr "Nombre d'imatges"
 
-# [WARNING] en translation used
 msgid "nb_impacted"
-msgstr "Number of people involved:"
+msgstr "Nombre de persones afectades:"
 
 # [WARNING] en translation used
 msgid "nb_impacted short"
@@ -6560,34 +6581,28 @@ msgstr "Nombre de sortides associades i enllaç a les condicions"
 msgid "nb_outings"
 msgstr "Nombre de sortides"
 
-# [WARNING] en translation used
 msgid "nb_outings_14"
-msgstr "10 to 14"
+msgstr "10 a 14"
 
-# [WARNING] en translation used
 msgid "nb_outings_15"
-msgstr "15 or more"
+msgstr "15 o més"
 
-# [WARNING] en translation used
 msgid "nb_outings_4"
-msgstr "0 to 4"
+msgstr "0 a 4"
 
-# [WARNING] en translation used
 msgid "nb_outings_9"
-msgstr "5 to 9"
+msgstr "5 a 9"
 
-# [WARNING] en translation used
 msgid "nb_outings_per_year"
-msgstr "Number of outings this year:"
+msgstr "Nombre de sortides fetes durant l'any:"
 
 msgid "nb_pages"
 msgstr "Nombre de pàgines:"
 
 # [general comment]
 # xreport
-# [WARNING] en translation used
 msgid "nb_participants"
-msgstr "Number of participants:"
+msgstr "Nombre de participants:"
 
 msgid "nb_routes"
 msgstr "Nombre d'itineraris associats"
@@ -6652,9 +6667,8 @@ msgstr "Sector següent"
 msgid "next summit"
 msgstr "Cim següent"
 
-# [WARNING] en translation used
 msgid "next xreport"
-msgstr "Next incident/accident"
+msgstr "Incident/accident següent"
 
 msgid "nickName_desc"
 msgstr "Nom que es mostra al fòrum:"
@@ -6702,9 +6716,8 @@ msgstr "no s'ha observat cap senyal de perill ni de traça d'allau recent"
 msgid "non applicable"
 msgstr "no aplicable"
 
-# [WARNING] es translation used
 msgid "non autonomous"
-msgstr ""
+msgstr "necessita anar acompanyat o guiat"
 
 msgid "nonwell informed"
 msgstr "sense informació"
@@ -6815,13 +6828,11 @@ msgstr "Altres massissos"
 msgid "other valley_area"
 msgstr "Altres valls"
 
-# [WARNING] en translation used
 msgid "other_fall"
-msgstr "fall of a person or roped party"
+msgstr "caiguda d'una persona o d'una cordada"
 
-# [WARNING] en translation used
 msgid "other_fall_form"
-msgstr "other fall of a person or roped party"
+msgstr "caiguda d'una altra persona o cordada"
 
 # [WARNING] needs_review
 msgid "other_users"
@@ -7003,9 +7014,8 @@ msgstr "Tel."
 msgid "photos-art"
 msgstr "fotos-art"
 
-# [WARNING] en translation used
 msgid "physical_failure"
-msgstr "Physical weakness"
+msgstr "defalliment físic"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -7022,9 +7032,8 @@ msgstr "imatges"
 msgid "piemont"
 msgstr "Piemont"
 
-# [WARNING] en translation used
 msgid "place"
-msgstr "Location of the event:"
+msgstr "Lloc de l'esdeveniment"
 
 # [general comment]
 # Texte affichée dans le champ "Lieu de l'événement" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -7210,25 +7219,20 @@ msgstr "Sector anterior"
 msgid "previous summit"
 msgstr "Cim anterior"
 
-# [WARNING] en translation used
 msgid "previous xreport"
-msgstr "Previous incident/accident"
+msgstr "Incident/accident precedent"
 
-# [WARNING] en translation used
 msgid "previous_injuries"
-msgstr "Previous injuries:"
+msgstr "Ferides anteriors:"
 
-# [WARNING] en translation used
 msgid "previous_injuries_2"
-msgstr "Once or twice"
+msgstr "1 o 2 cops"
 
-# [WARNING] en translation used
 msgid "previous_injuries_3"
-msgstr "Three or more times"
+msgstr "3 cops o més"
 
-# [WARNING] en translation used
 msgid "primary_impacted"
-msgstr "Main affected person"
+msgstr "Persona més afectada"
 
 msgid "pro"
 msgstr "professional"
@@ -7340,6 +7344,9 @@ msgstr "massissos"
 msgid "ratings"
 msgstr "Cot."
 
+msgid "readonly_v6"
+msgstr "La nova versió de Camptocamp serà en linea el proper 8 de desembre. Fins aleshores Camptocamp serà accesible només en lectura. "
+
 msgid "recent conditions"
 msgstr "Condicions recents"
 
@@ -7356,9 +7363,8 @@ msgstr "traça d'allau recent (després de la darrera nevada, pluja, ventada o p
 msgid "recenter"
 msgstr "Centra"
 
-# [WARNING] en translation used
 msgid "reduce_impact"
-msgstr "Attenuating factors:"
+msgstr "Elements que han atenuat les conseqüències:"
 
 # [general comment]
 # Texte affichée dans le champ "Éléments qui ont atténué les conséquences" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -7383,13 +7389,11 @@ msgstr "Remarques:"
 msgid "report_type"
 msgstr "Tipus d'informe:"
 
-# [WARNING] en translation used
 msgid "rescue"
-msgstr "Rescue services"
+msgstr "Intervenció dels serveis de socors"
 
-# [WARNING] en translation used
 msgid "rescue short"
-msgstr "Rescue"
+msgstr "Socors"
 
 msgid "restaurant"
 msgstr "restaurant"
@@ -7483,23 +7487,24 @@ msgstr "Roca"
 msgid "roof"
 msgstr "sostre"
 
-# [WARNING] en translation used
 msgid "roped_fall"
-msgstr "roped"
+msgstr "encordat"
 
 # [WARNING] en translation used
 msgid "roped_fall can not be selected alone"
-msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+msgstr "\"fall while roped\" can only be selected in cases of \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\""
 
-# [WARNING] en translation used
 msgid "roped_fall_form"
-msgstr "fall while roped"
+msgstr "caiguda estant encordat"
 
 msgid "route"
 msgstr "itinerari"
 
+# [WARNING] needs_update
 msgid "route form warning"
-msgstr "<strong>Atenció!</strong> En aquesta pàgina només heu d'indica les informacions relatives a l'itinerari en general. Les informacions relatives a una sortida en concreta (comentaris personals, condicions...) s'han de reportar en una pàgina \"sortida\" dedicada."
+msgstr "<strong>Atenció!</strong> En aquesta pàgina només heu d'indica les informacions relatives a l'itinerari en general. Les informacions relatives a una sortida en concreta (comentaris personals, condicions...) s'han de reportar en una pàgina \"sortida\" dedicada.</li>\n"
+"<li><strong>Nom:</strong><br />\n"
+"- Punts cardinals:</strong> Feu servir les inicials internacionals en majúscules: N, E, S, W, NW, NE, SW, SE."
 
 msgid "route linked with"
 msgstr "Itinerari associat a %1%"
@@ -7531,9 +7536,8 @@ msgstr "Distància: "
 msgid "route_line_prefix"
 msgstr "L"
 
-# [WARNING] en translation used
 msgid "route_study"
-msgstr "Route preparation:"
+msgstr "Preparació de l'itinerari:"
 
 # [general comment]
 # Texte affichée dans le champ "Étude de l’itinéraire" lorsqu'il est vide, à l'édition d'un incident/accident.
@@ -7915,6 +7919,7 @@ msgstr "Suïssa coordenades:"
 msgid "switch_off_activity_personalisation"
 msgstr "Desconnectar el filtre per activitats"
 
+# [WARNING] needs_update
 msgid "switch_to_hiking"
 msgstr "Mostrar únicament l'activitat excursionisme"
 
@@ -8345,8 +8350,12 @@ msgstr "incident / accident"
 
 # [WARNING] en translation used
 msgid "xreport form warning"
-msgstr "This incident/accident report will be added to <a href=\"/articles/697210\">SERAC Database</a>.</li>\n"
-"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>."
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. <a href=\"/articles/697210\">More information...</a></li>\n"
+"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>.</li>\n"
+"<li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.</li>\n"
+"<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>.</li>\n"
+"<li><strong>Fields with an asterisk (*) must be filled-in.</strong"
 
 # [WARNING] en translation used
 msgid "xreport_conditions"
@@ -8423,8 +8432,8 @@ msgstr "Incidents and accidents"
 
 # [WARNING] en translation used
 msgid "xreports presentation"
-msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching. <br />\n"
-"This database of incidents and accidents reports was designed in collaboration with researchers and <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
 "<br />\n"
 "To enter a report of an incident or accident event, click the link \"Add ...\" below, or the one present in your outing if you have already created one."
 

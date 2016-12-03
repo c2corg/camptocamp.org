@@ -1,5 +1,7 @@
 # @BLURB@
 
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{X-Origin-IP}i\"" combined
+
 <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
    Order allow,deny
    Allow from all

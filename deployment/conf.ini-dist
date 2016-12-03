@@ -149,3 +149,6 @@ SOLR_ENABLE = 0
 USE_CAMO = false
 CAMO_URL = https://camo.camptocamp.org/
 CAMO_KEY = <camo_key>
+
+; Readonly banner
+READONLY = false;

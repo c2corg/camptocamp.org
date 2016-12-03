@@ -597,8 +597,13 @@ msgstr "L'association a échoué"
 msgid "Could not perform association with itself"
 msgstr "Impossible de réaliser une association réflexive"
 
+msgid "Could not perform merge with itself"
+msgstr "Un document ne peut pas être fusionné avec lui-même"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
-msgstr "Nous n'avons pu comprendre votre requête"
+msgstr "Nous n'avons pas pu comprendre votre requête"
 
 msgid "Create"
 msgstr "Créer"
@@ -729,6 +734,9 @@ msgstr "Ce document a été fusionné, et ne peut donc être déprotégé."
 
 msgid "Current document has been merged into document %1%"
 msgstr "Ce document a été fusionné avec le document %1%."
+
+msgid "Current document is write-protected"
+msgstr "Le document courant est protégé en écriture"
 
 msgid "Current password"
 msgstr "Mot de passe actuel"
@@ -2544,6 +2552,9 @@ msgstr "TD+"
 msgid "TD-"
 msgstr "TD-"
 
+msgid "Target document is write-protected"
+msgstr "Le document cible est protégé en écriture"
+
 msgid "Text only"
 msgstr "Textes seuls"
 
@@ -2873,9 +2884,15 @@ msgid "Wrong current password!"
 msgstr "Mot de passe incorrect"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif.<br /><a href=\"/articles/151910#image\">Plus d'informations</a>"
+msgstr "Une image personnelle ne peut pas être insérée dans un document collaboratif."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+msgid "Wrong image type long"
+msgstr "Une image personnelle ne peut pas être insérée dans un document collaboratif.<br />\n"
+"<a href=\"/articles/151910#image\">Plus d'informations</a>"
 
 msgid "Xreport"
 msgstr "Incident/accident&nbsp;:"
@@ -3141,7 +3158,7 @@ msgstr "<h3>Activités</h3>\n"
 "<br />\n"
 "<span class=\"picto activity_5\"></span> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br />\n"
 "<br />\n"
-"<span class=\"picto activity_6\"></span> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br />\n"
+"<span class=\"picto activity_6\"></span> &nbsp;<strong>randonnée pédestre / trail</strong>&nbsp;: randonnée pédestre et trail en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br />\n"
 "<br />\n"
 "<span class=\"picto activity_8\"></span> &nbsp;<strong>parapente montagne</strong>&nbsp;: descente en parapente après une montée à pied ou à ski (vol rando, paralpinisme)<br />\n"
 "<br />\n"
@@ -3320,7 +3337,7 @@ msgstr "<h3>Catégorie du contributeur</h3>\n"
 "<br />\n"
 "<strong>institution</strong>&nbsp;: Institution publique ou privé ne proposant pas les services d'un club : service de secours, parc national, service de météo, office du tourisme, commune, association de défense de l'environnement, etc.<br />\n"
 "<br />\n"
-"<strong>autre</strong>&nbsp;: Autre organisme ou autre professionnel : gardien de refuge, gérant de gite, commerçant, gérant de salle d'escalade, webmaster, association de pratiquants ne proposant pas de sortie (comme les groupes espoir des fédération), etc."
+"<strong>autre</strong>&nbsp;: Autre organisme ou autre professionnel : gardien de refuge, gérant de gite, commerçant, gérant de salle d'escalade, webmaster, association de pratiquants ne proposant pas de sortie (comme les groupes espoir des fédérations), etc."
 
 msgid "_children_proof_info"
 msgstr "<h3>Enfants</h3>Indique si le pied des voies peut convenir aux enfants.<br />En fonction de la configuration du terrain et d'éventuels dangers (chutes de pierre...), le champ peut prendre les valeurs <strong>Bien adapté</strong>, <strong>Adapté</strong>, <strong>Peu adapté</strong> ou <strong>Dangereux</strong>."
@@ -3451,7 +3468,7 @@ msgstr "<h3>Qualité de l'équipement en place</h3>\n"
 msgid "_event_type_info"
 msgstr "Type d'événement constaté ou qui aurait pu découler de la situation.<br />\n"
 "Plusieurs types peuvent être sélectionnés.<br />\n"
-"Le type \"chute en étant encordé\" permet de préciser les types \"chute en crevasse\", \"autre chute\" et \"avalanche\", mais ne peut pas être sélectionné seul."
+"Le type \"chute en étant encordé\" permet de préciser les types \"avalanche\", \"chute d'une personne ou de la cordée\" et \"chute en crevasse\", mais ne peut pas être sélectionné seul."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposition</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
@@ -3527,7 +3544,7 @@ msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Chauffage</h3>Présence d'un chauffage opérationnel hors période de gardiennage&nbsp;: poêle à bois, chauffage électrique ou solaire. C'est une information générale&nbsp;: en fin d'hiver le stock de bois peut être vide."
 
 msgid "_height_diff_down_info"
-msgstr "<h3>Dénivelé négatif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé négatif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé négatif sera calculé sur&nbsp;: (la montée si elle comporte des descentes non négligeables) + la descente jusqu'à l'accès/parking de retour.<br /><br />Utile essentiellement en ski et randonnée pédestre, il n'est pas nécessaire de renseigner ce champ pour une autre activité, sauf s'il est différent du dénivelé positif (cas d'une traversée ne permettant pas de passer au refuge à la descente).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci."
+msgstr "<h3>Dénivelé négatif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé négatif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé négatif sera calculé sur&nbsp;: (la montée si elle comporte des descentes non négligeables) + la descente jusqu'à l'accès/parking de retour.<br /><br />Utile essentiellement en ski, randonnée pédestre et trail, il n'est pas nécessaire de renseigner ce champ pour une autre activité, sauf s'il est différent du dénivelé positif (cas d'une traversée ne permettant pas de passer au refuge à la descente).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci."
 
 msgid "_height_diff_up_height_diff_down_info"
 msgstr "<h3>Dénivelé</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
@@ -3538,7 +3555,7 @@ msgid "_height_diff_up_info"
 msgstr "<h3>Dénivelé positif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé positif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre. L'échelle est inspirée de celle du Club Alpin Suisse.<br />\n"
+msgstr "<h3>Cotation randonnée / trail</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre et trail.<br />\n"
 "<br />\n"
 "<strong>T1</strong>&nbsp;: Randonnée. Sentier bien tracé. Terrain plat ou en faible pente, pas de risques de chute.<br />\n"
 "<em>Exigences&nbsp;:</em> Aucune, convient aussi pour baskets. L'orientation ne pose pas de problèmes, en général possible même sans carte.<br />\n"
@@ -3557,7 +3574,7 @@ msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire d
 "<br />\n"
 "<em>La cotation T6 a été supprimée. Pour les itinéraire plus difficiles que T5, utiliser l'activité \"escalade\" ou \"rocher haute montagne\", ainsi que les cotations associées.</em><br />\n"
 "<br />\n"
-"Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
+"Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre et trail</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
@@ -3977,7 +3994,7 @@ msgid "_route_history_info"
 msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes&nbsp;: première, en solo, en hivernale, premières répétitions...<br /><em>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</em>"
 
 msgid "_route_length_info"
-msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement en randonnée pédestre, raquette, et ski.<br />Si une trace GPX est associée à l'itinéraire, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
+msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement en randonnée pédestre, trail, raquette, et ski.<br />Si une trace GPX est associée à l'itinéraire, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 # [general comment]
 # Aide contextuelle du champ texte "Étude de l’itinéraire" (ID : route_study ).
@@ -4231,6 +4248,7 @@ msgstr "<h3>Conséquences sur ses pratiques</h3>\n"
 msgid "_xreport_other_comments_info"
 msgstr "<h3>Conséquences physiques et autres commentaires</h3>\n"
 "Décrivez brièvement les blessures éventuelles.<br />\n"
+"Décrivez ce que vous feriez aujourd'hui avec du recul.<br />\n"
 "Les commentaires qui n'entrent dans aucun autre champ peuvent être saisis ici."
 
 # [general comment]
@@ -4749,7 +4767,7 @@ msgid "c button title"
 msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
 
 msgid "c2c customized for hiking !"
-msgstr "Camptocamp.org... pur randonnée pédestre&nbsp;!"
+msgstr "Camptocamp.org... pur randonnée / trail&nbsp;!"
 
 msgid "c2c customized for ice_climbing !"
 msgstr "Camptocamp.org... pur cascade&nbsp;!"
@@ -5866,10 +5884,10 @@ msgid "hideborderlegend"
 msgstr "Ne pas afficher le cadre et la légende&nbsp;:"
 
 msgid "hiking"
-msgstr "randonnée pédestre"
+msgstr "randonnée / trail"
 
 msgid "hiking_rating"
-msgstr "Cotation randonnée&nbsp;:"
+msgstr "Cotation randonnée / trail&nbsp;:"
 
 msgid "historical"
 msgstr "historique"
@@ -6254,7 +6272,12 @@ msgid "manage images presentation"
 msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.org.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponibles en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />En effet, seules les images collaboratives peuvent être insérées dans le texte d'un document collaboratif (photo illustrant un itinéraire par exemple), afin d'avoir le texte et les images insérées sous la même licence.<br />Pour l'instant, il n'y a pas de limitation technique, le temps qu'une proportion importante de ces photos soient passées sous licence collaborative, ou soient supprimées du texte.<br /><em>Pour plus d'informations, <a href=\"/forums/viewtopic.php?id=155692\">voir la discussion à ce sujet sur le forum</a>.</em><br /><br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <em>Changer la licence</em>.<br /><span style=\"color: red\">Attention : ce changement est irréversible, et il n'est pas possible de basculer la licence d'une image collaborative vers une licence personnelle.</span><br /><br />Pour faciliter la recherche des images, plusieurs listes sont disponibles :<br />- <a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Images personnelles associées à un article collaboratif</a><br />- <a href=\"/users/manageimages/dtyp/2\">Images personnelles associées à un document personnel</a> (hors article)<br />- <a href=\"/users/manageimages/ctyp/2\">Images personnelles associées à un article personnel</a>"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Mise en forme du texte&nbsp;:</strong> Le texte peut être mis en forme et organisé par des sous titres. Des images de l'album peuvent être insérées. <a href=\"/articles/151910/fr\">Consultez l'aide</a>.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li><li><strong>Suppression&nbsp;:</strong> Pour supprimer un document, demandez à la modération en utilisant le bouton \"Signaler un problème\" dans le menu de gauche.</li><li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, utilisez le bouton <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barre d'édition du champ. Vous pouvez aussi copier le code disponible sur la page de l'image. Les images doivent être associées au document pour être insérées dans le texte de celui-ci. Pour les documents collaboratifs, seules les images collaboratives peuvent être insérées."
+msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li>\n"
+"<li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li>\n"
+"<li><strong>Suppression&nbsp;:</strong> Pour supprimer un document, demandez à la modération en utilisant le bouton \"Signaler un problème\" dans le menu de gauche.</li>\n"
+"<li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, utilisez le bouton <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barre d'édition du champ. Vous pouvez aussi copier le code disponible sur la page de l'image. Les images doivent être associées au document pour être insérées dans le texte de celui-ci. Pour les documents collaboratifs, seules les images collaboratives peuvent être insérées.</li>\n"
+"<li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li>\n"
+"<li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher."
 
 msgid "map"
 msgstr "carte"
@@ -6377,7 +6400,7 @@ msgid "meta_description"
 msgstr "Camptocamp.org, la communauté montagne. C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, le ski de randonnée, la raquette et la randonnée à pied. Vous y trouverez un topo-guide décrivant des milliers d'itinéraires, sommets, refuges, ainsi que les conditions des sorties récentes, des articles, des forums, un album de photos... "
 
 msgid "meta_keywords"
-msgstr "montagne, skirando, ski de rando, surfrando, surf, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre"
+msgstr "montagne, skirando, ski de rando, surfrando, surf, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre, trail"
 
 msgid "meta_language"
 msgstr "fr"
@@ -7410,6 +7433,10 @@ msgstr "massifs"
 msgid "ratings"
 msgstr "Cot."
 
+msgid "readonly_v6"
+msgstr "Le site Camptocamp.org fait sa mue et reviendra transformé sous sa \"version 6\" à partir du 8 décembre, à la même adresse.\n"
+"En attendant, l'actuelle \"version 5\" n'est accessible qu'en lecture seule."
+
 msgid "recent conditions"
 msgstr "Conditions récentes"
 
@@ -7454,7 +7481,7 @@ msgid "report_type"
 msgstr "Type de rapport&nbsp;:"
 
 msgid "rescue"
-msgstr "Intervention des secours"
+msgstr "Intervention des services de secours"
 
 msgid "rescue short"
 msgstr "Secours"
@@ -7555,7 +7582,7 @@ msgid "roped_fall"
 msgstr "encordé"
 
 msgid "roped_fall can not be selected alone"
-msgstr "le type \"chute en étant encordé\" ne peut être sélectionné qu'en complément des types \"chute en crevasse\", \"autre chute\", \"avalanche\"."
+msgstr "le type \"chute en étant encordé\" ne peut être sélectionné qu'en complément des types \"avalanche\", \"chute d'une personne ou de la cordée\" et \"chute en crevasse\""
 
 msgid "roped_fall_form"
 msgstr "chute en étant encordé"
@@ -7564,7 +7591,14 @@ msgid "route"
 msgstr "itinéraire"
 
 msgid "route form warning"
-msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (conditions rencontrées, commentaires personnels) doivent être reportées dans une page \"sortie\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />- Ne mentionnez pas le nom du sommet car celui-ci sera ajouté à l'affichage.<br />- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Evitez la mention \"voie normale\" seule, ajoutez la entre parenthèses&nbsp;: Arête S (voie normale).</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
+msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (conditions rencontrées, commentaires personnels) doivent être reportées dans une page \"sortie\" dédiée.<br />\n"
+"Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li>\n"
+"<li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />\n"
+"- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />\n"
+"- Points cardinaux&nbsp;: utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.<br />\n"
+"- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />\n"
+"- Evitez la mention \"voie normale\" seule, ajoutez-la entre parenthèses&nbsp;: Arête S (voie normale).</li>\n"
+"<li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
 
 msgid "route linked with"
 msgstr "Itinéraire associé à %1%"
@@ -7744,7 +7778,7 @@ msgstr "service à la demande"
 
 # [WARNING] needs_review
 msgid "severity"
-msgstr "Durée d'interruption de l'activité de la sortie&nbsp;:"
+msgstr "Durée d'interruption dans l'activité pratiquée&nbsp;:"
 
 msgid "severity short"
 msgstr "Gravité"
@@ -7981,7 +8015,7 @@ msgid "switch_off_activity_personalisation"
 msgstr "Ne plus filtrer sur cette activité"
 
 msgid "switch_to_hiking"
-msgstr "Afficher uniquement l'activité randonnée pédestre"
+msgstr "Afficher uniquement l'activité randonnée / trail"
 
 msgid "switch_to_ice_climbing"
 msgstr "Afficher uniquement l'activité cascade"
@@ -8404,8 +8438,12 @@ msgid "xreport"
 msgstr "incident / accident"
 
 msgid "xreport form warning"
-msgstr "Ce compte rendu d'incident ou accident sera ajouté à la <a href=\"/articles/697210\">Base SERAC</a>.</li>\n"
-"<li>Si vous avez des remarques ou des critiques sur le formulaire, vous pouvez <a href=\"/articles/comment/697210/fr\">poster un commentaire</a> ou <a href=\"/forums/misc.php?email=271737\">envoyer un email</a>."
+msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.\n"
+"La base de donnée SERAC de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=fr\">Fondation Petzl</a>. <a href=\"/articles/697210\">Plus d'information...</a></li>\n"
+"<li>Si vous avez des remarques ou des critiques sur le formulaire, vous pouvez <a href=\"/articles/comment/697210/fr\">poster un commentaire</a> ou <a href=\"/forums/misc.php?email=271737\">envoyer un email</a>.</li>\n"
+"<li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li>\n"
+"<li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>.</li>\n"
+"<li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong>"
 
 msgid "xreport_conditions"
 msgstr "Étude des conditions (informations à l'avance et évolution sur le terrain)&nbsp;:"
@@ -8453,7 +8491,7 @@ msgstr "Conséquences physiques et autres commentaires&nbsp;:"
 # /!\ use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "xreport_other_comments_default"
-msgstr "Décrivez brièvement les blessures éventuelles. Les commentaires qui n'entrent dans aucun autre champ peuvent être saisis ici."
+msgstr "Décrivez brièvement les blessures éventuelles, et ce que vous feriez aujourd'hui avec du recul. Les commentaires qui n'entrent dans aucun autre champ peuvent être saisis ici."
 
 msgid "xreport_risk"
 msgstr "Niveau de l'attention et (ré)évaluation des risques&nbsp;:"
@@ -8474,10 +8512,9 @@ msgstr "incidents et accidents"
 msgid "xreports list"
 msgstr "Incidents et accidents"
 
-# [WARNING] needs_review
 msgid "xreports presentation"
-msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.\n"
-"Cette base de donnée de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=fr\">Fondation Petzl</a>. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. <a href=\"/articles/697210\">Plus d'information...</a><br />\n"
+msgstr "L'autonomie en montagne et en pleine nature s'acquière par sa propre expérience, et par celle que les autres pratiquants peuvent nous transmettre. Les incidents et accidents qui ont eu lieu au cours de nos sorties sont souvent riches en enseignement.<br />\n"
+"La base de donnée SERAC de récits d'incidents et accidents a été conçue en collaboration avec des chercheurs et la <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=fr\">Fondation Petzl</a>. Le formulaire est très détaillé, mais seuls les premiers champs sont obligatoires. <a href=\"/articles/697210\">Plus d'information...</a><br />\n"
 "<br />\n"
 "Pour saisir un compte rendu d'incident ou accident, cliquez sur le lien \"Ajouter...\" ci-dessous, ou celui présent dans votre sortie si vous en avez déjà saisi une."
 
