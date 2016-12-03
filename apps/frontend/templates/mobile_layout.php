@@ -19,6 +19,12 @@ $response = sfContext::getInstance()->getResponse();
 
 // alpine club logo is included by css, but only in en
 if ($lang === 'en') use_stylesheet('/static/css/ac');
+
+if (sfConfig::get('app_readonly') == 1)
+{
+    $response->addStylesheet('/static/css/readonly.css', 'last');
+}
+  
 ?>
 <!doctype html>
 <html lang="<?php echo $lang_code ?>" class="mobile">
@@ -55,6 +61,12 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     <div id="holder">
         <header id="page_header">
         <?php
+
+        if (sfConfig::get('app_readonly') == 1)
+        {
+            include_partial('common/readonly');
+        }
+
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
         include_partial($header_partial, array('lang_code' => $lang_code,
                                                'footer_type' => $footer_type));

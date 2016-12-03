@@ -618,6 +618,12 @@ msgstr "Loturak oker bat eman du"
 msgid "Could not perform association with itself"
 msgstr "Ezinezkoa da lotura egitea"
 
+# [WARNING] en translation used
+msgid "Could not perform merge with itself"
+msgstr "A document can't be merged with itself"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
 msgstr "Zure eskaera ez dugu ulertu"
 
@@ -751,6 +757,10 @@ msgstr "Dokumentua bateratua izan da, ondorioz ezin da babes gabe utzi."
 
 msgid "Current document has been merged into document %1%"
 msgstr "Dokumentu hau %1% rekin bateratua izan da."
+
+# [WARNING] en translation used
+msgid "Current document is write-protected"
+msgstr "Current document is write-protected"
 
 # [WARNING] es translation used
 msgid "Current password"
@@ -2746,6 +2756,10 @@ msgstr "TD+"
 msgid "TD-"
 msgstr "TD-"
 
+# [WARNING] en translation used
+msgid "Target document is write-protected"
+msgstr "Target document is write-protected"
+
 msgid "Text only"
 msgstr "Testuak bakarrik"
 
@@ -3093,10 +3107,17 @@ msgid "Wrong current password!"
 msgstr "Contraseña incorrecta"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
 # [WARNING] es translation used
 msgid "Wrong image type"
-msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
+msgstr "Una imagen personale no se puede insertar en un documento colaborativos."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] es translation used
+msgid "Wrong image type long"
+msgstr "Una imagen personale no se puede insertar en un documento colaborativos.<br />\n"
+"<a href=\"/articles/151910#image\">Explicación detallada</a>"
 
 # [WARNING] es translation used
 msgid "Xreport"
@@ -3598,7 +3619,8 @@ msgstr "<h3>Ekipamentuaren kalitatea</h3>\n"
 # [WARNING] en translation used
 msgid "_event_type_info"
 msgstr "Type of the occurred or potentially resulting event.<br />\n"
-"More than one type may be selected."
+"More than one type may be selected.<br />\n"
+"\"fall while roped\" must be used to clarify \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\", but can't be selected alone."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Esposizio denbora</h3>Argazkia hartutakoan izandoko esposizio denbora.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
@@ -3679,6 +3701,7 @@ msgstr "<h3>Lastaira</h3>Koltxoiak dauden edo ez gordeta dagoen denboralditik at
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Calefacción</h3>Presencia de un aparato de calefacción en funcionamiento fuera del época de guardia: eléctrico, solar o a lena. Es una indicación general. Puede ser que en invierno falte combustible."
 
+# [WARNING] needs_update
 msgid "_height_diff_down_info"
 msgstr "<h3> Desnibel negatiboa</h3> Desnibel negatibo metatua.<br /><br />.Ibilbidearen GPX lorratza gordetzen bada, desnibel negatiboa automatikoki kalkulatua izango da."
 
@@ -4863,6 +4886,7 @@ msgstr "Aitortu - Partekatu baimen beraren arabera"
 msgid "c button title"
 msgstr "Usar un tipo de letra monoespaciado en el texto seleccionado"
 
+# [WARNING] needs_update
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org... mendi martxa!"
 
@@ -6076,9 +6100,11 @@ msgstr "Aldaketa txikiak ezkutatu"
 msgid "hideborderlegend"
 msgstr "No mostrar el marco y la leyenda:"
 
+# [WARNING] needs_update
 msgid "hiking"
 msgstr "mendi ibilaldiak"
 
+# [WARNING] needs_update
 msgid "hiking_rating"
 msgstr "Txangoare zailtasuna:"
 
@@ -7778,6 +7804,10 @@ msgstr "mendigune"
 msgid "ratings"
 msgstr "Zail."
 
+# [WARNING] es translation used
+msgid "readonly_v6"
+msgstr "La nueva versión de Camptocamp estará en línea el 8 de diciembre. Hasta entonces Camptocamp será accesible solo en lectura. "
+
 msgid "recent conditions"
 msgstr "Azken egoerak mendian"
 
@@ -7939,7 +7969,7 @@ msgstr "roped"
 
 # [WARNING] en translation used
 msgid "roped_fall can not be selected alone"
-msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+msgstr "\"fall while roped\" can only be selected in cases of \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\""
 
 # [WARNING] en translation used
 msgid "roped_fall_form"
@@ -7948,6 +7978,7 @@ msgstr "fall while roped"
 msgid "route"
 msgstr "ibilbidea"
 
+# [WARNING] needs_update
 msgid "route form warning"
 msgstr "<strong>Argi!</strong> Orrialde hontan ibilbidearen inguruko informazioa bakarrik ezarri. Irteeraren inguruko informazioa (azalpen pertsonala, aurkitutako egoera) \"irteerari\" dagokion orrialdean sartu behar da."
 
@@ -8428,6 +8459,7 @@ msgstr "Coordenadas suizas:"
 msgid "switch_off_activity_personalisation"
 msgstr "Ekintza honetarako ez da filtratuko"
 
+# [WARNING] needs_update
 msgid "switch_to_hiking"
 msgstr "Bakarrik mendi martxako ekintzak erakutsi"
 
@@ -8901,8 +8933,12 @@ msgstr "incident / accident"
 
 # [WARNING] en translation used
 msgid "xreport form warning"
-msgstr "This incident/accident report will be added to <a href=\"/articles/697210\">SERAC Database</a>.</li>\n"
-"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>."
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. <a href=\"/articles/697210\">More information...</a></li>\n"
+"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>.</li>\n"
+"<li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.</li>\n"
+"<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>.</li>\n"
+"<li><strong>Fields with an asterisk (*) must be filled-in.</strong"
 
 # [WARNING] en translation used
 msgid "xreport_conditions"
@@ -8979,8 +9015,8 @@ msgstr "Incidents and accidents"
 
 # [WARNING] en translation used
 msgid "xreports presentation"
-msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching. <br />\n"
-"This database of incidents and accidents reports was designed in collaboration with researchers and <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
 "<br />\n"
 "To enter a report of an incident or accident event, click the link \"Add ...\" below, or the one present in your outing if you have already created one."
 

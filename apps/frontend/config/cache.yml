@@ -106,3 +106,6 @@ _i18n_section:
   
 _latest_title:
   enabled:  off
+
+_readonly:
+  enabled: off

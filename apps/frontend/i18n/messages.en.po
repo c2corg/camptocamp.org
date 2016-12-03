@@ -608,6 +608,11 @@ msgstr "The linkage failed"
 msgid "Could not perform association with itself"
 msgstr "Could not perform association with itself"
 
+msgid "Could not perform merge with itself"
+msgstr "A document can't be merged with itself"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
 msgstr "Could not understand your request"
 
@@ -741,6 +746,9 @@ msgstr "The document has been merged, thus cannot be unprotected."
 
 msgid "Current document has been merged into document %1%"
 msgstr "The document has been merged into document %1%."
+
+msgid "Current document is write-protected"
+msgstr "Current document is write-protected"
 
 msgid "Current password"
 msgstr "Current password"
@@ -2605,6 +2613,9 @@ msgstr "TD+"
 msgid "TD-"
 msgstr "TD-"
 
+msgid "Target document is write-protected"
+msgstr "Target document is write-protected"
+
 msgid "Text only"
 msgstr "Text only"
 
@@ -2933,9 +2944,14 @@ msgid "Wrong current password!"
 msgstr "You typed a wrong password"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
 msgid "Wrong image type"
-msgstr "It will soon be impossible to insert personal images in a collaborative document<br />(<a href=\"/articles/151910#image\">more information</a>)"
+msgstr "A personal image can not be inserted into a collaborative document."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+msgid "Wrong image type long"
+msgstr "A personal image can not be inserted into a collaborative document.<br /><a href=\"/articles/151910#image\">More information</a>"
 
 # [WARNING] needs_review
 msgid "Xreport"
@@ -3445,28 +3461,29 @@ msgid "_equipment_rating_info"
 msgstr "<h3>Protection</h3>\n"
 "This fields details the presence and quality of fixed anchors (bolts, pitons, spits) as protection points for rock or ice climbing.<br />\n"
 "<br />\n"
-"<strong>well bolted</strong><br />\n"
+"<strong>P1 well bolted</strong><br />\n"
 "Sport climbing bolted with 10 or 12mm expansion bolts, chemical bolts, etc. The route may not be quiped for abseil.<br />\n"
 "<em><u>Required gear</u>:</em> 12 to 14 clippers, some of them lengthy, 1 to 2 slings to complete equipment in grade II pitches.<br />\n"
 "<br />\n"
-"<strong>partially bolted</strong><br />\n"
+"<strong>P2 partially bolted</strong><br />\n"
 "- Classic route with abundant equipment of good quality, essentially pegs and a few expansion bolts. Nevertheless, it may be necessary to complete or strengthen the equipment in place .<br />\n"
 "- Classic or modern bolted route with expansion bolts or pegs only in the difficult unprotectable sections and at belays.<br />\n"
 "- Sport route on 8mm expansion bolts or other aging equipment.<br />\n"
-"<em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least 8 nuts, 5 cams, 4 slings, long draws.<br />\n"
+"<em><u>P3 Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least 8 nuts, 5 cams, 4 slings, long draws.<br />\n"
 "<br />\n"
 "<strong>some bolts</strong><br />\n"
 "Less classic route with little equipment (most protection must be placed and most belays must be built) and/or of very bad quality.<br />\n"
 "<em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least a complete set of nuts and friends from Cams ranging from Camalot #0.3 to Camalot #3 - #4, 2 hammers, 6 pegs of various shapes.<br />\n"
 "<br />\n"
-"<strong>not bolted</strong><br />\n"
+"<strong>P4 not bolted</strong><br />\n"
 "Route with no bolts or a few spurious points.<br />\n"
 "<em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least that of the \"some bolts\" category."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_event_type_info"
 msgstr "Type of the occurred or potentially resulting event.<br />\n"
-"More than one type may be selected."
+"More than one type may be selected.<br />\n"
+"\"fall while roped\" must be used to clarify \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\", but can't be selected alone."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Exposure</h3>Exposure used to take the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
@@ -3559,6 +3576,7 @@ msgstr "<h3>Mattress</h3>Presence of mattresses when unstaffed."
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Heating</h3>Presence of working heating when unstaffed: wood stove, electric or solar heating. It's an overall information: stock may be empty in winter."
 
+# [WARNING] needs_update
 msgid "_height_diff_down_info"
 msgstr "<h3>Negative elevation gain</h3>Cumulated negative elevation gain.<br /><br />If a GPX track is uploaded, cumulated negative elevation gain will be automatically calculated and will override the previous value."
 
@@ -3568,6 +3586,7 @@ msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<b
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive elevation gain</h3>Cumulated positive elevation gain.<br /><br />If a GPX track is uploaded, cumulated positive elevation gain will be automatically calculated and will override the previous value."
 
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
 msgstr "<h3>Hiking grade</h3>Rating of difficulties for a hiking route. The scale is inspired from that of the Swiss Alpine Club.<br /><br /><strong>T1</strong>: Footpath is well marked. Terrain is even and flat, or slightly sloped. There is no risk of falling.<br /><em>Requirements:</em> None, you could also follow the itinerary in running shoes. Orientation is not a problem, usually even without a map.<br /><br /><strong>T2</strong>: Parts of the path can lack markings. Terrain sometimes steep. Falls are not to be excluded.<br /><em>Requirements:</em> Good footing. Hiking boots are recommended. Basic orientation know-how.<br /><br /><strong>T3</strong>: Path is sometimes invisible. Hands might be needed for balance. Some stretches might be exposed to stone fall o cross moderately steep scree or rocky slopes where exposed stretches might be equipped with ropes or chains.<br /><em>Requirements:</em> Very good footing. Good hiking boots. Average orientation capabilities. Basic experience in the mountains is advisable.<br /><br /><strong>T4</strong>: At times there is no path. Hands might be needed for overcoming certain difficulties. Terrain is somewhat exposed with delicate grassy slopes or slopes mixing rocks, easy nevés or glacier which are not snow covered (no crevasse danger).<br /><em>Requirements:</em> Familiarity with exposure. Rigid soled hiking boots. Ability to evaluate terrain and good orientation capabilities. Alpine experience is advisable. In case of bad weather, retreat could be complicated.<br /><br /><strong>T5</strong>: There is often no path and some easy climbing. Terrain is exposed and demanding with steep slopes and rocks. Glaciers and nevés increase the risk of slipping and falling, and may need the use of crampons, but not usually of rope. Alpinism gear and technical may be used for a small part of the route. <br /><em>Requirements:</em> Mountaineering boots. Confident evaluation of terrain and very good orientation capabilities. A good experience of the high mountains and basic use of ice axe an rope are required.<br />\n"
 "<br />\n"
@@ -3889,7 +3908,6 @@ msgstr "<h3>Remarks</h3>This field allows to complete or moderate numerical file
 msgid "_remember_info"
 msgstr "<h3>Remember me?</h3>By checking this box, you will be automatically connected at your next visit on camptocamp.org.<br />Otherwise, you will be disconnected when you close your browser."
 
-# [WARNING] needs_review
 msgid "_rescue_info"
 msgstr "Have rescue or emergency services been involved?"
 
@@ -3961,6 +3979,7 @@ msgstr "<h3>Rock type</h3>Nature of the rock being climbed: limestone, granite, 
 msgid "_route_history_info"
 msgstr "<h3>Route history</h3>This field allows you to detail the history of the route.<br />For a rock climb, mention the date and participants of the first ascent, equipment or re-equipments.<br />For an alpine climb or ski itinerary, mention remarkable ascents and descents such as the first ascent, first solo or winter ascents or the first few repetitions...<br /><i>The general history of the summit must not figure here but on the summit's page.</i>"
 
+# [WARNING] needs_update
 msgid "_route_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the route.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
@@ -4194,7 +4213,7 @@ msgstr "<h3>Practical consequences</h3>\n"
 # [general comment]
 # Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_xreport_other_comments_info"
 msgstr "<h3>Physical consequences and other comments</h3>\n"
 "Briefly describe any injuries.<br />\n"
@@ -4745,6 +4764,7 @@ msgstr "Attribution - Share Alike"
 msgid "c button title"
 msgstr "Use a monospaced font type for the selected text"
 
+# [WARNING] needs_update
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org now customized for hiking!"
 
@@ -5875,9 +5895,11 @@ msgstr "Hide minor changes"
 msgid "hideborderlegend"
 msgstr "Do not show border and legend:"
 
+# [WARNING] needs_update
 msgid "hiking"
 msgstr "hiking"
 
+# [WARNING] needs_update
 msgid "hiking_rating"
 msgstr "Hiking grade:"
 
@@ -6279,7 +6301,12 @@ msgid "manage images presentation"
 msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch back a picture's license from collaborative to personal.</span>"
 
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Do not copy text from another website, unless its <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Only use international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with an asterisk (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report a problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>. To add a small-sized picture in the body of the text, use the <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> button in the field's tool-bar. You can also copy the code given below the picture in the picture's page. Pictures must be associated to the document in order to be displayed within the text. For collaborative documents, only collaborative pictures can be inserted."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless its <a href=\"/articles/106728/en\">licence</a> authorizes it.</li>\n"
+"<li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.</li>\n"
+"<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report a problem\" in the menu on the left.</li>\n"
+"<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>. To add a small-sized picture in the body of the text, use the <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> button in the field's tool-bar. You can also copy the code given below the picture in the picture's page. Pictures must be associated to the document in order to be displayed within the text. For collaborative documents, only collaborative pictures can be inserted.</li>\n"
+"<li><strong>Fields with an asterisk (*) must be filled-in.</strong></li>\n"
+"<li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it."
 
 msgid "map"
 msgstr "map"
@@ -6403,6 +6430,7 @@ msgstr "menu"
 msgid "meta_description"
 msgstr "The mountain Community. A base camp for sharing on mountaineering, alpinism, rock climbing, ice climbing, backcountry ski touring, ski mountaineering, snowshoeing, scrambling and hiking. Several thousand route, summit and hut descriptions come together with recent conditions updated through outings, articles, forums and an image gallery."
 
+# [WARNING] needs_update
 msgid "meta_keywords"
 msgstr "mountain, skitouring, ski-touring, ski-mountaineering, steep skiing, couloir skiing, snow-shoeing, alpinism, mountaineering, expeditions, glacier travel, crevasse rescue, avalanche, cliffs, rock climbing, ice-fall climbing, ice climbing, mixed climbing, dry tooling, snow slopes, goulottes, scrambling, hiking, trekking, fell-running"
 
@@ -7446,6 +7474,9 @@ msgstr "ranges"
 msgid "ratings"
 msgstr "Grd."
 
+msgid "readonly_v6"
+msgstr "The new Camptocamp version will be on line the next December 8. Until then Camptocamp will be accessible in read mode only."
+
 msgid "recent conditions"
 msgstr "Recent conditions"
 
@@ -7604,7 +7635,7 @@ msgstr "roped"
 
 # [WARNING] needs_review
 msgid "roped_fall can not be selected alone"
-msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+msgstr "\"fall while roped\" can only be selected in cases of \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\""
 
 # [WARNING] needs_review
 msgid "roped_fall_form"
@@ -7614,7 +7645,13 @@ msgid "route"
 msgstr "route"
 
 msgid "route form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong><br />- Do not include the summit's name, it will be displayed automatically.<br />- Be neutral and precise: mention the orientation of the face, pilar or crest followed.<br />- If the route followed is known under a specific name, it may be used.<br />- Avoid the \"normal route\" designation alone. Mention it with brackets as in \"S ridge (normal route)\".</li><li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following a ridge with multiple summits), and to one or more access points, huts and books."
+msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li>\n"
+"<li><strong>Name:</strong><br />\n"
+"- Be neutral and precise: mention the orientation of the face, pilar or crest followed.<br />\n"
+"- Cardinal points: only use international initials in capital letters: N, E, S, W, NW, NE, SW, SE.<br />\n"
+"- If the route followed is known under a specific name, it may be used.<br />\n"
+"- Avoid the \"normal route\" designation alone. Mention it with brackets as in \"S ridge (normal route)\".</li>\n"
+"<li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following a ridge with multiple summits), and to one or more access points, huts and books."
 
 msgid "route linked with"
 msgstr "Route linked with %1%"
@@ -8050,6 +8087,7 @@ msgstr "Swiss coordinates:"
 msgid "switch_off_activity_personalisation"
 msgstr "Switch off customization by activity"
 
+# [WARNING] needs_update
 msgid "switch_to_hiking"
 msgstr "Show only hiking"
 
@@ -8491,10 +8529,13 @@ msgstr "Show the profil in function of:"
 msgid "xreport"
 msgstr "incident / accident"
 
-# [WARNING] needs_review
 msgid "xreport form warning"
-msgstr "This incident/accident report will be added to <a href=\"/articles/697210\">SERAC Database</a>.</li>\n"
-"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>."
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. <a href=\"/articles/697210\">More information...</a></li>\n"
+"<li>If you have remarks about this form, you can <a href=\"/articles/comment/697210/fr\">post a comment</a> or <a href=\"/forums/misc.php?email=271737\">send an email</a>.</li>\n"
+"<li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.</li>\n"
+"<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>.</li>\n"
+"<li><strong>Fields with an asterisk (*) must be filled-in.</strong"
 
 # [WARNING] needs_review
 msgid "xreport_conditions"
@@ -8545,7 +8586,7 @@ msgstr "Physical consequences and other comments:"
 # Pour l'instant c'est vide (mais il faut mettre au moins un espace).
 # /!\ no linebreaks allowed
 # /!\ use &quot; for quotes (")
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "xreport_other_comments_default"
 msgstr "Briefly describe any injuries. Comments that do not fit into any other fields can be entered here."
 
@@ -8569,10 +8610,9 @@ msgstr "incidents and accidents"
 msgid "xreports list"
 msgstr "Incidents and accidents"
 
-# [WARNING] needs_review
 msgid "xreports presentation"
-msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching. <br />\n"
-"This database of incidents and accidents reports was designed in collaboration with researchers and <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
 "<br />\n"
 "To enter a report of an incident or accident event, click the link \"Add ...\" below, or the one present in your outing if you have already created one."
 

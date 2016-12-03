@@ -1,4 +1,9 @@
 <?php
+if (sfConfig::get('app_readonly') == 1)
+{
+    include_partial('common/readonly');
+}
+    
 include_partial(c2cTools::mobileVersion() ? 'common/mobile_header' : 'common/header');
 
 if (sfConfig::get('app_production') != 1)

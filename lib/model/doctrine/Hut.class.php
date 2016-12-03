@@ -91,6 +91,7 @@ class Hut extends BaseHut
         if ($is_module)
         {
             $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'huts'), $join_id);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lhs.main_id', 'hsummits', 'hsummit_id');
         }
         else
         {
@@ -271,6 +272,16 @@ class Hut extends BaseHut
             $linked2 = '';
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';
+            
+            if (isset($joins['hsummit_id']))
+            {
+                $q->leftJoin($main_join . ' lhs');
+                
+                if (isset($joins['hsummit_id_has']))
+                {
+                    $q->addWhere("lhs.type = 'sh'");
+                }
+            }
         }
         else
         {

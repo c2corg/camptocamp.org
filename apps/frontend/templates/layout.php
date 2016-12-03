@@ -45,6 +45,11 @@ else
     $holder_class = ' class="max_width"';
 }
 
+if (sfConfig::get('app_readonly') == 1)
+{
+    $response->addStylesheet('/static/css/readonly.css', 'last');
+}
+
 use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
@@ -80,6 +85,12 @@ $static_base_url = sfConfig::get('app_static_url');
     <div id="holder"<?php echo $holder_class ?>>
         <header id="page_header">
         <?php
+
+        if (sfConfig::get('app_readonly') == 1)
+        {
+            include_partial('common/readonly');
+        }
+
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
 

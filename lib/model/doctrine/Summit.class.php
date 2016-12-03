@@ -75,6 +75,7 @@ class Summit extends BaseSummit
             $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'ls.main_id', 'summits', 'summit_id');
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lss.linked_id', 'subsummits', 'subsummit_id');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lsh.linked_id', 'shuts', 'shut_id');
         }
         else
         {
@@ -264,6 +265,16 @@ class Summit extends BaseSummit
                 if (isset($joins['subsummit_id_has']))
                 {
                     $q->addWhere("lss.type = 'ss'");
+                }
+            }
+            
+            if (isset($joins['shut_id']))
+            {
+                $q->leftJoin($linked_join . ' lsh');
+                
+                if (isset($joins['shut_id_has']))
+                {
+                    $q->addWhere("lsh.type = 'sh'");
                 }
             }
         }

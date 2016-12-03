@@ -589,6 +589,12 @@ msgstr "Die Verbindung ist fehlgeschlagen"
 msgid "Could not perform association with itself"
 msgstr "Es ist unmöglich eine Verbindung mit demselben Dokument zu erstellen"
 
+# [WARNING] en translation used
+msgid "Could not perform merge with itself"
+msgstr "A document can't be merged with itself"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
 msgstr "Ihre Suchanfrage konnte nicht interpretiert werden"
 
@@ -719,6 +725,10 @@ msgstr "Dieses Dokument wurde mit einem andern zusammengeschlossen und kann dahe
 
 msgid "Current document has been merged into document %1%"
 msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% zusammengeschlossen."
+
+# [WARNING] en translation used
+msgid "Current document is write-protected"
+msgstr "Current document is write-protected"
 
 msgid "Current password"
 msgstr "Aktuelles Passwort"
@@ -2557,6 +2567,10 @@ msgstr "SS+"
 msgid "TD-"
 msgstr "SS-"
 
+# [WARNING] en translation used
+msgid "Target document is write-protected"
+msgstr "Target document is write-protected"
+
 msgid "Text only"
 msgstr "Nur Text"
 
@@ -2885,10 +2899,17 @@ msgid "Wrong current password!"
 msgstr "Falsches Passwort"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
 msgid "Wrong image type"
-msgstr "Bald wird es nicht mehr möglich sein, persönliche Bilder in ein gemeinschaftliches Dokument einzufügen\n"
-"(<a href=\"/articles/151910#image\">mehr Informationen</a>)."
+msgstr "Ein persönliche Bilder kann nicht in ein gemeinschaftliches Dokument einzufügen."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
+msgid "Wrong image type long"
+msgstr "Ein persönliche Bilder kann nicht in ein gemeinschaftliches Dokument einzufügen.<br />\n"
+"<a href=\"/articles/151910#image\">mehr Informationen</a>"
 
 msgid "Xreport"
 msgstr "Ereignis/Unfall : "
@@ -3138,6 +3159,7 @@ msgstr "<h3>In der Nähe liegende Ess-, Trink- und Übernachtungsmöglichkeiten,
 # "Schneeschuhlaufen" für Österreicher klingt das eigenartig, da man mit Schneeschuhen "geht" und nicht "läuft". Ist Schneeschuhwandern als Kompromiss auch für Deutsche annehmbar?
 # 
 # Schneeschuhwandern ist gut und sogar in der Schweiz verständlich
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />\n"
 "Ein Dokument kann mit mehreren Aktivitäten verbunden werden:<br />\n"
@@ -3478,7 +3500,7 @@ msgstr "<h3>Qualität des vorhandenen Sicherungsmaterials</h3>\n"
 msgid "_event_type_info"
 msgstr "Art des zustandegekommenen Ereignisses, bzw Art des Ereignisses, der aus der Situation hätte entstehen können.<br />\n"
 "Es können mehrere Kategorien ausgewählt werden. <br />\n"
-"Die Kategorie \"angeseilter Spaltensturz\" erlaubt es, die Kategorien \"Spaltensturz\", \"anderer Sturz\" und \"Lawine\" anzukreuzen, kann aber nicht allein ausgewählt werden."
+"Die Kategorie \"angeseilter Spaltensturz\" erlaubt es, die Kategorien \"Lawine\", \"Personen- oder Seilschaftssturz\" und \"Spaltensturz\" anzukreuzen, kann aber nicht allein ausgewählt werden."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Belichtungszeit</h3>Belichtungszeit der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds extrahiert. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
@@ -3554,6 +3576,7 @@ msgstr "<h3>Matratzen</h3>Vorhandensein von Matratzen während der unbewarteten 
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Heizung</h3>Vorhandensein einer funktionierenden Heizung während der unbewarteten Periode: Holz-, Elektro oder Solarofen. Es handelt sich um eine allgemeine Information, im Winter kann der Brennstoffvorat zu Ende sein."
 
+# [WARNING] needs_update
 msgid "_height_diff_down_info"
 msgstr "<h3>Negative Höhendifferenz</h3><u>Tour</u>: Kumulierter negativer Höhenunterschied während der Tour.<br />Falls ein GPX-Track mit der Tour verbunden wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Falls eine Route üblicherweise von einer Hütte begangen wird, wird die negative Höhendifferenz wie folgt berechnet: Negative Höhendifferenz während dem Aufstieg (falls dieser substanzielle Abstiege enthält) + Abstieg vom Gipfel zum Zugangsort (Haltestelle öV oder Parkplatz)<br /><br />Dieses Feld ist nützlich für Skitouren und Wanderungen und muss für andere Aktivitäten nicht notwendigerweise ausgefüllt werden, außer die Aufstiegshöhe unterscheidet sich wesentlich von der Abstiegshöhe (wie z.B. eine Traverse, bei welcher nicht via Hütte abgestiegen wird.<br /> >Falls ein GPX-Track mit der Route verbunden wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet."
 
@@ -3565,7 +3588,7 @@ msgstr "<h3>Höhendifferenz</h3>Kummulierte positive und negative Höhenuntersch
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Höhenunterschied (Aufstieg) während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Für eine Route, bei welcher sich der Zustieg klar von der eigentlichen Route unterscheidet, wird die positive Höhendifferenz wie folgt berechnet: Zustieg + Route + Abstieg (falls Gegenanstiege enthalten sind).<br />Falls die Route üblicherweise von einer Hütte aus begangen wird, berechnet sich der positive Höhenunterschied wie folgt: Zustieg ab der Hütte + Route + Abstieg (falls Gegenanstieg enthalten sind)."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
 msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung von Wanderrouten wird die SAC-Wanderskala verwendet.\n"
 "Diese besteht aus folgenden Schwierigkeitsbewertungen:<br/><br/><strong>T1-Wandern</strong>\n"
@@ -4000,6 +4023,7 @@ msgstr "<h3>Geschiche der Route</h3>In diesem Feld kann die Geschichte einer Rou
 
 # [comment]
 # Distanz oder Länge?
+# [WARNING] needs_update
 msgid "_route_length_info"
 msgstr "<h3>Distanz</h3>Gesamtdistanz einer Tour, vor allem bei Wanderungen oder Ski-/Schneeschuh-/Snowboardtouren nützlich.<br />Die Distanz wird automatisch aus dem verbunden GPX-Track berechnet.\n"
 "Falls ein früherer Wert im Feld enthalten ist, wird dieser überschrieben."
@@ -4229,6 +4253,7 @@ msgstr "Auswirkung auf die Betätigung\n"
 # [general comment]
 # Aide contextuelle du champ texte "Conséquences physiques et autres commentaires" (ID : xreport_other_comments ).
 # Une version sans html ni retour ligne est mise comme texte par défaut quand le champ est vide. Voir xreport_other_comments_default
+# [WARNING] needs_update
 msgid "_xreport_other_comments_info"
 msgstr "<h3>Körperliche Auswirkungen und andere Kommentare</h3>\n"
 "Beschreiben Sie hier zB allfällige Verletzungen. Freie Kommentare, welche in anderen Feldern nicht passen, können hier erfasst werden."
@@ -4754,6 +4779,7 @@ msgstr "Lizenzbedingungen: Namensnennung - Weitergabe unter gleichen Bedingungen
 msgid "c button title"
 msgstr "Benutzen sie eine nichtproportionale Schrift für den ausgewählten Text."
 
+# [WARNING] needs_update
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... jetzt auf Wandern zugeschnitten!"
 
@@ -5882,9 +5908,11 @@ msgstr "Die unwesentlichen Änderungen nicht anzeigen"
 msgid "hideborderlegend"
 msgstr "Den Rahmen und die Legende nicht anzeigen:"
 
+# [WARNING] needs_update
 msgid "hiking"
 msgstr "Wandern"
 
+# [WARNING] needs_update
 msgid "hiking_rating"
 msgstr "Schwierigkeitsgrad (Wanderungen):"
 
@@ -6277,7 +6305,12 @@ msgid "manage images presentation"
 msgstr "Auf dieser Seite können sie die Lizenzbedingungen der Bilder, die Sie auf camptocamp.org hochgeladen haben, ändern.<br /><br />Bei den unten stehenden Bildern, handelt es sich um persönliche Bilder, welche einer <a href=\"/articles/106728/de#cc-by-nc-nd\">CC-by-nc-nd</a>-Lizenz unterliegen. Sie können diese Bilder aber auch unter einer <a href=\"/articles/106728/de#cc-by-sa\">CC-by-sa</a>-Lizenz stellen, wodurch die Gemeinschaft diese Bilder freier verwenden kann (wie etwa fuer den Tourenführer).<br />Nur Bildmaterial, welches einer CC-by-sa-Lizenz unterliegt, darf in gemeinschaftliche Dokumente eingefügt werden (z.B. ein Photo, welches eine Route illustriert). Der Grund ist, dass dadurch Text und Photos unter derselben Lizenz stehen.<br />Obwohl es zurzeit keine technischen Einschränkungen gibt, ist es vorgesehen, dass in Zukunft nur entsprechend lizenziertes Bildmaterial gemeinschaftlichen Artikel hinzugefügt werden kann, oder sonst das Bildmaterial unterdrückt wird. Für mehr Informationen siehe die <a href=\"/forums/viewtopic.php?id=155692\"> entsprechenden Foreneinträge</a>.<br /><br /><em>Wählen sie die Bilder aus, welche sie unter eine gemeinschaftlich Lizenz stellen wollen, und bestätigen sie mit dem Knopf <em> Die Lizenzbedingungen ändern</em><br /><br /><span style=\"color: red\">Achtung: Diese Änderung ist nicht rückgängig und die Lizenz eines gemeinschaftlichen Bildes kann nicht mehr in eine persönliche zurückgesetzt werden.</span>"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li><li><strong>Himmelsrichtungen:</strong> Verwenden sie die internationalen Abkürzungen der Himmelsrichtungen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Kontexthilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken.</li><li><strong>Formatieren des Texts:</strong> Der Text kann formatiert werden und mit Untertiteln gegliedert werden. Bilder können aus Alben hinzugefügt werden (<a href=\"/articles/151910/de\">Hilfe zu Bildern</a>).</li><li><strong>Pflichtfelder:</strong> Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li><li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li><li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li><li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em> in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" class=\"bbcodeexample\" value=\"img\" />-Knopf der Werkzeugleiste des Felds. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. Gemeinschaftlichen Dokumenten können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden."
+msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li>\n"
+"<li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li>\n"
+"<li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li>\n"
+"<li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em> in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" class=\"bbcodeexample\" value=\"img\" />-Knopf der Werkzeugleiste des Felds. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. Gemeinschaftlichen Dokumenten können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden.</li>\n"
+"<li><strong>Pflichtfelder:</strong> Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li>\n"
+"<li><strong>Kontexthilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken."
 
 msgid "map"
 msgstr "Karte"
@@ -6415,6 +6448,7 @@ msgstr "Menu"
 msgid "meta_description"
 msgstr "camptocamp.org - die Berggemeinschaft. Ein Basislager für den mehrsprachigen Austausch über Alpinismus in allen seinen Spielarten. Ein Tourenführer mit mehreren tausend Routen, Gipfel, Hütten, ebenso wie aktuelle Tourenverhältnisse, Forenbeiträge und Fotoalben stehen zu ihrer freien Verfügung."
 
+# [WARNING] needs_update
 msgid "meta_keywords"
 msgstr "Bergtouren, Skitouren, Snowboardtouren, Hochtouren, Klettern, Wandern, Sportklettern, Schneeschuhwandern, Bergsteigen, Schnee, Eis, Eisklettern, Dry-tooling, Fels, Klettern, Felswand, Wandern"
 
@@ -7419,6 +7453,10 @@ msgstr "Gebirgsmassive"
 msgid "ratings"
 msgstr "Schwierigkeitsgrad"
 
+# [WARNING] en translation used
+msgid "readonly_v6"
+msgstr "The new Camptocamp version will be on line the next December 8. Until then Camptocamp will be accessible in read mode only."
+
 msgid "recent conditions"
 msgstr "Aktuelle Verhältnisse"
 
@@ -7567,7 +7605,7 @@ msgstr "angeseilt"
 
 # [WARNING] needs_review
 msgid "roped_fall can not be selected alone"
-msgstr "\"Sturz mit Seil\" kann nur als Zusatz zu \"Spaltensturz\", \"anderer Sturz\" oder \"Lawine\" angekreuzt werden"
+msgstr "\"Sturz mit Seil\" kann nur als Zusatz zu \"Lawine\", \"Personen- oder Seilschaftssturz\" und \"Spaltensturz\" angekreuzt werden"
 
 # [WARNING] needs_review
 msgid "roped_fall_form"
@@ -7577,7 +7615,14 @@ msgid "route"
 msgstr "Route"
 
 msgid "route form warning"
-msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nicht-ändernde (permanente) Informationen zur Route an. Informationen, welche spezifisch auf eine Tour Bezug nehmen (vorgefundene Verhältnisse, persönliche Kommentare) müssen in der Seite einer \"Tour\"gemacht werden. <br /> Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"../../articles/117868/de\">Hilfe</a>.<br /> <li><strong>Name:</strong><br /> - Der Routenname soll den Gipfelnamen nicht beinhalten. Letzterer wird bei Bedarf angezeigt.<br /> - Neutral und präzise Benennung: Nennen sie die Ausrichtung der Wand, des Grats oder des Pfeilers, welche/r die Route folgt.<br /> - Falls die Route üblicherweise einen spezifischen Namen trägt, kann dieser verwendet werden.<br /> - Vermeiden sie die Bezeichnung \"Normalroute\", wenn schon diese Bezeichnung verwendet wird, dann nur in Klammern: S-Grat (Normalroute).</li> <li><strong>Verbindung zu anderen Dokumenten: </strong>Nachdem sie die Route erstellt haben, können sie diese mit anderen Gipfeln (im Fall einer Route, welche Passübergängen folgt), mit einem oder mehreren Zugansorten, Hütten oder Büchern verbinden.</li> "
+msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nicht-ändernde (permanente) Informationen zur Route an. Informationen, welche spezifisch auf eine Tour Bezug nehmen (vorgefundene Verhältnisse, persönliche Kommentare) müssen in der Seite einer \"Tour\"gemacht werden.<br />\n"
+"Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"../../articles/117868/de\">Hilfe</a>.<li>\n"
+"<strong>Name:</strong><br />\n"
+"- Neutral und präzise Benennung: Nennen sie die Ausrichtung der Wand, des Grats oder des Pfeilers, welche/r die Route folgt.<br />\n"
+"- Himmelsrichtungen: verwenden sie die internationalen Abkürzungen der Himmelsrichtungen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.<br />\n"
+"- Falls die Route üblicherweise einen spezifischen Namen trägt, kann dieser verwendet werden.<br />\n"
+"- Vermeiden sie die Bezeichnung \"Normalroute\", wenn schon diese Bezeichnung verwendet wird, dann nur in Klammern: S-Grat (Normalroute).</li>\n"
+"<li><strong>Verbindung zu anderen Dokumenten: </strong>Nachdem sie die Route erstellt haben, können sie diese mit anderen Gipfeln (im Fall einer Route, welche Passübergängen folgt), mit einem oder mehreren Zugansorten, Hütten oder Büchern verbinden."
 
 msgid "route linked with"
 msgstr "Diese Route ist verbunden mit %1%"
@@ -7997,6 +8042,7 @@ msgstr "Schweizerische Koordinaten:"
 msgid "switch_off_activity_personalisation"
 msgstr "Das Filtern auf diese Aktivität aufheben"
 
+# [WARNING] needs_update
 msgid "switch_to_hiking"
 msgstr "Nur Wandern anzeigen"
 
@@ -8428,9 +8474,13 @@ msgstr "Die Abszisse ändern:"
 msgid "xreport"
 msgstr "Ereignis / Unfall"
 
-# [WARNING] needs_review
 msgid "xreport form warning"
-msgstr "Dieser Ereignis-/Unfallsbericht wird zur \"SERAC\" Datenbank hinzugefügt. Falls Sie zum Formular Bemerkungen oder Kritik mitteilen wollen können Sie einen Kommentar eingeben oder ein Email schicken."
+msgstr "Autonom in den Bergen und in der wilden Natur wird man durch eigene Erfahrung und durch die Erfahrungen, die von anderen Tourengängern geteilt werden. Von Ereignissen und Unfällen, welche bei unseren Touren passiert sind, können oft alle lernen.<br />\n"
+"Die \"SERAC\" Datenbank beinhaltet Berichte von Ereignissen und Unfällen, sie wurde in Zusammenarbeit mit Forschern und mit der <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a> entwickelt. <a href=\"/articles/697210\">Weitere Infos</a>/li>\n"
+"<li>Falls Sie zum Formular Bemerkungen oder Kritik mitteilen wollen können Sie einen Kommentar eingeben oder ein Email schicken.</li>\n"
+"<li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li>\n"
+"<li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em> in der Fusszeile des Dokuments.</li>\n"
+"<li><strong>Pflichtfelder:</strong> Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden."
 
 msgid "xreport_conditions"
 msgstr "Untersuchung der Verhältnisse (vor und während der Tour) : "
@@ -8503,10 +8553,9 @@ msgid "xreports list"
 msgstr "Ereignisse und Unfälle"
 
 msgid "xreports presentation"
-msgstr "Autonom in den Bergen und in der wilden Natur wird man durch eigene Erfahrung und durch die Erfahrungen, die von anderen Tourengängern geteilt werden. Von Ereignissen und Unfällen, welche bei unseren Touren passiert sind, können oft alle lernen. \n"
-"\n"
-"Diese Datenbank beinhaltet Berichte von Ereignissen und Unfällen, sie wurde in Zusammenarbeit mit Forschern und mit der Fondation Petzl entwickelt. Das Formular sieht zwar sehr detailliert aus, es sind aber nur die ersten Felder Pflichtfelder. <Weitere Infos>.\n"
-"\n"
+msgstr "Autonom in den Bergen und in der wilden Natur wird man durch eigene Erfahrung und durch die Erfahrungen, die von anderen Tourengängern geteilt werden. Von Ereignissen und Unfällen, welche bei unseren Touren passiert sind, können oft alle lernen.<br />\n"
+"Die \"SERAC\" Datenbank beinhaltet Berichte von Ereignissen und Unfällen, sie wurde in Zusammenarbeit mit Forschern und mit der <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a> entwickelt. Das Formular sieht zwar sehr detailliert aus, es sind aber nur die ersten Felder Pflichtfelder. <a href=\"/articles/697210\">Weitere Infos</a><br />\n"
+"<br />\n"
 "Um einen Ereignis-/Unfallsbericht zu erfassen, klicken Sie bitte den \"...Hinzufügen\"-Link unten, oder den entsprechenden Link in Ihrem Tourenbericht, falls es einen solchen gibt."
 
 msgid "year"

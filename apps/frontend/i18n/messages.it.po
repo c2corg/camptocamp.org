@@ -600,6 +600,12 @@ msgstr "Non è possibile portare a termine l’associazione"
 msgid "Could not perform association with itself"
 msgstr "Impossibile realizzare una associazione riflessiva"
 
+# [WARNING] en translation used
+msgid "Could not perform merge with itself"
+msgstr "A document can't be merged with itself"
+
+# [general comment]
+# Message d'erreur retourné à l'utilisateur lors de certaines opérations incorrectes (par exemple : protéger un document sans donner d'ID, ...)
 msgid "Could not understand your request"
 msgstr "Richiesta non comprensibile"
 
@@ -731,6 +737,10 @@ msgstr "Questo documento è stato unito ad un altro, quindi non può essere spro
 
 msgid "Current document has been merged into document %1%"
 msgstr "Questo documento è stato unito con il documento %1%."
+
+# [WARNING] en translation used
+msgid "Current document is write-protected"
+msgstr "Current document is write-protected"
 
 msgid "Current password"
 msgstr "Password attuale"
@@ -2569,6 +2579,10 @@ msgstr "TD+"
 msgid "TD-"
 msgstr "TD-"
 
+# [WARNING] en translation used
+msgid "Target document is write-protected"
+msgstr "Target document is write-protected"
+
 msgid "Text only"
 msgstr "Solo testi"
 
@@ -2902,9 +2916,17 @@ msgid "Wrong current password!"
 msgstr "Password errata"
 
 # [general comment]
-# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# titre (infobulle) de la boite d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
 msgid "Wrong image type"
-msgstr "Fra poco le immagini con licenza personale non potranno più essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informazioni</a>"
+msgstr "Una immagine con licenza personale non può essere inserito in un documento collaborativo."
+
+# [general comment]
+# texte d'erreur complet pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa.
+# [WARNING] needs_review
+msgid "Wrong image type long"
+msgstr "Una immagine con licenza personale non può essere inserito in un documento collaborativo.<br />\n"
+"<a href=\"/articles/151910#image\">Più informazioni</a>"
 
 # [WARNING] needs_review
 msgid "Xreport"
@@ -3156,6 +3178,7 @@ msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il gi
 msgid "_accommodation_info"
 msgstr "<h3>Vitto, alloggio nelle vicinanze e patrimonio culturale</h3>Informazioni sulle possibilità di vitto, alloggio e patrimonio culturale nei dintorni del punto di partenza."
 
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Attività</h3>\n"
 "Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />\n"
@@ -3444,7 +3467,8 @@ msgstr "<h3>Qualità dei punti di assicurazione</h3>\n"
 # [WARNING] en translation used
 msgid "_event_type_info"
 msgstr "Type of the occurred or potentially resulting event.<br />\n"
-"More than one type may be selected."
+"More than one type may be selected.<br />\n"
+"\"fall while roped\" must be used to clarify \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\", but can't be selected alone."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Tempo di esposizione</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -3519,6 +3543,7 @@ msgstr "<h3>Materassi</h3>Indica la presenza di materassi quando il rifugio non 
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Riscaldamento</h3>Indica la presenza di un riscaldamento (stufa a legna, riscaldamento elettrico...). Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
 
+# [WARNING] needs_update
 msgid "_height_diff_down_info"
 msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
 
@@ -3528,6 +3553,7 @@ msgstr "<h3>Dislivello</h3>Dislivello cumulato.<br /><br /><em><u>Gita</u>:</em>
 msgid "_height_diff_up_info"
 msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
 
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
 msgstr "<h3>Difficoltà dell'escursione</h3>Questa scala è inspirata di quella del Club Alpino Svizzero. La scala va da T1 a T5.<br /> \n"
 "<br /> \n"
@@ -3930,6 +3956,7 @@ msgstr "<h3>Tipo di roccia</h3>Natura geologica della roccia sulla quale ci si a
 msgid "_route_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezzatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari: prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
 
+# [WARNING] needs_update
 msgid "_route_length_info"
 msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata all'itinerario.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza tracciaGPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
 
@@ -4708,6 +4735,7 @@ msgstr "Attribuzione - Condividi allo stesso modo"
 msgid "c button title"
 msgstr "Usare caratteri di larghezza fissa per il testo selezionato."
 
+# [WARNING] needs_update
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo!"
 
@@ -5846,9 +5874,11 @@ msgstr "Nascondi le revisioni minori"
 msgid "hideborderlegend"
 msgstr "Non mostrare il quadro e la legenda:"
 
+# [WARNING] needs_update
 msgid "hiking"
 msgstr "escursionismo"
 
+# [WARNING] needs_update
 msgid "hiking_rating"
 msgstr "Difficoltà dell'escursione:"
 
@@ -6245,7 +6275,12 @@ msgid "manage images presentation"
 msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c ad usare queste immagini più liberamente - in particolare per permettere di fare schizzi sopra in modo di illustrare la descrizione degli itinerari.<br /> <em>Per maggiori informazioni <a href=\"/forums/viewtopic.php?id=155832\">leggi la discussione sul forum</a>.</em><br /><br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span><br /><br />Pere facilitare la ricerca di queste immagini, sono disponibili le seguente liste:<br />- <a href=\"/users/manageimages/dtyp/1\">Immagini personali associate a un documento collaborativo</a> - <em>Dovrebbe essere la lista delle immagine da mettere sotto licenza collaborativa in priorità.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Immagini personali associate ad un articolo collaborativo</a> - <em>Anche queste sono da cambiare in priorità.</em><br />- <a href=\"/users/manageimages/dtyp/2\">Immagini personali associate ad un documento personale</a><br />- <a href=\"/users/manageimages/ctyp/2\">Immagini personali associate ad un articolo personale</a>"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto è disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Formattazione del testo:</strong> Il testo può essere formattato e organizzato con titoli o sottotitoli. Delle immagini possono essere inserite. <a href=\"/articles/151910\">Leggere l'aiuto</a>.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Cancellazione:</strong> Per cancellare un documento, chiedi alla moderazione usando il link \"Segnalare un problema\" nel menu di sinistra.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per inserire delle immagini ridotte nel testo, usi il tasto <input type=\"button\" class=\"bbcodeexample\" value=\"img\" />. Le immagini devono essere associate al documento per potere essere inserite nel testo. Per i documenti collaborativo, solo le immagini collaborative possono essere inserite."
+msgstr "<strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente.</li>\n"
+"<li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li>\n"
+"<li><strong>Cancellazione:</strong> Per cancellare un documento, chiedi alla moderazione usando il link \"Segnalare un problema\" nel menu di sinistra.</li>\n"
+"<li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per inserire delle immagini ridotte nel testo, usi il tasto <input type=\"button\" class=\"bbcodeexample\" value=\"img\" />. Le immagini devono essere associate al documento per potere essere inserite nel testo. Per i documenti collaborativo, solo le immagini collaborative possono essere inserite.</li>\n"
+"<li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li>\n"
+"<li><strong>Aiuto contestuale:</strong> Un aiuto è disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla."
 
 msgid "map"
 msgstr "mappa"
@@ -6368,6 +6403,7 @@ msgid "meta_description"
 msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
 "migliaia di descrizioni di itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
 
+# [WARNING] needs_update
 msgid "meta_keywords"
 msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia"
 
@@ -7405,6 +7441,10 @@ msgstr "massicci"
 msgid "ratings"
 msgstr "Gradi"
 
+msgid "readonly_v6"
+msgstr "La nuova versione di Camptocamp.org (versione 6) arriverà il 8 dicembre!\n"
+"Aspettando, il sito è accessibile solo in lettura."
+
 msgid "recent conditions"
 msgstr "Condizioni recenti"
 
@@ -7448,7 +7488,7 @@ msgstr "Osservazioni:"
 msgid "report_type"
 msgstr "Tipo di rapporto:"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "rescue"
 msgstr "Intervento dei soccorsi"
 
@@ -7556,7 +7596,7 @@ msgstr "caduta con la corda"
 
 # [WARNING] en translation used
 msgid "roped_fall can not be selected alone"
-msgstr "\"fall while roped\" can only be selected in cases of \"fall in a crevasse\", \"other fall\", \"avalanche\"."
+msgstr "\"fall while roped\" can only be selected in cases of \"avalanche\", \"fall of a person or roped party\" and \"fall in a crevasse\""
 
 # [WARNING] needs_review
 msgid "roped_fall_form"
@@ -7566,7 +7606,14 @@ msgid "route"
 msgstr "itinerario"
 
 msgid "route form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e agli accessi (parcheggi), rifugi, libri."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />\n"
+"Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li>\n"
+"<li><strong>Nome dell'itinerario:</strong><br />\n"
+"- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />\n"
+"- Punti cardinali: usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.<br />\n"
+"- Se si tratta di una via nota con un nome proprio, usare quello.<br />\n"
+"- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li>\n"
+"<li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e agli accessi (parcheggi), rifugi, libri."
 
 msgid "route linked with"
 msgstr "Itinerari associati a %1%"
@@ -7991,6 +8038,7 @@ msgstr "coordinati svizzeri:"
 msgid "switch_off_activity_personalisation"
 msgstr "Togliere il filtro per questa attività"
 
+# [WARNING] needs_update
 msgid "switch_to_hiking"
 msgstr "Mostrare sollo l'attività escursionismo"
 
@@ -8432,10 +8480,13 @@ msgstr "Vedere il profilo in funzione di:"
 msgid "xreport"
 msgstr "incidente / accidente"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "xreport form warning"
 msgstr "Questo report d'incidente o accidente sarà aggiunto alla <a href=\"/articles/697210\">Base di dati SERAC</a>.</li>\n"
-"<li>Se hai dei rimarchi, puoi <a href=\"/articles/comment/697210/fr\">lasciare un commento</a> o <a href=\"/forums/misc.php?email=271737\">inviare una email</a>."
+"<li>Se hai dei rimarchi, puoi <a href=\"/articles/comment/697210/fr\">lasciare un commento</a> o <a href=\"/forums/misc.php?email=271737\">inviare una email</a>.</li>\n"
+"<li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li>\n"
+"<li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>.</li>\n"
+"<li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong>"
 
 # [WARNING] needs_review
 msgid "xreport_conditions"
@@ -8512,8 +8563,8 @@ msgstr "Incidenti e accidenti"
 
 # [WARNING] en translation used
 msgid "xreports presentation"
-msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching. <br />\n"
-"This database of incidents and accidents reports was designed in collaboration with researchers and <a href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
+msgstr "Autonomy in mountaineering and wilderness are gained by our own experience and by lessons learnt from other practitioners. Incidents and accidents who occurred during outings are often rich in teaching.<br />\n"
+"The SERAC database of incidents and accidents reports was designed in collaboration with researchers and <a class=\"external_link\" href=\"http://www.petzl.com/fondation/projets-soutenus/prevention-des-accidents?language=en\">Petzl Foundation</a>. The form is detailed, but only the first fields are mandatory. Optional fields linked to personal information are displayed only to moderators and researchers. <a href=\"/articles/697210\">More information...</a><br />\n"
 "<br />\n"
 "To enter a report of an incident or accident event, click the link \"Add ...\" below, or the one present in your outing if you have already created one."
 
